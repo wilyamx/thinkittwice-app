@@ -27,5 +27,5 @@ A mobile application for bringing digital training solution in the luxury retail
 ## MVVM Pattern
 
 1. **Model** - returns the api model in **`struct` that extents to `Codable`**
-2. **View** - the displayable **UIViewController**
+2. **View** - the displayable **`UIViewController`**
 3. **View Model** - converts the api model in **custom `class` that extents to `NSObject`**
