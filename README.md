@@ -12,6 +12,7 @@ A mobile application for bringing digital training solution in the luxury retail
 	![ViewController](images/chat-people.png)
 	
 	* `ChatPeopleController` - **VIEW MODEL**
+	* `ChatPeopleTableViewCell`
 	* `ChatPeopleVM`
 	
 1. `ChatMessagingViewController` - **VIEW**
