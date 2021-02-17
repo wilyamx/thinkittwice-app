@@ -7,17 +7,25 @@ A mobile application for bringing digital training solution in the luxury retail
 
 ## Featured Codes
 
-1. `ChatMembersViewController`
+1. `ChatMembersViewController` - **VIEW**
 
-	* `ChatPeopleController`
-	* `ChatPeopleTableViewCell`
+	* `ChatPeopleController` - **VIEW MODEL**
 	* `ChatPeopleVM`
 	
-1. `ChatMessagingViewController`
+1. `ChatMessagingViewController` - **VIEW**
 
-	* `ChatMessagingController`
+	* `ChatMessagingController` - **VIEW MODEL**
 	* `ChatMessageTableViewCell`
 	* `ChatOwnedMessageTableViewCell`
 	* `ChatMessageVM`
 	
-1. `ChatManager` - backend requests for SendBird server
+1. `ChatManager` - **MODEL**
+
+	* backend requests for SendBird server
+	
+
+## MVVM Pattern
+
+1. **Model** - returns the api model in **`struct` that extents to `Codable`**
+2. **View** - the displayable **UIViewController**
+3. **View Model** - converts the api model in **custom `class` that extents to `NSObject`**
