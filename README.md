@@ -9,11 +9,15 @@ A mobile application for bringing digital training solution in the luxury retail
 
 1. `ChatMembersViewController` - **VIEW**
 
+	![ViewController](images/chat-people.png)
+	
 	* `ChatPeopleController` - **VIEW MODEL**
 	* `ChatPeopleVM`
 	
 1. `ChatMessagingViewController` - **VIEW**
 
+	![ViewController](images/chat-messaging.png)
+	
 	* `ChatMessagingController` - **VIEW MODEL**
 	* `ChatMessageTableViewCell`
 	* `ChatOwnedMessageTableViewCell`
@@ -23,7 +27,6 @@ A mobile application for bringing digital training solution in the luxury retail
 
 	* backend requests for SendBird server
 	
-
 ## MVVM Pattern
 
 1. **Model** - returns the api model in **`struct` that extents to `Codable`**
