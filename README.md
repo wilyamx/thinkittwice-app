@@ -28,7 +28,7 @@ A mobile application for bringing digital training solution in the luxury retail
 
 	* backend requests for SendBird server
 	
-## MVVM Pattern
+## MVVM Architectural Design Pattern
 
 1. **Model** - returns the api model in **`struct` that extents to `Codable`**
 2. **View** - the displayable **`UIViewController`**
