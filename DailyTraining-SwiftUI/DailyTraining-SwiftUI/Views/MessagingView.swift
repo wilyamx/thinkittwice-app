@@ -10,6 +10,14 @@ import SwiftUI
 struct MessagingView: View {
     @State private var selectedChannel: Channel = .chats
     
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .green
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [.foregroundColor: UIColor.black], for: .selected
+        )
+        
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -18,11 +26,9 @@ struct MessagingView: View {
                         Text(channel.rawValue.uppercased())
                     }
                 }
-                .padding()
+                .padding([.leading, .trailing], 10.0)
                 .pickerStyle(SegmentedPickerStyle())
-                
-                Spacer()
-                
+                               
                 switch selectedChannel {
                 case .chats:
                     MessagingChatsView()
@@ -47,4 +53,11 @@ struct MessagingView_Previews: PreviewProvider {
 enum Channel: String, CaseIterable {
     case chats = "chats"
     case people = "people"
+}
+
+enum ChannelType: Int, CaseIterable {
+    case topic = 0
+    case single = 1
+    case group = 2
+    case event = 3
 }

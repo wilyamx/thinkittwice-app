@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct MessagingUsersView: View {
+    @StateObject private var viewModel = MessagingUsersViewModel()
+    
+    let rowSpacing: CGFloat = 5.0
+    
     var body: some View {
-        List(0..<15) { item in
-            Image("turtlerock")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 60)
-                .clipShape(Circle())
-            VStack(alignment: .leading) {
-                Text("Topic one")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                Text("Lorem ipsum dolor sit amet")
-                    .font(.subheadline)
-                    .fontWeight(.regular)
-                    .foregroundColor(.secondary)
+        List() {
+            ForEach(viewModel.users) { user in
+                ChatUserRow(user: user)
             }
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 5)
+                    .padding(EdgeInsets(top: rowSpacing,
+                                        leading: rowSpacing,
+                                        bottom: rowSpacing,
+                                        trailing: rowSpacing))
+                    .background(.clear)
+                    .foregroundColor(.white)
+                    
+            )
+            .listRowSeparator(.hidden)
         }
+        .listStyle(.plain)
+        .padding(.all, 5)
+        .background(Color(UIColor.lightGray))
     }
 }
 

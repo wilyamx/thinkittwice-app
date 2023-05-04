@@ -4,104 +4,134 @@
         "messageId": 1000,
         "title": "Topic one",
         "message": "Lorem ipsum dolor sit amet",
-        "avatar": "turtlerock"
+        "avatar": "turtlerock",
+        "unread": 13,
+        "type": 0
     },
     {
         "id": 2,
         "messageId": 1001,
         "title": "Topic two",
         "message": "voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        "avatar": "charleyrivers"
+        "avatar": "charleyrivers",
+        "unread": 5,
+        "type": 1
     },
     {
         "id": 3,
         "messageId": 1002,
         "title": "Topic three",
         "message": "Fusce ut placerat orci nulla pellentesque dignissim enim",
-        "avatar": "chilkoottrail"
+        "avatar": "chilkoottrail",
+        "unread": 30,
+        "type": 2
     },
     {
         "id": 4,
         "messageId": 1003,
         "title": "Topic four",
         "message": "Massa tincidunt dui ut ornare lectus",
-        "avatar": "chincoteague"
+        "avatar": "chincoteague",
+        "unread": 24,
+        "type": 3
     },
     {
         "id": 5,
         "messageId": 1004,
         "title": "Topic five",
         "message": "Amet massa vitae tortor condimentum lacinia quis vel eros. Dolor purus non enim praesent elementum",
-        "avatar": "hiddenlake"
+        "avatar": "hiddenlake",
+        "unread": 31,
+        "type": 3
     },
     {
         "id": 6,
         "messageId": 1005,
         "title": "Topic six",
         "message": "Quis commodo odio aenean sed",
-        "avatar": "icybay"
+        "avatar": "icybay",
+        "unread": 56,
+        "type": 1
     },
     {
         "id": 7,
         "messageId": 1006,
         "title": "Topic seven",
         "message": "Sit amet consectetur adipiscing",
-        "avatar": "lakemcdonald"
+        "avatar": "lakemcdonald",
+        "unread": 123,
+        "type": 3
     },
     {
         "id": 8,
         "messageId": 1007,
         "title": "Topic eight",
         "message": "Cras sed felis eget velit aliquet sagittis id consectetur",
-        "avatar": "rainbowlake"
+        "avatar": "rainbowlake",
+        "unread": 5,
+        "type": 2
     },
     {
         "id": 9,
         "messageId": 1008,
         "title": "Topic nine",
         "message": "Ut enim ad minim veniam",
-        "avatar": "silversalmoncreek"
+        "avatar": "silversalmoncreek",
+        "unread": 87,
+        "type": 3
     },
     {
         "id": 10,
         "messageId": 1009,
         "title": "Topic ten",
         "message": "Duis aute irure dolor in reprehenderit in voluptate",
-        "avatar": "stmarylake"
+        "avatar": "stmarylake",
+        "unread": 57,
+        "type": 0
     },
     {
         "id": 11,
         "messageId": 1010,
         "title": "Topic eleven",
         "message": "Excepteur sint occaecat cupidatat",
-        "avatar": "twinlake"
+        "avatar": "twinlake",
+        "unread": 44,
+        "type": 2
     },
     {
         "id": 12,
         "messageId": 1011,
         "title": "Topic twelve",
         "message": "Laboris nisi ut aliquip ex ea commodo consequat",
-        "avatar": "umbagog"
+        "avatar": "umbagog",
+        "unread": 38,
+        "type": 1
     },
     {
         "id": 13,
         "messageId": 1012,
         "title": "Topic thirteen",
         "message": "Sunt in culpa qui officia deserunt mollit anim id est laborum",
-        "avatar": "charleyrivers"
+        "avatar": "charleyrivers",
+        "unread": 16,
+        "type": 2
     },
     {
         "id": 14,
         "messageId": 1013,
         "title": "Topic fourteen",
         "message": "Tempor incididunt ut labore et dolore magna aliqua",
-        "avatar": "chilkoottrail"
+        "avatar": "chilkoottrail",
+        "unread": 22,
+        "type": 3
     },
     {
         "id": 15,
         "messageId": 1014,
         "title": "Topic fifteen",
         "message": "Consectetur adipiscing elit",
-        "avatar": "chincoteague"
+        "avatar": "chincoteague",
+        "unread": 72,
+        "type": 3
     }
 ]
