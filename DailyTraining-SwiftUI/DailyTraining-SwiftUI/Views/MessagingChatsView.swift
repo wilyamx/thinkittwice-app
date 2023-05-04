@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct MessagingChatsView: View {
+    @StateObject private var viewModel = MessagingChatsViewModel()
+    
     var body: some View {
-        ZStack {
-            Color.yellow
-            Circle()
-                .frame(width: 200, height: 200)
-                .foregroundColor(.green)
-            Text("Chats")
-                .foregroundColor(.white)
-                .font(.system(size: 70))
+        List {
+            ForEach(viewModel.chats) { chat in
+                ChatRow(chat: chat)
+            }
         }
     }
 }

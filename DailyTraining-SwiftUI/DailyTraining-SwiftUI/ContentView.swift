@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = DailyTrainingViewModel()
+    
     var body: some View {
         TabView {
             FeedsView()
