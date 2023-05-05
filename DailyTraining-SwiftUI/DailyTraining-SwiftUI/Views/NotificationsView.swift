@@ -10,13 +10,13 @@ import SwiftUI
 struct NotificationsView: View {
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.red
-                Text("2")
-                    .foregroundColor(.white)
-                    .font(.system(size: 70))
+            List {
+                ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+                    NotificationRow()
+                }
+                .listRowSeparator(.visible)
             }
-            .navigationTitle("Notifications")
+            .listStyle(.inset)
         }
     }
 }

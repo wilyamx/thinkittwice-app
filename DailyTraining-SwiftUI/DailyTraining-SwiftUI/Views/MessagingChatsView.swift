@@ -31,7 +31,10 @@ struct MessagingChatsView: View {
         }
         .listStyle(.plain)
         .padding(.all, 5)
-        .background(Color(UIColor.lightGray))
+        .background(Color(UIColor(red: 246/255,
+                                  green: 246/255,
+                                  blue: 246/255,
+                                  alpha: 1.0)))
     }
 }
 
