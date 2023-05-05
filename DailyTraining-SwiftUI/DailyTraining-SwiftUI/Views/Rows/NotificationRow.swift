@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NotificationRow: View {
+    @State private var showingAlert = false
+    
     var body: some View {
         HStack() {
 
@@ -51,22 +53,33 @@ struct NotificationRow: View {
             }
             
             HStack(alignment: .center, spacing: 20) {
-                Button {
-                    print("Approve | Reject | Forward")
+                Menu {
+                    Button("Approve") { }
+                    Button("Reject") { }
+                    Button("Forward") { }
                 } label: {
                     Image(systemName: "ellipsis")
                         .fontWeight(.bold)
                 }
-                .buttonStyle(.borderless)
-                
+            
                 Button {
-                    print("Remove")
+                    showingAlert = true
                 } label: {
                     Image(systemName: "xmark")
                         .fontWeight(.bold)
                 }
                 .buttonStyle(.borderless)
                 .frame(width: 20)
+                .alert(isPresented: $showingAlert) {
+                    Alert(
+                        title: Text("Are you sure you want to delete this notification?"),
+                        message: Text("There is no undo"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            print("Deleting...")
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
             }
             .padding([.top], -40)
             
