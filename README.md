@@ -38,3 +38,13 @@ A mobile application for bringing digital training solution in the luxury retail
 3. **View Model**
 	- calls the network api
 	- converts the api model in **custom `class` that extents to `NSObject`**
+
+## SwiftUI Conversion
+
+**Project Folder:** `/ DailyTraining-SwiftUI`
+
+<img src="images/notifications.png" alt="Notifications" height="400">
+
+<img src="images/channels-chat.png" alt="Channels Chat" height="400">
+
+<img src="images/channels-people.png" alt="Channels User" height="400">
