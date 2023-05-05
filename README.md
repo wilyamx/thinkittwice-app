@@ -43,8 +43,8 @@ A mobile application for bringing digital training solution in the luxury retail
 
 **Project Folder:** `/ DailyTraining-SwiftUI`
 
-<img src="images/notifications.png" alt="Notifications" height="400">
-
-<img src="images/channels-chat.png" alt="Channels Chat" height="400">
-
-<img src="images/channels-people.png" alt="Channels User" height="400">
+<p float="left">
+	<img src="images/notifications.png" alt="Notifications" height="400">
+	<img src="images/channels-chat.png" alt="Channels Chat" height="400">
+	<img src="images/channels-people.png" alt="Channels User" height="400">
+</p>
