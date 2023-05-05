@@ -11,7 +11,7 @@ struct NotificationsView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+                ForEach(0 ..< 15) { item in
                     NotificationRow()
                 }
                 .listRowSeparator(.visible)

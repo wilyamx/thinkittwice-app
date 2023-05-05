@@ -11,56 +11,66 @@ struct NotificationRow: View {
     var body: some View {
         HStack() {
 
-            ZStack {
-                Circle()
-                    .frame(height: 40)
-                Text("WR")
-                    .foregroundColor(.white)
-                    .minimumScaleFactor(0.5)
+            HStack(spacing: -15) {
+                ZStack {
+                    Circle()
+                        .frame(height: 50)
+                    Text("WR")
+                        .foregroundColor(.white)
+                        .minimumScaleFactor(0.5)
+                }
+                ZStack {
+                    Circle()
+                        .foregroundColor(Color(UIColor(red: 246/255,
+                                                  green: 246/255,
+                                                  blue: 246/255,
+                                                  alpha: 1.0)))
+                        .frame(height: 20)
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(.red)
+                        .font(.system(size: 12))
+                }
+                .padding([.top], -25)
             }
-            .padding([.top], -45)
+            .padding([.top], -30)
             
             VStack(alignment: .leading, spacing: 10) {
                 Text("Your financial report is overdue")
                     .font(.headline)
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.9)
                     .lineLimit(1)
                 Text("Please submit your quarterly figures for Q2 by EOB on August 15")
                     .font(.subheadline)
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.9)
                     .lineLimit(2)
                 Text("SAP Analytics | Just Now")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.9)
                     .lineLimit(1)
             }
             
-            Button {
-                print("Approve | Reject | Forward")
-            } label: {
-                Label("", systemImage: "ellipsis")
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 20)
+            HStack(alignment: .center, spacing: 20) {
+                Button {
+                    print("Approve | Reject | Forward")
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .fontWeight(.bold)
+                }
+                .buttonStyle(.borderless)
+                
+                Button {
+                    print("Remove")
+                } label: {
+                    Image(systemName: "xmark")
+                        .fontWeight(.bold)
+                }
+                .buttonStyle(.borderless)
+                .frame(width: 20)
             }
-            .padding([.top], -45)
-            .buttonStyle(.bordered)
-            
-            Spacer()
-            Button {
-                print("Remove")
-            } label: {
-                Label("", systemImage: "xmark")
-                    .fontWeight(.bold)
-                    .frame(width: 20)
-            }
-            .padding([.top], -45)
-            .buttonStyle(.bordered)
-            .frame(width: 20)
+            .padding([.top], -40)
             
             .navigationTitle("Notifications")
-            //.padding([.trailing], -30)
         }
     }
 }
