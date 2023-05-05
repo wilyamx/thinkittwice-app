@@ -9,7 +9,7 @@ A mobile application for bringing digital training solution in the luxury retail
 
 1. `ChatMembersViewController` - **VIEW**
 
-	![ViewController](images/chat-people.png)
+	<img src="images/chat-people.png" alt="ChatPeopleViewController" height="400">
 	
 	* `ChatPeopleController` - **VIEW MODEL**
 	* `ChatPeopleTableViewCell`
@@ -17,7 +17,7 @@ A mobile application for bringing digital training solution in the luxury retail
 	
 1. `ChatMessagingViewController` - **VIEW**
 
-	![ViewController](images/chat-messaging.png)
+	<img src="images/chat-messaging.png" alt="ChatMessagingViewController" height="400">
 	
 	* `ChatMessagingController` - **VIEW MODEL**
 	* `ChatMessageTableViewCell`
@@ -30,6 +30,11 @@ A mobile application for bringing digital training solution in the luxury retail
 	
 ## MVVM Architectural Design Pattern
 
-1. **Model** - returns the api model in **`struct` that extents to `Codable`**
-2. **View** - the displayable **`UIViewController`**
-3. **View Model** - converts the api model in **custom `class` that extents to `NSObject`**
+1. **Model**
+	- returns the api model in **`struct` that extents to `Codable`**
+2. **View**
+	- the displayable **`UIViewController`**
+	- use VM (model to display the view)
+3. **View Model**
+	- calls the network api
+	- converts the api model in **custom `class` that extents to `NSObject`**
