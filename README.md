@@ -1,24 +1,22 @@
 # Think It Twice: Sample iOS Swift Code
 
-A mobile application for bringing digital training solution in the luxury retail industry.
+A mobile application for bringing **digital training solution** in the luxury retail industry.
 
 * [Official site](https://youralbert.com/)
 * [iOS App](https://apps.apple.com/ph/app/albert-daily-feed/id1193114829)
 
 ## Featured Codes
 
+**Project Folder:** `/ DailyTraining`
+
 1. `ChatMembersViewController` - **VIEW**
 
-	<img src="images/chat-people.png" alt="ChatPeopleViewController" height="400">
-	
 	* `ChatPeopleController` - **VIEW MODEL**
 	* `ChatPeopleTableViewCell`
 	* `ChatPeopleVM`
 	
 1. `ChatMessagingViewController` - **VIEW**
 
-	<img src="images/chat-messaging.png" alt="ChatMessagingViewController" height="400">
-	
 	* `ChatMessagingController` - **VIEW MODEL**
 	* `ChatMessageTableViewCell`
 	* `ChatOwnedMessageTableViewCell`
@@ -28,6 +26,11 @@ A mobile application for bringing digital training solution in the luxury retail
 
 	* backend requests for SendBird server
 	
+	<p float="left">
+		<img src="images/chat-people.png" alt="ChatPeopleViewController" height="400">
+		<img src="images/chat-messaging.png" alt="ChatMessagingViewController" height="400">
+	<p float="left">
+
 ## MVVM Architectural Design Pattern
 
 1. **Model**
