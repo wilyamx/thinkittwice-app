@@ -198,7 +198,7 @@ struct ProfileView: View {
                 }
             }
             
-            .navigationBarTitle("User Profile", displayMode: .inline)
+            .navigationBarTitle("Your Profile", displayMode: .inline)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

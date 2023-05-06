@@ -33,6 +33,11 @@ struct ChatUserRow: View {
                     .minimumScaleFactor(0.3)
             }
             
+            Spacer()
+            
+            Image(systemName: "circle.fill")
+                .foregroundColor(.accentColor)
+                .font(.caption)
         }
     }
     

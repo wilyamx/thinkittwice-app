@@ -11,7 +11,7 @@ struct MessagingView: View {
     @State private var selectedChannel: Channel = .chats
     
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .green
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
         UISegmentedControl.appearance().setTitleTextAttributes(
             [.foregroundColor: UIColor.black], for: .selected
         )
@@ -38,8 +38,7 @@ struct MessagingView: View {
                 
                 Spacer()
             }
-            .navigationTitle("Channels")
-            .accentColor(.green)
+            .navigationBarTitle("Channel", displayMode: .inline)
         }
     }
 }
