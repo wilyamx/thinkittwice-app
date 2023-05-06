@@ -16,7 +16,7 @@ struct ProfileView: View {
                               blue: 242/256,
                               alpha: 1.0))
                 
-                VStack() {
+                VStack(spacing: 20) {
                     VStack(spacing: 0) {
                         ZStack(alignment: .bottom) {
                             Image("turtlerock")
@@ -61,7 +61,7 @@ struct ProfileView: View {
                                 .minimumScaleFactor(0.6)
                             ProgressView(value: 0.5)
                                 .frame(width: 250)
-                            Text("500 / 1000 points")
+                            Text("500 / 1 000 points")
                                 .foregroundColor(.secondary)
                                 .font(.footnote)
                                 .minimumScaleFactor(0.6)
@@ -70,6 +70,15 @@ struct ProfileView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .background(.white)
+                    
+                    HStack() {
+                        Text("Ranking Your Activity")
+                            .font(.body)
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(.clear)
+                    .padding([.horizontal])
                     
                     VStack() {
                         HStack(spacing: 30) {
@@ -84,12 +93,15 @@ struct ProfileView: View {
                                 VStack(spacing: 5) {
                                     Text("Rank")
                                         .foregroundColor(.secondary)
+                                        .minimumScaleFactor(0.75)
                                     Text("11th")
                                         .font(.title)
                                         .fontWeight(.bold)
+                                        .minimumScaleFactor(0.75)
                                     Text("/ 30")
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
+                                        .minimumScaleFactor(0.75)
                                 }
                             }
                             
@@ -97,6 +109,7 @@ struct ProfileView: View {
                                 .frame(width: 150)
                                 .foregroundColor(.yellow.opacity(0.5))
                         }
+                        .background(.green)
                         .padding()
                         
                         HStack(spacing: 30) {
@@ -105,9 +118,10 @@ struct ProfileView: View {
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .minimumScaleFactor(0.3)
-                                Text("Taux")
+                                Text("Rate")
                                     .foregroundColor(.secondary)
                                     .minimumScaleFactor(0.5)
+                                    .font(.caption)
                             }
                             
                             VStack(alignment: .leading) {
@@ -115,9 +129,10 @@ struct ProfileView: View {
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .minimumScaleFactor(0.3)
-                                Text("Taux")
+                                Text("Rate")
                                     .foregroundColor(.secondary)
                                     .minimumScaleFactor(0.5)
+                                    .font(.caption)
                             }
                             
                             VStack(alignment: .leading) {
@@ -125,17 +140,19 @@ struct ProfileView: View {
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .minimumScaleFactor(0.3)
-                                Text("Remaining")
+                                Text("Ranking Page All Time")
                                     .foregroundColor(.secondary)
                                     .minimumScaleFactor(0.5)
+                                    .font(.caption)
                             }
                         }
+                        .background(.yellow)
                         .padding()
                     }
                     .frame(maxWidth: .infinity)
                     .background(.white)
                     .cornerRadius(20)
-                    .padding()
+                    .padding([.horizontal])
                     
                     Spacer()
 
@@ -144,7 +161,15 @@ struct ProfileView: View {
             
             .navigationBarTitle("User Profile", displayMode: .inline)
             .toolbarBackground(.visible, for: .navigationBar)
-            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("[DebugMode] Settings!")
+                    }, label: {
+                        Image(systemName: "gearshape")
+                    })
+                }
+            }
         }
         
     }
