@@ -74,6 +74,8 @@ struct ProfileView: View {
                     HStack() {
                         Text("Ranking Your Activity")
                             .font(.body)
+                            .fontWeight(.bold)
+                            .minimumScaleFactor(0.5)
                         Spacer()
                     }
                     .frame(maxWidth: .infinity)
@@ -106,9 +108,45 @@ struct ProfileView: View {
                                 }
                             }
                             
-                            Circle()
-                                .frame(width: 150)
-                                .foregroundColor(.yellow.opacity(0.5))
+                            ZStack {
+                                Circle()
+                                    .frame(width: 150)
+                                    .foregroundColor(.white)
+                                
+                                Circle()
+                                    .stroke(
+                                        Color(UIColor(red: 242/256,
+                                                      green: 242/256,
+                                                      blue: 242/256,
+                                                      alpha: 1.0)),
+                                        lineWidth: 10
+                                    )
+                                    .frame(width: 140)
+                                
+                                Circle()
+                                    .trim(from: 0, to: 0.25)
+                                    .stroke(
+                                        Color.accentColor,
+                                        style: StrokeStyle(lineWidth: 10,
+                                                           lineCap: .round)
+                                    )
+                                    .rotationEffect(.degrees(-90))
+                                    .frame(width: 140)
+                                
+                                VStack(spacing: 5) {
+                                    Text("Combo")
+                                        .foregroundColor(.secondary)
+                                        .minimumScaleFactor(0.75)
+                                    Text("2")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .minimumScaleFactor(0.75)
+                                    Text("Days")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                        .minimumScaleFactor(0.75)
+                                }
+                            }
                         }
                         .background(.clear)
                         .padding(.top)
@@ -137,7 +175,7 @@ struct ProfileView: View {
                             }
                             
                             VStack(alignment: .leading) {
-                                Text("4 min")
+                                Text("4 min.")
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .minimumScaleFactor(0.3)
