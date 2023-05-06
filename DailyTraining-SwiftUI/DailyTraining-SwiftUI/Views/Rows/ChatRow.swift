@@ -68,11 +68,14 @@ struct ChatRow: View {
                 Text(chat.title)
                     .font(.headline)
                     .fontWeight(.bold)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.5)
                 Text(chat.message)
                     .font(.subheadline)
                     .fontWeight(.regular)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
+                    .minimumScaleFactor(0.5)
             }
             
             Spacer()

@@ -165,6 +165,13 @@
 			path = "DailyTraining-SwiftUIUITests";
 			sourceTree = "<group>";
 		};
+		607C14272A05CFCD00DE12F0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6090BEF02A03F1E40043B1AE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +204,7 @@
 		60FCD5532A02A432003D8FAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				607C14272A05CFCD00DE12F0 /* Components */,
 				60FA07862A0330C1008405BE /* Rows */,
 				60FCD5542A02A46F003D8FAE /* FeedsView.swift */,
 				60FCD5562A02A48A003D8FAE /* NotificationsView.swift */,

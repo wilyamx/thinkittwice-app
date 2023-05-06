@@ -23,11 +23,14 @@ struct ChatUserRow: View {
                 Text(user.name)
                     .font(.headline)
                     .fontWeight(.bold)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.3)
                 Text(user.title)
                     .font(.subheadline)
                     .fontWeight(.regular)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
+                    .minimumScaleFactor(0.3)
             }
             
         }

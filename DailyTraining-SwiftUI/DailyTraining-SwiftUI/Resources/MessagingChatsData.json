@@ -2,7 +2,7 @@
     {
         "id": 1,
         "messageId": 1000,
-        "title": "Topic one",
+        "title": "Topic one, two, three, four",
         "message": "Lorem ipsum dolor sit amet",
         "avatar": "turtlerock",
         "unread": 13,
