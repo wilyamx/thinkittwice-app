@@ -16,12 +16,8 @@ struct ProfileView: View {
                               blue: 242/256,
                               alpha: 1.0))
                 
-                VStack {
-                    VStack(spacing: 10) {
-                        
-                            
-                        
-                        
+                VStack() {
+                    VStack(spacing: 0) {
                         ZStack(alignment: .bottom) {
                             Image("turtlerock")
                                 .resizable()
@@ -46,6 +42,7 @@ struct ProfileView: View {
                             .background(.black)
                             .cornerRadius(.greatestFiniteMagnitude)
                         }
+                        .padding()
 
                         VStack {
                             Text("William Saberon Rena")
@@ -69,18 +66,38 @@ struct ProfileView: View {
                                 .font(.footnote)
                                 .minimumScaleFactor(0.6)
                         }
+                        .padding()
                     }
-                    .background(.orange, ignoresSafeAreaEdges: .horizontal)
+                    .frame(maxWidth: .infinity)
+                    .background(.white)
                     
-                    VStack(spacing: 30) {
+                    VStack() {
                         HStack(spacing: 30) {
+                            ZStack {
+                                Circle()
+                                    .frame(width: 150)
+                                    .foregroundColor(Color(UIColor(red: 242/256,
+                                                                   green: 242/256,
+                                                                   blue: 242/256,
+                                                                   alpha: 1.0)))
+                                
+                                VStack(spacing: 5) {
+                                    Text("Rank")
+                                        .foregroundColor(.secondary)
+                                    Text("11th")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                    Text("/ 30")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                            
                             Circle()
                                 .frame(width: 150)
-                                .foregroundColor(.gray)
-                            Circle()
-                                .frame(width: 150)
-                                .foregroundColor(.yellow)
+                                .foregroundColor(.yellow.opacity(0.5))
                         }
+                        .padding()
                         
                         HStack(spacing: 30) {
                             VStack(alignment: .leading) {
@@ -94,7 +111,7 @@ struct ProfileView: View {
                             }
                             
                             VStack(alignment: .leading) {
-                                Text("80%")
+                                Text("70%")
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .minimumScaleFactor(0.3)
@@ -113,18 +130,21 @@ struct ProfileView: View {
                                     .minimumScaleFactor(0.5)
                             }
                         }
+                        .padding()
                     }
-                    .padding(.all, 20)
+                    .frame(maxWidth: .infinity)
                     .background(.white)
-                    .cornerRadius(10)
-                    
+                    .cornerRadius(20)
+                    .padding()
                     
                     Spacer()
 
                 }
             }
             
-            .navigationTitle("User Profile")
+            .navigationBarTitle("User Profile", displayMode: .inline)
+            .toolbarBackground(.visible, for: .navigationBar)
+            
         }
         
     }

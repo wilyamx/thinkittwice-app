@@ -48,11 +48,15 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 <p float="left">
 	<img src="images/notifications.png" alt="Notifications" height="400">
-	<img src="images/notifications-menu.png" alt="Channels Chat" height="400">
-	<img src="images/notifications-alert.png" alt="Channels User" height="400">
+	<img src="images/notifications-menu.png" alt="Notifications Menu" height="400">
+	<img src="images/notifications-alert.png" alt="Notifications Alert" height="400">
 </p>
 
 <p float="left">
 	<img src="images/channels-chat.png" alt="Channels Chat" height="400">
 	<img src="images/channels-people.png" alt="Channels User" height="400">
+</p>
+
+<p float="left">
+	<img src="images/profile.png" alt="Profile" height="400">
 </p>
