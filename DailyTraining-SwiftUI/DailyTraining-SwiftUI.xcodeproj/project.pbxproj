@@ -165,7 +165,47 @@
 			path = "DailyTraining-SwiftUIUITests";
 			sourceTree = "<group>";
 		};
-		607C14272A05CFCD00DE12F0 /* Components */ = {
+		607C142A2A05FBCE00DE12F0 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				60FCD55A2A02A4BE003D8FAE /* ProfileView.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		607C142B2A05FC0400DE12F0 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				60FCD5622A0322EE003D8FAE /* MessagingChatsViewModel.swift */,
+				6090BEF32A03F62A0043B1AE /* MessagingUsersViewModel.swift */,
+				60FCD5582A02A49D003D8FAE /* MessagingView.swift */,
+				60FCD55C2A02B11A003D8FAE /* MessagingChatsView.swift */,
+				60FCD55E2A02B134003D8FAE /* MessagingUsersView.swift */,
+				60FA07872A0330E4008405BE /* ChatRow.swift */,
+				6090BEF52A03F8420043B1AE /* ChatUserRow.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		607C142C2A05FC0D00DE12F0 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				6090BEF72A0486CF0043B1AE /* NotificationsViewModel.swift */,
+				60FCD5562A02A48A003D8FAE /* NotificationsView.swift */,
+				6090BEF92A048F8B0043B1AE /* NotificationRow.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		607C142D2A05FC1700DE12F0 /* Feeds */ = {
+			isa = PBXGroup;
+			children = (
+				60FCD5542A02A46F003D8FAE /* FeedsView.swift */,
+			);
+			path = Feeds;
+			sourceTree = "<group>";
+		};
+		607C142E2A05FC8800DE12F0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -180,23 +220,10 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		60FA07862A0330C1008405BE /* Rows */ = {
-			isa = PBXGroup;
-			children = (
-				60FA07872A0330E4008405BE /* ChatRow.swift */,
-				6090BEF52A03F8420043B1AE /* ChatUserRow.swift */,
-				6090BEF92A048F8B0043B1AE /* NotificationRow.swift */,
-			);
-			path = Rows;
-			sourceTree = "<group>";
-		};
 		60FCD5522A02A412003D8FAE /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				60FCD5602A0321C7003D8FAE /* DailyTrainingViewModel.swift */,
-				60FCD5622A0322EE003D8FAE /* MessagingChatsViewModel.swift */,
-				6090BEF32A03F62A0043B1AE /* MessagingUsersViewModel.swift */,
-				6090BEF72A0486CF0043B1AE /* NotificationsViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,14 +231,11 @@
 		60FCD5532A02A432003D8FAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				607C14272A05CFCD00DE12F0 /* Components */,
-				60FA07862A0330C1008405BE /* Rows */,
-				60FCD5542A02A46F003D8FAE /* FeedsView.swift */,
-				60FCD5562A02A48A003D8FAE /* NotificationsView.swift */,
-				60FCD5582A02A49D003D8FAE /* MessagingView.swift */,
-				60FCD55A2A02A4BE003D8FAE /* ProfileView.swift */,
-				60FCD55C2A02B11A003D8FAE /* MessagingChatsView.swift */,
-				60FCD55E2A02B134003D8FAE /* MessagingUsersView.swift */,
+				607C142E2A05FC8800DE12F0 /* Components */,
+				607C142D2A05FC1700DE12F0 /* Feeds */,
+				607C142C2A05FC0D00DE12F0 /* Notifications */,
+				607C142B2A05FC0400DE12F0 /* Messages */,
+				607C142A2A05FBCE00DE12F0 /* UserProfile */,
 			);
 			path = Views;
 			sourceTree = "<group>";
