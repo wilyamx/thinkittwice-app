@@ -81,6 +81,7 @@ struct ProfileView: View {
                     .padding([.horizontal])
                     
                     VStack() {
+                        
                         HStack(spacing: 30) {
                             ZStack {
                                 Circle()
@@ -109,8 +110,8 @@ struct ProfileView: View {
                                 .frame(width: 150)
                                 .foregroundColor(.yellow.opacity(0.5))
                         }
-                        .background(.green)
-                        .padding()
+                        .background(.clear)
+                        .padding(.top)
                         
                         HStack(spacing: 30) {
                             VStack(alignment: .leading) {
@@ -146,8 +147,8 @@ struct ProfileView: View {
                                     .font(.caption)
                             }
                         }
-                        .background(.yellow)
-                        .padding()
+                        .background(.clear)
+                        .padding(.bottom)
                     }
                     .frame(maxWidth: .infinity)
                     .background(.white)
