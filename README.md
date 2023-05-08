@@ -47,6 +47,7 @@ A mobile application for bringing **digital training solution** in the luxury re
 **Project Folder:** `/ DailyTraining-SwiftUI`
 
 <p float="left">
+	<img src="images/notifications-bar.png" alt="Notifications Bar" height="400">
 	<img src="images/notifications.png" alt="Notifications" height="400">
 	<img src="images/notifications-menu.png" alt="Notifications Menu" height="400">
 	<img src="images/notifications-alert.png" alt="Notifications Alert" height="400">
