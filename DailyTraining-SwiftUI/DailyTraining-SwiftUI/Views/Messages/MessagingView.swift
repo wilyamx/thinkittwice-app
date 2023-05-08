@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MessagingView: View {
     @State private var selectedChannel: Channel = .chats
+    @State private var searchText: String = ""
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
@@ -39,6 +40,28 @@ struct MessagingView: View {
                 Spacer()
             }
             .navigationBarTitle("Channel", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        print("[DebugMode] Search!")
+                    }, label: {
+                        Image(systemName: "magnifyingglass")
+                    })
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("[DebugMode] Settings!")
+                    }, label: {
+                        Image(systemName: "gearshape")
+                    })
+                }
+            }
+        }
+        
+        .searchable(text: $searchText)
+        .onChange(of: searchText) { searchText in
+            print("[Debug] New search text: \(searchText)")
         }
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MessagingChatsView: View {
     @StateObject private var viewModel = MessagingChatsViewModel()
+    @State private var searchText: String = ""
     
     let rowSpacing: CGFloat = 5.0
     

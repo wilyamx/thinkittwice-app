@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NotificationsView: View {
+    @State private var searchText: String = ""
+    
     var body: some View {
         NavigationView {
             List {
@@ -17,6 +19,11 @@ struct NotificationsView: View {
                 .listRowSeparator(.visible)
             }
             .listStyle(.inset)
+            
+            .searchable(text: $searchText)
+            .onChange(of: searchText) { searchText in
+                print("[Debug] New search text: \(searchText)")
+            }
         }
     }
 }

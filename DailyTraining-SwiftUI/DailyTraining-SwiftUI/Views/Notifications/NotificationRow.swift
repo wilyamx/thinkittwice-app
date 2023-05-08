@@ -21,6 +21,7 @@ struct NotificationRow: View {
                         .foregroundColor(.white)
                         .minimumScaleFactor(0.5)
                 }
+                
                 ZStack {
                     Circle()
                         .foregroundColor(Color(UIColor(red: 246/255,
