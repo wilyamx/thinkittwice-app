@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var viewModel = ProfileViewModel()
+    @EnvironmentObject var viewModel: ProfileViewModel
     
     var body: some View {
+//        if viewModel.isLogout {
+//            print("[DebugMode] [ProfileView] logged-out!")
+//        }
+            
         NavigationView {
             ZStack {
                 Color(UIColor(red: 242/256,
@@ -72,6 +76,20 @@ struct ProfileView: View {
                     .cornerRadius(20)
                     .padding([.horizontal])
                     
+                    Button(action: {
+                        self.viewModel.logout()
+                    },
+                           label: {
+                        Text("Logout")
+                            .frame(height: 45)
+                            .frame(maxWidth: .infinity)
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .background(.green)
+                            .cornerRadius(20)
+                    })
+                    .padding(.horizontal)
+                    
                     Spacer()
 
                 }
@@ -96,5 +114,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(ProfileViewModel())
     }
 }

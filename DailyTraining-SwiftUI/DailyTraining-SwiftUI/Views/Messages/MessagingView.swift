@@ -16,7 +16,6 @@ struct MessagingView: View {
         UISegmentedControl.appearance().setTitleTextAttributes(
             [.foregroundColor: UIColor.black], for: .selected
         )
-        
     }
     
     var body: some View {
@@ -29,16 +28,17 @@ struct MessagingView: View {
                 }
                 .padding([.leading, .trailing], 10.0)
                 .pickerStyle(SegmentedPickerStyle())
-                               
+
                 switch selectedChannel {
                 case .chats:
                     MessagingChatsView()
                 case .people:
                     MessagingUsersView()
                 }
-                
+
                 Spacer()
             }
+            
             .navigationBarTitle("Channel", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -48,7 +48,7 @@ struct MessagingView: View {
                         Image(systemName: "magnifyingglass")
                     })
                 }
-                
+
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         print("[DebugMode] Settings!")
@@ -58,10 +58,10 @@ struct MessagingView: View {
                 }
             }
         }
-        
+
         .searchable(text: $searchText)
         .onChange(of: searchText) { searchText in
-            print("[Debug] New search text: \(searchText)")
+            print("[DebugMode] New search text: \(searchText)")
         }
     }
 }

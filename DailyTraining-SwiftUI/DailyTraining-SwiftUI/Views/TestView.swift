@@ -24,7 +24,7 @@ struct TestView: View {
     }
 }
 
-struct TextView_Previews: PreviewProvider {
+struct TestView_Previews: PreviewProvider {
     static var previews: some View {
         TestView()
     }
