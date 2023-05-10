@@ -42,7 +42,7 @@ A mobile application for bringing **digital training solution** in the luxury re
 	- calls the network api
 	- converts the api model in **custom `class` that extents to `NSObject`**
 
-## SwiftUI Conversion
+## SwiftUI Training
 
 **Project Folder:** `/ DailyTraining-SwiftUI`
 
