@@ -11,10 +11,6 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: ProfileViewModel
     
     var body: some View {
-//        if viewModel.isLogout {
-//            print("[DebugMode] [ProfileView] logged-out!")
-//        }
-            
         NavigationView {
             ZStack {
                 Color(UIColor(red: 242/256,
@@ -80,7 +76,7 @@ struct ProfileView: View {
                         self.viewModel.logout()
                     },
                            label: {
-                        Text("Logout")
+                        Text(self.viewModel.logoutButtonAction)
                             .frame(height: 45)
                             .frame(maxWidth: .infinity)
                             .font(.title2)

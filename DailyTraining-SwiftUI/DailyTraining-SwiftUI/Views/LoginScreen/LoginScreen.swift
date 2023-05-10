@@ -25,7 +25,7 @@ struct LoginScreen: View {
                 VStack(spacing: 10) {
                     
                     HStack {
-                        Text("Login")
+                        Text("Daily Training")
                             .font(.title)
                             .fontWeight(.bold)
                         Spacer()

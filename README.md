@@ -47,6 +47,11 @@ A mobile application for bringing **digital training solution** in the luxury re
 **Project Folder:** `/ DailyTraining-SwiftUI`
 
 <p float="left">
+	<img src="images/login.png" alt="Login" height="400">
+	<img src="images/splashscreen.png" alt="Splashscreen" height="400">
+</p>
+
+<p float="left">
 	<img src="images/notifications-bar.png" alt="Notifications Bar" height="400">
 	<img src="images/notifications.png" alt="Notifications" height="400">
 	<img src="images/notifications-menu.png" alt="Notifications Menu" height="400">
@@ -59,5 +64,6 @@ A mobile application for bringing **digital training solution** in the luxury re
 </p>
 
 <p float="left">
-	<img src="images/profile.png" alt="Profile" height="400">
+	<img src="images/profile-logout.png" alt="Profile Logout" height="400">
+	<img src="images/profile-logging-out.png" alt="Profile Logging Out" height="400">
 </p>
