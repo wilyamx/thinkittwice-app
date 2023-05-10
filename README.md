@@ -46,6 +46,8 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 **Project Folder:** `/ DailyTraining-SwiftUI`
 
+**Tool:** `XCode 14.3 @ Swift 5`
+
 <p float="left">
 	<img src="images/login.png" alt="Login" height="400">
 	<img src="images/splashscreen.png" alt="Splashscreen" height="400">
