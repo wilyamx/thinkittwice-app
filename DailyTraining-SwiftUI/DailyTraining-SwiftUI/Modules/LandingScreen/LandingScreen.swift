@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandingScreen: View {
     @EnvironmentObject var tabViewModel: TabViewModel
+    @EnvironmentObject var feedsViewModel: FeedsViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
     
     var body: some View {
@@ -22,6 +23,7 @@ struct LandingScreen: View {
                         Image(systemName: "house")
                         Text("Feeds")
                     }
+                    .environmentObject(FeedsViewModel())
                 NotificationsView()
                     .tabItem {
                         Image(systemName: "note")
@@ -47,6 +49,7 @@ struct LandingScreen_Previews: PreviewProvider {
     static var previews: some View {
         LandingScreen()
             .environmentObject(TabViewModel())
+            .environmentObject(FeedsViewModel())
             .environmentObject(ProfileViewModel())
     }
 }
