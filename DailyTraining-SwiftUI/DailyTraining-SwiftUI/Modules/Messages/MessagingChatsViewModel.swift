@@ -9,11 +9,31 @@ import Foundation
 import SwiftUI
 
 final class MessagingChatsViewModel: ObservableObject {
-    @Published var chats: [Chat] = load("MessagingChatsData.json")
+    @Published var list: [Chat] = [Chat]()
+    
+    private let fileLoader: FileLoader
+    
+    init(fileLoader: FileLoader = FileLoader()) {
+        self.fileLoader = fileLoader
+    }
+    
+    func getChats() {
+        self.fileLoader.loadJSON(
+            "MessagingChatsData.json",
+            [Chat].self,
+            completion: { [unowned self] result in
+                switch result {
+                case .failure(let error):
+                    print("[DebugMode] [MessagingChatsViewModel] errorMessage: \(error.localizedDescription)")
+                case .success(let chats):
+                    self.list = chats
+                }
+            })
+    }
 }
 
 struct Chat: Hashable, Codable, Identifiable {
-    //var id = UUID()
+    //var id = UUID(){}
     var id: Int
     var messageId: Int
     var title: String

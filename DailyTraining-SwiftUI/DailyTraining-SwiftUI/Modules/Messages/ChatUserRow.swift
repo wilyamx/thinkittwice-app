@@ -45,6 +45,6 @@ struct ChatUserRow: View {
 
 struct ChatUserRow_Previews: PreviewProvider {
     static var previews: some View {
-        ChatUserRow(user: MessagingUsersViewModel().users[0])
+        ChatUserRow(user: MessagingUsersViewModel().list[0])
     }
 }

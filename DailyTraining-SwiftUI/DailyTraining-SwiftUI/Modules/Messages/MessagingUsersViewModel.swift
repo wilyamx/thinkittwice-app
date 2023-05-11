@@ -8,7 +8,27 @@
 import Foundation
 
 final class MessagingUsersViewModel: ObservableObject {
-    @Published var users: [ChatUser] = load("MessagingUsersData.json")
+    @Published var list: [ChatUser] = [ChatUser]()
+    
+    private let fileLoader: FileLoader
+    
+    init(fileLoader: FileLoader = FileLoader()) {
+        self.fileLoader = fileLoader
+    }
+    
+    func getUsers() {
+        self.fileLoader.loadJSON(
+            "MessagingUsersData.json",
+            [ChatUser].self,
+            completion: { [unowned self] result in
+                switch result {
+                case .failure(let error):
+                    print("[DebugMode] [MessagingUsersViewModel] errorMessage: \(error.localizedDescription)")
+                case .success(let users):
+                    self.list = users
+                }
+            })
+    }
 }
 
 struct ChatUser: Hashable, Codable, Identifiable {

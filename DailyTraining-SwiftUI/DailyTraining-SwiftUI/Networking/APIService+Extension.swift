@@ -1,5 +1,5 @@
 //
-//  APIService.swift
+//  APIService+Extension.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 5/11/23.
@@ -7,14 +7,11 @@
 
 import Foundation
 
-struct APIService {
-    /**
-        Using Generics
-     */
-    func fetch<T: Decodable>(
-        _ type: T.Type,
-        urlString:String,
-        completion: @escaping(Result<T, APIError>) -> Void) {
+extension APIService {
+    
+    func getCatBreeds(
+        urlString: String,
+        completion: @escaping(Result<[Breed], APIError>) -> Void) {
         
         guard let url = URL(string: urlString) else {
             let error = APIError.badURL
@@ -34,7 +31,7 @@ struct APIService {
                 } else if let data = data {
                     let decoder = JSONDecoder()
                     do {
-                        let responseModel = try decoder.decode(type, from: data)
+                        let responseModel = try decoder.decode([Breed].self, from: data)
                         completion(Result.success(responseModel))
                     } catch {
                         completion(Result.failure(APIError.parsing(error as? DecodingError)))
@@ -44,4 +41,3 @@ struct APIService {
     }
     
 }
-

@@ -21,20 +21,34 @@ final class FeedsViewModel: ObservableObject {
     }
     
     func fetchAllBreeds() {
-        let url = URL(string: "https://api.thecatapi.com/v1/breeds")
+        let urlString = "https://api.thecatapi.com/v1/breeds"
         
-        self.service.getCatBreeds(
-            url: url,
-            completion: { [unowned self]
-                result in
+        self.service.fetch(
+            [Breed].self,
+            urlString: urlString,
+            completion: { [unowned self] result in
                 switch result {
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
                     print("[DebugMode] [FeedsViewModel] errorMessage: \(self.errorMessage ?? "")")
                 case .success(let breeds):
                     self.breeds = breeds
-                    print("[DebugMode] [FeedsViewModel] breeds: \(breeds)")
                 }
             })
+        
+//        self.service.getCatBreeds(
+//            urlString: urlString,
+//            completion: { [unowned self]
+//                result in
+//                switch result {
+//                case .failure(let error):
+//                    self.errorMessage = error.localizedDescription
+//                    print("[DebugMode] [FeedsViewModel] errorMessage: \(self.errorMessage ?? "")")
+//                case .success(let breeds):
+//                    self.breeds = breeds
+//                    print("[DebugMode] [FeedsViewModel] breeds: \(breeds)")
+//                }
+//            })
+        
     }
 }

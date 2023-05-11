@@ -9,13 +9,14 @@ import SwiftUI
 
 struct MessagingChatsView: View {
     @StateObject private var viewModel = MessagingChatsViewModel()
+    
     @State private var searchText: String = ""
     
     let rowSpacing: CGFloat = 5.0
     
     var body: some View {
         List() {
-            ForEach(viewModel.chats) { chat in
+            ForEach(viewModel.list) { chat in
                 ChatRow(chat: chat)
             }
             .listRowBackground(
@@ -36,6 +37,9 @@ struct MessagingChatsView: View {
                                   green: 246/255,
                                   blue: 246/255,
                                   alpha: 1.0)))
+        .onAppear {
+            viewModel.getChats()
+        }
     }
 }
 

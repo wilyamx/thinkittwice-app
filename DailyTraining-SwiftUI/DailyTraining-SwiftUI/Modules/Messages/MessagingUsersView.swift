@@ -14,7 +14,7 @@ struct MessagingUsersView: View {
     
     var body: some View {
         List() {
-            ForEach(viewModel.users) { user in
+            ForEach(viewModel.list) { user in
                 ChatUserRow(user: user)
             }
             .listRowBackground(
@@ -35,6 +35,10 @@ struct MessagingUsersView: View {
                                   green: 246/255,
                                   blue: 246/255,
                                   alpha: 1.0)))
+        
+        .onAppear {
+            viewModel.getUsers()
+        }
     }
 }
 
