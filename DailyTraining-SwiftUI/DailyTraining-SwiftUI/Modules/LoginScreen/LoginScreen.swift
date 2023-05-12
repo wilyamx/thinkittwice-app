@@ -10,6 +10,13 @@ import SwiftUI
 struct LoginScreen: View {
     @EnvironmentObject var viewModel: LoginViewModel
 
+    @FocusState private var focusField: Field?
+    
+    enum Field: Hashable {
+        case username
+        case password
+    }
+    
     var body: some View {
         if viewModel.isValidCredentials {
             SplashScreen()
@@ -37,6 +44,7 @@ struct LoginScreen: View {
                             .padding(.horizontal, 12)
                             .background(Color.green.opacity(0.25))
                             .cornerRadius(4.0)
+                            .focused($focusField, equals: .username)
                         
                         SecureField("Password", text: $viewModel.password)
                             .font(.system(size: 17, weight: .thin))
@@ -45,6 +53,7 @@ struct LoginScreen: View {
                             .padding(.horizontal, 12)
                             .background(Color.green.opacity(0.25))
                             .cornerRadius(4.0)
+                            .focused($focusField, equals: .password)
                         
                         Button(action: {
                             viewModel.login()
@@ -77,8 +86,8 @@ struct LoginScreen: View {
                     .padding(.horizontal)
                     
                     HStack {
-                        Button(action: {},
-                               label: {
+                        Link(destination: URL(string: "https://www.facebook.com/")!,
+                             label: {
                             HStack(spacing: 5) {
                                 Image(systemName: "square.and.arrow.up")
                                     .foregroundColor(.white)
@@ -92,9 +101,9 @@ struct LoginScreen: View {
                             .clipShape(Capsule())
                         })
                         .padding(.bottom)
-                        
-                        Button(action: {},
-                               label: {
+
+                        Link(destination: URL(string: "https://www.google.com/")!,
+                             label: {
                             HStack(spacing: 5) {
                                 Image(systemName: "globe")
                                     .foregroundColor(.white)
@@ -108,6 +117,7 @@ struct LoginScreen: View {
                             .clipShape(Capsule())
                         })
                         .padding(.bottom)
+                        
                     }
                     .padding(.horizontal)
                     
@@ -117,6 +127,10 @@ struct LoginScreen: View {
                 .cornerRadius(20)
                 .padding()
             }
+            .onAppear {
+                focusField = .username
+            }
+            
         }
     }
 }
