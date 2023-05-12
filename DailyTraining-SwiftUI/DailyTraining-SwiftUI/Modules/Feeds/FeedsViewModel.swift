@@ -26,29 +26,16 @@ final class FeedsViewModel: ObservableObject {
         self.service.fetch(
             [Breed].self,
             urlString: urlString,
-            completion: { [unowned self] result in
-                switch result {
-                case .failure(let error):
-                    self.errorMessage = error.localizedDescription
-                    print("[DebugMode] [FeedsViewModel] errorMessage: \(self.errorMessage ?? "")")
-                case .success(let breeds):
-                    self.breeds = breeds
+            completion: { [self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        self.errorMessage = error.localizedDescription
+                    case .success(let breeds):
+                        self.breeds = breeds
+                    }
                 }
             })
-        
-//        self.service.getCatBreeds(
-//            urlString: urlString,
-//            completion: { [unowned self]
-//                result in
-//                switch result {
-//                case .failure(let error):
-//                    self.errorMessage = error.localizedDescription
-//                    print("[DebugMode] [FeedsViewModel] errorMessage: \(self.errorMessage ?? "")")
-//                case .success(let breeds):
-//                    self.breeds = breeds
-//                    print("[DebugMode] [FeedsViewModel] breeds: \(breeds)")
-//                }
-//            })
         
     }
 }

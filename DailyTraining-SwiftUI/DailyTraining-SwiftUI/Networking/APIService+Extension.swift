@@ -8,7 +8,19 @@
 import Foundation
 
 extension APIService {
-    
+    /**
+     self.service.getCatBreeds(
+         urlString: urlString,
+         completion: { [unowned self]
+             result in
+             switch result {
+             case .failure(let error):
+                 self.errorMessage = error.localizedDescription
+             case .success(let breeds):
+                 self.breeds = breeds
+             }
+         })
+     */
     func getCatBreeds(
         urlString: String,
         completion: @escaping(Result<[Breed], APIError>) -> Void) {

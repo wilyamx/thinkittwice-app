@@ -38,6 +38,7 @@ struct MessagingUsersView: View {
         
         .onAppear {
             viewModel.getUsers()
+            logger(logKey: .info, any: viewModel, message: "onAppear")
         }
     }
 }

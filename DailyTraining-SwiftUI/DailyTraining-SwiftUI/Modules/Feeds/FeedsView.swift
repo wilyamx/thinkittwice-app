@@ -20,6 +20,7 @@ struct FeedsView: View {
                 .font(.system(size: 70))
         }
         .onAppear {
+            logger(logKey: .info, category: "FeedView", message: "onAppear")
             viewModel.fetchAllBreeds()
         }
     }

@@ -39,6 +39,7 @@ struct MessagingChatsView: View {
                                   alpha: 1.0)))
         .onAppear {
             viewModel.getChats()
+            logger(logKey: .info, any: viewModel, message: "onAppear")
         }
     }
 }

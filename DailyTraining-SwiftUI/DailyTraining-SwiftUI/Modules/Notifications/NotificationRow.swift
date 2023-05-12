@@ -55,9 +55,9 @@ struct NotificationRow: View {
             
             HStack(alignment: .center, spacing: 20) {
                 Menu {
-                    Button("Approve") { print("[DebugMode] Approve!") }
-                    Button("Reject") { print("[DebugMode] Reject!") }
-                    Button("Forward") { print("[DebugMode] Forward!") }
+                    Button("Approve") { logger(logKey: .info, category: "NotificationRow", message: "Approve!") }
+                    Button("Reject") { logger(logKey: .info, category: "NotificationRow", message: "Reject!") }
+                    Button("Forward") { logger(logKey: .info, category: "NotificationRow", message: "Forward!") }
                 } label: {
                     Image(systemName: "ellipsis")
                         .fontWeight(.bold)
@@ -76,7 +76,7 @@ struct NotificationRow: View {
                         title: Text("Are you sure you want to delete this notification?"),
                         message: Text("There is no undo"),
                         primaryButton: .destructive(Text("Delete")) {
-                            print("[DebugMode] Deleting notification...")
+                            logger(logKey: .info, category: "NotificationRow", message: "Deleting notification...")
                         },
                         secondaryButton: .cancel()
                     )
