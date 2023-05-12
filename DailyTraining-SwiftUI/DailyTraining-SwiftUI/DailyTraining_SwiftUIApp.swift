@@ -12,6 +12,8 @@ struct DailyTraining_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(LoginViewModel())
+                .environmentObject(ProfileViewModel())
         }
     }
 }

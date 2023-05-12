@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @State private var username: String = ""
-    @State private var password: String = ""
-    
-    @State private var isActive = false
-    
+    @EnvironmentObject var viewModel: LoginViewModel
+
     var body: some View {
-        if isActive {
+        if viewModel.isValidCredentials {
             SplashScreen()
         }
         else {
@@ -33,7 +30,7 @@ struct LoginScreen: View {
                     .padding()
                     
                     VStack(alignment: .leading, spacing: 10) {
-                        TextField("Username", text: $username)
+                        TextField("Username", text: $viewModel.username)
                             .font(.system(size: 17, weight: .thin))
                             .foregroundColor(.primary)
                             .frame(height: 44)
@@ -41,7 +38,7 @@ struct LoginScreen: View {
                             .background(Color.green.opacity(0.25))
                             .cornerRadius(4.0)
                         
-                        SecureField("Password", text: $password)
+                        SecureField("Password", text: $viewModel.password)
                             .font(.system(size: 17, weight: .thin))
                             .foregroundColor(.primary)
                             .frame(height: 44)
@@ -50,7 +47,7 @@ struct LoginScreen: View {
                             .cornerRadius(4.0)
                         
                         Button(action: {
-                            isActive = true
+                            viewModel.login()
                         },
                                label: {
                             Text("Login")
@@ -127,5 +124,6 @@ struct LoginScreen: View {
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
         LoginScreen()
+            .environmentObject(LoginViewModel())
     }
 }

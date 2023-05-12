@@ -32,8 +32,10 @@ struct MessagingView: View {
                 switch selectedChannel {
                 case .chats:
                     MessagingChatsView()
+                        .environmentObject(MessagingChatsViewModel())
                 case .people:
                     MessagingUsersView()
+                        .environmentObject(MessagingUsersViewModel())
                 }
 
                 Spacer()

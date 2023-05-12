@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct LandingScreen: View {
-    @EnvironmentObject var tabViewModel: TabViewModel
-    @EnvironmentObject var feedsViewModel: FeedsViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
     
     var body: some View {
@@ -24,16 +22,19 @@ struct LandingScreen: View {
                         Text("Feeds")
                     }
                     .environmentObject(FeedsViewModel())
+                
                 NotificationsView()
                     .tabItem {
                         Image(systemName: "note")
                         Text("Notifications")
                     }
+                
                 MessagingView()
                     .tabItem {
                         Image(systemName: "message.badge")
                         Text("Messages")
                     }
+                
                 ProfileView()
                     .tabItem {
                         Image(systemName: "person")
@@ -48,7 +49,6 @@ struct LandingScreen: View {
 struct LandingScreen_Previews: PreviewProvider {
     static var previews: some View {
         LandingScreen()
-            .environmentObject(TabViewModel())
             .environmentObject(FeedsViewModel())
             .environmentObject(ProfileViewModel())
     }

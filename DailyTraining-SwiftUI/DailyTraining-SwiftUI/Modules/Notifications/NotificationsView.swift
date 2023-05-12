@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NotificationsView: View {
+    @EnvironmentObject var viewModel: NotificationsViewModel
+    
     @State private var searchText: String = ""
     
     var body: some View {

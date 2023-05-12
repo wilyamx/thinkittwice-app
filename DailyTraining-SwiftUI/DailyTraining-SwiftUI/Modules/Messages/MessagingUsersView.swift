@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MessagingUsersView: View {
-    @StateObject private var viewModel = MessagingUsersViewModel()
+    @EnvironmentObject var viewModel:MessagingUsersViewModel
     
     let rowSpacing: CGFloat = 5.0
     
@@ -46,5 +46,6 @@ struct MessagingUsersView: View {
 struct MessagingUsersView_Previews: PreviewProvider {
     static var previews: some View {
         MessagingUsersView()
+            .environmentObject(MessagingUsersViewModel())
     }
 }

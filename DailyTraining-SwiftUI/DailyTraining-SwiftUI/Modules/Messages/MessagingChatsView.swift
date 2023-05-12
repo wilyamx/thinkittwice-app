@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MessagingChatsView: View {
-    @StateObject private var viewModel = MessagingChatsViewModel()
+    
+    @EnvironmentObject var viewModel: MessagingChatsViewModel
     
     @State private var searchText: String = ""
     
@@ -47,5 +48,6 @@ struct MessagingChatsView: View {
 struct MessagingChatsView_Previews: PreviewProvider {
     static var previews: some View {
         MessagingChatsView()
+            .environmentObject(MessagingChatsViewModel())
     }
 }
