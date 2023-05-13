@@ -13,6 +13,7 @@ struct LandingScreen: View {
     var body: some View {
         if profileViewModel.isLoggedOut {
             LoginScreen()
+                .environmentObject(LoginViewModel())
         }
         else {
             TabView {
