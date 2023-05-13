@@ -11,9 +11,11 @@ final class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
     
-    @Published var isValidCredentials = false
+    @Published var isValidCredentials: Bool = false
+    @Published var showingAlert: Bool = false
     
     func login() {
         isValidCredentials = !username.isEmpty && !password.isEmpty
+        showingAlert = true
     }
 }

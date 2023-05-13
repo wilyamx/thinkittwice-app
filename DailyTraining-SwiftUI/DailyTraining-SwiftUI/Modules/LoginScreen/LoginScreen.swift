@@ -68,6 +68,9 @@ struct LoginScreen: View {
                                 .clipShape(Capsule())
                         })
                         .padding(.vertical)
+                        .alert(isPresented: $viewModel.showingAlert) {
+                            Alert(title: Text("Invalid credentials"))
+                        }
                     }
                     .padding(.horizontal)
                     
