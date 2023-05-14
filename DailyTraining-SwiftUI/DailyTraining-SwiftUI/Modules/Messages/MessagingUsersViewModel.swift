@@ -37,4 +37,25 @@ struct ChatUser: Hashable, Codable, Identifiable {
     var title: String
     var avatar: String
     var name: String
+    
+    init(id: Int,
+         userId: Int,
+         title: String,
+         avatar: String,
+         name: String) {
+        
+        self.id = id
+        self.userId = userId
+        self.title = title
+        self.avatar = avatar
+        self.name = name
+    }
+    
+    static func example() -> ChatUser {
+        return ChatUser(id: 1000,
+                        userId: 2000,
+                        title: "Tincidunt lobortis feugiat",
+                        avatar: "turtlerock",
+                        name: "Wiley McConway")
+    }
 }

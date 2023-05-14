@@ -75,7 +75,7 @@ struct ChatRow: View {
                     .fontWeight(.regular)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.9)
             }
             
             Spacer()
@@ -98,6 +98,6 @@ struct ChatRow: View {
 
 struct ChatRow_Previews: PreviewProvider {
     static var previews: some View {
-        ChatRow(chat: MessagingChatsViewModel().list[2])
+        ChatRow(chat: Chat.example())
     }
 }

@@ -41,6 +41,32 @@ struct Chat: Hashable, Codable, Identifiable {
     var avatar: String
     var unread: Int
     var type: Int
+    
+    init(id: Int,
+         messageId: Int,
+         title: String,
+         message: String,
+         avatar: String,
+         unread: Int,
+         type: Int) {
+        
+        self.id = id
+        self.messageId = messageId
+        self.title = title
+        self.message = message
+        self.avatar = avatar
+        self.unread = unread
+        self.type = type
+    }
+    
+    static func example() -> Chat {
+        return Chat(id: 100,
+                    messageId: 200,
+                    title: "Tellus id interdum velit laoreet",
+                    message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
+                    avatar: "charleyrivers",
+                    unread: 125,
+                    type: 3)
+    }
+    
 }
-
-

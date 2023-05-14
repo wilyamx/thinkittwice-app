@@ -26,16 +26,25 @@ final class FeedsViewModel: ObservableObject {
         self.service.fetch(
             [Breed].self,
             urlString: urlString,
-            completion: { [self] result in
+            completion: { [weak self] result in
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):
-                        self.errorMessage = error.localizedDescription
+                        self?.errorMessage = error.localizedDescription
                     case .success(let breeds):
-                        self.breeds = breeds
+                        self?.breeds = breeds
+                        self?.printAllBreeds()
                     }
                 }
             })
         
+    }
+    
+    func printAllBreeds() {
+        for (index, breed) in self.breeds.enumerated() {
+            logger(logKey: .info,
+                   category: "FeedsViewModel",
+                   message: "Breed[\(index)]: \(breed)")
+        }
     }
 }

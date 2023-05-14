@@ -17,6 +17,6 @@ func logger(logKey: DebugInfoKey, any: AnyObject, message: String) {
     print("\(logKey.rawValue) [\(type(of: any))] :: \(message)")
 }
 
-func logger(logKey: DebugInfoKey, category: String, message: String) {
+func logger(logKey: DebugInfoKey = .info, category: String, message: String) {
     print("\(logKey.rawValue) [\(category)] :: \(message)")
 }
