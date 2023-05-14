@@ -8,21 +8,20 @@
 import Foundation
 import SwiftUI
 
-final class FeedsViewModel: ObservableObject {
+final class FeedsViewModel: Fetcher {
     @Published var breeds: [Breed] = [Breed]()
     
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String?
-    
-    private let service: APIService
-    
-    init(service: APIService = APIService()) {
+    override init(service: APIService = APIService()) {
+        super.init(service: service)
         self.service = service
     }
     
     func fetchAllBreeds() {
-        let urlString = "https://api.thecatapi.com/v1/breeds"
+        self.isLoading = true
+        self.errorMessage = nil
+        self.breeds = []
         
+        let urlString = "https://api.thecatapi.com/v1/breeds"
         self.service.fetch(
             [Breed].self,
             urlString: urlString,
@@ -32,8 +31,10 @@ final class FeedsViewModel: ObservableObject {
                     case .failure(let error):
                         self?.errorMessage = error.localizedDescription
                     case .success(let breeds):
+                        self?.isLoading = false
                         self?.breeds = breeds
-                        self?.printAllBreeds()
+                        
+                        logger(category: "FeedsViewModel", message: "list count: \(self?.breeds.count ?? -1)")
                     }
                 }
             })

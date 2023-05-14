@@ -12,12 +12,19 @@ struct FeedsView: View {
     
     var body: some View {
         ZStack {
-            Circle()
-                .frame(width: 200, height: 200)
-                .foregroundColor(.green)
-            Text("1")
-                .foregroundColor(.white)
-                .font(.system(size: 70))
+            if viewModel.isLoading {
+                ProgressView()
+                    .scaleEffect(2)
+            }
+            else if viewModel.errorMessage != nil {
+                Text("Error")
+                    .foregroundColor(.red)
+                    .font(.system(size: 50))
+            }
+            else {
+                Text("Breed list")
+                    .font(.system(size: 50))
+            }
         }
         .onAppear {
             logger(logKey: .info, category: "FeedView", message: "onAppear")
