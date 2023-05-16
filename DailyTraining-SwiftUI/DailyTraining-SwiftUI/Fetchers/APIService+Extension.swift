@@ -31,6 +31,8 @@ extension APIService {
             return
         }
         
+        logger(logKey: .info, category: "API Service", message: urlString)
+            
         URLSession.shared.dataTask(
             with: url,
             completionHandler: {
