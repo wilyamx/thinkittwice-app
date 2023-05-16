@@ -11,7 +11,7 @@ import SwiftUI
 final class FeedsViewModel: Fetcher {
     @Published var breeds: [Breed] = [Breed]()
     
-    override init(service: APIService = APIService()) {
+    override init(service: APIServiceProtocol = APIService()) {
         super.init(service: service)
         self.service = service
     }
@@ -22,8 +22,7 @@ final class FeedsViewModel: Fetcher {
         self.breeds = []
         
         let urlString = "https://api.thecatapi.com/v1/breeds"
-        self.service.fetch(
-            [Breed].self,
+        service.getCatBreeds(
             urlString: urlString,
             completion: { [weak self] result in
                 DispatchQueue.main.async {
@@ -38,7 +37,7 @@ final class FeedsViewModel: Fetcher {
                     }
                 }
             })
-        
+
     }
     
     func printAllBreeds() {

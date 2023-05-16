@@ -1,5 +1,5 @@
 //
-//  Fetcher+Extension.swift
+//  BreedFetcher.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 5/15/23.
@@ -10,8 +10,8 @@ import Foundation
 final class BreedFetcher: Fetcher {
     @Published var breeds = [Breed]()
    
-    override init(service: APIService = APIService()) {
-        super.init()
+    override init(service: APIServiceProtocol = APIService()) {
+        super.init(service: service)
         fetchAllBreeds()
     }
     
@@ -30,10 +30,7 @@ final class BreedFetcher: Fetcher {
                     switch result {
                     case .failure(let error):
                         self?.errorMessage = error.localizedDescription
-                        // print(error.description)
-                        print(error)
                     case .success(let breeds):
-                        print("--- sucess with \(breeds.count)")
                         self?.breeds = breeds
                         self?.isLoading = false
                     }
@@ -42,5 +39,18 @@ final class BreedFetcher: Fetcher {
     
     }
     
-    
+    // MARK: - Preview Helpers
+       
+    static func errorState() -> BreedFetcher {
+       let fetcher = BreedFetcher()
+       fetcher.errorMessage = APIError.url(URLError.init(.notConnectedToInternet)).localizedDescription
+       return fetcher
+    }
+
+    static func successState() -> BreedFetcher {
+       let fetcher = BreedFetcher()
+       fetcher.breeds = [Breed.example1(), Breed.example2()]
+       
+       return fetcher
+    }
 }

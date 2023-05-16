@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct APIService {
+struct APIService: APIServiceProtocol {
     /**
         Using Generics
+    
+        fetch(
+         [Breed].self,
+         urlString: urlString,
+         completion: { [weak self] result in
+         })
      */
     func fetch<T: Decodable>(
         _ type: T.Type,
