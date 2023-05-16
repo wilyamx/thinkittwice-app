@@ -24,8 +24,13 @@ struct FeedsView: View {
                     .font(.system(size: 50))
             }
             else {
-                Text("Breed list")
-                    .font(.system(size: 50))
+                VStack {
+                    Text("Breed list")
+                        .font(.system(size: 50))
+                    Text("\(viewModel.breeds.count) items")
+                        .font(.system(size: 25))
+                        .foregroundColor(.red)
+                }
             }
         }
         .onAppear {
