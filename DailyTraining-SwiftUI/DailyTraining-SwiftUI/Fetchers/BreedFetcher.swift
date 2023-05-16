@@ -32,7 +32,6 @@ final class BreedFetcher: Fetcher {
                         self?.errorMessage = error.localizedDescription
                     case .success(let breeds):
                         self?.breeds = breeds
-                        self?.isLoading = false
                     }
                 }
             })
