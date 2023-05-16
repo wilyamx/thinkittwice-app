@@ -13,6 +13,8 @@ struct NotificationsView: View {
     @State private var searchText: String = ""
     
     var body: some View {
+        let _ = Self._printChanges()
+        
         NavigationView {
             List {
                 ForEach(0 ..< 15) { item in

@@ -13,6 +13,8 @@ struct MessagingUsersView: View {
     let rowSpacing: CGFloat = 5.0
     
     var body: some View {
+        let _ = Self._printChanges()
+        
         List() {
             ForEach(viewModel.list) { user in
                 ChatUserRow(user: user)
