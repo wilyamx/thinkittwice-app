@@ -11,6 +11,8 @@ struct MessagingView: View {
     @State private var selectedChannel: Channel = .chats
     @State private var searchText: String = ""
     
+    @State private var pickerSelectedIndex: Int = 0
+    
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
         UISegmentedControl.appearance().setTitleTextAttributes(
@@ -23,15 +25,23 @@ struct MessagingView: View {
         
         NavigationView {
             VStack {
-                Picker("Choose a channel", selection: $selectedChannel) {
+                Picker("Choose a channel", selection: $pickerSelectedIndex) {
                     ForEach(Channel.allCases, id: \.self) {
                         channel in
                         Text(channel.rawValue.uppercased())
-                            .tag(channel)
+                            .tag(channel.index)
                     }
                 }
                 .padding([.leading, .trailing], 10.0)
                 .pickerStyle(SegmentedPickerStyle())
+                .onChange(of: pickerSelectedIndex) { index in
+                    if index == 0 {
+                        selectedChannel = .chats
+                    }
+                    else if index == 1 {
+                        selectedChannel = .people
+                    }
+                }
 
                 TabView(selection: $selectedChannel) {
                     MessagingChatsView()
@@ -40,6 +50,10 @@ struct MessagingView: View {
                     MessagingUsersView()
                         .environmentObject(MessagingUsersViewModel())
                         .tag(Channel.people)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .automatic))
+                .onChange(of: selectedChannel) { channel in
+                    pickerSelectedIndex = channel.index
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
@@ -79,9 +93,16 @@ struct MessagingView_Previews: PreviewProvider {
     }
 }
 
-enum Channel: String, CaseIterable {
+enum Channel: String, CaseIterable, Equatable {
     case chats = "chats"
     case people = "people"
+    
+    var index: Int {
+        switch self {
+        case .chats: return 0
+        case .people: return 1
+        }
+    }
 }
 
 enum ChannelType: Int, CaseIterable {

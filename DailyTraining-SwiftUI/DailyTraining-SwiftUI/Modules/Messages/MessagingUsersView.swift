@@ -15,32 +15,36 @@ struct MessagingUsersView: View {
     var body: some View {
         let _ = Self._printChanges()
         
-        List() {
-            ForEach(viewModel.list) { user in
-                ChatUserRow(user: user)
-            }
-            .listRowBackground(
-                RoundedRectangle(cornerRadius: 5)
-                    .padding(EdgeInsets(top: rowSpacing,
-                                        leading: rowSpacing,
-                                        bottom: rowSpacing,
-                                        trailing: rowSpacing))
-                    .background(.clear)
-                    .foregroundColor(.white)
+        VStack {
+            Text("People Listings")
+            
+            List() {
+                ForEach(viewModel.list) { user in
+                    ChatUserRow(user: user)
+                }
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 5)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
                     
-            )
-            .listRowSeparator(.hidden)
-        }
-        .listStyle(.plain)
-        .padding(.all, 5)
-        .background(Color(UIColor(red: 246/255,
-                                  green: 246/255,
-                                  blue: 246/255,
-                                  alpha: 1.0)))
-        
-        .onAppear {
-            viewModel.getUsers()
-            logger(logKey: .info, any: viewModel, message: "onAppear")
+                )
+                .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
+            .padding(.all, 5)
+            .background(Color(UIColor(red: 246/255,
+                                      green: 246/255,
+                                      blue: 246/255,
+                                      alpha: 1.0)))
+            
+            .onAppear {
+                viewModel.getUsers()
+                logger(logKey: .info, any: viewModel, message: "onAppear")
+            }
         }
     }
 }
