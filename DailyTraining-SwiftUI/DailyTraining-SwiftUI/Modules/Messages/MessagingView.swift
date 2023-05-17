@@ -24,22 +24,25 @@ struct MessagingView: View {
         NavigationView {
             VStack {
                 Picker("Choose a channel", selection: $selectedChannel) {
-                    ForEach(Channel.allCases, id: \.self) { channel in
+                    ForEach(Channel.allCases, id: \.self) {
+                        channel in
                         Text(channel.rawValue.uppercased())
+                            .tag(channel)
                     }
                 }
                 .padding([.leading, .trailing], 10.0)
                 .pickerStyle(SegmentedPickerStyle())
 
-                switch selectedChannel {
-                case .chats:
+                TabView(selection: $selectedChannel) {
                     MessagingChatsView()
                         .environmentObject(MessagingChatsViewModel())
-                case .people:
+                        .tag(Channel.chats)
                     MessagingUsersView()
                         .environmentObject(MessagingUsersViewModel())
+                        .tag(Channel.people)
                 }
-
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                
                 Spacer()
             }
             

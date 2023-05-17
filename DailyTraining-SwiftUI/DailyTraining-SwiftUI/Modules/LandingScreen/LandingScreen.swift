@@ -24,6 +24,7 @@ struct LandingScreen: View {
                         Image(systemName: "house")
                         Text("Feeds")
                     }
+                    .badge(14)
                     .environmentObject(FeedsViewModel())
                 
                 NotificationsView()
@@ -31,6 +32,7 @@ struct LandingScreen: View {
                         Image(systemName: "note")
                         Text("Notifications")
                     }
+                    .badge("!")
                 
                 MessagingView()
                     .tabItem {
