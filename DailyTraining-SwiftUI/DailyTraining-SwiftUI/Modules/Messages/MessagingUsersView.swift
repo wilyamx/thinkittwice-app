@@ -19,8 +19,13 @@ struct MessagingUsersView: View {
             Text("People Listings")
             
             List() {
-                ForEach(viewModel.list, id: \.id) { user in
-                    ChatUserRow(user: user)
+                ForEach(0..<viewModel.list.count, id: \.self) { index in
+                    let item = viewModel.list[index]
+                    Button {
+                        logger.log(logKey: .info, category: "MessagingUsersView", message: "selected-item index: \(index), id: \(item.id)")
+                    } label: {
+                        ChatUserRow(user: item)
+                    }
                 }
                 .listRowBackground(
                     RoundedRectangle(cornerRadius: 5)

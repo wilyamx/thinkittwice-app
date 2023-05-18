@@ -24,7 +24,7 @@ final class MessagingUsersViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):
-                        logger.log(logKey: .error, category: "MessagingUsersViewModel", message: "errorMessage: \(error.localizedDescription)")
+                        logger.log(logKey: .error, category: "MessagingUsersViewModel", message: "errorMessage: \(error.description)")
                     case .success(let list):
                         logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "total list: \(list.count)")
                         self.list = list
@@ -35,28 +35,33 @@ final class MessagingUsersViewModel: ObservableObject {
 }
 
 struct ChatUser: Hashable, Codable, Identifiable {
-    var id: Int
+    var id = UUID()
     var userId: Int
     var title: String
     var avatar: String
     var name: String
     
-    init(id: Int,
-         userId: Int,
+    init(userId: Int,
          title: String,
          avatar: String,
          name: String) {
         
-        self.id = id
+        self.id = UUID()
         self.userId = userId
         self.title = title
         self.avatar = avatar
         self.name = name
     }
     
+    enum CodingKeys: String, CodingKey {
+        case userId
+        case title
+        case avatar
+        case name
+    }
+    
     static func example() -> ChatUser {
-        return ChatUser(id: 1000,
-                        userId: 2000,
+        return ChatUser(userId: 2000,
                         title: "Tincidunt lobortis feugiat",
                         avatar: "turtlerock",
                         name: "Wiley McConway")
