@@ -47,6 +47,7 @@ struct LoginScreen: View {
                             .background(Color.green.opacity(0.25))
                             .cornerRadius(4.0)
                             .focused($focusField, equals: .username)
+                            .disableAutocorrection(true)
                         
                         SecureField("Password", text: $viewModel.password)
                             .font(.system(size: 17, weight: .thin))

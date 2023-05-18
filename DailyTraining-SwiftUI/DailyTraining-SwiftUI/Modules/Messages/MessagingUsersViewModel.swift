@@ -20,14 +20,14 @@ final class MessagingUsersViewModel: ObservableObject {
         self.fileLoader.loadJSON(
             "MessagingUsersData.json",
             [ChatUser].self,
-            completion: { [unowned self] result in
+            completion: { [weak self] result in
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):
                         logger.log(logKey: .error, category: "MessagingUsersViewModel", message: "errorMessage: \(error.description)")
                     case .success(let list):
                         logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "total list: \(list.count)")
-                        self.list = list
+                        self?.list = list
                     }
                 }
             })
