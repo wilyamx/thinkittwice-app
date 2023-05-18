@@ -19,6 +19,7 @@ enum DebugInfoKey: String {
 
 struct Logger {
     // this will filter what to log only
+    // empty means accept all type of logs
     let filteredLogKeys: [DebugInfoKey] = []
     
     func log(logKey: DebugInfoKey, any: AnyObject, message: String) {
