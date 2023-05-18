@@ -98,7 +98,7 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        logger(logKey: .info, category: "ProfileView", message: "Settings!")
+                        logger.log(logKey: .info, category: "ProfileView", message: "Settings!")
                     }, label: {
                         Image(systemName: "gearshape")
                     })

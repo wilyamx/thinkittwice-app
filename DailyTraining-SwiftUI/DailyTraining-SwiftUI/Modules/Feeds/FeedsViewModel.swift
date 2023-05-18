@@ -30,7 +30,7 @@ final class FeedsViewModel: Fetcher {
                     case .failure(let error):
                         self?.errorMessage = error.localizedDescription
                     case .success(let breeds):
-                        logger(category: "FeedsViewModel", message: "list count: \(breeds.count)")
+                        logger.log(category: "FeedsViewModel", message: "list count: \(breeds.count)")
                         
                         self?.isLoading = false
                         self?.breeds = breeds
@@ -42,7 +42,7 @@ final class FeedsViewModel: Fetcher {
     
     func printAllBreeds() {
         for (index, breed) in self.breeds.enumerated() {
-            logger(logKey: .info,
+            logger.log(logKey: .info,
                    category: "FeedsViewModel",
                    message: "Breed[\(index)]: \(breed)")
         }

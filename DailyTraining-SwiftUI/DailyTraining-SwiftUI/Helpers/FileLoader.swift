@@ -23,6 +23,8 @@ struct FileLoader {
             return
         }
 
+        logger.log(logKey: .fileloader, category: "FileLoader", message: "filename: \(filename)")
+            
         var data: Data = Data()
             
         do {

@@ -24,8 +24,9 @@ final class MessagingChatsViewModel: ObservableObject {
             completion: { [unowned self] result in
                 switch result {
                 case .failure(let error):
-                    logger(logKey: .info, category: "MessagingChatsViewModel", message: "errorMessage: \(error.localizedDescription)")
+                    logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "error message: \(error.localizedDescription)")
                 case .success(let chats):
+                    logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "total chats: \(chats.count)")
                     self.list = chats
                 }
             })

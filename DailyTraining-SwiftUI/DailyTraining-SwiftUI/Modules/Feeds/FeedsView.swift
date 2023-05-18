@@ -34,7 +34,7 @@ struct FeedsView: View {
             }
         }
         .onAppear {
-            logger(logKey: .info, category: "FeedView", message: "onAppear")
+            logger.log(logKey: .info, category: "FeedView", message: "onAppear")
             viewModel.fetchAllBreeds()
         }
     }

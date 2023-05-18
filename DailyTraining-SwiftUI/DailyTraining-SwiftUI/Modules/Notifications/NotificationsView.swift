@@ -26,7 +26,7 @@ struct NotificationsView: View {
             
             .searchable(text: $searchText)
             .onChange(of: searchText) { searchText in
-                logger(logKey: .info, category: "NotificationView", message: "New search text: \(searchText)")
+                logger.log(logKey: .info, category: "NotificationView", message: "New search text: \(searchText)")
             }
         }
     }

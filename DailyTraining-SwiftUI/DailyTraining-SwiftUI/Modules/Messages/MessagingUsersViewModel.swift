@@ -23,7 +23,7 @@ final class MessagingUsersViewModel: ObservableObject {
             completion: { [unowned self] result in
                 switch result {
                 case .failure(let error):
-                    logger(logKey: .info, category: "MessagingUsersViewModel", message: "errorMessage: \(error.localizedDescription)")
+                    logger.log(logKey: .info, category: "MessagingUsersViewModel", message: "errorMessage: \(error.localizedDescription)")
                 case .success(let users):
                     self.list = users
                 }

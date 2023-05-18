@@ -19,21 +19,30 @@ struct MessagingChatsView: View {
         VStack {
             Text("Chat Listing")
             
-            List() {
-                ForEach(viewModel.list) { chat in
-                    ChatRow(chat: chat)
-                }
-                .listRowBackground(
-                    RoundedRectangle(cornerRadius: 5)
-                        .padding(EdgeInsets(top: rowSpacing,
-                                            leading: rowSpacing,
-                                            bottom: rowSpacing,
-                                            trailing: rowSpacing))
-                        .background(.clear)
-                        .foregroundColor(.white)
-                    
-                )
-                .listRowSeparator(.hidden)
+            List {
+                
+//                ForEach(viewModel.list) { item in
+//                    ChatRow(chat: Chat.example())
+//                }
+                
+                ChatRow(chat: Chat.example())
+                ChatRow(chat: Chat.example())
+                ChatRow(chat: Chat.example())
+                
+//                ForEach(viewModel.list) { chat in
+//                    ChatRow(chat: chat)
+//                }
+//                .listRowBackground(
+//                    RoundedRectangle(cornerRadius: 5)
+//                        .padding(EdgeInsets(top: rowSpacing,
+//                                            leading: rowSpacing,
+//                                            bottom: rowSpacing,
+//                                            trailing: rowSpacing))
+//                        .background(.clear)
+//                        .foregroundColor(.white)
+//
+//                )
+//                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .padding(.all, 5)
@@ -41,10 +50,11 @@ struct MessagingChatsView: View {
                                       green: 246/255,
                                       blue: 246/255,
                                       alpha: 1.0)))
-            .onAppear {
-                logger(logKey: .info, any: viewModel, message: "onAppear")
-                viewModel.getChats()
-            }
+            
+        }
+        .onAppear {
+            logger.log(logKey: .info, any: viewModel, message: "onAppear")
+            viewModel.getChats()
         }
     }
 }
