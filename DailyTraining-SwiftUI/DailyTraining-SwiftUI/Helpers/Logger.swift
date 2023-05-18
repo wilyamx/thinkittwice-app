@@ -19,19 +19,19 @@ enum DebugInfoKey: String {
 
 struct Logger {
     // this will filter what to log only
-    let interestedLogKeys: [DebugInfoKey] = []
+    let filteredLogKeys: [DebugInfoKey] = []
     
     func log(logKey: DebugInfoKey, any: AnyObject, message: String) {
-        guard interestedLogKeys.isEmpty ||
-                (interestedLogKeys.count > 0 && interestedLogKeys.contains(logKey)) else {
+        guard filteredLogKeys.isEmpty ||
+                (filteredLogKeys.count > 0 && filteredLogKeys.contains(logKey)) else {
             return
         }
         print("\(logKey.rawValue) [\(type(of: any))] :: \(message)")
     }
     
     func log(logKey: DebugInfoKey = .info, category: String, message: String) {
-        guard interestedLogKeys.isEmpty ||
-                (interestedLogKeys.count > 0 && interestedLogKeys.contains(logKey)) else {
+        guard filteredLogKeys.isEmpty ||
+                (filteredLogKeys.count > 0 && filteredLogKeys.contains(logKey)) else {
             return
         }
         print("\(logKey.rawValue) [\(category)] :: \(message)")
