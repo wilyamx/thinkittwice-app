@@ -19,7 +19,7 @@ struct MessagingUsersView: View {
             Text("People Listings")
             
             List() {
-                ForEach(viewModel.list) { user in
+                ForEach(viewModel.list, id: \.id) { user in
                     ChatUserRow(user: user)
                 }
                 .listRowBackground(

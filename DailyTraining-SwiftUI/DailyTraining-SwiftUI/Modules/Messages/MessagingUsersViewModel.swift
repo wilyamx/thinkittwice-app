@@ -21,11 +21,14 @@ final class MessagingUsersViewModel: ObservableObject {
             "MessagingUsersData.json",
             [ChatUser].self,
             completion: { [unowned self] result in
-                switch result {
-                case .failure(let error):
-                    logger.log(logKey: .info, category: "MessagingUsersViewModel", message: "errorMessage: \(error.localizedDescription)")
-                case .success(let users):
-                    self.list = users
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        logger.log(logKey: .error, category: "MessagingUsersViewModel", message: "errorMessage: \(error.localizedDescription)")
+                    case .success(let list):
+                        logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "total list: \(list.count)")
+                        self.list = list
+                    }
                 }
             })
     }

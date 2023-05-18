@@ -22,19 +22,21 @@ final class MessagingChatsViewModel: ObservableObject {
             "MessagingChatsData.json",
             [Chat].self,
             completion: { [unowned self] result in
-                switch result {
-                case .failure(let error):
-                    logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "error message: \(error.localizedDescription)")
-                case .success(let chats):
-                    logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "total chats: \(chats.count)")
-                    self.list = chats
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        logger.log(logKey: .error, category: "MessagingChatsViewModel", message: "error message: \(error.localizedDescription)")
+                    case .success(let list):
+                        logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "total list: \(list.count)")
+                        self.list = list
+                    }
                 }
             })
     }
 }
 
 struct Chat: Hashable, Codable, Identifiable {
-    //var id = UUID(){}
+    //var id = UUID()
     var id: Int
     var messageId: Int
     var title: String

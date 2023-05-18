@@ -25,24 +25,24 @@ struct MessagingChatsView: View {
 //                    ChatRow(chat: Chat.example())
 //                }
                 
-                ChatRow(chat: Chat.example())
-                ChatRow(chat: Chat.example())
-                ChatRow(chat: Chat.example())
+//                ChatRow(chat: Chat.example())
+//                ChatRow(chat: Chat.example())
+//                ChatRow(chat: Chat.example())
                 
-//                ForEach(viewModel.list) { chat in
-//                    ChatRow(chat: chat)
-//                }
-//                .listRowBackground(
-//                    RoundedRectangle(cornerRadius: 5)
-//                        .padding(EdgeInsets(top: rowSpacing,
-//                                            leading: rowSpacing,
-//                                            bottom: rowSpacing,
-//                                            trailing: rowSpacing))
-//                        .background(.clear)
-//                        .foregroundColor(.white)
-//
-//                )
-//                .listRowSeparator(.hidden)
+                ForEach(viewModel.list, id: \.id) { chat in
+                    ChatRow(chat: chat)
+                }
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 5)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+
+                )
+                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .padding(.all, 5)
