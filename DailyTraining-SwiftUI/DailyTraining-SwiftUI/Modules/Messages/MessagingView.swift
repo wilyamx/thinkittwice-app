@@ -51,12 +51,11 @@ struct MessagingView: View {
                         .environmentObject(MessagingUsersViewModel())
                         .tag(Channel.people)
                 }
-                .tabViewStyle(.page(indexDisplayMode: .automatic))
+                .tabViewStyle(.automatic)
                 .onChange(of: selectedChannel) { channel in
                     pickerSelectedIndex = channel.index
                 }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                
+    
                 Spacer()
             }
             
