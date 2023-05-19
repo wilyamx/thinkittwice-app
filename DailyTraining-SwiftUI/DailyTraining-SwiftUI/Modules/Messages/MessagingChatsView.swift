@@ -16,47 +16,41 @@ struct MessagingChatsView: View {
     var body: some View {
         let _ = Self._printChanges()
         
-        VStack {
-            Text("Chat Listing")
+        List {
+//            ForEach(viewModel.list) { item in
+//                ChatRow(chat: Chat.example())
+//            }
+//
+//            ChatRow(chat: Chat.example())
+//            ChatRow(chat: Chat.example())
+//            ChatRow(chat: Chat.example())
             
-            List {
-                
-//                ForEach(viewModel.list) { item in
-//                    ChatRow(chat: Chat.example())
-//                }
-                
-//                ChatRow(chat: Chat.example())
-//                ChatRow(chat: Chat.example())
-//                ChatRow(chat: Chat.example())
-                
-                ForEach(0..<viewModel.list.count, id: \.self) { index in
-                    let item = viewModel.list[index]
-                    Button {
-                        logger.log(logKey: .info, category: "MessagingChatsView", message: "selected-item index: \(index), id: \(item.id)")
-                    } label: {
-                        ChatRow(chat: item)
-                    }
+            ForEach(0..<viewModel.list.count, id: \.self) { index in
+                let item = viewModel.list[index]
+                Button {
+                    logger.log(logKey: .info, category: "MessagingChatsView", message: "selected-item index: \(index), id: \(item.id)")
+                } label: {
+                    ChatRow(chat: item)
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(
-                    RoundedRectangle(cornerRadius: 5)
-                        .padding(EdgeInsets(top: rowSpacing,
-                                            leading: rowSpacing,
-                                            bottom: rowSpacing,
-                                            trailing: rowSpacing))
-                        .background(.clear)
-                        .foregroundColor(.white)
-                )
-                
             }
-            .listStyle(.plain)
-            .padding(.all, 5)
-            .background(Color(UIColor(red: 246/255,
-                                      green: 246/255,
-                                      blue: 246/255,
-                                      alpha: 1.0)))
+            .listRowSeparator(.hidden)
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 5)
+                    .padding(EdgeInsets(top: rowSpacing,
+                                        leading: rowSpacing,
+                                        bottom: rowSpacing,
+                                        trailing: rowSpacing))
+                    .background(.clear)
+                    .foregroundColor(.white)
+            )
             
         }
+        .listStyle(.plain)
+        .padding(.all, 5)
+        .background(Color(UIColor(red: 246/255,
+                                  green: 246/255,
+                                  blue: 246/255,
+                                  alpha: 1.0)))
         .onAppear {
             logger.log(logKey: .info, any: viewModel, message: "onAppear")
             viewModel.getChats()
