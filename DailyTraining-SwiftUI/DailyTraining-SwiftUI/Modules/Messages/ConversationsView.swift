@@ -10,6 +10,7 @@ import SwiftUI
 struct ConversationsView: View {
     
     @State private var message: String = ""
+    @FocusState private var isMessageFocused: Bool
     
     var title: String
     
@@ -39,6 +40,7 @@ struct ConversationsView: View {
                     .background(Color("ListBackgroundColor"))
                     .multilineTextAlignment(.leading)
                     .cornerRadius(16)
+                    .focused($isMessageFocused)
                 
                 Button {
                     
@@ -53,13 +55,7 @@ struct ConversationsView: View {
             Spacer()
         }
         .background(.white)
-//        .toolbar {
-//            ToolbarItemGroup(placement: .keyboard) {
-//                Button("Done") {
-//
-//                }
-//            }
-//        }
+       
         
     }
 }

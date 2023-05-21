@@ -133,10 +133,17 @@ struct LoginScreen: View {
                 .cornerRadius(20)
                 .padding()
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        focusField = nil
+                    }
+                }
+            }
             .onAppear {
                 focusField = .username
             }
-            
         }
     }
 }
