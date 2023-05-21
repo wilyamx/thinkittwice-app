@@ -10,8 +10,7 @@ import SwiftUI
 struct MessagingChatsView: View {
     
     @EnvironmentObject var viewModel: MessagingChatsViewModel
-    
-    @State private var selectedListIndex: Int = 0
+
     @State private var isPresentedConversation: Bool = false
     
     let rowSpacing: CGFloat = 5.0
@@ -24,12 +23,9 @@ struct MessagingChatsView: View {
                 ForEach(0..<viewModel.list.count, id: \.self) { index in
                     let item = viewModel.list[index]
                     Button {
-                        selectedListIndex = index
-                        
                         logger.log(logKey: .info, category: "MessagingChatsView", message: "selected-item index: \(index), id: \(item.id)")
-                        logger.log(logKey: .info, category: "MessagingChatsView", message: "selected-index index: \(selectedListIndex)")
                         
-                        
+                        viewModel.selectedIndex = index
                         isPresentedConversation.toggle()
                         
                     } label: {
@@ -55,7 +51,7 @@ struct MessagingChatsView: View {
                 viewModel.getChats()
             }
             .fullScreenCover(isPresented: $isPresentedConversation) {
-                ConversationsView(title: viewModel.list[selectedListIndex].title)
+                ConversationsView(title: viewModel.list[viewModel.selectedIndex].title)
             }
         }
         

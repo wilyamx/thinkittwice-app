@@ -10,6 +10,7 @@ import SwiftUI
 
 final class MessagingChatsViewModel: ObservableObject {
     @Published var list: [Chat] = [Chat]()
+    @Published var selectedIndex:Int = 0
     
     private let fileLoader: FileLoader
     
