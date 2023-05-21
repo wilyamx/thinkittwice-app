@@ -71,7 +71,7 @@ struct Chat: Hashable, Codable, Identifiable {
     }
     
     static func example() -> Chat {
-        return Chat( messageId: 200,
+        return Chat(messageId: 200,
                     title: "Tellus id interdum velit laoreet",
                     message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
                     avatar: "charleyrivers",

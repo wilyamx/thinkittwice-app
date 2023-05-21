@@ -15,6 +15,8 @@ struct ConversationListView: View {
     var title: String
         
     var body: some View {
+        let _ = Self._printChanges()
+        
         NavigationStack {
             ScrollViewReader { proxy in
                 List {
@@ -39,7 +41,7 @@ struct ConversationListView: View {
                             .foregroundColor(.clear)
                     )
                 }
-                .background(Color("ListBackgroundColor"))
+                .background(Color(ColorNames.listBackgroundColor.rawValue))
                 .listStyle(.plain)
                 .navigationTitle("\(title)")
                 .navigationBarTitleDisplayMode(.inline)
