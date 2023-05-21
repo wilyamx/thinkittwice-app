@@ -12,32 +12,37 @@ struct NotificationsView: View {
     
     @State private var searchText: String = ""
     
+    var filteredList: [Notification] {
+        if searchText.isEmpty {
+            return viewModel.list
+        }
+        else {
+            return viewModel.list.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+    
     var body: some View {
         let _ = Self._printChanges()
         
         NavigationStack {
             VStack() {
                 List {
-                    ForEach(viewModel.list, id: \.id) { notification in
+                    ForEach(filteredList, id: \.id) { notification in
                         NotificationRow(notification: notification)
                     }
                     .listRowSeparator(.visible)
                 }
                 .listStyle(.inset)
                 
-                .searchable(text: $searchText)
-                .onChange(of: searchText) { searchText in
-                    logger.log(logKey: .info, category: "NotificationView", message: "New search text: \(searchText)")
-                }
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbarBackground(.white, for: .navigationBar)
-                
                 Spacer()
             }
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.white, for: .navigationBar)
             .onAppear {
                 viewModel.getList()
             }
         }
+        .searchable(text: $searchText, prompt: "Search from title")
     }
 }
 
