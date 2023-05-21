@@ -13,7 +13,6 @@ final class FeedsViewModel: Fetcher {
     
     override init(service: APIServiceProtocol = APIService()) {
         super.init(service: service)
-        self.service = service
     }
     
     func fetchAllBreeds() {

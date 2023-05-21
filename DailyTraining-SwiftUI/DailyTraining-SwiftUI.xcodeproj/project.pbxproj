@@ -24,6 +24,7 @@
 		60487E292A19656300AD6603 /* ConversationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E282A19656300AD6603 /* ConversationRow.swift */; };
 		60487E2B2A19C6E100AD6603 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E2A2A19C6E100AD6603 /* ConversationListView.swift */; };
 		60487E2D2A19F4D500AD6603 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E2C2A19F4D500AD6603 /* Colors.swift */; };
+		60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 60487E2E2A1A167200AD6603 /* NotificationsData.json */; };
 		606F08D62A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08D52A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift */; };
 		606F08D82A01DB0100CC3995 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08D72A01DB0100CC3995 /* ContentView.swift */; };
 		606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606F08D92A01DB0400CC3995 /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		60487E282A19656300AD6603 /* ConversationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRow.swift; sourceTree = "<group>"; };
 		60487E2A2A19C6E100AD6603 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
 		60487E2C2A19F4D500AD6603 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		60487E2E2A1A167200AD6603 /* NotificationsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotificationsData.json; sourceTree = "<group>"; };
 		606F08D22A01DB0100CC3995 /* DailyTraining-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DailyTraining-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		606F08D52A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTraining_SwiftUIApp.swift; sourceTree = "<group>"; };
 		606F08D72A01DB0100CC3995 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				60FCD5652A03235F003D8FAE /* landmarkData.json */,
 				60FCD5672A0323B8003D8FAE /* MessagingChatsData.json */,
 				6090BEEE2A03F1780043B1AE /* MessagingUsersData.json */,
+				60487E2E2A1A167200AD6603 /* NotificationsData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				606F08DD2A01DB0400CC3995 /* Preview Assets.xcassets in Resources */,
+				60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */,
 				606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */,
 				60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */,
 				6090BEEF2A03F1780043B1AE /* MessagingUsersData.json in Resources */,

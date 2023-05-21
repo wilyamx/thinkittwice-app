@@ -33,6 +33,7 @@ struct LandingScreen: View {
                         Text("Notifications")
                     }
                     .badge("!")
+                    .environmentObject(NotificationsViewModel())
                 
                 MessagingView()
                     .tabItem {

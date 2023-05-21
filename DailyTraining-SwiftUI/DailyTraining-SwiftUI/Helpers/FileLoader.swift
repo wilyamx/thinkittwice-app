@@ -65,3 +65,11 @@ struct FileLoader {
     }
 
 }
+
+class LocalFileLoader: ObservableObject {
+    var fileLoader: FileLoader
+    
+    init(fileLoader: FileLoader = FileLoader()) {
+       self.fileLoader = fileLoader
+    }
+}

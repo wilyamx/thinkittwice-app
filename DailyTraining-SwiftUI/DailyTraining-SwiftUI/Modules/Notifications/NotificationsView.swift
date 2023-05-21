@@ -18,8 +18,8 @@ struct NotificationsView: View {
         NavigationStack {
             VStack() {
                 List {
-                    ForEach(0 ..< 15) { item in
-                        NotificationRow()
+                    ForEach(viewModel.list, id: \.id) { notification in
+                        NotificationRow(notification: notification)
                     }
                     .listRowSeparator(.visible)
                 }
@@ -34,6 +34,9 @@ struct NotificationsView: View {
                 
                 Spacer()
             }
+            .onAppear {
+                viewModel.getList()
+            }
         }
     }
 }
@@ -41,5 +44,6 @@ struct NotificationsView: View {
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()
+            .environmentObject(NotificationsViewModel())
     }
 }

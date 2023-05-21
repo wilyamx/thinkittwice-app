@@ -8,14 +8,12 @@
 import Foundation
 import SwiftUI
 
-final class MessagingChatsViewModel: ObservableObject {
+final class MessagingChatsViewModel: LocalFileLoader {
     @Published var list: [Chat] = [Chat]()
     @Published var selectedIndex:Int = 0
     
-    private let fileLoader: FileLoader
-    
-    init(fileLoader: FileLoader = FileLoader()) {
-        self.fileLoader = fileLoader
+    override init(fileLoader: FileLoader = FileLoader()) {
+        super.init(fileLoader: fileLoader)
     }
     
     func getChats() {

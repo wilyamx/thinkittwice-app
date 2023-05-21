@@ -10,6 +10,8 @@ import SwiftUI
 struct NotificationRow: View {
     @State private var showingAlert = false
     
+    var notification: Notification
+    
     var body: some View {
         HStack() {
 
@@ -38,11 +40,11 @@ struct NotificationRow: View {
             .padding([.top], -30)
             
             VStack(alignment: .leading, spacing: 10) {
-                Text("Your financial report is overdue")
+                Text(notification.title)
                     .font(.headline)
                     .minimumScaleFactor(0.9)
                     .lineLimit(1)
-                Text("Please submit your quarterly figures for Q2 by EOB on August 15")
+                Text(notification.description)
                     .font(.subheadline)
                     .minimumScaleFactor(0.9)
                     .lineLimit(2)
@@ -52,6 +54,8 @@ struct NotificationRow: View {
                     .minimumScaleFactor(0.9)
                     .lineLimit(1)
             }
+            
+            Spacer()
             
             HStack(alignment: .center, spacing: 20) {
                 Menu {
@@ -91,6 +95,6 @@ struct NotificationRow: View {
 
 struct NotificationRow_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationRow()
+        NotificationRow(notification: Notification.example())
     }
 }
