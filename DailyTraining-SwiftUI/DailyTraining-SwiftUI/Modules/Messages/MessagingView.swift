@@ -77,6 +77,8 @@ struct MessagingView: View {
                     })
                 }
             }
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.white, for: .navigationBar)
         }
         .searchable(text: $searchText)
         .onChange(of: searchText) { searchText in

@@ -19,6 +19,11 @@
 		603EED392A0930C600EC9C2E /* ActivityGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603EED382A0930C600EC9C2E /* ActivityGauge.swift */; };
 		603EED3B2A09335B00EC9C2E /* ProgressDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603EED3A2A09335B00EC9C2E /* ProgressDetails.swift */; };
 		603EED3D2A0933F400EC9C2E /* ProfileAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603EED3C2A0933F400EC9C2E /* ProfileAvatar.swift */; };
+		60487E232A195BBB00AD6603 /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E222A195BBB00AD6603 /* ConversationsView.swift */; };
+		60487E272A1964D400AD6603 /* ConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E262A1964D400AD6603 /* ConversationsViewModel.swift */; };
+		60487E292A19656300AD6603 /* ConversationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E282A19656300AD6603 /* ConversationRow.swift */; };
+		60487E2B2A19C6E100AD6603 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E2A2A19C6E100AD6603 /* ConversationListView.swift */; };
+		60487E2D2A19F4D500AD6603 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E2C2A19F4D500AD6603 /* Colors.swift */; };
 		606F08D62A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08D52A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift */; };
 		606F08D82A01DB0100CC3995 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08D72A01DB0100CC3995 /* ContentView.swift */; };
 		606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606F08D92A01DB0400CC3995 /* Assets.xcassets */; };
@@ -89,6 +94,11 @@
 		603EED382A0930C600EC9C2E /* ActivityGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGauge.swift; sourceTree = "<group>"; };
 		603EED3A2A09335B00EC9C2E /* ProgressDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDetails.swift; sourceTree = "<group>"; };
 		603EED3C2A0933F400EC9C2E /* ProfileAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatar.swift; sourceTree = "<group>"; };
+		60487E222A195BBB00AD6603 /* ConversationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsView.swift; sourceTree = "<group>"; };
+		60487E262A1964D400AD6603 /* ConversationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewModel.swift; sourceTree = "<group>"; };
+		60487E282A19656300AD6603 /* ConversationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRow.swift; sourceTree = "<group>"; };
+		60487E2A2A19C6E100AD6603 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
+		60487E2C2A19F4D500AD6603 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		606F08D22A01DB0100CC3995 /* DailyTraining-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DailyTraining-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		606F08D52A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTraining_SwiftUIApp.swift; sourceTree = "<group>"; };
 		606F08D72A01DB0100CC3995 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -267,11 +277,15 @@
 			children = (
 				60FCD5622A0322EE003D8FAE /* MessagingChatsViewModel.swift */,
 				6090BEF32A03F62A0043B1AE /* MessagingUsersViewModel.swift */,
-				60FCD5582A02A49D003D8FAE /* MessagingView.swift */,
+				60487E262A1964D400AD6603 /* ConversationsViewModel.swift */,
 				60FCD55C2A02B11A003D8FAE /* MessagingChatsView.swift */,
+				60FCD5582A02A49D003D8FAE /* MessagingView.swift */,
 				60FCD55E2A02B134003D8FAE /* MessagingUsersView.swift */,
+				60487E222A195BBB00AD6603 /* ConversationsView.swift */,
 				60FA07872A0330E4008405BE /* ChatRow.swift */,
 				6090BEF52A03F8420043B1AE /* ChatUserRow.swift */,
+				60487E282A19656300AD6603 /* ConversationRow.swift */,
+				60487E2A2A19C6E100AD6603 /* ConversationListView.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -309,6 +323,7 @@
 				60A5E0BA2A0C97F200C8A9B1 /* FileLoader.swift */,
 				60A507B82A0D4632004D9586 /* FileLoader+Extension.swift */,
 				60A507B42A0D2E22004D9586 /* FileLoaderError.swift */,
+				60487E2C2A19F4D500AD6603 /* Colors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -525,10 +540,12 @@
 				60A5E0BB2A0C97F200C8A9B1 /* FileLoader.swift in Sources */,
 				60A5E0AF2A0C6C0900C8A9B1 /* APIService.swift in Sources */,
 				6090BEF62A03F8420043B1AE /* ChatUserRow.swift in Sources */,
+				60487E272A1964D400AD6603 /* ConversationsViewModel.swift in Sources */,
 				60ECA76C2A13038100EA663E /* APIServiceProtocol.swift in Sources */,
 				606F08D82A01DB0100CC3995 /* ContentView.swift in Sources */,
 				60FCD5592A02A49D003D8FAE /* MessagingView.swift in Sources */,
 				60FCD5612A0321C7003D8FAE /* DailyTrainingViewModel.swift in Sources */,
+				60487E2D2A19F4D500AD6603 /* Colors.swift in Sources */,
 				6090BEF82A0486CF0043B1AE /* NotificationsViewModel.swift in Sources */,
 				6090BEF42A03F62A0043B1AE /* MessagingUsersViewModel.swift in Sources */,
 				60FCD55D2A02B11A003D8FAE /* MessagingChatsView.swift in Sources */,
@@ -536,6 +553,7 @@
 				60FCD5552A02A46F003D8FAE /* FeedsView.swift in Sources */,
 				6090BEF22A03F2320043B1AE /* Logger.swift in Sources */,
 				603EED3B2A09335B00EC9C2E /* ProgressDetails.swift in Sources */,
+				60487E2B2A19C6E100AD6603 /* ConversationListView.swift in Sources */,
 				60A5E0AD2A0C6B3600C8A9B1 /* APIError.swift in Sources */,
 				60A507B52A0D2E22004D9586 /* FileLoaderError.swift in Sources */,
 				600923452A0A9EF300CE8562 /* LoginScreen.swift in Sources */,
@@ -551,7 +569,9 @@
 				60A507BB2A0DD862004D9586 /* LoginViewModel.swift in Sources */,
 				60FCD55F2A02B134003D8FAE /* MessagingUsersView.swift in Sources */,
 				60FCD5572A02A48A003D8FAE /* NotificationsView.swift in Sources */,
+				60487E292A19656300AD6603 /* ConversationRow.swift in Sources */,
 				6026A6552A117EA000CC00E1 /* BreedImage.swift in Sources */,
+				60487E232A195BBB00AD6603 /* ConversationsView.swift in Sources */,
 				603EED352A092E6B00EC9C2E /* CircularRankIndicator.swift in Sources */,
 				60FCD5632A0322EE003D8FAE /* MessagingChatsViewModel.swift in Sources */,
 				6090BEFA2A048F8B0043B1AE /* NotificationRow.swift in Sources */,

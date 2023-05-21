@@ -16,10 +16,7 @@ struct RankingRateCircularBar: View {
             
             Circle()
                 .stroke(
-                    Color(UIColor(red: 242/256,
-                                  green: 242/256,
-                                  blue: 242/256,
-                                  alpha: 1.0)),
+                    Color(ColorNames.listBackgroundColor.rawValue),
                     lineWidth: 10
                 )
                 .frame(width: 140)

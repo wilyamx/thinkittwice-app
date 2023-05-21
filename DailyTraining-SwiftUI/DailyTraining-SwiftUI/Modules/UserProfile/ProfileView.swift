@@ -15,10 +15,7 @@ struct ProfileView: View {
         
         NavigationView {
             ZStack {
-                Color(UIColor(red: 242/256,
-                              green: 242/256,
-                              blue: 242/256,
-                              alpha: 1.0))
+                Color("ListBackgroundColor")
                 
                 VStack(spacing: 20) {
                     VStack(spacing: 0) {

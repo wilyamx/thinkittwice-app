@@ -21,7 +21,15 @@ final class ConversationsViewModel: ObservableObject {
             Conversation(message: "Adipiscing vitae proin sagittis nisl rhoncus mattis"),
             Conversation(message: "Enim eu turpis egestas pretium"),
             Conversation(message: "Elementum curabitur"),
-            Conversation(message: "Consequat semper viverra nam libero")
+            Conversation(message: "Consequat semper viverra nam libero"),
+            Conversation(message: "Pharetra convallis posuere morbi leo"),
+            Conversation(message: "Dolor sit"),
+            Conversation(message: "Semper eget duis at tellus at urna condimentum mattis pellentesque."),
+            Conversation(message: "Velit sed"),
+            Conversation(message: "Tristique"),
+            Conversation(message: "Lacus sed viverra tellus in"),
+            Conversation(message: "Ultricies mi quis"),
+            Conversation(message: "Tristique senectus et netus et malesuada fames ac. Rhoncus mattis rhoncus urna neque viverra justo nec")
         ]
     }
 }

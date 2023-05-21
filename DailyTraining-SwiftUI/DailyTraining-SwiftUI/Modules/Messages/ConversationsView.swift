@@ -8,37 +8,64 @@
 import SwiftUI
 
 struct ConversationsView: View {
-    @ObservedObject var viewModel = ConversationsViewModel()
+    
+    @State private var message: String = ""
+    
+    var title: String
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(viewModel.list, id: \.id) { conversation in
-                    ZStack(alignment: .trailing) {
-                        NavigationLink(value: conversation) {
-                            ConversationRow(conversation: conversation)
-                        }
-                        .opacity(0)
-                                                
-                        ConversationRow(conversation: conversation)
-                   }
+        VStack(spacing: 0) {
+            Spacer()
+            
+            ConversationListView(title: title)
+            
+            HStack {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "camera")
+                        .font(.title)
                 }
-                .listRowSeparator(.hidden)
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "paperclip")
+                        .font(.title)
+                }
+                
+                TextField("Send a message...", text: $message)
+                    .padding()
+                    .background(Color("ListBackgroundColor"))
+                    .multilineTextAlignment(.leading)
+                    .cornerRadius(16)
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "paperplane")
+                        .font(.title)
+                }
             }
-            .listStyle(.plain)
-            .navigationTitle("Conversation")
-            .navigationDestination(for: Conversation.self) { conversation in
-                ConversationRow(conversation: conversation)
-            }
+            .padding()
+            .background(.white)
+            
+            Spacer()
         }
-        .onAppear {
-            viewModel.getList()
-        }
+        .background(.white)
+//        .toolbar {
+//            ToolbarItemGroup(placement: .keyboard) {
+//                Button("Done") {
+//
+//                }
+//            }
+//        }
+        
     }
 }
 
 struct ConversationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConversationsView()
+        ConversationsView(title: "Conversations")
     }
 }

@@ -65,6 +65,10 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 <p float="left">
 	<img src="images/channels-chat.png" alt="Channels Chat" height="400">
+	<img src="images/channels-chat-conversation.png" alt="Channels Chat Conversationn" height="400">
+</p>
+
+<p float="left">
 	<img src="images/channels-people.png" alt="Channels User" height="400">
 </p>
 

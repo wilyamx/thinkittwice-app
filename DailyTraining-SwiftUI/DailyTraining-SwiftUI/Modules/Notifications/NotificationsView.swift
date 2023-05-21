@@ -15,18 +15,24 @@ struct NotificationsView: View {
     var body: some View {
         let _ = Self._printChanges()
         
-        NavigationView {
-            List {
-                ForEach(0 ..< 15) { item in
-                    NotificationRow()
+        NavigationStack {
+            VStack() {
+                List {
+                    ForEach(0 ..< 15) { item in
+                        NotificationRow()
+                    }
+                    .listRowSeparator(.visible)
                 }
-                .listRowSeparator(.visible)
-            }
-            .listStyle(.inset)
-            
-            .searchable(text: $searchText)
-            .onChange(of: searchText) { searchText in
-                logger.log(logKey: .info, category: "NotificationView", message: "New search text: \(searchText)")
+                .listStyle(.inset)
+                
+                .searchable(text: $searchText)
+                .onChange(of: searchText) { searchText in
+                    logger.log(logKey: .info, category: "NotificationView", message: "New search text: \(searchText)")
+                }
+                .toolbarBackground(.visible, for: .navigationBar)
+                .toolbarBackground(.white, for: .navigationBar)
+                
+                Spacer()
             }
         }
     }
