@@ -77,7 +77,7 @@ struct NotificationRow: View {
                 .frame(width: 20)
                 .alert(isPresented: $showingAlert) {
                     Alert(
-                        title: Text("Are you sure you want to delete this notification?"),
+                        title: Text("Are you sure you want to delete this notification with id: \(notification.id)?"),
                         message: Text("There is no undo"),
                         primaryButton: .destructive(Text("Delete")) {
                             logger.log(logKey: .info, category: "NotificationRow", message: "Deleting notification...")
@@ -87,7 +87,6 @@ struct NotificationRow: View {
                 }
             }
             .padding([.top], -40)
-            
             .navigationTitle("Notifications")
         }
     }
