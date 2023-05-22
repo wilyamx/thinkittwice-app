@@ -68,7 +68,25 @@ struct Chat: Hashable, Codable, Identifiable {
         case type
     }
     
-    static func example() -> Chat {
+    static func example1() -> Chat {
+        return Chat(messageId: 200,
+                    title: "Tellus id interdum velit laoreet",
+                    message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
+                    avatar: "charleyrivers",
+                    unread: 125,
+                    type: 1)
+    }
+    
+    static func example2() -> Chat {
+        return Chat(messageId: 200,
+                    title: "Tellus id interdum velit laoreet",
+                    message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
+                    avatar: "charleyrivers",
+                    unread: 125,
+                    type: 2)
+    }
+    
+    static func example3() -> Chat {
         return Chat(messageId: 200,
                     title: "Tellus id interdum velit laoreet",
                     message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
@@ -76,5 +94,4 @@ struct Chat: Hashable, Codable, Identifiable {
                     unread: 125,
                     type: 3)
     }
-    
 }
