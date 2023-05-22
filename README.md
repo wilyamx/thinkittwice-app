@@ -57,6 +57,11 @@ A mobile application for bringing **digital training solution** in the luxury re
 </p>
 
 <p float="left">
+	<img src="images/feed-1.png" alt="Feed 1" height="400">
+	<img src="images/feed-2.png" alt="Feed 2" height="400">
+</p>
+
+<p float="left">
 	<img src="images/notifications-bar.png" alt="Notifications Bar" height="400">
 	<img src="images/notifications.png" alt="Notifications" height="400">
 	<img src="images/notifications-menu.png" alt="Notifications Menu" height="400">
@@ -67,7 +72,7 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 <p float="left">
 	<img src="images/channels-chat.png" alt="Channels Chat" height="400">
-	<img src="images/channels-chat-conversation.png" alt="Channels Chat Conversationn" height="400">
+	<img src="images/channels-chat-conversation.png" alt="Channels Chat Conversation" height="400">
 </p>
 
 <p float="left">

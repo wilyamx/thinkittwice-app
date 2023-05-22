@@ -67,7 +67,7 @@ struct FeedsView: View {
                             .cornerRadius(15)
                         
                         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-                            .lineLimit(2)
+                            .lineLimit(4)
                         
                         Button(action: { },
                                label: {
@@ -81,6 +81,43 @@ struct FeedsView: View {
                         })
                         .cornerRadius(10)
                         .padding(.bottom)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 20) {
+                        Image("peacock")
+                            .resizable()
+                            .frame(height: 200)
+                            .cornerRadius(15)
+                            .overlay(alignment: .topLeading) {
+                                Text("GREAT NEWS")
+                                    .fontWeight(.bold)
+                                    .padding([.top, .leading])
+                            }
+                            .foregroundColor(Color.white)
+                            
+                        Text("Pretium aenean pharetra magna ac placerat vestibulum")
+                            .lineLimit(4)
+                        
+                        HStack {
+                            HStack(spacing: 20) {
+                                HStack(spacing: 0) {
+                                    Image(systemName: "heart")
+                                    Text("12")
+                                        .fontWeight(.bold)
+                                }
+                                
+                                HStack(spacing: 0) {
+                                    Image(systemName: "bubble.left")
+                                    Text("223")
+                                        .fontWeight(.bold)
+                                }
+                            }
+                            
+                            Spacer()
+                            
+                            Text("FEB 18TH")
+                                .foregroundColor(Color.gray)
+                        }
                     }
                 }
                 .listRowSeparator(.hidden)
