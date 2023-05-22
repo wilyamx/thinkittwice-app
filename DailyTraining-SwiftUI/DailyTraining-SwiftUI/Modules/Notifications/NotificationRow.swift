@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NotificationRow: View {
+    
+    @Binding var list: [Notification]
     @State private var showingAlert = false
     
     var notification: Notification
@@ -80,7 +82,9 @@ struct NotificationRow: View {
                         title: Text("Are you sure you want to delete this notification with id: \(notification.id)?"),
                         message: Text("There is no undo"),
                         primaryButton: .destructive(Text("Delete")) {
-                            logger.log(logKey: .info, category: "NotificationRow", message: "Deleting notification...")
+                            logger.log(logKey: .info, category: "NotificationRow", message: "Deleting notification with id: \(notification.id)")
+                            
+                            list.removeAll(where: { $0.id == notification.id })
                         },
                         secondaryButton: .cancel()
                     )
@@ -94,6 +98,7 @@ struct NotificationRow: View {
 
 struct NotificationRow_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationRow(notification: Notification.example())
+        NotificationRow(list: .constant([Notification]()),
+                        notification: Notification.example())
     }
 }
