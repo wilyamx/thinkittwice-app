@@ -61,6 +61,8 @@ A mobile application for bringing **digital training solution** in the luxury re
 	<img src="images/notifications.png" alt="Notifications" height="400">
 	<img src="images/notifications-menu.png" alt="Notifications Menu" height="400">
 	<img src="images/notifications-alert.png" alt="Notifications Alert" height="400">
+	<img src="images/notifications-search-bar.png" alt="Notifications Search Bar" height="400">
+	<img src="images/notifications-search-by-title.png" alt="Notifications Search By Title" height="400">
 </p>
 
 <p float="left">
