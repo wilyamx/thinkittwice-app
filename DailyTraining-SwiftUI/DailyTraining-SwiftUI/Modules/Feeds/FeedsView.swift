@@ -10,7 +10,7 @@ import SwiftUI
 struct FeedsView: View {
     @EnvironmentObject var viewModel: FeedsViewModel
     
-    let rowSpacing: CGFloat = 5.0
+    let rowSpacing: CGFloat = 10.0
     
     var body: some View {
         let _ = Self._printChanges()
@@ -40,7 +40,6 @@ struct FeedsView: View {
                                     .lineLimit(1)
                             }
                         }
-                        .padding(.top)
                         
                         Button(action: { },
                                label: {
@@ -53,14 +52,13 @@ struct FeedsView: View {
                                 .font(.footnote)
                         })
                         .cornerRadius(10)
-                        .padding(.bottom)
                     }
-                    
+                    .padding(.vertical)
+ 
                     VStack(alignment: .leading, spacing: 20) {
                         Text("BRAND TRAINING")
                             .fontWeight(.bold)
-                            .padding(.top)
-                        
+                                                
                         Image("butterfly")
                             .resizable()
                             .frame(height: 200)
@@ -80,8 +78,8 @@ struct FeedsView: View {
                                 .font(.footnote)
                         })
                         .cornerRadius(10)
-                        .padding(.bottom)
                     }
+                    .padding(.vertical)
                     
                     VStack(alignment: .leading, spacing: 20) {
                         Image("peacock")
@@ -119,10 +117,11 @@ struct FeedsView: View {
                                 .foregroundColor(Color.gray)
                         }
                     }
+                    .padding(.vertical)
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(
-                    RoundedRectangle(cornerRadius: 5)
+                    RoundedRectangle(cornerRadius: 15)
                         .padding(EdgeInsets(top: rowSpacing,
                                             leading: rowSpacing,
                                             bottom: rowSpacing,
