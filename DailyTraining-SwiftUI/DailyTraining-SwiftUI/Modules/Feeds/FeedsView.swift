@@ -87,15 +87,20 @@ struct FeedsView: View {
                             .frame(height: 200)
                             .cornerRadius(15)
                             .overlay(alignment: .topLeading) {
-                                Text("GREAT NEWS")
-                                    .fontWeight(.bold)
-                                    .padding([.top, .leading])
+                                VStack(alignment: .leading) {
+                                    Text("MARKET NEWS")
+                                        .fontWeight(.bold)
+                                        .padding([.top, .leading])
+                                    
+                                    Spacer()
+                                    
+                                    Text("Pretium aenean pharetra magna ac in andf placerat vestibulum. Pretium aenean pharetra magna pharetra magna ac placerat. In the most holy ground and to the whole world.")
+                                        .lineLimit(4)
+                                        .padding([.leading, .trailing, .bottom])
+                                }
                             }
                             .foregroundColor(Color.white)
                             
-                        Text("Pretium aenean pharetra magna ac placerat vestibulum")
-                            .lineLimit(4)
-                        
                         HStack {
                             HStack(spacing: 20) {
                                 HStack(spacing: 0) {
@@ -133,6 +138,25 @@ struct FeedsView: View {
             .listStyle(.plain)
             .background(Color(ColorNames.listBackgroundColor.rawValue))
             .padding(5)
+            .navigationTitle("Daily Training")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        logger.log(logKey: .info, category: "FeedsView", message: "Add!")
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                    })
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        logger.log(logKey: .info, category: "FeedsView", message: "Settings!")
+                    }, label: {
+                        Image(systemName: "slider.horizontal.3")
+                    })
+                }
+            }
         }
         
         
