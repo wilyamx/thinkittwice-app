@@ -49,14 +49,40 @@ struct LoginScreen: View {
                             .focused($focusField, equals: .username)
                             .disableAutocorrection(true)
                         
-                        SecureField("Password", text: $viewModel.password)
-                            .font(.system(size: 17, weight: .thin))
-                            .foregroundColor(.primary)
-                            .frame(height: 44)
-                            .padding(.horizontal, 12)
-                            .background(Color.green.opacity(0.25))
-                            .cornerRadius(4.0)
-                            .focused($focusField, equals: .password)
+                        ZStack(alignment: .trailing) {
+                            if viewModel.isSecured {
+                                SecureField("Password", text: $viewModel.password)
+                                    .font(.system(size: 17, weight: .thin))
+                                    .foregroundColor(.primary)
+                                    .frame(height: 44)
+                                    .padding(.horizontal, 12)
+                                    .background(Color.green.opacity(0.25))
+                                    .cornerRadius(4.0)
+                                    .focused($focusField, equals: .password)
+                                    .disableAutocorrection(true)
+                                    .onSubmit {
+                                        viewModel.login()
+                                    }
+                            }
+                            else {
+                                TextField("Password", text: $viewModel.password)
+                                    .font(.system(size: 17, weight: .thin))
+                                    .foregroundColor(.primary)
+                                    .frame(height: 44)
+                                    .padding(.horizontal, 12)
+                                    .background(Color.green.opacity(0.25))
+                                    .cornerRadius(4.0)
+                                    .focused($focusField, equals: .password)
+                                    .disableAutocorrection(true)
+                            }
+                            
+                            Button {
+                                viewModel.isSecured.toggle()
+                            } label: {
+                                Image(systemName: viewModel.isSecured ? "eye" : "eye.slash")
+                            }
+                            .padding(.trailing)
+                        }
                         
                         Button(action: {
                             viewModel.login()
@@ -72,7 +98,13 @@ struct LoginScreen: View {
                         })
                         .padding(.vertical)
                         .alert(isPresented: $viewModel.showingAlert) {
-                            Alert(title: Text("Invalid credentials"))
+                            Alert(title: Text("Invalid credentials"),
+                                  message: Text("Required number of characters"),
+                                  dismissButton: .default(Text("Got it!")) {
+                                viewModel.password = ""
+                                focusField = .password
+                                }
+                            )
                         }
                     }
                     .padding(.horizontal)
@@ -133,14 +165,14 @@ struct LoginScreen: View {
                 .cornerRadius(20)
                 .padding()
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("Done") {
-                        focusField = nil
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItemGroup(placement: .keyboard) {
+//                    Spacer()
+//                    Button("Done") {
+//                        focusField = nil
+//                    }
+//                }
+//            }
             .onAppear {
                 focusField = .username
             }

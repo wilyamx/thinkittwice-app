@@ -13,9 +13,14 @@ final class LoginViewModel: ObservableObject {
     
     @Published var isValidCredentials: Bool = false
     @Published var showingAlert: Bool = false
+    @Published var isSecured: Bool = true
     
     func login() {
-        isValidCredentials = !username.isEmpty && !password.isEmpty
-        showingAlert = true
+        guard !username.isEmpty, !password.isEmpty, password.count > 8 else {
+            showingAlert = true
+            return
+        }
+        
+        isValidCredentials = true
     }
 }
