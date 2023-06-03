@@ -60,7 +60,7 @@ struct ConversationListView: View {
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarBackground(.white, for: .navigationBar)
                 .onChange(of: viewModel.list) { newValue in
-                    logger.log(logKey: .info, category: "ConversationsView", message: "\(newValue)")
+                    logger.info(message: "\(newValue)")
                     proxy.scrollTo(newValue.last)
                 }
             }

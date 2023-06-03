@@ -31,7 +31,7 @@ extension WSRApiService {
             return
         }
         
-        logger.log(logKey: .api, category: "APIService", message: urlString)
+        logger.api(message: urlString)
             
         URLSession.shared.dataTask(
             with: url,

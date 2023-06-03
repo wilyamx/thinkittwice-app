@@ -143,7 +143,7 @@ struct FeedsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        logger.log(logKey: .info, category: "FeedsView", message: "Add!")
+                        logger.log(category: .info, message: "Add!")
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
@@ -151,11 +151,14 @@ struct FeedsView: View {
 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        logger.log(logKey: .info, category: "FeedsView", message: "Settings!")
+                        logger.log(category: .info, message: "Settings!")
                     }, label: {
                         Image(systemName: "slider.horizontal.3")
                     })
                 }
+            }
+            .onAppear {
+                viewModel.fetchAllBreeds()
             }
         }
         

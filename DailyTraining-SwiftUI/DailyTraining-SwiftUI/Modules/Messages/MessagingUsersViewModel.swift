@@ -24,9 +24,9 @@ final class MessagingUsersViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):
-                        logger.log(logKey: .error, category: "MessagingUsersViewModel", message: "errorMessage: \(error.description)")
+                        logger.error(message: "errorMessage: \(error.description)")
                     case .success(let list):
-                        logger.log(logKey: .info, category: "MessagingChatsViewModel", message: "total list: \(list.count)")
+                        logger.api(message: "total list: \(list.count)")
                         self?.list = list
                     }
                 }

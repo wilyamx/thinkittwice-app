@@ -28,8 +28,7 @@ struct WSRApiService: WSRApiServiceProtocol {
             return
         }
         
-        logger.log(logKey: .api, category: "WSRApiService", message: urlString)
-            
+        logger.api(message: urlString)
         
         URLSession.shared.dataTask(
             with: url,

@@ -23,7 +23,7 @@ struct MessagingChatsView: View {
                 ForEach(0..<viewModel.list.count, id: \.self) { index in
                     let item = viewModel.list[index]
                     Button {
-                        logger.log(logKey: .info, category: "MessagingChatsView", message: "selected-item index: \(index), id: \(item.id)")
+                        logger.info(message: "selected-item index: \(index)")
                         
                         viewModel.selectedIndex = index
                         isPresentedConversation.toggle()
@@ -47,7 +47,7 @@ struct MessagingChatsView: View {
             .padding(.all, 5)
             .background(Color(ColorNames.listBackgroundColor.rawValue))
             .onAppear {
-                logger.log(logKey: .info, any: viewModel, message: "onAppear")
+                logger.info(message: "onAppear")
                 viewModel.getChats()
             }
             .fullScreenCover(isPresented: $isPresentedConversation) {

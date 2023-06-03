@@ -63,7 +63,7 @@ struct MessagingView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        logger.log(logKey: .info, category: "MessagingView", message: "Search!")
+                        logger.info(message: "Search!")
                     }, label: {
                         Image(systemName: "magnifyingglass")
                     })
@@ -71,7 +71,7 @@ struct MessagingView: View {
 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        logger.log(logKey: .info, category: "MessagingView", message: "Settings!")
+                        logger.info(message: "Settings!")
                     }, label: {
                         Image(systemName: "gearshape")
                     })
@@ -82,7 +82,7 @@ struct MessagingView: View {
         }
         .searchable(text: $searchText)
         .onChange(of: searchText) { searchText in
-            logger.log(logKey: .info, category: "MessagingView", message: "New search text: \(searchText)")
+            logger.info(message: "New search text: \(searchText)")
         }
     }
 }

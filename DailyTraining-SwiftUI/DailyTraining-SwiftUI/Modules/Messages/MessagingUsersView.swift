@@ -22,7 +22,7 @@ struct MessagingUsersView: View {
                 ForEach(0..<viewModel.list.count, id: \.self) { index in
                     let item = viewModel.list[index]
                     Button {
-                        logger.log(logKey: .info, category: "MessagingUsersView", message: "selected-item index: \(index), id: \(item.id)")
+                        logger.info(message: "selected-item index: \(index), id: \(item.id)")
                     } label: {
                         ChatUserRow(user: item)
                     }
@@ -47,7 +47,7 @@ struct MessagingUsersView: View {
                                       alpha: 1.0)))
             
             .onAppear {
-                logger.log(logKey: .info, any: viewModel, message: "onAppear")
+                logger.info(message: "onAppear")
                 viewModel.getUsers()
             }
         }

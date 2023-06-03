@@ -29,7 +29,7 @@ final class FeedsViewModel: WSRFetcher {
                     case .failure(let error):
                         self?.errorMessage = error.localizedDescription
                     case .success(let breeds):
-                        logger.log(category: "FeedsViewModel", message: "list count: \(breeds.count)")
+                        logger.api(message: "list count: \(breeds.count)")
                         
                         self?.isLoading = false
                         self?.breeds = breeds
@@ -41,9 +41,7 @@ final class FeedsViewModel: WSRFetcher {
     
     func printAllBreeds() {
         for (index, breed) in self.breeds.enumerated() {
-            logger.log(logKey: .info,
-                   category: "FeedsViewModel",
-                   message: "Breed[\(index)]: \(breed)")
+            logger.api(message: "Breed[\(index)]: \(breed)")
         }
     }
 }

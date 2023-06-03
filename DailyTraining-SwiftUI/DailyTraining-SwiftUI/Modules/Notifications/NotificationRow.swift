@@ -61,9 +61,9 @@ struct NotificationRow: View {
             
             HStack(alignment: .center, spacing: 20) {
                 Menu {
-                    Button("Approve") { logger.log(logKey: .info, category: "NotificationRow", message: "Approve!") }
-                    Button("Reject") { logger.log(logKey: .info, category: "NotificationRow", message: "Reject!") }
-                    Button("Forward") { logger.log(logKey: .info, category: "NotificationRow", message: "Forward!") }
+                    Button("Approve") { logger.info(message: "Approve!") }
+                    Button("Reject") { logger.info(message: "Reject!") }
+                    Button("Forward") { logger.info(message: "Forward!") }
                 } label: {
                     Image(systemName: "ellipsis")
                         .fontWeight(.bold)
@@ -82,8 +82,7 @@ struct NotificationRow: View {
                         title: Text("Are you sure you want to delete this notification with id: \(notification.id)?"),
                         message: Text("There is no undo"),
                         primaryButton: .destructive(Text("Delete")) {
-                            logger.log(logKey: .info, category: "NotificationRow", message: "Deleting notification with id: \(notification.id)")
-                            
+                            logger.info(message: "Deleting notification with id: \(notification.id)")
                             list.removeAll(where: { $0.id == notification.id })
                         },
                         secondaryButton: .cancel()
