@@ -29,9 +29,9 @@
 		6061E3F22A2BD84B005D0844 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6061E3F12A2BD84B005D0844 /* RealmSwift */; };
 		6061E3F52A2BE336005D0844 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3F42A2BE336005D0844 /* User.swift */; };
 		6061E3F82A2BEEE5005D0844 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3F72A2BEEE5005D0844 /* RegistrationView.swift */; };
-		6061E3FB2A2BF9E3005D0844 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3FA2A2BF9E3005D0844 /* View+Extension.swift */; };
+		6061E3FB2A2BF9E3005D0844 /* View+WSR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3FA2A2BF9E3005D0844 /* View+WSR.swift */; };
 		6061E3FD2A2BFD44005D0844 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3FC2A2BFD44005D0844 /* RegistrationViewModel.swift */; };
-		6061E3FF2A2C0495005D0844 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3FE2A2C0495005D0844 /* String+Extension.swift */; };
+		6061E3FF2A2C0495005D0844 /* String+WSR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3FE2A2C0495005D0844 /* String+WSR.swift */; };
 		606F08D62A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08D52A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift */; };
 		606F08D82A01DB0100CC3995 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08D72A01DB0100CC3995 /* ContentView.swift */; };
 		606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606F08D92A01DB0400CC3995 /* Assets.xcassets */; };
@@ -110,9 +110,9 @@
 		60487E2E2A1A167200AD6603 /* NotificationsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotificationsData.json; sourceTree = "<group>"; };
 		6061E3F42A2BE336005D0844 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6061E3F72A2BEEE5005D0844 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		6061E3FA2A2BF9E3005D0844 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		6061E3FA2A2BF9E3005D0844 /* View+WSR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+WSR.swift"; sourceTree = "<group>"; };
 		6061E3FC2A2BFD44005D0844 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		6061E3FE2A2C0495005D0844 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		6061E3FE2A2C0495005D0844 /* String+WSR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+WSR.swift"; sourceTree = "<group>"; };
 		606F08D22A01DB0100CC3995 /* DailyTraining-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DailyTraining-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		606F08D52A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTraining_SwiftUIApp.swift; sourceTree = "<group>"; };
 		606F08D72A01DB0100CC3995 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 		6061E3F92A2BF9C6005D0844 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6061E3FA2A2BF9E3005D0844 /* View+Extension.swift */,
-				6061E3FE2A2C0495005D0844 /* String+Extension.swift */,
+				6061E3FA2A2BF9E3005D0844 /* View+WSR.swift */,
+				6061E3FE2A2C0495005D0844 /* String+WSR.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -627,9 +627,9 @@
 				60487E2B2A19C6E100AD6603 /* ConversationListView.swift in Sources */,
 				60A5E0AD2A0C6B3600C8A9B1 /* WSRApiError.swift in Sources */,
 				60A507B52A0D2E22004D9586 /* WSRFileLoaderError.swift in Sources */,
-				6061E3FF2A2C0495005D0844 /* String+Extension.swift in Sources */,
+				6061E3FF2A2C0495005D0844 /* String+WSR.swift in Sources */,
 				600923452A0A9EF300CE8562 /* LoginView.swift in Sources */,
-				6061E3FB2A2BF9E3005D0844 /* View+Extension.swift in Sources */,
+				6061E3FB2A2BF9E3005D0844 /* View+WSR.swift in Sources */,
 				60A507B92A0D4632004D9586 /* WSRFileLoader+Extension.swift in Sources */,
 				603EED392A0930C600EC9C2E /* ActivityGauge.swift in Sources */,
 				607C14302A0895EE00DE12F0 /* TestView.swift in Sources */,
