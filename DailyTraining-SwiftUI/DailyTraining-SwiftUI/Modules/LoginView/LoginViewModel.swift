@@ -24,10 +24,6 @@ final class LoginViewModel: ObservableObject {
             return
         }
         
-        let user = User()
-        user.username = username
-        $users.append(user)
-        
         isValidCredentials = true
     }
 }

@@ -5,8 +5,13 @@
 //  Created by William Rena on 5/21/23.
 //
 
-import Foundation
+import SwiftUI
 
 enum ColorNames: String {
     case listBackgroundColor = "ListBackgroundColor"
+    case accentColor = "AccentColor"
+    
+    func getColor() -> Color {
+        return Color(self.rawValue)
+    }
 }

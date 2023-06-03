@@ -8,10 +8,10 @@
 import Foundation
 
 enum WSRDebugInfoKey: String {
-    case realmDb = "[REALMDB]>>"
+    case realmDb = "[REALM-DB]>>"
     case messaging = "[MESSAGING]>>"
     case info = "[INFO]>>"
-    case fileloader = "[FILELOADER]>>"
+    case fileloader = "[FILE-LOADER]>>"
     case api = "[API]>>"
     case error = "[ERROR]>>"
     case cache = "[CACHE]>>"

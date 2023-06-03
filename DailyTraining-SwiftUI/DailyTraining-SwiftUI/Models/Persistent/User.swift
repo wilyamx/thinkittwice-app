@@ -10,9 +10,11 @@ import RealmSwift
 
 class User: Object, Identifiable {
     @Persisted(primaryKey: false) var id: ObjectId
-    @Persisted var username: String
+    @Persisted var email: String
+    @Persisted var firstName: String
+    @Persisted var lastName: String
     
     override class func primaryKey() -> String? {
-        "username"
+        "email"
     }
 }

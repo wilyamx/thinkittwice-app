@@ -11,7 +11,7 @@ struct ContentView: View {
     @StateObject private var viewModel = DailyTrainingViewModel()
     
     var body: some View {
-        LoginScreen()
+        LoginView()
             .environmentObject(LoginViewModel())
     }
 }

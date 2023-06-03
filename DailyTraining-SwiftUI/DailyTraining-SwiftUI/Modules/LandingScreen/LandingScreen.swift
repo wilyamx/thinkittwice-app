@@ -14,7 +14,7 @@ struct LandingScreen: View {
         let _ = Self._printChanges()
         
         if profileViewModel.isLoggedOut {
-            LoginScreen()
+            LoginView()
                 .environmentObject(LoginViewModel())
         }
         else {
@@ -47,7 +47,7 @@ struct LandingScreen: View {
                         Text("Profile")
                     }
             }
-            .accentColor(.green)
+            .accentColor(ColorNames.accentColor.getColor())
         }
     }
 }
