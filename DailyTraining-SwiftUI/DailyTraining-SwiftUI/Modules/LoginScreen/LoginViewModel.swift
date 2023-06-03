@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class LoginViewModel: ObservableObject {
     @Published var username: String = ""
@@ -15,11 +16,17 @@ final class LoginViewModel: ObservableObject {
     @Published var showingAlert: Bool = false
     @Published var isSecured: Bool = true
     
+    @ObservedResults(User.self) var users
+    
     func login() {
         guard !username.isEmpty, !password.isEmpty, password.count > 8 else {
             showingAlert = true
             return
         }
+        
+        let user = User()
+        user.username = username
+        $users.append(user)
         
         isValidCredentials = true
     }

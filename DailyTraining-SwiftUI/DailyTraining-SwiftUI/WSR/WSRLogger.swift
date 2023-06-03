@@ -22,6 +22,8 @@ struct WSRLogger {
     // empty means accept all type of logs
     private let filteredLogKeys: [WSRDebugInfoKey] = []
     
+    // MARK: - Deprecated
+    
     /**
         Deprecated
      */
@@ -44,6 +46,8 @@ struct WSRLogger {
         print("\(logKey.rawValue) [\(category)] :: \(message)")
     }
     
+    // MARK: - Private
+    
     private func messageFormat(category: WSRDebugInfoKey,
                                message: String,
                                _ file: String,
@@ -52,6 +56,9 @@ struct WSRLogger {
         let filename = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
         print("\(category.rawValue) [\(filename).\(function):\(line)] - \(message)")
     }
+    
+    // MARK: - Public
+    
     /**
         [INFO]>> [MessagingChatsView.body:27] - selected-item index: 3
      */
@@ -82,6 +89,13 @@ struct WSRLogger {
              _ function: String = #function,
              _ line: Int = #line) {
         self.messageFormat(category: WSRDebugInfoKey.error, message: message, file, function, line)
+    }
+    
+    // MARK: - Convenience
+    
+    func realmDB() {
+        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
+        print("\(WSRDebugInfoKey.realmDb.rawValue) \(directory)")
     }
 }
 
