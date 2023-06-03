@@ -22,6 +22,9 @@ struct WSRLogger {
     // empty means accept all type of logs
     private let filteredLogKeys: [WSRDebugInfoKey] = []
     
+    /**
+        Deprecated
+     */
     func log(logKey: WSRDebugInfoKey, any: AnyObject, message: String) {
         guard filteredLogKeys.isEmpty ||
                 (filteredLogKeys.count > 0 && filteredLogKeys.contains(logKey)) else {
@@ -30,6 +33,9 @@ struct WSRLogger {
         print("\(logKey.rawValue) [\(type(of: any))] :: \(message)")
     }
     
+    /**
+        Deprecated
+     */
     func log(logKey: WSRDebugInfoKey = .info, category: String, message: String) {
         guard filteredLogKeys.isEmpty ||
                 (filteredLogKeys.count > 0 && filteredLogKeys.contains(logKey)) else {
@@ -40,9 +46,10 @@ struct WSRLogger {
     
     private func messageFormat(category: WSRDebugInfoKey,
                                message: String,
-                               _ filename: String,
+                               _ file: String,
                                _ function: String,
                                _ line: Int) {
+        let filename = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
         print("\(category.rawValue) [\(filename).\(function):\(line)] - \(message)")
     }
     /**
@@ -53,32 +60,28 @@ struct WSRLogger {
              _ file: String = #file,
              _ function: String = #function,
              _ line: Int = #line) {
-        let filename = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
-        self.messageFormat(category: category, message: message, filename, function, line)
+        self.messageFormat(category: category, message: message, file, function, line)
     }
     
     func info(message: String,
              _ file: String = #file,
              _ function: String = #function,
              _ line: Int = #line) {
-        let filename = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
-        self.messageFormat(category: WSRDebugInfoKey.info, message: message, filename, function, line)
+        self.messageFormat(category: WSRDebugInfoKey.info, message: message, file, function, line)
     }
     
     func api(message: String,
              _ file: String = #file,
              _ function: String = #function,
              _ line: Int = #line) {
-        let filename = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
-        self.messageFormat(category: WSRDebugInfoKey.api, message: message, filename, function, line)
+        self.messageFormat(category: WSRDebugInfoKey.api, message: message, file, function, line)
     }
     
     func error(message: String,
              _ file: String = #file,
              _ function: String = #function,
              _ line: Int = #line) {
-        let filename = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
-        self.messageFormat(category: WSRDebugInfoKey.error, message: message, filename, function, line)
+        self.messageFormat(category: WSRDebugInfoKey.error, message: message, file, function, line)
     }
 }
 
