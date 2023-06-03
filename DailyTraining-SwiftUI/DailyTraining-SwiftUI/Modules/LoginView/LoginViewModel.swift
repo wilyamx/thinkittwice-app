@@ -19,7 +19,12 @@ final class LoginViewModel: ObservableObject {
     @ObservedResults(User.self) var users
     
     func login() {
-        guard !username.isEmpty, !password.isEmpty, password.count > 8 else {
+        guard !username.isEmpty, username.isValidEmail() else {
+            showingAlert = true
+            return
+        }
+        
+        guard !password.isEmpty, password.count > 8 else {
             showingAlert = true
             return
         }

@@ -16,25 +16,28 @@ final class RegistrationViewModel: ObservableObject {
     @Published var shouldSendNewsLetter = false
     @Published var yearsOfExperience = 0
     
-    @Published var validUserEntries = false
-    
     @ObservedResults(User.self) var users
     
-    func register() {
+    func register() -> Bool {
         guard !firstName.isEmpty else {
-            validUserEntries = false
-            return
+            return false
         }
         guard !lastName.isEmpty else {
-            validUserEntries = false
-            return
+            return false
         }
+        guard !email.isEmpty, email.isValidEmail() else {
+            return false
+        }
+        
+        logger.info(message: "Valid entries")
         
         let user = User()
         user.firstName = firstName
         user.lastName = lastName
         user.email = email
-        
+
         $users.append(user)
+        
+        return true
     }
 }

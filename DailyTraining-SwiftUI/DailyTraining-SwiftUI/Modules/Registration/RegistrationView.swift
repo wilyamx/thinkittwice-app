@@ -32,7 +32,9 @@ struct RegistrationView: View {
                 }
                
                 Button(action: {
-                    
+                    if viewModel.register() {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 },
                        label: {
                     Text("Save")

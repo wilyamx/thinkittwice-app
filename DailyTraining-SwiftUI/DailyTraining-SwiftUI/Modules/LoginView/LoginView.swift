@@ -43,15 +43,25 @@ struct LoginView: View {
                         .padding()
                         
                         VStack(alignment: .leading, spacing: 10) {
-                            TextField("Username", text: $viewModel.username)
-                                .font(.system(size: 17, weight: .thin))
-                                .foregroundColor(.primary)
-                                .frame(height: 44)
-                                .padding(.horizontal, 12)
-                                .background(Color.green.opacity(0.25))
-                                .cornerRadius(4.0)
-                                .focused($focusField, equals: .username)
-                                .disableAutocorrection(true)
+                            ZStack(alignment: .trailing) {
+                                TextField("Email", text: $viewModel.username)
+                                    .font(.system(size: 17, weight: .thin))
+                                    .foregroundColor(.primary)
+                                    .frame(height: 44)
+                                    .padding(.horizontal, 12)
+                                    .background(Color.green.opacity(0.25))
+                                    .cornerRadius(4.0)
+                                    .focused($focusField, equals: .username)
+                                    .disableAutocorrection(true)
+                                    .keyboardType(.emailAddress)
+                                
+                                Button {
+                                    viewModel.username = ""
+                                } label: {
+                                    Image(systemName: "xmark")
+                                }
+                                .padding(.trailing)
+                            }
                             
                             ZStack(alignment: .trailing) {
                                 if viewModel.isSecured {
