@@ -1,5 +1,5 @@
 //
-//  FileLoader.swift
+//  WSRFileLoader.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 5/11/23.
@@ -7,30 +7,30 @@
 
 import Foundation
 
-struct FileLoader {
+struct WSRFileLoader {
     /**
         Using Generics
      */
     func loadJSON<T: Decodable>(
         _ filename: String,
         _ type: T.Type,
-        completion: @escaping(Result<T, FileLoaderError>) -> Void) {
+        completion: @escaping(Result<T, WSRFileLoaderError>) -> Void) {
             
         guard let file = Bundle.main.url(forResource: filename,
                                          withExtension: nil)
         else {
-            completion(Result.failure(FileLoaderError.fileNotFound(filename)))
+            completion(Result.failure(WSRFileLoaderError.fileNotFound(filename)))
             return
         }
 
-        logger.log(logKey: .fileloader, category: "FileLoader", message: "filename: \(filename)")
+        logger.log(logKey: .fileloader, category: "WSRFileLoader", message: "filename: \(filename)")
             
         var data: Data = Data()
             
         do {
             data = try Data(contentsOf: file)
         } catch {
-            completion(Result.failure(FileLoaderError.fileCannotLoad(error)))
+            completion(Result.failure(WSRFileLoaderError.fileCannotLoad(error)))
         }
 
         do {
@@ -38,7 +38,7 @@ struct FileLoader {
             let responseModel = try decoder.decode(type, from: data)
             completion(Result.success(responseModel))
         } catch {
-            completion(Result.failure(FileLoaderError.parsing(error as? DecodingError)))
+            completion(Result.failure(WSRFileLoaderError.parsing(error as? DecodingError)))
         }
     }
 
@@ -66,10 +66,10 @@ struct FileLoader {
 
 }
 
-class LocalFileLoader: ObservableObject {
-    var fileLoader: FileLoader
+class WSRLocalFileLoader: ObservableObject {
+    var fileLoader: WSRFileLoader
     
-    init(fileLoader: FileLoader = FileLoader()) {
+    init(fileLoader: WSRFileLoader = WSRFileLoader()) {
        self.fileLoader = fileLoader
     }
 }

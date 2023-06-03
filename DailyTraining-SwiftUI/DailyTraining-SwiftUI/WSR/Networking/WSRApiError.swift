@@ -1,5 +1,5 @@
 //
-//  APIError.swift
+//  WSRApiError.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 5/11/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum APIError: Error, CustomStringConvertible {
+enum WSRApiError: Error, CustomStringConvertible {
     case badURL
     case badResponse(statusCode: Int)
     case url(URLError?)

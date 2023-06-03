@@ -10,9 +10,9 @@ import Foundation
 final class MessagingUsersViewModel: ObservableObject {
     @Published var list: [ChatUser] = [ChatUser]()
     
-    private let fileLoader: FileLoader
+    private let fileLoader: WSRFileLoader
     
-    init(fileLoader: FileLoader = FileLoader()) {
+    init(fileLoader: WSRFileLoader = WSRFileLoader()) {
         self.fileLoader = fileLoader
     }
     

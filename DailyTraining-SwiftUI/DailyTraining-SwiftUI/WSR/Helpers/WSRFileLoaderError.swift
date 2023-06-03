@@ -1,5 +1,5 @@
 //
-//  FileLoaderError.swift
+//  WSRFileLoaderError.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 5/11/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FileLoaderError: Error, CustomStringConvertible {
+enum WSRFileLoaderError: Error, CustomStringConvertible {
     case fileNotFound(String)
     case fileCannotLoad(Error)
     case parsing(DecodingError?)

@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class BreedFetcher: Fetcher {
+final class BreedFetcher: WSRFetcher {
     @Published var breeds = [Breed]()
    
-    override init(service: APIServiceProtocol = APIService()) {
+    override init(service: WSRApiServiceProtocol = WSRApiService()) {
         super.init(service: service)
         fetchAllBreeds()
     }
@@ -42,7 +42,7 @@ final class BreedFetcher: Fetcher {
        
     static func errorState() -> BreedFetcher {
        let fetcher = BreedFetcher()
-       fetcher.errorMessage = APIError.url(URLError.init(.notConnectedToInternet)).localizedDescription
+       fetcher.errorMessage = WSRApiError.url(URLError.init(.notConnectedToInternet)).localizedDescription
        return fetcher
     }
 

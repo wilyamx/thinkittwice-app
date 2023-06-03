@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class NotificationsViewModel: LocalFileLoader {
+final class NotificationsViewModel: WSRLocalFileLoader {
     @Published var list: [Notification] = [Notification]()
     
-    override init(fileLoader: FileLoader = FileLoader()) {
+    override init(fileLoader: WSRFileLoader = WSRFileLoader()) {
         super.init(fileLoader: fileLoader)
     }
     

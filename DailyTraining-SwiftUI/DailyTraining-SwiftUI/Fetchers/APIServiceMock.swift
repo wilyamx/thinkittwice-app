@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct APIServiceMock: APIServiceProtocol {
-    var result: Result<[Breed], APIError>
+struct APIServiceMock: WSRApiServiceProtocol {
+    var result: Result<[Breed], WSRApiError>
 
     func getCatBreeds(
         urlString: String,
-        completion: @escaping(Result<[Breed], APIError>) -> Void) {
+        completion: @escaping(Result<[Breed], WSRApiError>) -> Void) {
             completion(result)
         }
 }

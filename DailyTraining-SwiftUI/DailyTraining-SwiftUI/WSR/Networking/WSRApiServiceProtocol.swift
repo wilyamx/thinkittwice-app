@@ -1,5 +1,5 @@
 //
-//  APIServiceProtocol.swift
+//  WSRApiServiceProtocol.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 5/16/23.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol APIServiceProtocol {
+protocol WSRApiServiceProtocol {
     func getCatBreeds(
         urlString: String,
-        completion: @escaping(Result<[Breed], APIError>) -> Void)
+        completion: @escaping(Result<[Breed], WSRApiError>) -> Void)
 }

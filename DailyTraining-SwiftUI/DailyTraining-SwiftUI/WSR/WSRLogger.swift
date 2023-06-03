@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DebugInfoKey: String {
+enum WSRDebugInfoKey: String {
     case realmDb = "[REALMDB]>>"
     case messaging = "[MESSAGING]>>"
     case info = "[INFO]>>"
@@ -17,12 +17,12 @@ enum DebugInfoKey: String {
     case cache = "[CACHE]>>"
 }
 
-struct Logger {
+struct WSRLogger {
     // this will filter what to log only
     // empty means accept all type of logs
-    let filteredLogKeys: [DebugInfoKey] = []
+    let filteredLogKeys: [WSRDebugInfoKey] = []
     
-    func log(logKey: DebugInfoKey, any: AnyObject, message: String) {
+    func log(logKey: WSRDebugInfoKey, any: AnyObject, message: String) {
         guard filteredLogKeys.isEmpty ||
                 (filteredLogKeys.count > 0 && filteredLogKeys.contains(logKey)) else {
             return
@@ -30,7 +30,7 @@ struct Logger {
         print("\(logKey.rawValue) [\(type(of: any))] :: \(message)")
     }
     
-    func log(logKey: DebugInfoKey = .info, category: String, message: String) {
+    func log(logKey: WSRDebugInfoKey = .info, category: String, message: String) {
         guard filteredLogKeys.isEmpty ||
                 (filteredLogKeys.count > 0 && filteredLogKeys.contains(logKey)) else {
             return
@@ -39,4 +39,4 @@ struct Logger {
     }
 }
 
-let logger = Logger()
+let logger = WSRLogger()

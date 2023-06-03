@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-final class MessagingChatsViewModel: LocalFileLoader {
+final class MessagingChatsViewModel: WSRLocalFileLoader {
     @Published var list: [Chat] = [Chat]()
     @Published var selectedIndex:Int = 0
     
-    override init(fileLoader: FileLoader = FileLoader()) {
+    override init(fileLoader: WSRFileLoader = WSRFileLoader()) {
         super.init(fileLoader: fileLoader)
     }
     
