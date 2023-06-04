@@ -16,7 +16,11 @@ final class LoginViewModel: ObservableObject {
     @Published var showingAlert: Bool = false
     @Published var isSecured: Bool = true
     
-    @ObservedResults(User.self) var users
+    @ObservedResults(User.self, where: { $0.email == "juan@test.com" }) var registeredUser
+    
+    lazy var userEmail: String = {
+        return username
+    }()
     
     func login() {
         guard !username.isEmpty, username.isValidEmail() else {
@@ -31,4 +35,5 @@ final class LoginViewModel: ObservableObject {
         
         isValidCredentials = true
     }
+
 }
