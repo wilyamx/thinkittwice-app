@@ -231,12 +231,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		6061E3F32A2BE2CE005D0844 /* Persistent */ = {
+		6061E3F32A2BE2CE005D0844 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
 				6061E3F42A2BE336005D0844 /* User.swift */,
 			);
-			path = Persistent;
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		6061E3F62A2BEEC7005D0844 /* Registration */ = {
@@ -446,7 +446,7 @@
 		60FCD5522A02A412003D8FAE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6061E3F32A2BE2CE005D0844 /* Persistent */,
+				6061E3F32A2BE2CE005D0844 /* Realm */,
 				60A5E0B32A0C704F00C8A9B1 /* Breed.swift */,
 				6026A6542A117EA000CC00E1 /* BreedImage.swift */,
 			);

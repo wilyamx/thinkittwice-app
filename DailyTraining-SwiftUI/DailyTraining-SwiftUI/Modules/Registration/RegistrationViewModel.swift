@@ -15,6 +15,7 @@ final class RegistrationViewModel: ObservableObject {
     @Published var birthdate = Date()
     @Published var shouldSendNewsLetter = false
     @Published var yearsOfExperience = 0
+    @Published var password = ""
     
     @ObservedResults(User.self) var users
     
@@ -29,13 +30,12 @@ final class RegistrationViewModel: ObservableObject {
             return false
         }
         
-        logger.info(message: "Valid entries")
-        
         let user = User()
         user.firstName = firstName
         user.lastName = lastName
-        user.email = email
-
+        user.email = email.lowercased()
+        user.password = password
+        
         $users.append(user)
         
         return true

@@ -53,6 +53,7 @@ struct LoginView: View {
                                     .cornerRadius(4.0)
                                     .focused($focusField, equals: .username)
                                     .disableAutocorrection(true)
+                                    .autocapitalization(.none)
                                     .keyboardType(.emailAddress)
                                 
                                 Button {
@@ -74,6 +75,7 @@ struct LoginView: View {
                                         .cornerRadius(4.0)
                                         .focused($focusField, equals: .password)
                                         .disableAutocorrection(true)
+                                        .autocapitalization(.none)
                                         .onSubmit {
                                             viewModel.login()
                                         }
@@ -88,6 +90,10 @@ struct LoginView: View {
                                         .cornerRadius(4.0)
                                         .focused($focusField, equals: .password)
                                         .disableAutocorrection(true)
+                                        .autocapitalization(.none)
+                                        .onSubmit {
+                                            viewModel.login()
+                                        }
                                 }
                                 
                                 Button {

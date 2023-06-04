@@ -14,6 +14,7 @@ class User: Object, Identifiable {
     @Persisted var email: String
     @Persisted var lastName: String
     @Persisted var firstName: String
+    @Persisted var password: String
     
     @Persisted var likes: Int = 0
     

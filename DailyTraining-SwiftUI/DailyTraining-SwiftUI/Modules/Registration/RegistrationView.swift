@@ -19,6 +19,7 @@ struct RegistrationView: View {
                         TextField("First Name", text: $viewModel.firstName)
                         TextField("Last Name", text: $viewModel.lastName)
                         TextField("Email", text: $viewModel.email)
+                        SecureField("Password", text: $viewModel.password)
                         DatePicker("Birthdate", selection: $viewModel.birthdate, displayedComponents: .date)
                     }
                     
