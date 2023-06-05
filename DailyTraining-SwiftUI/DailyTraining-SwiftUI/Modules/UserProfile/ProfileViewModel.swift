@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-final class ProfileViewModel: ObservableObject {
+final class ProfileViewModel: WSRFetcher {
     @Published var isLoggedOut: Bool = false
     @Published var logoutButtonAction: String = "Logout"
     
@@ -17,6 +17,10 @@ final class ProfileViewModel: ObservableObject {
     // realm
     @Environment(\.realm) var realm
     @ObservedResults(User.self) var registeredUsers
+    
+    override init(service: WSRApiServiceProtocol = WSRApiService()) {
+        super.init(service: service)
+    }
     
     func getUserDetails() async {
         var cats: [Breed] = []
