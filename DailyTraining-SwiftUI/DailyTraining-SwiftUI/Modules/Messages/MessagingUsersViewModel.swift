@@ -26,7 +26,7 @@ final class MessagingUsersViewModel: ObservableObject {
                     case .failure(let error):
                         logger.error(message: "errorMessage: \(error.description)")
                     case .success(let list):
-                        logger.api(message: "total list: \(list.count)")
+                        logger.log(category: .fileloader, message: "total list: \(list.count)")
                         self?.list = list
                     }
                 }
