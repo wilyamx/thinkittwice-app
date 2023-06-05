@@ -50,6 +50,7 @@ A mobile application for bringing **digital training solution** in the luxury re
 - **IDE:** `XCode 14.3 for iOS 16.4`
 - **Language:** `Swift 5`
 - **Interface:** `SwiftUI`
+- [Architecture Diagram](https://drive.google.com/file/d/17IRKrt5H3WeYHVrtgEdXN8UVBIiFtWvO/view?usp=sharing)
 
 <p float="left">
 	<img src="images/login.png" alt="Login" height="400">
