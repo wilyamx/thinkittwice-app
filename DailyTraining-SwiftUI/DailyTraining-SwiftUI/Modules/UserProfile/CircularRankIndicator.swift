@@ -12,7 +12,7 @@ struct CircularRankIndicator: View {
         ZStack {
             Circle()
                 .frame(width: 150)
-                .foregroundColor(Color(ColorNames.listBackgroundColor.rawValue))
+                .foregroundColor(ColorNames.listBackgroundColor.colorValue)
             
             VStack(spacing: 5) {
                 Text("Rank")

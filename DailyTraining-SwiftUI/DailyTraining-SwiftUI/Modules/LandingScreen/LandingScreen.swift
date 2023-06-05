@@ -47,7 +47,7 @@ struct LandingScreen: View {
                         Text("Profile")
                     }
             }
-            .accentColor(ColorNames.accentColor.getColor())
+            .accentColor(ColorNames.accentColor.colorValue)
         }
     }
 }

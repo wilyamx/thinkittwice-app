@@ -57,6 +57,9 @@
 		60A5E0B42A0C704F00C8A9B1 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E0B32A0C704F00C8A9B1 /* Breed.swift */; };
 		60A5E0B92A0C7F8D00C8A9B1 /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E0B82A0C7F8D00C8A9B1 /* FeedsViewModel.swift */; };
 		60A5E0BB2A0C97F200C8A9B1 /* WSRFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E0BA2A0C97F200C8A9B1 /* WSRFileLoader.swift */; };
+		60AE673E2A2DBB8D00A172FF /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE673D2A2DBB8D00A172FF /* GitHubUser.swift */; };
+		60AE67412A2DCCFA00A172FF /* GitHubApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67402A2DCCFA00A172FF /* GitHubApis.swift */; };
+		60AE67432A2DCDEC00A172FF /* CatsApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67422A2DCDEC00A172FF /* CatsApis.swift */; };
 		60ECA7692A13023700EA663E /* BreedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ECA7682A13023700EA663E /* BreedTests.swift */; };
 		60ECA76C2A13038100EA663E /* WSRApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ECA76B2A13038100EA663E /* WSRApiServiceProtocol.swift */; };
 		60ECA76E2A13040100EA663E /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ECA76D2A13040100EA663E /* APIServiceMock.swift */; };
@@ -142,6 +145,9 @@
 		60A5E0B32A0C704F00C8A9B1 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		60A5E0B82A0C7F8D00C8A9B1 /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 		60A5E0BA2A0C97F200C8A9B1 /* WSRFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRFileLoader.swift; sourceTree = "<group>"; };
+		60AE673D2A2DBB8D00A172FF /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
+		60AE67402A2DCCFA00A172FF /* GitHubApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApis.swift; sourceTree = "<group>"; };
+		60AE67422A2DCDEC00A172FF /* CatsApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsApis.swift; sourceTree = "<group>"; };
 		60ECA7682A13023700EA663E /* BreedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTests.swift; sourceTree = "<group>"; };
 		60ECA76B2A13038100EA663E /* WSRApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRApiServiceProtocol.swift; sourceTree = "<group>"; };
 		60ECA76D2A13040100EA663E /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
@@ -291,6 +297,7 @@
 				6061E3EC2A2AB111005D0844 /* WSR */,
 				6061E3ED2A2AB43C005D0844 /* Helpers */,
 				60FCD5642A032330003D8FAE /* Resources */,
+				60AE673F2A2DCCB000A172FF /* API */,
 				60ECA76A2A1302C000EA663E /* Fetchers */,
 				60A5E0B62A0C71A700C8A9B1 /* Modules */,
 				60FCD5522A02A412003D8FAE /* Models */,
@@ -433,6 +440,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		60AE673F2A2DCCB000A172FF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				60AE67402A2DCCFA00A172FF /* GitHubApis.swift */,
+				60AE67422A2DCDEC00A172FF /* CatsApis.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		60ECA76A2A1302C000EA663E /* Fetchers */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +465,7 @@
 				6061E3F32A2BE2CE005D0844 /* Realm */,
 				60A5E0B32A0C704F00C8A9B1 /* Breed.swift */,
 				6026A6542A117EA000CC00E1 /* BreedImage.swift */,
+				60AE673D2A2DBB8D00A172FF /* GitHubUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -618,6 +635,7 @@
 				6061E3F52A2BE336005D0844 /* User.swift in Sources */,
 				60FA07882A0330E4008405BE /* ChatRow.swift in Sources */,
 				60A507B72A0D45DC004D9586 /* WSRApiService+Extension.swift in Sources */,
+				60AE67432A2DCDEC00A172FF /* CatsApis.swift in Sources */,
 				60A5E0B92A0C7F8D00C8A9B1 /* FeedsViewModel.swift in Sources */,
 				60A5E0BB2A0C97F200C8A9B1 /* WSRFileLoader.swift in Sources */,
 				60A5E0AF2A0C6C0900C8A9B1 /* WSRApiService.swift in Sources */,
@@ -630,6 +648,7 @@
 				60487E2D2A19F4D500AD6603 /* Colors.swift in Sources */,
 				6090BEF82A0486CF0043B1AE /* NotificationsViewModel.swift in Sources */,
 				6090BEF42A03F62A0043B1AE /* MessagingUsersViewModel.swift in Sources */,
+				60AE67412A2DCCFA00A172FF /* GitHubApis.swift in Sources */,
 				60FCD55D2A02B11A003D8FAE /* MessagingChatsView.swift in Sources */,
 				606F08D62A01DB0100CC3995 /* DailyTraining_SwiftUIApp.swift in Sources */,
 				60FCD5552A02A46F003D8FAE /* FeedsView.swift in Sources */,
@@ -646,6 +665,7 @@
 				607C14302A0895EE00DE12F0 /* TestView.swift in Sources */,
 				600923472A0B321600CE8562 /* TabViewModel.swift in Sources */,
 				600923422A0A954E00CE8562 /* LandingScreen.swift in Sources */,
+				60AE673E2A2DBB8D00A172FF /* GitHubUser.swift in Sources */,
 				603EED332A092D8400EC9C2E /* ProfileViewModel.swift in Sources */,
 				60FCD55B2A02A4BE003D8FAE /* ProfileView.swift in Sources */,
 				603EED3D2A0933F400EC9C2E /* ProfileAvatar.swift in Sources */,

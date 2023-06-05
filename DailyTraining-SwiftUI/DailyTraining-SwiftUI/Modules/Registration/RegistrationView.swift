@@ -54,7 +54,7 @@ struct RegistrationView: View {
                 
                 Spacer()
             }
-            .accentColor(ColorNames.accentColor.getColor())
+            .accentColor(ColorNames.accentColor.colorValue)
             .navigationTitle("Registration")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

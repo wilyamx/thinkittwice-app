@@ -16,7 +16,7 @@ struct RankingRateCircularBar: View {
             
             Circle()
                 .stroke(
-                    Color(ColorNames.listBackgroundColor.rawValue),
+                    ColorNames.listBackgroundColor.colorValue,
                     lineWidth: 10
                 )
                 .frame(width: 140)

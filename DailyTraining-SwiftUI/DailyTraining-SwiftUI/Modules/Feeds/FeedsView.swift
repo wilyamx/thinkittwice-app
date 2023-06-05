@@ -22,7 +22,7 @@ struct FeedsView: View {
                         HStack {
                             ZStack {
                                 Circle()
-                                    .foregroundColor(Color(ColorNames.listBackgroundColor.rawValue))
+                                    .foregroundColor(ColorNames.listBackgroundColor.colorValue)
                                 Image(systemName: "bolt")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -136,7 +136,7 @@ struct FeedsView: View {
                 )
             }
             .listStyle(.plain)
-            .background(Color(ColorNames.listBackgroundColor.rawValue))
+            .background(ColorNames.listBackgroundColor.colorValue)
             .padding(5)
             .navigationTitle("Daily Training")
             .navigationBarTitleDisplayMode(.inline)

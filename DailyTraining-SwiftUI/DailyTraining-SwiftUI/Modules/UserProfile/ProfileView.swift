@@ -15,21 +15,22 @@ struct ProfileView: View {
         
         NavigationView {
             ZStack {
-                Color("ListBackgroundColor")
+                ColorNames.listBackgroundColor.colorValue
                 
                 VStack(spacing: 20) {
                     VStack(spacing: 0) {
-                        ProfileAvatar()
+                        ProfileAvatar(user: viewModel.userDetails ?? GitHubUser.placeholder())
                             .padding()
 
                         VStack {
-                            Text("William Saberon Rena")
+                            Text(viewModel.userDetails?.name ?? GitHubUser.placeholder().name)
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .minimumScaleFactor(0.6)
-                            Text("Mobile Developer")
+                            Text(viewModel.userDetails?.bio ?? GitHubUser.placeholder().bio)
                                 .foregroundColor(.secondary)
                                 .font(.subheadline)
+                                .multilineTextAlignment(.center)
                                 .minimumScaleFactor(0.6)
                         }
 
@@ -100,6 +101,16 @@ struct ProfileView: View {
                         Image(systemName: "gearshape")
                     })
                 }
+            }
+            .onAppear {
+                logger.info(message: "onAppear!")
+            }
+            .task {
+                logger.info(message: "task!")
+                
+                await viewModel.getUserDetails()
+                
+                logger.info(message: "user details complete!")
             }
         }
         

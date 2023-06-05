@@ -26,7 +26,7 @@ struct LoginView: View {
         }
         else {
             ZStack {
-                Color.green
+                ColorNames.accentColor.colorValue
                     .ignoresSafeArea()
                 
                 VStack {
@@ -49,7 +49,7 @@ struct LoginView: View {
                                     .foregroundColor(.primary)
                                     .frame(height: 44)
                                     .padding(.horizontal, 12)
-                                    .background(Color.green.opacity(0.25))
+                                    .background(ColorNames.accentColor.colorValue.opacity(0.25))
                                     .cornerRadius(4.0)
                                     .focused($focusField, equals: .username)
                                     .disableAutocorrection(true)
@@ -71,7 +71,7 @@ struct LoginView: View {
                                         .foregroundColor(.primary)
                                         .frame(height: 44)
                                         .padding(.horizontal, 12)
-                                        .background(Color.green.opacity(0.25))
+                                        .background(ColorNames.accentColor.colorValue.opacity(0.25))
                                         .cornerRadius(4.0)
                                         .focused($focusField, equals: .password)
                                         .disableAutocorrection(true)
@@ -86,7 +86,7 @@ struct LoginView: View {
                                         .foregroundColor(.primary)
                                         .frame(height: 44)
                                         .padding(.horizontal, 12)
-                                        .background(Color.green.opacity(0.25))
+                                        .background(ColorNames.accentColor.colorValue.opacity(0.25))
                                         .cornerRadius(4.0)
                                         .focused($focusField, equals: .password)
                                         .disableAutocorrection(true)

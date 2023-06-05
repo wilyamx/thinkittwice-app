@@ -11,7 +11,7 @@ enum ColorNames: String {
     case listBackgroundColor = "ListBackgroundColor"
     case accentColor = "AccentColor"
     
-    func getColor() -> Color {
+    var colorValue: Color {
         return Color(self.rawValue)
     }
 }

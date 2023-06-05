@@ -41,7 +41,7 @@ struct ConversationListView: View {
                             .foregroundColor(.clear)
                     )
                 }
-                .background(Color(ColorNames.listBackgroundColor.rawValue))
+                .background(ColorNames.listBackgroundColor.colorValue)
                 .listStyle(.plain)
                 .navigationTitle("\(title)")
                 .navigationBarTitleDisplayMode(.inline)

@@ -45,7 +45,7 @@ struct MessagingChatsView: View {
             }
             .listStyle(.plain)
             .padding(.all, 5)
-            .background(Color(ColorNames.listBackgroundColor.rawValue))
+            .background(ColorNames.listBackgroundColor.colorValue)
             .onAppear {
                 logger.info(message: "onAppear")
                 viewModel.getChats()

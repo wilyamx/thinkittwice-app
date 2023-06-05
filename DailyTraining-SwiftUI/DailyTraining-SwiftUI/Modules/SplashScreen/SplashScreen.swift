@@ -19,7 +19,7 @@ struct SplashScreen: View {
         }
         else {
             ZStack {
-                Color.green
+                ColorNames.accentColor.colorValue
                     .ignoresSafeArea()
                 VStack {
                     Image(systemName: "eyes")

@@ -37,7 +37,7 @@ struct ConversationsView: View {
                 
                 TextField("Send a message...", text: $message)
                     .padding()
-                    .background(Color("ListBackgroundColor"))
+                    .background(ColorNames.listBackgroundColor.colorValue)
                     .multilineTextAlignment(.leading)
                     .cornerRadius(16)
                     .focused($isMessageFocused)
