@@ -16,13 +16,16 @@ final class LoginViewModel: ObservableObject {
     @Published var showingAlert: Bool = false
     @Published var isSecured: Bool = true
     
-    @ObservedResults(User.self, where: { $0.email == "juan@test.com" }) var registeredUsers
+    @ObservedResults(User.self) var registeredUsers
     
     lazy var userEmail: String = {
         return username
     }()
     
     func login() {
+        
+        // entry validation
+        
         guard !username.isEmpty, username.isValidEmail() else {
             showingAlert = true
             return
@@ -33,12 +36,21 @@ final class LoginViewModel: ObservableObject {
             return
         }
         
-        guard registeredUsers.count == 1 else {
+        guard registeredUsers.count > 0 else {
             showingAlert = true
             return
         }
         
-        guard let user = registeredUsers.first,
+        // user validation
+        
+        let userList = registeredUsers.where({ $0.email == username })
+        
+        guard userList.count ==  1 else {
+            showingAlert = true
+            return
+        }
+                
+        guard let user = userList.first,
             user.email == username.lowercased(),
             user.password == password else {
             showingAlert = true

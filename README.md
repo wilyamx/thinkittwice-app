@@ -53,6 +53,7 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 <p float="left">
 	<img src="images/login.png" alt="Login" height="400">
+	<img src="images/registration.png" alt="Registration" height="400">
 	<img src="images/splashscreen.png" alt="Splashscreen" height="400">
 </p>
 

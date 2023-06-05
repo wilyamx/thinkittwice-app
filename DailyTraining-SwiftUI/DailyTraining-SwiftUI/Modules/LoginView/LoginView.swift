@@ -119,7 +119,6 @@ struct LoginView: View {
                             .padding(.vertical)
                             .alert(isPresented: $viewModel.showingAlert) {
                                 Alert(title: Text("Invalid credentials"),
-                                      message: Text("Required number of characters"),
                                       dismissButton: .default(Text("Got it!")) {
                                     viewModel.password = ""
                                     focusField = .password
