@@ -15,6 +15,10 @@ final class ProfileViewModel: ObservableObject {
     @Environment(\.realm) var realm
     @ObservedResults(User.self) var registeredUsers
     
+    func getUserDetails() {
+        
+    }
+    
     func logout() {
         self.logoutButtonAction = "Logging out..."
         
