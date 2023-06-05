@@ -13,8 +13,6 @@ struct MessagingUsersView: View {
     let rowSpacing: CGFloat = 5.0
     
     var body: some View {
-        let _ = Self._printChanges()
-        
         VStack {
             Text("People Listings")
             

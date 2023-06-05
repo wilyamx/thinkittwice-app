@@ -17,6 +17,9 @@ final class MessagingChatsViewModel: WSRLocalFileLoader {
     }
     
     func getChats() {
+        let filename = "MessagingChatsData.json"
+        logger.log(category: .fileloader, message: "filename: \(filename)")
+        
         self.fileLoader.loadJSON(
             "MessagingChatsData.json",
             [Chat].self,

@@ -23,8 +23,6 @@ struct WSRFileLoader {
             return
         }
 
-        logger.log(category: .fileloader, message: "filename: \(filename)")
-        
         var data: Data = Data()
             
         do {

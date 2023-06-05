@@ -16,8 +16,6 @@ struct MessagingChatsView: View {
     let rowSpacing: CGFloat = 5.0
     
     var body: some View {
-        let _ = Self._printChanges()
-        
         NavigationStack {
             List {
                 ForEach(0..<viewModel.list.count, id: \.self) { index in

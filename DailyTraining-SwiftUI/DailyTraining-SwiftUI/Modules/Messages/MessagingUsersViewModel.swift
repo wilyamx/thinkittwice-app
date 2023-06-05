@@ -17,6 +17,9 @@ final class MessagingUsersViewModel: ObservableObject {
     }
     
     func getUsers() {
+        let filename = "MessagingUsersData.json"
+        logger.log(category: .fileloader, message: "filename: \(filename)")
+        
         self.fileLoader.loadJSON(
             "MessagingUsersData.json",
             [ChatUser].self,

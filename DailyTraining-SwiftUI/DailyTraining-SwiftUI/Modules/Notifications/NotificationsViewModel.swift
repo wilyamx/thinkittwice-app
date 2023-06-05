@@ -15,8 +15,11 @@ final class NotificationsViewModel: WSRLocalFileLoader {
     }
     
     func getList() {
+        let filename = "NotificationsData.json"
+        logger.log(category: .fileloader, message: "filename: \(filename)")
+        
         self.fileLoader.loadJSON(
-            "NotificationsData.json",
+            filename,
             [Notification].self,
             completion: { [weak self] result in
                 DispatchQueue.main.async {

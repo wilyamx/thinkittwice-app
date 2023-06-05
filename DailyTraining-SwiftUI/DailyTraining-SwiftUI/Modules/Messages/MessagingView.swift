@@ -21,8 +21,6 @@ struct MessagingView: View {
     }
     
     var body: some View {
-        let _ = Self._printChanges()
-        
         NavigationView {
             VStack {
                 Picker("Choose a channel", selection: $pickerSelectedIndex) {
