@@ -19,7 +19,11 @@ struct RegistrationView: View {
                         TextField("First Name", text: $viewModel.firstName)
                         TextField("Last Name", text: $viewModel.lastName)
                         TextField("Email", text: $viewModel.email)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                         SecureField("Password", text: $viewModel.password)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                         DatePicker("Birthdate", selection: $viewModel.birthdate, displayedComponents: .date)
                     }
                     

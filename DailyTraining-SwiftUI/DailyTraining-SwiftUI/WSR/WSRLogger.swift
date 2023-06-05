@@ -70,6 +70,13 @@ struct WSRLogger {
         self.messageFormat(category: category, message: message, file, function, line)
     }
     
+    func realm(message: String,
+             _ file: String = #file,
+             _ function: String = #function,
+             _ line: Int = #line) {
+        self.messageFormat(category: WSRDebugInfoKey.realmDb, message: message, file, function, line)
+    }
+    
     func info(message: String,
              _ file: String = #file,
              _ function: String = #function,

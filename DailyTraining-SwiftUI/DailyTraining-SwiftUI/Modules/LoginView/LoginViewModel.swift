@@ -16,11 +16,9 @@ final class LoginViewModel: ObservableObject {
     @Published var showingAlert: Bool = false
     @Published var isSecured: Bool = true
     
-    @ObservedResults(User.self) var registeredUsers
+    @Published var isReturneeUser: Bool = false
     
-    lazy var userEmail: String = {
-        return username
-    }()
+    @ObservedResults(User.self) var registeredUsers
     
     func login() {
         
@@ -60,4 +58,7 @@ final class LoginViewModel: ObservableObject {
         isValidCredentials = true
     }
 
+    func checkForReturneeUser() {
+        isReturneeUser = registeredUsers.count > 0
+    }
 }

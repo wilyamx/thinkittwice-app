@@ -10,9 +10,21 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var viewModel = DailyTrainingViewModel()
     
+    @ObservedObject private var loginViewModel = LoginViewModel()
+    
     var body: some View {
-        LoginView()
-            .environmentObject(LoginViewModel())
+        ZStack {
+            if loginViewModel.isReturneeUser {
+                SplashScreen()
+            }
+            else {
+                LoginView()
+                    .environmentObject(LoginViewModel())
+            }
+        }
+        .onAppear {
+            loginViewModel.checkForReturneeUser()
+        }
     }
 }
 
