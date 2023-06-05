@@ -38,6 +38,8 @@ struct SplashScreen: View {
                         .tracking(10)
                     
                     ProgressView()
+                        .scaleEffect(2)
+                        .padding()
                 }
             }
             .onAppear {

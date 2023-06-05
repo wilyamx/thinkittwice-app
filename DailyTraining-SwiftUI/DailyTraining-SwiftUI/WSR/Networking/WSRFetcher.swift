@@ -16,5 +16,26 @@ class WSRFetcher: ObservableObject {
     init(service: WSRApiServiceProtocol = WSRApiService()) {
        self.service = service
     }
+    
+    func requestStarted() {
+        DispatchQueue.main.async {
+            self.errorMessage = nil
+            self.isLoading = true
+        }
+    }
+    
+    func requestFailed(reason: String) {
+        DispatchQueue.main.async {
+            self.errorMessage = reason
+            self.isLoading = false
+        }
+    }
+    
+    func requestSuccess() {
+        DispatchQueue.main.async {
+            self.errorMessage = nil
+            self.isLoading = false
+        }
+    }
 }
 

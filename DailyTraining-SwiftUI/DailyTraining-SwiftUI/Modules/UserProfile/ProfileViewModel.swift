@@ -27,6 +27,7 @@ final class ProfileViewModel: WSRFetcher {
         var user: GitHubUser?
         
         logger.api(message: "Asynchronous requests...")
+        self.requestStarted()
         
         do {
             cats = try await WSRApiService().getCatBreeds(urlString: "https://api.thecatapi.com/v1/breeds")
@@ -36,8 +37,13 @@ final class ProfileViewModel: WSRFetcher {
             logger.api(message: "user: \(user)")
             
             userDetails = user
+            
+            self.requestSuccess()
+            
         } catch(let error) {
             logger.error(message: "Error! \(error.localizedDescription)")
+            
+            self.requestSuccess()
         }
     
     }
