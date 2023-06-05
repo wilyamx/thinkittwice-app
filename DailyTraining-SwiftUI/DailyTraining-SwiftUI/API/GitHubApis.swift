@@ -14,10 +14,11 @@ extension WSRApiService {
             throw WSRApiError.badURL
         }
         
-        logger.api(message: urlString)
-        
         let session = URLSession(configuration: WSRApiService.getURLSessionConfiguration())
-        let (data, response) = try await session.data(from: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let (data, response) = try await session.data(for: request)
         
         guard let httpResponse = response as? HTTPURLResponse else {
             throw WSRApiError.serverError
@@ -26,6 +27,10 @@ extension WSRApiService {
         guard httpResponse.statusCode == 200 else {
             throw WSRApiError.badResponse(statusCode: httpResponse.statusCode)
         }
+        
+        // logs
+        logger.request(request: request)
+        logger.response(request: request, httpResponse: httpResponse, data: data)
         
         do {
             let decoder = JSONDecoder()

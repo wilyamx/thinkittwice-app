@@ -25,8 +25,6 @@ struct NotificationsView: View {
             We don't need to show progress view because data was loaded locally
      */
     var body: some View {
-        let _ = Self._printChanges()
-        
         NavigationStack {
             VStack() {
                 List {

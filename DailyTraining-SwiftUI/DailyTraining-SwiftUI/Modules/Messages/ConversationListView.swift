@@ -15,8 +15,6 @@ struct ConversationListView: View {
     var title: String
         
     var body: some View {
-        let _ = Self._printChanges()
-        
         NavigationStack {
             ScrollViewReader { proxy in
                 List {

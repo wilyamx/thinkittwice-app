@@ -13,8 +13,6 @@ struct FeedsView: View {
     let rowSpacing: CGFloat = 10.0
     
     var body: some View {
-        let _ = Self._printChanges()
-        
         NavigationStack {
             List {
                 Group {
