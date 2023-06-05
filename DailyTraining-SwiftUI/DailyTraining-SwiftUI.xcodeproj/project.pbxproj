@@ -443,8 +443,8 @@
 		60AE673F2A2DCCB000A172FF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				60AE67402A2DCCFA00A172FF /* GitHubApis.swift */,
 				60AE67422A2DCDEC00A172FF /* CatsApis.swift */,
+				60AE67402A2DCCFA00A172FF /* GitHubApis.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";

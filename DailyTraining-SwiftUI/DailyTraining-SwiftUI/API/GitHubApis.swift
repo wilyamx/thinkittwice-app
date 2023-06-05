@@ -16,7 +16,8 @@ extension WSRApiService {
         
         logger.api(message: urlString)
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let session = URLSession(configuration: WSRApiService.getURLSessionConfiguration())
+        let (data, response) = try await session.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse else {
             throw WSRApiError.serverError

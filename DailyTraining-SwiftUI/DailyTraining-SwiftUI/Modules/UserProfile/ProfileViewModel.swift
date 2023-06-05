@@ -22,19 +22,20 @@ final class ProfileViewModel: ObservableObject {
         var cats: [Breed] = []
         var user: GitHubUser?
         
-        logger.api(message: "Multiple asynchronous requests...")
+        logger.api(message: "Asynchronous requests...")
         
         do {
             cats = try await WSRApiService().getCatBreeds(urlString: "https://api.thecatapi.com/v1/breeds")
             user = try await WSRApiService().getUserDetails(urlString: "https://api.github.com/users/wilyamx")
+            
+            logger.api(message: "cats: \(cats.count)")
+            logger.api(message: "user: \(user)")
+            
+            userDetails = user
         } catch(let error) {
             logger.error(message: "Error! \(error.localizedDescription)")
         }
-        
-        logger.api(message: "cats: \(cats.count)")
-        logger.api(message: "user: \(user)")
-        
-        userDetails = user
+    
     }
     
     func logout() {

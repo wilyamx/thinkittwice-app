@@ -51,5 +51,10 @@ struct WSRApiService: WSRApiServiceProtocol {
             }).resume()
     }
     
+    static func getURLSessionConfiguration() -> URLSessionConfiguration {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 10.0
+        return configuration
+    }
 }
 
