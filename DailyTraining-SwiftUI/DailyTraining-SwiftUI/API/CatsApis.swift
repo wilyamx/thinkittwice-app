@@ -24,7 +24,7 @@ extension WSRApiService {
             throw WSRApiError.serverError
         }
         
-        guard httpResponse.statusCode == 200 else {
+        guard (200...299).contains(httpResponse.statusCode) else {
             throw WSRApiError.badResponse(statusCode: httpResponse.statusCode)
         }
         
