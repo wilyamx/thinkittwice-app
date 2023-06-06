@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 final class FeedsViewModel: WSRFetcher {
-    @Published var breeds: [Breed] = [Breed]()
+    @Published var breeds: [BreedModel] = [BreedModel]()
     
     override init(service: WSRApiServiceProtocol = WSRApiService()) {
         super.init(service: service)

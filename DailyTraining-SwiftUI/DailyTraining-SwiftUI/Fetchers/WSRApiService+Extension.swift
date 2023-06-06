@@ -23,7 +23,7 @@ extension WSRApiService {
      */
     func getCatBreeds(
         urlString: String,
-        completion: @escaping(Result<[Breed], WSRApiError>) -> Void) {
+        completion: @escaping(Result<[BreedModel], WSRApiError>) -> Void) {
         
         guard let url = URL(string: urlString) else {
             let error = WSRApiError.badURL
@@ -45,7 +45,7 @@ extension WSRApiService {
                 } else if let data = data {
                     let decoder = JSONDecoder()
                     do {
-                        let responseModel = try decoder.decode([Breed].self, from: data)
+                        let responseModel = try decoder.decode([BreedModel].self, from: data)
                         completion(Result.success(responseModel))
                     } catch {
                         completion(Result.failure(WSRApiError.parsing(error as? DecodingError)))

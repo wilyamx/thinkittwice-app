@@ -1,5 +1,5 @@
 //
-//  Breed.swift
+//  BreedModel.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 5/11/23.
@@ -61,7 +61,7 @@ import Foundation
  */
 
 
-struct Breed: Codable, Identifiable {
+struct BreedModel: Codable, Identifiable {
     let id: String?
     let name: String?
     let temperament: String?
@@ -111,8 +111,8 @@ struct Breed: Codable, Identifiable {
             self.isHairless = isHairless
         }
     
-    static func example1() -> Breed {
-        return Breed(name: "Abyssinian",
+    static func example1() -> BreedModel {
+        return BreedModel(name: "Abyssinian",
                      id: "abys",
                      explaination: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.",
                      temperament: "Active, Energetic, Independent, Intelligent, Gentle",
@@ -124,8 +124,8 @@ struct Breed: Codable, Identifiable {
                                        width: 100))
     }
 
-    static func example2() -> Breed {
-        return Breed(name: "Cyprus",
+    static func example2() -> BreedModel {
+        return BreedModel(name: "Cyprus",
                      id: "cypr",
                      explaination: "Loving, loyal, social and inquisitive, the Cyprus cat forms strong ties with their families and love nothing more than to be involved in everything that goes on in their surroundings. They are not overly active by nature which makes them the perfect companion for people who would like to share their homes with a laid-back relaxed feline companion.",
                      temperament: "Affectionate, Social",

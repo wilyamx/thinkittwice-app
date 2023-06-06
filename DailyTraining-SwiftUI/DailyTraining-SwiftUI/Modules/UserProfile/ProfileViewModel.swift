@@ -23,7 +23,7 @@ final class ProfileViewModel: WSRFetcher {
     }
     
     func getUserDetails() async {
-        var cats: [Breed] = []
+        var cats: [BreedModel] = []
         var user: GitHubUser?
         
         logger.api(message: "Asynchronous requests...")

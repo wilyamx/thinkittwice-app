@@ -9,7 +9,7 @@ import SwiftUI
 
 extension WSRApiService {
     
-    func getCatBreeds(urlString: String) async throws -> [Breed] {
+    func getCatBreeds(urlString: String) async throws -> [BreedModel] {
         guard let url = URL(string: urlString) else {
             throw WSRApiError.badURL
         }
@@ -32,7 +32,7 @@ extension WSRApiService {
         
         do {
             let decoder = JSONDecoder()
-            return try decoder.decode([Breed].self, from: data)
+            return try decoder.decode([BreedModel].self, from: data)
         }
         catch(let error) {
             throw WSRApiError.parsing(error as? DecodingError)

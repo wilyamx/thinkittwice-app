@@ -158,6 +158,9 @@ struct FeedsView: View {
             .onAppear {
                 viewModel.fetchAllBreeds()
             }
+            .task {
+                
+            }
         }
         
         

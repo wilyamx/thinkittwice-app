@@ -8,7 +8,7 @@
 import Foundation
 
 final class BreedFetcher: WSRFetcher {
-    @Published var breeds = [Breed]()
+    @Published var breeds = [BreedModel]()
    
     override init(service: WSRApiServiceProtocol = WSRApiService()) {
         super.init(service: service)
@@ -48,7 +48,7 @@ final class BreedFetcher: WSRFetcher {
 
     static func successState() -> BreedFetcher {
        let fetcher = BreedFetcher()
-       fetcher.breeds = [Breed.example1(), Breed.example2()]
+       fetcher.breeds = [BreedModel.example1(), BreedModel.example2()]
        
        return fetcher
     }

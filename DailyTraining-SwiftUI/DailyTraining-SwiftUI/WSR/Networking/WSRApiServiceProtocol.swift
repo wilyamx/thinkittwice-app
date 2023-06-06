@@ -10,5 +10,5 @@ import Foundation
 protocol WSRApiServiceProtocol {
     func getCatBreeds(
         urlString: String,
-        completion: @escaping(Result<[Breed], WSRApiError>) -> Void)
+        completion: @escaping(Result<[BreedModel], WSRApiError>) -> Void)
 }
