@@ -16,9 +16,9 @@ final class FeedsViewModel: WSRFetcher {
     }
     
     func fetchAllBreeds() {
-        self.isLoading = true
-        self.errorMessage = nil
         self.breeds = []
+        
+        self.requestStarted()
         
         let urlString = "https://api.thecatapi.com/v1/breeds"
         service.getCatBreeds(
@@ -26,13 +26,16 @@ final class FeedsViewModel: WSRFetcher {
             completion: { [weak self] result in
                 DispatchQueue.main.async {
                     switch result {
+                        
                     case .failure(let error):
-                        self?.errorMessage = error.localizedDescription
+                        logger.error(message: error.localizedDescription)
+                        self?.requestFailed(reason: error.localizedDescription)
+                        
                     case .success(let breeds):
                         logger.api(message: "list count: \(breeds.count)")
                         
-                        self?.isLoading = false
                         self?.breeds = breeds
+                        self?.requestSuccess()
                     }
                 }
             })
