@@ -12,10 +12,10 @@ enum WSRDebugInfoKey: String {
     case messaging = "[MESSAGING]>>"
     case info = "[INFO]>>"
     case fileloader = "[FILE-LOADER]>>"
-    case api = "[API]>>"
     case error = "[ERROR]>>"
     case cache = "[CACHE]>>"
     //
+    case api = "[API]>>"
     case headers = "[HEADERS]>>"
     case request = "[REQUEST]>>"
     case body = "[BODY]>>"
@@ -113,17 +113,7 @@ struct WSRLogger {
     
     func request(request: URLRequest) {
         guard filteredLogKeys.isEmpty ||
-                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.request)) else {
-            return
-        }
-        
-        guard filteredLogKeys.isEmpty ||
-                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.headers)) else {
-            return
-        }
-        
-        guard filteredLogKeys.isEmpty ||
-                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.body)) else {
+                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.api)) else {
             return
         }
         
@@ -142,17 +132,7 @@ struct WSRLogger {
     
     func response(request: URLRequest, httpResponse: HTTPURLResponse, data: Data) {
         guard filteredLogKeys.isEmpty ||
-                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.response)) else {
-            return
-        }
-        
-        guard filteredLogKeys.isEmpty ||
-                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.headers)) else {
-            return
-        }
-        
-        guard filteredLogKeys.isEmpty ||
-                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.body)) else {
+                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.api)) else {
             return
         }
         
