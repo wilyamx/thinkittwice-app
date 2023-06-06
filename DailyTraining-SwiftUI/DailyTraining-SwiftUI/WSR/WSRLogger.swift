@@ -111,6 +111,13 @@ struct WSRLogger {
         self.messageFormat(category: WSRDebugInfoKey.error, message: message, file, function, line)
     }
     
+    func api(request: URLRequest, httpResponse: HTTPURLResponse, data: Data) {
+        self.request(request: request)
+        self.response(request: request, httpResponse: httpResponse, data: data)
+    }
+    
+    // MARK: - Request Details
+    
     func request(request: URLRequest) {
         guard filteredLogKeys.isEmpty ||
                 (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.api)) else {

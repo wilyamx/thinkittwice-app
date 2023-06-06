@@ -28,9 +28,7 @@ extension WSRApiService {
             throw WSRApiError.badResponse(statusCode: httpResponse.statusCode)
         }
         
-        // logs
-        logger.request(request: request)
-        logger.response(request: request, httpResponse: httpResponse, data: data)
+        logger.api(request: request, httpResponse: httpResponse, data: data)
         
         do {
             let decoder = JSONDecoder()
