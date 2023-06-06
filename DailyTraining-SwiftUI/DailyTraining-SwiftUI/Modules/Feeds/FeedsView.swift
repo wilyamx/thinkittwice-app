@@ -33,15 +33,15 @@ struct FeedsView: View {
                             // display persisted data
                             ForEach(viewModel.cats, id: \.id) { cat in
                                 if [1, 2].contains(cat.energyLevel) {
-                                    DailyChallengeView()
+                                    DailyChallengeView(cat: cat)
                                         .padding(.vertical)
                                 }
                                 else if [3, 4].contains(cat.energyLevel) {
-                                    BrandTrainingView()
+                                    BrandTrainingView(cat: cat)
                                         .padding(.vertical)
                                 }
                                 else {
-                                    NewsView()
+                                    NewsView(cat: cat)
                                         .padding(.vertical)
                                 }
                             }

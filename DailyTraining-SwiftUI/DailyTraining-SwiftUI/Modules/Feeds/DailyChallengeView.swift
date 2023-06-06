@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DailyChallengeView: View {
+    var cat: Cat
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             HStack {
@@ -27,7 +29,7 @@ struct DailyChallengeView: View {
                     Text("Daily Challenge")
                         .fontWeight(.bold)
                     
-                    Text("Lorem ipsum dolor sit amet")
+                    Text("\(cat.name): \(cat.temperament)")
                         .lineLimit(1)
                 }
             }
@@ -49,6 +51,6 @@ struct DailyChallengeView: View {
 
 struct DailyChallengeView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyChallengeView()
+        DailyChallengeView(cat: Cat.example())
     }
 }

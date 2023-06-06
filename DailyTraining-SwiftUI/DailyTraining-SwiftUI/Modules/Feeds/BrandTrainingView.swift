@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BrandTrainingView: View {
+    var cat: Cat
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text("BRAND TRAINING")
@@ -18,7 +20,7 @@ struct BrandTrainingView: View {
                 .frame(height: 200)
                 .cornerRadius(15)
             
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+            Text(cat.breedExplanation)
                 .lineLimit(4)
             
             Button(action: { },
@@ -38,6 +40,6 @@ struct BrandTrainingView: View {
 
 struct BrandTrainingView_Previews: PreviewProvider {
     static var previews: some View {
-        BrandTrainingView()
+        BrandTrainingView(cat: Cat.example())
     }
 }

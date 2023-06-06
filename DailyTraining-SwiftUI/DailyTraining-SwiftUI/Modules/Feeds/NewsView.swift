@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NewsView: View {
+    var cat: Cat
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Image("peacock")
@@ -22,7 +24,7 @@ struct NewsView: View {
                         
                         Spacer()
                         
-                        Text("Pretium aenean pharetra magna ac in andf placerat vestibulum. Pretium aenean pharetra magna pharetra magna ac placerat. In the most holy ground and to the whole world.")
+                        Text(cat.temperament)
                             .lineLimit(4)
                             .padding([.leading, .trailing, .bottom])
                     }
@@ -55,6 +57,6 @@ struct NewsView: View {
 
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView()
+        NewsView(cat: Cat.example())
     }
 }
