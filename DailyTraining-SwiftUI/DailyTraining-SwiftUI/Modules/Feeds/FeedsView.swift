@@ -15,121 +15,36 @@ struct FeedsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .scaleEffect(2)
-                }
-                else if viewModel.errorMessage != nil {
-                    RetryView(message: viewModel.errorMessage ?? "Error message")
+                // checking for persisted data
+                if viewModel.cats.isEmpty {
+                    if viewModel.breeds.isEmpty {
+                        ProgressView()
+                            .scaleEffect(2)
+                            .task {
+                                logger.info(message: "ProgressView.task.BEGIN")
+                                let _ = await viewModel.initializeData()
+                                logger.info(message: "ProgressView.task.END")
+                            }
+                    }
                 }
                 else {
                     List {
                         Group {
-                            VStack(alignment: .leading, spacing: 20) {
-                                HStack {
-                                    ZStack {
-                                        Circle()
-                                            .foregroundColor(ColorNames.listBackgroundColor.colorValue)
-                                        Image(systemName: "bolt")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(height: 20)
-                                            .font(.system(size: 30))
-                                    }
-                                    .frame(height: 50)
-                                    .clipShape(Circle())
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text("Daily Challenge")
-                                            .fontWeight(.bold)
-                                        
-                                        Text("Lorem ipsum dolor sit amet")
-                                            .lineLimit(1)
-                                    }
+                            // display persisted data
+                            ForEach(viewModel.cats, id: \.id) { cat in
+                                if [1, 2].contains(cat.energyLevel) {
+                                    DailyChallengeView()
+                                        .padding(.vertical)
                                 }
-                                
-                                Button(action: { },
-                                       label: {
-                                    Text("TAKE THE CHALLENGE")
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: 40)
-                                        .background(.black)
-                                        .font(.footnote)
-                                })
-                                .cornerRadius(10)
-                            }
-                            .padding(.vertical)
-         
-                            VStack(alignment: .leading, spacing: 20) {
-                                Text("BRAND TRAINING")
-                                    .fontWeight(.bold)
-                                                        
-                                Image("butterfly")
-                                    .resizable()
-                                    .frame(height: 200)
-                                    .cornerRadius(15)
-                                
-                                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-                                    .lineLimit(4)
-                                
-                                Button(action: { },
-                                       label: {
-                                    Text("TAKE THE COURSE")
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: 40)
-                                        .background(.black)
-                                        .font(.footnote)
-                                })
-                                .cornerRadius(10)
-                            }
-                            .padding(.vertical)
-                            
-                            VStack(alignment: .leading, spacing: 20) {
-                                Image("peacock")
-                                    .resizable()
-                                    .frame(height: 200)
-                                    .cornerRadius(15)
-                                    .overlay(alignment: .topLeading) {
-                                        VStack(alignment: .leading) {
-                                            Text("MARKET NEWS")
-                                                .fontWeight(.bold)
-                                                .padding([.top, .leading])
-                                            
-                                            Spacer()
-                                            
-                                            Text("Pretium aenean pharetra magna ac in andf placerat vestibulum. Pretium aenean pharetra magna pharetra magna ac placerat. In the most holy ground and to the whole world.")
-                                                .lineLimit(4)
-                                                .padding([.leading, .trailing, .bottom])
-                                        }
-                                    }
-                                    .foregroundColor(Color.white)
-                                    
-                                HStack {
-                                    HStack(spacing: 20) {
-                                        HStack(spacing: 0) {
-                                            Image(systemName: "heart")
-                                            Text("12")
-                                                .fontWeight(.bold)
-                                        }
-                                        
-                                        HStack(spacing: 0) {
-                                            Image(systemName: "bubble.left")
-                                            Text("223")
-                                                .fontWeight(.bold)
-                                        }
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    Text("FEB 18TH")
-                                        .foregroundColor(Color.gray)
+                                else if [3, 4].contains(cat.energyLevel) {
+                                    BrandTrainingView()
+                                        .padding(.vertical)
+                                }
+                                else {
+                                    NewsView()
+                                        .padding(.vertical)
                                 }
                             }
-                            .padding(.vertical)
                         }
                         .listRowSeparator(.hidden)
                         .listRowBackground(
@@ -150,32 +65,30 @@ struct FeedsView: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
-                                logger.log(category: .info, message: "Add!")
-                            }, label: {
-                                Image(systemName: "plus.circle")
-                            })
-                        }
-
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
                                 logger.log(category: .info, message: "Settings!")
                             }, label: {
                                 Image(systemName: "slider.horizontal.3")
                             })
                         }
+
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                Task {
+                                    logger.info(message: "Button.task.BEGIN")
+                                    let _ = await viewModel.deleteAllPersistedData()
+                                    logger.info(message: "Button.task.END")
+                                }
+                            }, label: {
+                                Image(systemName: "arrow.clockwise.circle")
+                            })
+                        }
                     }
                 }
+                
             }
-            .onAppear {
-                logger.info(message: "onAppear!")
-            }
-            .task {
-                logger.info(message: "task!")
-                await viewModel.getCats()
-                logger.info(message: "get cats complete!")
-            }
+
         }
-    
+        
     }
 }
 

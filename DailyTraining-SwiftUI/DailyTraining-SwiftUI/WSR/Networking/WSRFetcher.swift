@@ -37,5 +37,9 @@ class WSRFetcher: ObservableObject {
             self.isLoading = false
         }
     }
+    
+    func persist() async -> Bool {
+        fatalError("Override this method and define your own implementation.")
+    }
 }
 

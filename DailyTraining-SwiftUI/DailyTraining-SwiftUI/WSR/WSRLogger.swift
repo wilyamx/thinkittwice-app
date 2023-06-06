@@ -8,12 +8,13 @@
 import Foundation
 
 enum WSRDebugInfoKey: String {
-    case realmDb = "[REALM-DB]>>"
-    case messaging = "[MESSAGING]>>"
     case info = "[INFO]>>"
     case fileloader = "[FILE-LOADER]>>"
     case error = "[ERROR]>>"
     case cache = "[CACHE]>>"
+    //
+    case realmDb = "[REALM-DB]>>"
+    case messaging = "[MESSAGING]>>"
     //
     case api = "[API]>>"
     case headers = "[HEADERS]>>"
@@ -23,12 +24,19 @@ enum WSRDebugInfoKey: String {
 }
 
 struct WSRLogger {
-    // this will filter what to log only
-    // empty means accept all type of logs
-    private let filteredLogKeys: [WSRDebugInfoKey] = []
     
     private let nullString = "(null)"
     private let separatorString = "*******************************"
+    
+    private let allLogKeys: [WSRDebugInfoKey] = []
+    private let commonLogKeys: [WSRDebugInfoKey] = [.info, .fileloader, .error]
+    private let commonAndPersistentLogKeys: [WSRDebugInfoKey] = [.info, .fileloader, .error, .realmDb]
+    
+    // this will filter what to log only
+    // empty means accept all type of logs
+    private var filteredLogKeys: [WSRDebugInfoKey] {
+        return commonAndPersistentLogKeys
+    }
     
     // MARK: - Deprecated
     
@@ -112,18 +120,28 @@ struct WSRLogger {
     }
     
     func api(request: URLRequest, httpResponse: HTTPURLResponse, data: Data) {
-        self.request(request: request)
-        self.response(request: request, httpResponse: httpResponse, data: data)
-    }
-    
-    // MARK: - Request Details
-    
-    func request(request: URLRequest) {
         guard filteredLogKeys.isEmpty ||
                 (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.api)) else {
             return
         }
         
+        self.request(request: request)
+        self.response(request: request, httpResponse: httpResponse, data: data)
+    }
+    
+    func realmDB() {
+        guard filteredLogKeys.isEmpty ||
+                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.realmDb)) else {
+            return
+        }
+        
+        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
+        print("\(WSRDebugInfoKey.realmDb.rawValue) \(directory)")
+    }
+    
+    // MARK: - Request Details
+    
+    func request(request: URLRequest) {
         let method = request.httpMethod!
         let url = request.url?.absoluteString ?? nullString
         let headers = prettyPrintedString(from: request.allHTTPHeaderFields) ?? nullString
@@ -138,11 +156,6 @@ struct WSRLogger {
     }
     
     func response(request: URLRequest, httpResponse: HTTPURLResponse, data: Data) {
-        guard filteredLogKeys.isEmpty ||
-                (filteredLogKeys.count > 0 && filteredLogKeys.contains(WSRDebugInfoKey.api)) else {
-            return
-        }
-        
         // request
         let requestMethod = request.httpMethod ?? nullString
         let requestUrl = request.url?.absoluteString ?? nullString
@@ -199,12 +212,6 @@ struct WSRLogger {
         return response
     }
     
-    // MARK: - Public Helpers
-    
-    func realmDB() {
-        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
-        print("\(WSRDebugInfoKey.realmDb.rawValue) \(directory)")
-    }
 }
 
 let logger = WSRLogger()

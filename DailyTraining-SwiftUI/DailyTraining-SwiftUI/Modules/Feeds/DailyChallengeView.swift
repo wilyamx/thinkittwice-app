@@ -1,0 +1,54 @@
+//
+//  DailyChallengeView.swift
+//  DailyTraining-SwiftUI
+//
+//  Created by William Rena on 6/6/23.
+//
+
+import SwiftUI
+
+struct DailyChallengeView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            HStack {
+                ZStack {
+                    Circle()
+                        .foregroundColor(ColorNames.listBackgroundColor.colorValue)
+                    Image(systemName: "bolt")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 20)
+                        .font(.system(size: 30))
+                }
+                .frame(height: 50)
+                .clipShape(Circle())
+                
+                VStack(alignment: .leading) {
+                    Text("Daily Challenge")
+                        .fontWeight(.bold)
+                    
+                    Text("Lorem ipsum dolor sit amet")
+                        .lineLimit(1)
+                }
+            }
+            
+            Button(action: { },
+                   label: {
+                Text("TAKE THE CHALLENGE")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 40)
+                    .background(.black)
+                    .font(.footnote)
+            })
+            .cornerRadius(10)
+        }
+    }
+}
+
+struct DailyChallengeView_Previews: PreviewProvider {
+    static var previews: some View {
+        DailyChallengeView()
+    }
+}
