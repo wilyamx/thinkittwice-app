@@ -105,6 +105,8 @@ final class FeedsViewModel: WSRFetcher {
     func deleteAllPersistedData() async -> Bool {
         logger.info(message: "Deleting all persisted data...")
         
+        self.requestStarted()
+        
         // delete persisted data
         cats.forEach { cat in
             try! realm.write {

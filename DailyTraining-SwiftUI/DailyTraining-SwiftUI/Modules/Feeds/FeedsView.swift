@@ -15,8 +15,11 @@ struct FeedsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                if viewModel.errorMessage != nil {
+                    RetryView(message: viewModel.errorMessage ?? "Error message")
+                }
                 // checking for persisted data
-                if viewModel.cats.isEmpty {
+                else if viewModel.cats.isEmpty {
                     if viewModel.breeds.isEmpty {
                         ProgressView()
                             .scaleEffect(2)
@@ -60,33 +63,33 @@ struct FeedsView: View {
                     .listStyle(.plain)
                     .background(ColorNames.listBackgroundColor.colorValue)
                     .padding(5)
-                    .navigationTitle("Daily Training")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                logger.log(category: .info, message: "Settings!")
-                            }, label: {
-                                Image(systemName: "slider.horizontal.3")
-                            })
-                        }
-
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                Task {
-                                    logger.info(message: "Button.task.BEGIN")
-                                    let _ = await viewModel.deleteAllPersistedData()
-                                    logger.info(message: "Button.task.END")
-                                }
-                            }, label: {
-                                Image(systemName: "arrow.clockwise.circle")
-                            })
-                        }
-                    }
+                    
                 }
                 
             }
+            .navigationTitle("Daily Training")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        logger.log(category: .info, message: "Settings!")
+                    }, label: {
+                        Image(systemName: "slider.horizontal.3")
+                    })
+                }
 
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        Task {
+                            logger.info(message: "Button.task.BEGIN")
+                            let _ = await viewModel.deleteAllPersistedData()
+                            logger.info(message: "Button.task.END")
+                        }
+                    }, label: {
+                        Image(systemName: "arrow.clockwise.circle")
+                    })
+                }
+            }
         }
         
     }

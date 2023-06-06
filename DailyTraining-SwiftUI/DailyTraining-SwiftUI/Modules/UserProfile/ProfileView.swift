@@ -115,9 +115,7 @@ struct ProfileView: View {
             }
             .task {
                 logger.info(message: "task!")
-                
                 await viewModel.getUserDetails()
-                
                 logger.info(message: "user details complete!")
             }
         }

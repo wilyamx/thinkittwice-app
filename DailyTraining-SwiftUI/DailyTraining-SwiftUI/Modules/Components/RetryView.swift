@@ -12,6 +12,10 @@ struct RetryView: View {
     
     var body: some View {
         VStack {
+            Image(systemName: "info.circle")
+                .font(.system(size: 50))
+                .foregroundColor(.red)
+                .padding(5)
             Text(message)
             Button(action: {
                 
