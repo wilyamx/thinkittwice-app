@@ -44,7 +44,6 @@ final class ProfileViewModel: WSRFetcher {
             
         } catch(let error) {
             logger.error(message: "Error! \(error.localizedDescription)")
-            
             self.requestSuccess()
         }
     
