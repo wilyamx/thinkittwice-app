@@ -97,7 +97,9 @@ struct NotificationRow: View {
 
 struct NotificationRow_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationRow(list: .constant([Notification]()),
-                        notification: Notification.example())
+        List {
+            NotificationRow(list: .constant([Notification]()),
+                            notification: Notification.example())
+        }
     }
 }

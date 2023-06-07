@@ -22,6 +22,8 @@ struct ConversationRow: View {
 
 struct ConversationRow_Previews: PreviewProvider {
     static var previews: some View {
-        ConversationRow(conversation: Conversation.example())
+        List {
+            ConversationRow(conversation: Conversation.example())
+        }
     }
 }
