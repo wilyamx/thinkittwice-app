@@ -35,7 +35,7 @@ struct DailyChallengeView: View {
             }
             
             Button(action: {
-                logger.info(message: "Take the challenge!")
+                logger.info(message: "Take the challenge! \(cat.name)")
             },
                    label: {
                 Text("TAKE THE CHALLENGE")

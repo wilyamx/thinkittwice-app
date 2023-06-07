@@ -27,7 +27,7 @@ struct BrandTrainingView: View {
                 .lineLimit(4)
             
             Button(action: {
-                logger.info(message: "Take the course!")
+                logger.info(message: "Take the course! \(cat.name)")
             },
                    label: {
                 Text("TAKE THE COURSE")
@@ -48,5 +48,6 @@ struct BrandTrainingView_Previews: PreviewProvider {
         List {
             BrandTrainingView(cat: Cat.example())
         }
+        .buttonStyle(.borderless)
     }
 }

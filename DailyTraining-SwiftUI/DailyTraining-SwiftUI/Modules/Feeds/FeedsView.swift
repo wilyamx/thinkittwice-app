@@ -63,7 +63,7 @@ struct FeedsView: View {
                     .listStyle(.plain)
                     .background(ColorNames.listBackgroundColor.colorValue)
                     .padding(5)
-                    
+                    .buttonStyle(.borderless)
                 }
                 
             }
