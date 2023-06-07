@@ -24,4 +24,8 @@ class WSRImageCache {
     func get(forKey key: String) -> UIImage? {
         return cache.object(forKey: key as NSString)
     }
+    
+    func remove(forKey key: String) {
+        return cache.removeObject(forKey: key as NSString)
+    }
 }

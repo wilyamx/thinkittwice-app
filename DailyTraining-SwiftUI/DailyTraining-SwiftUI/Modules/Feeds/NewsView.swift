@@ -12,11 +12,9 @@ struct NewsView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            WSRRemoteImage(url: "https://cdn2.thecatapi.com/images/\(Cat.referenceImageId1()).jpg")
+            WSRRemoteImage(url: Cat.imageAddress1())
                 .frame(height: 200)
                 .frame(maxWidth: .infinity)
-                .clipped()
-                .cornerRadius(15)
                 .overlay(alignment: .topLeading) {
                     VStack(alignment: .leading) {
                         Text("MARKET NEWS")
@@ -31,6 +29,9 @@ struct NewsView: View {
                     }
                 }
                 .foregroundColor(Color.white)
+                .background(Color.secondary.opacity(0.5))
+                .clipped()
+                .cornerRadius(15)
                         
             HStack {
                 HStack(spacing: 20) {
@@ -49,7 +50,7 @@ struct NewsView: View {
                 
                 Spacer()
                 
-                Text("FEB 18TH")
+                Text("JAN 1ST")
                     .foregroundColor(Color.gray)
             }
         }

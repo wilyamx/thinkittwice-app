@@ -15,9 +15,11 @@ struct BrandTrainingView: View {
             Text("BRAND TRAINING")
                 .fontWeight(.bold)
                                     
-            WSRRemoteImage(url: "https://cdn2.thecatapi.com/images/\(Cat.referenceImageId2()).jpg")
+            WSRRemoteImage(url: Cat.imageAddress2())
                 .frame(height: 200)
                 .frame(maxWidth: .infinity)
+                .foregroundColor(Color.white)
+                .background(Color.secondary.opacity(0.5))
                 .clipped()
                 .cornerRadius(15)
             

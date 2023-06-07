@@ -34,11 +34,11 @@ class Cat: Object, Identifiable {
         return cat
     }
     
-    static func referenceImageId1() -> String {
-        return "xnsqonbjW"
+    static func imageAddress1() -> String {
+        return "https://cdn2.thecatapi.com/images/xnsqonbjW.jpg"
     }
     
-    static func referenceImageId2() -> String {
-        return "0XYvRd7oD"
+    static func imageAddress2() -> String {
+        return "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg"
     }
 }
