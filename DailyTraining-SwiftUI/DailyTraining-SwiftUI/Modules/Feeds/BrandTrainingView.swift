@@ -27,7 +27,7 @@ struct BrandTrainingView: View {
                 .lineLimit(4)
             
             Button(action: {
-                logger.info(message: "Take the course! \(cat.name)")
+                logger.info(message: "Take the course! \(cat.name) (\(cat.referenceImageId).jpg)")
             },
                    label: {
                 Text("TAKE THE COURSE")

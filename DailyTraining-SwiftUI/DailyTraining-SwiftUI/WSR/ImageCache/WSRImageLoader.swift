@@ -32,23 +32,30 @@ class WSRImageLoader: ObservableObject {
         guard let url = URL(string: url) else { return }
 
         task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
+            guard let data = data, error == nil else {
+                DispatchQueue.main.async {
+                    self.invalidImage = true
+                    self.image = nil
+                }
+                logger.error(message: "Image-1 cache error! \(self.url)")
+                return
+            }
 
             if let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     self.image = image
                     self.invalidImage = false
-                    
-                    WSRImageCache.shared.set(image, forKey: self.url)
-                    logger.log(category: .cache, message: self.url)
                 }
+                
+                WSRImageCache.shared.set(image, forKey: self.url)
+                logger.log(category: .cache, message: self.url)
             }
             else {
                 DispatchQueue.main.async {
                     self.invalidImage = true
                     self.image = nil
                 }
-                logger.error(message: "Image cache error! \(self.url)")
+                logger.error(message: "Image-2 cache error! \(self.url)")
             }
         }
         task?.resume()
