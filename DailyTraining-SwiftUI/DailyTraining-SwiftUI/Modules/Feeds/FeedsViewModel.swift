@@ -50,13 +50,13 @@ final class FeedsViewModel: WSRFetcher {
     override func persist() async -> Bool {
         breeds.forEach { model in
             let cat = Cat()
-            cat.id = model.id ?? "id"
-            cat.name = model.name ?? "Name"
-            cat.temperament = model.temperament ?? "Temperament"
-            cat.energyLevel = model.energyLevel ?? 0
-            cat.isHairless = model.isHairless ?? false
-            cat.breedExplanation = model.breedExplaination ?? "Breed Explaination"
-            //cat.referenceImageId = model.referenceImage ?? "Image Id"
+            cat.id = model.id
+            cat.name = model.name
+            cat.temperament = model.temperament
+            cat.energyLevel = model.energyLevel
+            cat.isHairless = model.isHairless
+            cat.breedExplanation = model.breedExplaination
+            //cat.referenceImageId = model.referenceImage
             
             $cats.append(cat)
         }
@@ -126,7 +126,7 @@ final class FeedsViewModel: WSRFetcher {
     
     func printAllBreeds() {
         for (index, breed) in self.breeds.enumerated() {
-            logger.api(message: "Breed[\(index)]: \(breed)")
+            logger.api(message: "BreedModel[\(index)]: \(breed)")
         }
     }
 }

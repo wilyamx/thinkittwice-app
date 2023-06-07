@@ -47,7 +47,7 @@ import Foundation
      "rex": 0,
      "suppressed_tail": 0,
      "short_legs": 0,
-     "wikipedia_url": "https://en.wikipedia.org/wiki/Abyssinian_(cat)",
+     "wikipedia_url": "https://en.wikipedia.org/wiki/Abyssinian_(cat)", <------
      "hypoallergenic": 0,
      "reference_image_id": "0XYvRd7oD", <------
      "image": { <------
@@ -61,15 +61,20 @@ import Foundation
  */
 
 
-struct BreedModel: Codable, Identifiable {
-    let id: String?
-    let name: String?
-    let temperament: String?
-    let breedExplaination: String?
-    let energyLevel: Int?
-    let isHairless: Bool?
-    let image: BreedImage?
+struct BreedModel: Codable, Identifiable, CustomStringConvertible {
+    let id: String
+    let name: String
+    let temperament: String
+    let breedExplaination: String
+    let energyLevel: Int
+    let isHairless: Bool
+    //let wikipedia: String
     //let referenceImageId: String?
+    let image: BreedImage?
+    
+    var description: String {
+        return "breed with name: \(name) and id \(id), energy level: \(energyLevel) isHairless: \(isHairless ? "YES" : "NO")"
+    }
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -78,8 +83,9 @@ struct BreedModel: Codable, Identifiable {
         case breedExplaination = "description"
         case energyLevel = "energy_level"
         case isHairless = "hairless"
-        case image
+        //case wikipedia = "wikipedia_url"
         //case referenceImageId = "reference_image_id"
+        case image
     }
     
     init(from decoder: Decoder) throws {
@@ -94,7 +100,9 @@ struct BreedModel: Codable, Identifiable {
         let hairless = try values.decode(Int.self, forKey: .isHairless)
         isHairless = hairless == 1
         
+        //wikipedia = try values.decode(String.self, forKey: .wikipedia)
         //referenceImageId = try values.decode(String.self, forKey: .referenceImageId)
+        
         image = try values.decodeIfPresent(BreedImage.self, forKey: .image)
     }
     
@@ -105,15 +113,18 @@ struct BreedModel: Codable, Identifiable {
          energyLevel: Int,
          isHairless: Bool,
          //referenceImageId: String,
+         //wikipedia: String,
          image: BreedImage?) {
             self.name = name
             self.id = id
             self.breedExplaination = explaination
             self.energyLevel = energyLevel
             self.temperament = temperament
-            self.image = image
+            
             self.isHairless = isHairless
+            //self.wikipedia = wikipedia
             //self.referenceImageId = referenceImageId
+            self.image = image
         }
     
     static func example1() -> BreedModel {
@@ -123,6 +134,7 @@ struct BreedModel: Codable, Identifiable {
                      temperament: "Active, Energetic, Independent, Intelligent, Gentle",
                      energyLevel: 5,
                      isHairless: false,
+                     //wikipedia: "https://en.wikipedia.org/wiki/American_Curl",
                      //referenceImageId: "xnsqonbjW",
                      image: BreedImage(height: 100,
                                        id: "i",
@@ -137,6 +149,7 @@ struct BreedModel: Codable, Identifiable {
                      temperament: "Affectionate, Social",
                      energyLevel: 4,
                      isHairless: false,
+                     //wikipedia: "https://en.wikipedia.org/wiki/American_Curl",
                      //referenceImageId: "xnsqonbjW",
                      image: BreedImage(height: 100,
                                        id: "i",
