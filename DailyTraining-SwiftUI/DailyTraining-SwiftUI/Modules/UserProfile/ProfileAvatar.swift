@@ -21,14 +21,8 @@ struct ProfileAvatar: View {
                 Circle()
                     .foregroundColor(.secondary)
             }
-            .frame(width: 150)
+            .frame(width: 150, height: 150)
             
-//            Image("turtlerock")
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .clipShape(Circle())
-//            .frame(width: 150)
-
             HStack(spacing: 5) {
                 Image(systemName: "star.fill")
                     .foregroundColor(.white)

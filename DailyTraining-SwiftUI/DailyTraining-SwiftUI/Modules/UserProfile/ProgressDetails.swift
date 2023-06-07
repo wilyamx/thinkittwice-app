@@ -12,13 +12,13 @@ struct ProgressDetails: View {
         VStack(spacing: 5) {
             Text("Level 1")
                 .font(.body)
-                .minimumScaleFactor(0.6)
+                .minimumScaleFactor(0.8)
             ProgressView(value: 0.5)
                 .frame(width: 250)
             Text("500 / 1 000 points")
                 .foregroundColor(.secondary)
                 .font(.footnote)
-                .minimumScaleFactor(0.6)
+                .minimumScaleFactor(0.8)
         }
     }
 }

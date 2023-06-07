@@ -32,12 +32,12 @@ struct ProfileView: View {
                                 Text(viewModel.userDetails?.name ?? GitHubUser.placeholder().name)
                                     .font(.title2)
                                     .fontWeight(.bold)
-                                    .minimumScaleFactor(0.6)
+                                    .minimumScaleFactor(0.8)
                                 Text(viewModel.userDetails?.bio ?? GitHubUser.placeholder().bio)
                                     .foregroundColor(.secondary)
                                     .font(.subheadline)
                                     .multilineTextAlignment(.center)
-                                    .minimumScaleFactor(0.6)
+                                    .minimumScaleFactor(0.8)
                             }
                             
                             ProgressDetails()
