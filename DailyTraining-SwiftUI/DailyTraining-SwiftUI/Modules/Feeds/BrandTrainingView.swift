@@ -15,9 +15,10 @@ struct BrandTrainingView: View {
             Text("BRAND TRAINING")
                 .fontWeight(.bold)
                                     
-            Image("butterfly")
-                .resizable()
+            WSRRemoteImage(url: "https://cdn2.thecatapi.com/images/\(Cat.referenceImageId2()).jpg")
                 .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .clipped()
                 .cornerRadius(15)
             
             Text(cat.breedExplanation)

@@ -34,7 +34,11 @@ class Cat: Object, Identifiable {
         return cat
     }
     
-    static func refereceImageId() -> String {
+    static func referenceImageId1() -> String {
         return "xnsqonbjW"
+    }
+    
+    static func referenceImageId2() -> String {
+        return "0XYvRd7oD"
     }
 }

@@ -65,6 +65,9 @@
 		60AE67412A2DCCFA00A172FF /* GitHubApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67402A2DCCFA00A172FF /* GitHubApis.swift */; };
 		60AE67432A2DCDEC00A172FF /* CatsApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67422A2DCDEC00A172FF /* CatsApis.swift */; };
 		60AE67452A2E10BE00A172FF /* RetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67442A2E10BE00A172FF /* RetryView.swift */; };
+		60CFE9122A302A1F00275AE1 /* WSRImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CFE9112A302A1F00275AE1 /* WSRImageCache.swift */; };
+		60CFE9142A302B1400275AE1 /* WSRRemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CFE9132A302B1400275AE1 /* WSRRemoteImage.swift */; };
+		60CFE9162A302B5D00275AE1 /* WSRImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CFE9152A302B5D00275AE1 /* WSRImageLoader.swift */; };
 		60ECA7692A13023700EA663E /* BreedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ECA7682A13023700EA663E /* BreedTests.swift */; };
 		60ECA76C2A13038100EA663E /* WSRApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ECA76B2A13038100EA663E /* WSRApiServiceProtocol.swift */; };
 		60ECA76E2A13040100EA663E /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ECA76D2A13040100EA663E /* APIServiceMock.swift */; };
@@ -158,6 +161,9 @@
 		60AE67402A2DCCFA00A172FF /* GitHubApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApis.swift; sourceTree = "<group>"; };
 		60AE67422A2DCDEC00A172FF /* CatsApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsApis.swift; sourceTree = "<group>"; };
 		60AE67442A2E10BE00A172FF /* RetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryView.swift; sourceTree = "<group>"; };
+		60CFE9112A302A1F00275AE1 /* WSRImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRImageCache.swift; sourceTree = "<group>"; };
+		60CFE9132A302B1400275AE1 /* WSRRemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRRemoteImage.swift; sourceTree = "<group>"; };
+		60CFE9152A302B5D00275AE1 /* WSRImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRImageLoader.swift; sourceTree = "<group>"; };
 		60ECA7682A13023700EA663E /* BreedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTests.swift; sourceTree = "<group>"; };
 		60ECA76B2A13038100EA663E /* WSRApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRApiServiceProtocol.swift; sourceTree = "<group>"; };
 		60ECA76D2A13040100EA663E /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 		6061E3EC2A2AB111005D0844 /* WSR */ = {
 			isa = PBXGroup;
 			children = (
+				60CFE9102A302A0600275AE1 /* ImageCache */,
 				6061E4022A2CC517005D0844 /* Realm */,
 				6061E3F92A2BF9C6005D0844 /* Extensions */,
 				60A5E0AB2A0C6AD500C8A9B1 /* Networking */,
@@ -464,6 +471,16 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		60CFE9102A302A0600275AE1 /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				60CFE9112A302A1F00275AE1 /* WSRImageCache.swift */,
+				60CFE9132A302B1400275AE1 /* WSRRemoteImage.swift */,
+				60CFE9152A302B5D00275AE1 /* WSRImageLoader.swift */,
+			);
+			path = ImageCache;
+			sourceTree = "<group>";
+		};
 		60ECA76A2A1302C000EA663E /* Fetchers */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,9 +704,11 @@
 				603EED332A092D8400EC9C2E /* ProfileViewModel.swift in Sources */,
 				60FCD55B2A02A4BE003D8FAE /* ProfileView.swift in Sources */,
 				6022153B2A2F3C1700034314 /* BrandTrainingView.swift in Sources */,
+				60CFE9142A302B1400275AE1 /* WSRRemoteImage.swift in Sources */,
 				603EED3D2A0933F400EC9C2E /* ProfileAvatar.swift in Sources */,
 				60A5E0B22A0C6D4C00C8A9B1 /* WSRFetcher.swift in Sources */,
 				60A507BB2A0DD862004D9586 /* LoginViewModel.swift in Sources */,
+				60CFE9122A302A1F00275AE1 /* WSRImageCache.swift in Sources */,
 				60FCD55F2A02B134003D8FAE /* MessagingUsersView.swift in Sources */,
 				6061E4012A2CC4F7005D0844 /* WSRRealmMigrator.swift in Sources */,
 				60FCD5572A02A48A003D8FAE /* NotificationsView.swift in Sources */,
@@ -701,6 +720,7 @@
 				603EED352A092E6B00EC9C2E /* CircularRankIndicator.swift in Sources */,
 				60FCD5632A0322EE003D8FAE /* MessagingChatsViewModel.swift in Sources */,
 				6061E3FD2A2BFD44005D0844 /* RegistrationViewModel.swift in Sources */,
+				60CFE9162A302B5D00275AE1 /* WSRImageLoader.swift in Sources */,
 				6090BEFA2A048F8B0043B1AE /* NotificationRow.swift in Sources */,
 				603EED372A092FAA00EC9C2E /* RankingRateCircularBar.swift in Sources */,
 				60ECA76E2A13040100EA663E /* APIServiceMock.swift in Sources */,
