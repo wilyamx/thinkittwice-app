@@ -34,7 +34,7 @@ struct FeedsView: View {
                     List {
                         Group {
                             // display persisted data
-                            ForEach(viewModel.cats, id: \.id) { cat in
+                            ForEach(viewModel.cats.shuffled(), id: \.id) { cat in
                                 if [1, 2].contains(cat.energyLevel) {
                                     DailyChallengeView(cat: cat)
                                         .padding(.vertical)
