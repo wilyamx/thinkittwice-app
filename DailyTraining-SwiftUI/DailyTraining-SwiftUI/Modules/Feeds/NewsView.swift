@@ -12,7 +12,7 @@ struct NewsView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            WSRRemoteImage(url: Cat.imageAddress1())
+            WSRRemoteImage(url: cat.imageUrl())
                 .frame(height: 200)
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .topLeading) {
@@ -23,7 +23,7 @@ struct NewsView: View {
 
                         Spacer()
 
-                        Text(cat.temperament)
+                        Text(cat.altNames)
                             .lineLimit(4)
                             .padding([.leading, .trailing, .bottom])
                     }

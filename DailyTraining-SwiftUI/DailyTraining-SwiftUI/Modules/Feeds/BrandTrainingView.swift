@@ -15,7 +15,7 @@ struct BrandTrainingView: View {
             Text("BRAND TRAINING")
                 .fontWeight(.bold)
                                     
-            WSRRemoteImage(url: Cat.imageAddress2())
+            WSRRemoteImage(url: cat.imageUrl())
                 .frame(height: 200)
                 .frame(maxWidth: .infinity)
                 .foregroundColor(Color.white)

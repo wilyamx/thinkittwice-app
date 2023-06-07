@@ -35,6 +35,7 @@ struct NotificationsView: View {
                     .listRowSeparator(.visible)
                 }
                 .listStyle(.inset)
+                .buttonStyle(.borderless)
                 
                 Spacer()
             }

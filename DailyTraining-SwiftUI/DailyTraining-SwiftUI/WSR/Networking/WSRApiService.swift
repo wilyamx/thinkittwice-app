@@ -12,7 +12,7 @@ struct WSRApiService: WSRApiServiceProtocol {
         Using Generics
     
         fetch(
-         [Breed].self,
+         [BreedModel].self,
          urlString: urlString,
          completion: { [weak self] result in
          })
@@ -41,6 +41,7 @@ struct WSRApiService: WSRApiServiceProtocol {
                     completion(Result.failure(WSRApiError.badResponse(statusCode: response.statusCode)))
                 } else if let data = data {
                     let decoder = JSONDecoder()
+                    //decoder.keyDecodingStrategy = .convertFromSnakeCase
                     do {
                         let responseModel = try decoder.decode(type, from: data)
                         completion(Result.success(responseModel))

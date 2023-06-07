@@ -61,99 +61,97 @@ import Foundation
  */
 
 
-struct BreedModel: Codable, Identifiable, CustomStringConvertible {
+struct BreedModel: Codable, Identifiable {
     let id: String
     let name: String
     let temperament: String
-    let breedExplaination: String
-    let energyLevel: Int
-    let isHairless: Bool
-    //let wikipedia: String
-    //let referenceImageId: String?
-    let image: BreedImage?
+    let description: String
+    let energy_level: Int
+    let hairless: Int
     
-    var description: String {
-        return "breed with name: \(name) and id \(id), energy level: \(energyLevel) isHairless: \(isHairless ? "YES" : "NO")"
-    }
+    let wikipedia_url: String?
+    let reference_image_id: String?
+    let alt_names: String?
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case temperament
-        case breedExplaination = "description"
-        case energyLevel = "energy_level"
-        case isHairless = "hairless"
-        //case wikipedia = "wikipedia_url"
-        //case referenceImageId = "reference_image_id"
-        case image
-    }
+//    var description: String {
+//        return "breed with name: \(name) and id \(id), energy level: \(energyLevel) isHairless: \(isHairless ? "YES" : "NO")"
+//    }
     
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        id = try values.decode(String.self, forKey: .id)
-        name = try values.decode(String.self, forKey: .name)
-        temperament = try values.decode(String.self, forKey: .temperament)
-        breedExplaination = try values.decode(String.self, forKey: .breedExplaination)
-        energyLevel = try values.decode(Int.self, forKey: .energyLevel)
-        
-        let hairless = try values.decode(Int.self, forKey: .isHairless)
-        isHairless = hairless == 1
-        
-        //wikipedia = try values.decode(String.self, forKey: .wikipedia)
-        //referenceImageId = try values.decode(String.self, forKey: .referenceImageId)
-        
-        image = try values.decodeIfPresent(BreedImage.self, forKey: .image)
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case name
+//        case temperament
+//        case description = "description"
+//        case energyLevel = "energy_level"
+//        case hairless = "hairless"
+//        //case wikipedia = "wikipedia_url"
+//        //case referenceImageId = "reference_image_id"
+//        //case altNames = "alt_names"
+//        //case image
+//    }
     
-    init(name: String,
-         id: String,
-         explaination: String,
-         temperament: String,
-         energyLevel: Int,
-         isHairless: Bool,
-         //referenceImageId: String,
-         //wikipedia: String,
-         image: BreedImage?) {
-            self.name = name
-            self.id = id
-            self.breedExplaination = explaination
-            self.energyLevel = energyLevel
-            self.temperament = temperament
-            
-            self.isHairless = isHairless
-            //self.wikipedia = wikipedia
-            //self.referenceImageId = referenceImageId
-            self.image = image
-        }
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        id = try values.decode(String.self, forKey: .id)
+//        name = try values.decode(String.self, forKey: .name)
+//        temperament = try values.decode(String.self, forKey: .temperament)
+//        breedExplaination = try values.decode(String.self, forKey: .breedExplaination)
+//        energyLevel = try values.decode(Int.self, forKey: .energyLevel)
+//
+//        let hairless = try values.decode(Int.self, forKey: .isHairless)
+//        isHairless = hairless == 1
+//
+//        //wikipedia = try values.decode(String.self, forKey: .wikipedia)
+//        //referenceImageId = try values.decode(String.self, forKey: .referenceImageId)
+//        altNames = try values.decode(String.self, forKey: .altNames)
+//    }
+    
+//    init(name: String,
+//         id: String,
+//         explaination: String,
+//         temperament: String,
+//         energyLevel: Int,
+//         isHairless: Bool,
+//         //referenceImageId: String,
+//         //wikipedia: String,
+//         altNames: String,
+//         image: BreedImage?) {
+//            self.name = name
+//            self.id = id
+//            self.breedExplaination = explaination
+//            self.energyLevel = energyLevel
+//            self.temperament = temperament
+//
+//            self.isHairless = isHairless
+//            //self.wikipedia = wikipedia
+//            //self.referenceImageId = referenceImageId
+//            self.altNames = altNames
+//        }
     
     static func example1() -> BreedModel {
-        return BreedModel(name: "Abyssinian",
-                     id: "abys",
-                     explaination: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.",
-                     temperament: "Active, Energetic, Independent, Intelligent, Gentle",
-                     energyLevel: 5,
-                     isHairless: false,
-                     //wikipedia: "https://en.wikipedia.org/wiki/American_Curl",
-                     //referenceImageId: "xnsqonbjW",
-                     image: BreedImage(height: 100,
-                                       id: "i",
-                                       url: "https://cdn2.thecatapi.com/images/unX21IBVB.jpg",
-                                       width: 100))
+        return BreedModel(id: "abys",
+                          name: "Abyssinian",
+                          temperament: "Active, Energetic, Independent, Intelligent, Gentle",
+                          description: "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.",
+                        energy_level: 5,
+                          hairless: 0,
+                          wikipedia_url: "https://en.wikipedia.org/wiki/American_Curl",
+                          reference_image_id: "xnsqonbjW",
+                          alt_names: "Turkish Cat, Swimming cat"
+                     )
     }
 
     static func example2() -> BreedModel {
-        return BreedModel(name: "Cyprus",
-                     id: "cypr",
-                     explaination: "Loving, loyal, social and inquisitive, the Cyprus cat forms strong ties with their families and love nothing more than to be involved in everything that goes on in their surroundings. They are not overly active by nature which makes them the perfect companion for people who would like to share their homes with a laid-back relaxed feline companion.",
-                     temperament: "Affectionate, Social",
-                     energyLevel: 4,
-                     isHairless: false,
-                     //wikipedia: "https://en.wikipedia.org/wiki/American_Curl",
-                     //referenceImageId: "xnsqonbjW",
-                     image: BreedImage(height: 100,
-                                       id: "i",
-                                       url: "https://cdn2.thecatapi.com/images/unX21IBVB.jpg",
-                                       width: 100))
+        return BreedModel(id: "cypr",
+                          name: "Cyprus",
+                          temperament: "Affectionate, Social",
+                          description: "Loving, loyal, social and inquisitive, the Cyprus cat forms strong ties with their families and love nothing more than to be involved in everything that goes on in their surroundings. They are not overly active by nature which makes them the perfect companion for people who would like to share their homes with a laid-back relaxed feline companion.",
+                          energy_level: 4,
+                          hairless: 1,
+                          wikipedia_url: "https://en.wikipedia.org/wiki/American_Curl",
+                          reference_image_id: "xnsqonbjW",
+                          alt_names: "Turkish Cat, Swimming cat"
+                     )
     }
 }

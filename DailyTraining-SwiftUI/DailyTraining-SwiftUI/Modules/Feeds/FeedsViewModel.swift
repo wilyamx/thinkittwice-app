@@ -53,10 +53,12 @@ final class FeedsViewModel: WSRFetcher {
             cat.id = model.id
             cat.name = model.name
             cat.temperament = model.temperament
-            cat.energyLevel = model.energyLevel
-            cat.isHairless = model.isHairless
-            cat.breedExplanation = model.breedExplaination
-            //cat.referenceImageId = model.referenceImage
+            
+            cat.energyLevel = model.energy_level
+            //cat.isHairless = model.hairless
+            cat.breedExplanation = model.description
+            cat.referenceImageId = model.reference_image_id ?? "Reference image id"
+            cat.altNames = model.alt_names ?? "Alternative names"
             
             $cats.append(cat)
         }
@@ -126,7 +128,7 @@ final class FeedsViewModel: WSRFetcher {
     
     func printAllBreeds() {
         for (index, breed) in self.breeds.enumerated() {
-            logger.api(message: "BreedModel[\(index)]: \(breed)")
+            logger.api(message: "[BreedModel\(index)]: \(breed)")
         }
     }
 }

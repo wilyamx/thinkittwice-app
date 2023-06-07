@@ -23,8 +23,15 @@ struct WSRRemoteImage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
         } else {
-            ProgressView()
-                .scaleEffect(2)
+            if imageLoader.invalidImage {
+                Image(systemName: "x.circle")
+                    .font(.system(size: 60))
+                    .foregroundColor(.red)
+            }
+            else {
+                ProgressView()
+                    .scaleEffect(2)
+            }
         }
     }
 }
