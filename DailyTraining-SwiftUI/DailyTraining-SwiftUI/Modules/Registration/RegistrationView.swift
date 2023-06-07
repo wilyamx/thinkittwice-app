@@ -11,20 +11,49 @@ struct RegistrationView: View {
     @ObservedObject var viewModel = RegistrationViewModel()
     @Environment(\.presentationMode) var presentationMode
     
+    @FocusState private var focusField: Field?
+    
+    enum Field: Hashable {
+        case firstname
+        case lastname
+        case email
+        case password
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
                 Form {
                     Section(header: Text("Personal Information")) {
-                        TextField("First Name", text: $viewModel.firstName)
-                        TextField("Last Name", text: $viewModel.lastName)
-                        TextField("Email", text: $viewModel.email)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                        SecureField("Password", text: $viewModel.password)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                        DatePicker("Birthdate", selection: $viewModel.birthdate, displayedComponents: .date)
+                        HStack {
+                            Text("👤")
+                            TextField("First Name", text: $viewModel.firstName)
+                                .focused($focusField, equals: .firstname)
+                        }
+                        HStack {
+                            Text("👤")
+                            TextField("Last Name", text: $viewModel.lastName)
+                                .focused($focusField, equals: .lastname)
+                        }
+                        
+                        HStack {
+                            Text("✉️")
+                            TextField("Email", text: $viewModel.email)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
+                                .focused($focusField, equals: .email)
+                        }
+                        HStack {
+                            Text("🔑")
+                            SecureField("Password", text: $viewModel.password)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
+                                .focused($focusField, equals: .password)
+                        }
+                        HStack {
+                            Text("🎂")
+                            DatePicker("Birthdate", selection: $viewModel.birthdate, displayedComponents: .date)
+                        }
                     }
                     
                     Section(header: Text("Actions")) {
@@ -35,7 +64,10 @@ struct RegistrationView: View {
                         Link("Term and Conditions", destination: URL(string: "https://www.google.com/")!)
                     }
                 }
-               
+                .onAppear {
+                    focusField = .firstname
+                }
+                
                 Button(action: {
                     if viewModel.register() {
                         presentationMode.wrappedValue.dismiss()

@@ -17,6 +17,7 @@ struct RetryView: View {
                 .foregroundColor(.red)
                 .padding(5)
             Text(message)
+                .multilineTextAlignment(.center)
             Button(action: {
                 
             },

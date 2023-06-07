@@ -49,7 +49,7 @@ import Foundation
      "short_legs": 0,
      "wikipedia_url": "https://en.wikipedia.org/wiki/Abyssinian_(cat)",
      "hypoallergenic": 0,
-     "reference_image_id": "0XYvRd7oD",
+     "reference_image_id": "0XYvRd7oD", <------
      "image": { <------
        "id": "0XYvRd7oD",
        "width": 1204,
@@ -69,6 +69,7 @@ struct BreedModel: Codable, Identifiable {
     let energyLevel: Int?
     let isHairless: Bool?
     let image: BreedImage?
+    //let referenceImageId: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -78,6 +79,7 @@ struct BreedModel: Codable, Identifiable {
         case energyLevel = "energy_level"
         case isHairless = "hairless"
         case image
+        //case referenceImageId = "reference_image_id"
     }
     
     init(from decoder: Decoder) throws {
@@ -92,6 +94,7 @@ struct BreedModel: Codable, Identifiable {
         let hairless = try values.decode(Int.self, forKey: .isHairless)
         isHairless = hairless == 1
         
+        //referenceImageId = try values.decode(String.self, forKey: .referenceImageId)
         image = try values.decodeIfPresent(BreedImage.self, forKey: .image)
     }
     
@@ -101,6 +104,7 @@ struct BreedModel: Codable, Identifiable {
          temperament: String,
          energyLevel: Int,
          isHairless: Bool,
+         //referenceImageId: String,
          image: BreedImage?) {
             self.name = name
             self.id = id
@@ -109,6 +113,7 @@ struct BreedModel: Codable, Identifiable {
             self.temperament = temperament
             self.image = image
             self.isHairless = isHairless
+            //self.referenceImageId = referenceImageId
         }
     
     static func example1() -> BreedModel {
@@ -118,6 +123,7 @@ struct BreedModel: Codable, Identifiable {
                      temperament: "Active, Energetic, Independent, Intelligent, Gentle",
                      energyLevel: 5,
                      isHairless: false,
+                     //referenceImageId: "xnsqonbjW",
                      image: BreedImage(height: 100,
                                        id: "i",
                                        url: "https://cdn2.thecatapi.com/images/unX21IBVB.jpg",
@@ -131,6 +137,7 @@ struct BreedModel: Codable, Identifiable {
                      temperament: "Affectionate, Social",
                      energyLevel: 4,
                      isHairless: false,
+                     //referenceImageId: "xnsqonbjW",
                      image: BreedImage(height: 100,
                                        id: "i",
                                        url: "https://cdn2.thecatapi.com/images/unX21IBVB.jpg",

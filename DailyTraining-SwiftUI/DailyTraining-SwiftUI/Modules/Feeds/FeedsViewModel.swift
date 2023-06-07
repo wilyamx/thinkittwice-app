@@ -56,6 +56,7 @@ final class FeedsViewModel: WSRFetcher {
             cat.energyLevel = model.energyLevel ?? 0
             cat.isHairless = model.isHairless ?? false
             cat.breedExplanation = model.breedExplaination ?? "Breed Explaination"
+            //cat.referenceImageId = model.referenceImage ?? "Image Id"
             
             $cats.append(cat)
         }

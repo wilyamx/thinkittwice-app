@@ -35,7 +35,8 @@ struct WSRLogger {
     // this will filter what to log only
     // empty means accept all type of logs
     private var filteredLogKeys: [WSRDebugInfoKey] {
-        return commonAndPersistentLogKeys
+        return allLogKeys
+        //return commonAndPersistentLogKeys
     }
     
     // MARK: - Deprecated

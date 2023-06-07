@@ -34,7 +34,9 @@ struct DailyChallengeView: View {
                 }
             }
             
-            Button(action: { },
+            Button(action: {
+                logger.info(message: "Take the challenge!")
+            },
                    label: {
                 Text("TAKE THE CHALLENGE")
                     .fontWeight(.bold)
@@ -51,6 +53,8 @@ struct DailyChallengeView: View {
 
 struct DailyChallengeView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyChallengeView(cat: Cat.example())
+        List {
+            DailyChallengeView(cat: Cat.example())
+        }
     }
 }

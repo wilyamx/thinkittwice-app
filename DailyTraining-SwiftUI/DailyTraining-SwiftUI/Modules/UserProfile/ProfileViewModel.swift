@@ -34,8 +34,8 @@ final class ProfileViewModel: WSRFetcher {
             user = try await WSRApiService().getUserDetails(urlString: "https://api.github.com/users/wilyamx")
             
             logger.api(message: "cats: \(cats.count)")
-            if let user = user {
-                logger.api(message: "user: \(user)")
+            if let user2 = user {
+                logger.api(message: "user: \(user2)")
             }
             
             userDetails = user

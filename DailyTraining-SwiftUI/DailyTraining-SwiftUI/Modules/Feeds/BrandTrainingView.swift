@@ -23,7 +23,9 @@ struct BrandTrainingView: View {
             Text(cat.breedExplanation)
                 .lineLimit(4)
             
-            Button(action: { },
+            Button(action: {
+                logger.info(message: "Take the course!")
+            },
                    label: {
                 Text("TAKE THE COURSE")
                     .fontWeight(.bold)
@@ -40,6 +42,8 @@ struct BrandTrainingView: View {
 
 struct BrandTrainingView_Previews: PreviewProvider {
     static var previews: some View {
-        BrandTrainingView(cat: Cat.example())
+        List {
+            BrandTrainingView(cat: Cat.example())
+        }
     }
 }
