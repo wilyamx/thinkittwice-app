@@ -9,6 +9,29 @@ import SwiftUI
 
 /**
     https://xavier7t.com/image-caching-in-swiftui
+ 
+    Manual caching
+ 
+    WSRRemoteImage(url: cat.imageUrl())
+        .frame(height: 200)
+        .frame(maxWidth: .infinity)
+        .overlay(alignment: .topLeading) {
+         VStack(alignment: .leading) {
+             Text("MARKET NEWS")
+                 .fontWeight(.bold)
+                 .padding([.top, .leading])
+
+             Spacer()
+
+             Text(cat.altNames)
+                 .lineLimit(4)
+                 .padding([.leading, .trailing, .bottom])
+         }
+        }
+        .foregroundColor(Color.white)
+        .background(Color.secondary.opacity(0.5))
+        .clipped()
+        .cornerRadius(15)
  */
 struct WSRRemoteImage: View {
     @ObservedObject var imageLoader: WSRImageLoader

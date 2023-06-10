@@ -61,6 +61,8 @@
 		60A5E0B42A0C704F00C8A9B1 /* BreedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E0B32A0C704F00C8A9B1 /* BreedModel.swift */; };
 		60A5E0B92A0C7F8D00C8A9B1 /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E0B82A0C7F8D00C8A9B1 /* FeedsViewModel.swift */; };
 		60A5E0BB2A0C97F200C8A9B1 /* WSRFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E0BA2A0C97F200C8A9B1 /* WSRFileLoader.swift */; };
+		60A8CAA52A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A8CAA42A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift */; };
+		60A8CAA82A33F37A001A73C5 /* WSRWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A8CAA72A33F37A001A73C5 /* WSRWebImage.swift */; };
 		60AE673E2A2DBB8D00A172FF /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE673D2A2DBB8D00A172FF /* GitHubUser.swift */; };
 		60AE67412A2DCCFA00A172FF /* GitHubApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67402A2DCCFA00A172FF /* GitHubApis.swift */; };
 		60AE67432A2DCDEC00A172FF /* CatsApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67422A2DCDEC00A172FF /* CatsApis.swift */; };
@@ -157,6 +159,8 @@
 		60A5E0B32A0C704F00C8A9B1 /* BreedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedModel.swift; sourceTree = "<group>"; };
 		60A5E0B82A0C7F8D00C8A9B1 /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 		60A5E0BA2A0C97F200C8A9B1 /* WSRFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRFileLoader.swift; sourceTree = "<group>"; };
+		60A8CAA42A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRImageLoaderCachePolicy.swift; sourceTree = "<group>"; };
+		60A8CAA72A33F37A001A73C5 /* WSRWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRWebImage.swift; sourceTree = "<group>"; };
 		60AE673D2A2DBB8D00A172FF /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 		60AE67402A2DCCFA00A172FF /* GitHubApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApis.swift; sourceTree = "<group>"; };
 		60AE67422A2DCDEC00A172FF /* CatsApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsApis.swift; sourceTree = "<group>"; };
@@ -236,7 +240,7 @@
 		6061E3EC2A2AB111005D0844 /* WSR */ = {
 			isa = PBXGroup;
 			children = (
-				60CFE9102A302A0600275AE1 /* ImageCache */,
+				60A8CAA92A33F410001A73C5 /* Views */,
 				6061E4022A2CC517005D0844 /* Realm */,
 				6061E3F92A2BF9C6005D0844 /* Extensions */,
 				60A5E0AB2A0C6AD500C8A9B1 /* Networking */,
@@ -462,6 +466,24 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		60A8CAA62A33F291001A73C5 /* WSRWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				60A8CAA72A33F37A001A73C5 /* WSRWebImage.swift */,
+				60A8CAA42A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift */,
+			);
+			path = WSRWebImage;
+			sourceTree = "<group>";
+		};
+		60A8CAA92A33F410001A73C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				60A8CAA62A33F291001A73C5 /* WSRWebImage */,
+				60CFE9102A302A0600275AE1 /* WSRRemoteImage */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		60AE673F2A2DCCB000A172FF /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,14 +493,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		60CFE9102A302A0600275AE1 /* ImageCache */ = {
+		60CFE9102A302A0600275AE1 /* WSRRemoteImage */ = {
 			isa = PBXGroup;
 			children = (
-				60CFE9112A302A1F00275AE1 /* WSRImageCache.swift */,
 				60CFE9132A302B1400275AE1 /* WSRRemoteImage.swift */,
 				60CFE9152A302B5D00275AE1 /* WSRImageLoader.swift */,
+				60CFE9112A302A1F00275AE1 /* WSRImageCache.swift */,
 			);
-			path = ImageCache;
+			path = WSRRemoteImage;
 			sourceTree = "<group>";
 		};
 		60ECA76A2A1302C000EA663E /* Fetchers */ = {
@@ -714,7 +736,9 @@
 				60FCD5572A02A48A003D8FAE /* NotificationsView.swift in Sources */,
 				60487E292A19656300AD6603 /* ConversationRow.swift in Sources */,
 				60AE67452A2E10BE00A172FF /* RetryView.swift in Sources */,
+				60A8CAA52A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift in Sources */,
 				6061E3F82A2BEEE5005D0844 /* RegistrationView.swift in Sources */,
+				60A8CAA82A33F37A001A73C5 /* WSRWebImage.swift in Sources */,
 				6026A6552A117EA000CC00E1 /* BreedImage.swift in Sources */,
 				60487E232A195BBB00AD6603 /* ConversationsView.swift in Sources */,
 				603EED352A092E6B00EC9C2E /* CircularRankIndicator.swift in Sources */,

@@ -26,10 +26,17 @@ class WSRImageLoader: ObservableObject {
     private func loadImage() {
         if let cachedImage = WSRImageCache.shared.get(forKey: url) {
             self.image = cachedImage
+            self.invalidImage = false
             return
         }
 
-        guard let url = URL(string: url) else { return }
+        guard let url = URL(string: url) else {
+            self.invalidImage = true
+            self.image = nil
+            
+            logger.error(message: "Invalid url error! \(self.url)")
+            return
+        }
 
         task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
@@ -37,7 +44,7 @@ class WSRImageLoader: ObservableObject {
                     self.invalidImage = true
                     self.image = nil
                 }
-                logger.error(message: "Image-1 cache error! \(self.url)")
+                logger.error(message: "Request error! \(self.url)")
                 return
             }
 
@@ -55,7 +62,7 @@ class WSRImageLoader: ObservableObject {
                     self.invalidImage = true
                     self.image = nil
                 }
-                logger.error(message: "Image-2 cache error! \(self.url)")
+                logger.error(message: "No image error! \(self.url)")
             }
         }
         task?.resume()

@@ -12,7 +12,7 @@ struct NewsView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            WSRRemoteImage(url: cat.imageUrl())
+            WSRWebImage(url: cat.imageUrl())
                 .frame(height: 200)
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .topLeading) {
