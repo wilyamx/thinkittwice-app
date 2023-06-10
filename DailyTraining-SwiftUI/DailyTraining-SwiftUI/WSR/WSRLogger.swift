@@ -30,13 +30,16 @@ struct WSRLogger {
     
     private let allLogKeys: [WSRDebugInfoKey] = []
     private let commonLogKeys: [WSRDebugInfoKey] = [.info, .fileloader, .error]
-    private let commonAndPersistentLogKeys: [WSRDebugInfoKey] = [.info, .fileloader, .error, .realmDb]
+    private let commonAndPersistentLogKeys: [WSRDebugInfoKey] = [.info, .fileloader, .error]
+    private let cacheLogKeys: [WSRDebugInfoKey] = [.cache]
+    private let databaseLogKeys: [WSRDebugInfoKey] = [.realmDb]
+    private let customLogKeys: [WSRDebugInfoKey] = [.info, .fileloader, .error, .realmDb]
     
     // this will filter what to log only
     // empty means accept all type of logs
     private var filteredLogKeys: [WSRDebugInfoKey] {
-        return allLogKeys
-        //return commonAndPersistentLogKeys
+        return commonAndPersistentLogKeys + databaseLogKeys
+        //return customLogKeys
     }
     
     // MARK: - Deprecated
