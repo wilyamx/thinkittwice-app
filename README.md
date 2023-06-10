@@ -60,6 +60,12 @@ A mobile application for bringing **digital training solution** in the luxury re
 - **API Integration**
 - **Logger**
 
+**INSPIRED BY**
+
+- [Sean Allen](https://www.youtube.com/@seanallen)
+- [Karin Prater](https://www.youtube.com/@SwiftyPlace)
+
+
 <p float="left">
 	<img src="images/login.png" alt="Login" height="400">
 	<img src="images/registration.png" alt="Registration" height="400">
