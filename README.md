@@ -54,11 +54,12 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 **FEATURES**
 
-- **Data Cache:** `Realm Database`
-- **Remember Me**
-- **Image Caching**
-- **API Integration**
-- **Logger**
+- MVVM
+- Data Cache: `Realm Database`
+- Remember Me
+- Image Caching
+- API Integration
+- Logger
 
 **INSPIRED BY**
 
