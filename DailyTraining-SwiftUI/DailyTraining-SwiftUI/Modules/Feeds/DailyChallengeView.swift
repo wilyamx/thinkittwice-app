@@ -52,9 +52,17 @@ struct DailyChallengeView: View {
 }
 
 struct DailyChallengeView_Previews: PreviewProvider {
+    /**
+        https://www.mongodb.com/docs/realm/sdk/swift/swiftui/swiftui-previews/
+     */
     static var previews: some View {
         List {
-            DailyChallengeView(cat: Cat.example())
+            let realm = WSRMockRealms.previewRealm
+            let cats = realm.objects(Cat.self)
+            
+            if let cat = cats.first {
+                DailyChallengeView(cat: cat)
+            }
         }
     }
 }

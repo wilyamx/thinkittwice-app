@@ -58,9 +58,17 @@ struct NewsView: View {
 }
 
 struct NewsView_Previews: PreviewProvider {
+    /**
+        https://www.mongodb.com/docs/realm/sdk/swift/swiftui/swiftui-previews/
+     */
     static var previews: some View {
         List {
-            NewsView(cat: Cat.example())
+            let realm = WSRMockRealms.previewRealm
+            let cats = realm.objects(Cat.self)
+            
+            if let cat = cats.first {
+                NewsView(cat: cat)
+            }
         }
     }
 }

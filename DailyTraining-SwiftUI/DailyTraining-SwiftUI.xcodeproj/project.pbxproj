@@ -63,6 +63,7 @@
 		60A5E0BB2A0C97F200C8A9B1 /* WSRFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E0BA2A0C97F200C8A9B1 /* WSRFileLoader.swift */; };
 		60A8CAA52A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A8CAA42A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift */; };
 		60A8CAA82A33F37A001A73C5 /* WSRWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A8CAA72A33F37A001A73C5 /* WSRWebImage.swift */; };
+		60A8CAAB2A369567001A73C5 /* WSRMockRealms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A8CAAA2A369567001A73C5 /* WSRMockRealms.swift */; };
 		60AE673E2A2DBB8D00A172FF /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE673D2A2DBB8D00A172FF /* GitHubUser.swift */; };
 		60AE67412A2DCCFA00A172FF /* GitHubApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67402A2DCCFA00A172FF /* GitHubApis.swift */; };
 		60AE67432A2DCDEC00A172FF /* CatsApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE67422A2DCDEC00A172FF /* CatsApis.swift */; };
@@ -161,6 +162,7 @@
 		60A5E0BA2A0C97F200C8A9B1 /* WSRFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRFileLoader.swift; sourceTree = "<group>"; };
 		60A8CAA42A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRImageLoaderCachePolicy.swift; sourceTree = "<group>"; };
 		60A8CAA72A33F37A001A73C5 /* WSRWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRWebImage.swift; sourceTree = "<group>"; };
+		60A8CAAA2A369567001A73C5 /* WSRMockRealms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRMockRealms.swift; sourceTree = "<group>"; };
 		60AE673D2A2DBB8D00A172FF /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 		60AE67402A2DCCFA00A172FF /* GitHubApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApis.swift; sourceTree = "<group>"; };
 		60AE67422A2DCDEC00A172FF /* CatsApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsApis.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				6061E4002A2CC4F7005D0844 /* WSRRealmMigrator.swift */,
+				60A8CAAA2A369567001A73C5 /* WSRMockRealms.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				6026A6572A119B4000CC00E1 /* BreedFetcher.swift in Sources */,
 				6061E3F52A2BE336005D0844 /* User.swift in Sources */,
 				60FA07882A0330E4008405BE /* ChatRow.swift in Sources */,
+				60A8CAAB2A369567001A73C5 /* WSRMockRealms.swift in Sources */,
 				60A507B72A0D45DC004D9586 /* WSRApiService+Extension.swift in Sources */,
 				60AE67432A2DCDEC00A172FF /* CatsApis.swift in Sources */,
 				60A5E0B92A0C7F8D00C8A9B1 /* FeedsViewModel.swift in Sources */,
