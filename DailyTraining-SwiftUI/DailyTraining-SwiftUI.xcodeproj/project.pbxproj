@@ -379,17 +379,9 @@
 		607C142B2A05FC0400DE12F0 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
-				60FCD5622A0322EE003D8FAE /* MessagingChatsViewModel.swift */,
-				6090BEF32A03F62A0043B1AE /* MessagingUsersViewModel.swift */,
-				60487E262A1964D400AD6603 /* ConversationsViewModel.swift */,
+				60A8CAAC2A3706E0001A73C5 /* Chats */,
+				60A8CAAD2A3706EB001A73C5 /* Users */,
 				60FCD5582A02A49D003D8FAE /* MessagingView.swift */,
-				60FCD55C2A02B11A003D8FAE /* MessagingChatsView.swift */,
-				60FCD55E2A02B134003D8FAE /* MessagingUsersView.swift */,
-				60487E222A195BBB00AD6603 /* ConversationsView.swift */,
-				60FA07872A0330E4008405BE /* ChatRow.swift */,
-				6090BEF52A03F8420043B1AE /* ChatUserRow.swift */,
-				60487E282A19656300AD6603 /* ConversationRow.swift */,
-				60487E2A2A19C6E100AD6603 /* ConversationListView.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -485,6 +477,30 @@
 				60CFE9102A302A0600275AE1 /* WSRRemoteImage */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		60A8CAAC2A3706E0001A73C5 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				60FCD55C2A02B11A003D8FAE /* MessagingChatsView.swift */,
+				60FCD5622A0322EE003D8FAE /* MessagingChatsViewModel.swift */,
+				60487E262A1964D400AD6603 /* ConversationsViewModel.swift */,
+				60FA07872A0330E4008405BE /* ChatRow.swift */,
+				60487E2A2A19C6E100AD6603 /* ConversationListView.swift */,
+				60487E282A19656300AD6603 /* ConversationRow.swift */,
+				60487E222A195BBB00AD6603 /* ConversationsView.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		60A8CAAD2A3706EB001A73C5 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				60FCD55E2A02B134003D8FAE /* MessagingUsersView.swift */,
+				6090BEF32A03F62A0043B1AE /* MessagingUsersViewModel.swift */,
+				6090BEF52A03F8420043B1AE /* ChatUserRow.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 		60AE673F2A2DCCB000A172FF /* API */ = {

@@ -13,6 +13,9 @@ struct MessagingView: View {
     
     @State private var pickerSelectedIndex: Int = 0
     
+    @StateObject var chatsViewModel: MessagingChatsViewModel = MessagingChatsViewModel()
+    @StateObject var usersViewModel: MessagingUsersViewModel = MessagingUsersViewModel()
+    
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
         UISegmentedControl.appearance().setTitleTextAttributes(
@@ -30,7 +33,7 @@ struct MessagingView: View {
                             .tag(channel.index)
                     }
                 }
-                .padding([.leading, .trailing], 15.0)
+                .padding(.horizontal, 15.0)
                 .pickerStyle(.segmented)
                 .onChange(of: pickerSelectedIndex) { index in
                     if index == 0 {
@@ -39,21 +42,27 @@ struct MessagingView: View {
                     else if index == 1 {
                         selectedChannel = .people
                     }
+                    logger.info(message: "Channel change: \(selectedChannel)")
                 }
 
                 switch selectedChannel {
                 case Channel.chats:
-                    MessagingChatsView()
-                        .environmentObject(MessagingChatsViewModel())
+                    MessagingChatsView(viewModel: chatsViewModel)
+                        .onAppear {
+                            chatsViewModel.searchBy(key: searchText)
+                        }
                 case Channel.people:
-                    MessagingUsersView()
-                        .environmentObject(MessagingUsersViewModel())
+                    MessagingUsersView(viewModel: usersViewModel)
+                        .onAppear {
+                            usersViewModel.searchBy(key: searchText)
+                        }
                 }
             
                 Spacer()
             }
             
             .navigationBarTitle("Channel")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -73,9 +82,16 @@ struct MessagingView: View {
             }
             .toolbarBackground(.white, for: .navigationBar)
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText, prompt: "Search by selected tab")
         .onChange(of: searchText) { searchText in
-            logger.info(message: "New search text: \(searchText)")
+            logger.info(message: "New search text: \"\(searchText)\" for: \(self.selectedChannel)")
+            
+            switch selectedChannel {
+            case .chats:
+                chatsViewModel.searchBy(key: searchText)
+            case .people:
+                usersViewModel.searchBy(key: searchText)
+            }
         }
     }
 }

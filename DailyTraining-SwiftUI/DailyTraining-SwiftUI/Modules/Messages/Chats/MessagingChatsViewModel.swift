@@ -12,11 +12,13 @@ final class MessagingChatsViewModel: WSRLocalFileLoader {
     @Published var list: [Chat] = [Chat]()
     @Published var selectedIndex:Int = 0
     
+    @Published var searchText: String = ""
+    
     override init(fileLoader: WSRFileLoader = WSRFileLoader()) {
         super.init(fileLoader: fileLoader)
     }
     
-    func getChats() {
+    func getList() {
         let filename = "MessagingChatsData.json"
         logger.log(category: .fileloader, message: "filename: \(filename)")
         
@@ -34,6 +36,18 @@ final class MessagingChatsViewModel: WSRLocalFileLoader {
                     }
                 }
             })
+    }
+    
+    func searchBy(key: String) {
+        if key.isEmpty {
+            list = []
+            getList()
+            logger.info(message: "All chats")
+        }
+        else {
+            logger.info(message: "Search by: \(key)")
+        }
+        self.searchText = key
     }
 }
 

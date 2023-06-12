@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct MessagingUsersView: View {
-    @EnvironmentObject var viewModel:MessagingUsersViewModel
+    
+    @ObservedObject var viewModel:MessagingUsersViewModel
     
     let rowSpacing: CGFloat = 5.0
+    
+    var filteredList: [ChatUser] {
+        if viewModel.searchText.isEmpty {
+            return viewModel.list
+        }
+        else {
+            return viewModel.list.filter { $0.title.localizedCaseInsensitiveContains(viewModel.searchText) }
+        }
+    }
     
     var body: some View {
         VStack {
             List() {
-                ForEach(0..<viewModel.list.count, id: \.self) { index in
-                    let item = viewModel.list[index]
+                ForEach(0..<filteredList.count, id: \.self) { index in
+                    let item = filteredList[index]
                     Button {
                         logger.info(message: "selected-item index: \(index), id: \(item.id)")
                     } label: {
@@ -41,18 +51,12 @@ struct MessagingUsersView: View {
                                       green: 246/255,
                                       blue: 246/255,
                                       alpha: 1.0)))
-            
-            .onAppear {
-                logger.info(message: "onAppear")
-                viewModel.getUsers()
-            }
         }
     }
 }
 
 struct MessagingUsersView_Previews: PreviewProvider {
     static var previews: some View {
-        MessagingUsersView()
-            .environmentObject(MessagingUsersViewModel())
+        MessagingUsersView(viewModel: MessagingUsersViewModel())
     }
 }

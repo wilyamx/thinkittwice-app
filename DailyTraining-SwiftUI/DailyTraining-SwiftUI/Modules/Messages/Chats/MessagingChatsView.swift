@@ -9,17 +9,26 @@ import SwiftUI
 
 struct MessagingChatsView: View {
     
-    @EnvironmentObject var viewModel: MessagingChatsViewModel
+    @ObservedObject var viewModel: MessagingChatsViewModel
 
     @State private var isPresentedConversation: Bool = false
     
     let rowSpacing: CGFloat = 5.0
     
+    var filteredList: [Chat] {
+        if viewModel.searchText.isEmpty {
+            return viewModel.list
+        }
+        else {
+            return viewModel.list.filter { $0.title.localizedCaseInsensitiveContains(viewModel.searchText) }
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(0..<viewModel.list.count, id: \.self) { index in
-                    let item = viewModel.list[index]
+                ForEach(0..<filteredList.count, id: \.self) { index in
+                    let item = filteredList[index]
                     Button {
                         logger.info(message: "selected-item index: \(index)")
                         
@@ -44,10 +53,6 @@ struct MessagingChatsView: View {
             .listStyle(.plain)
             .padding(.all, 5)
             .background(ColorNames.listBackgroundColor.colorValue)
-            .onAppear {
-                logger.info(message: "onAppear")
-                viewModel.getChats()
-            }
             .fullScreenCover(isPresented: $isPresentedConversation) {
                 ConversationsView(title: viewModel.list[viewModel.selectedIndex].title)
             }
@@ -58,7 +63,6 @@ struct MessagingChatsView: View {
 
 struct MessagingChatsView_Previews: PreviewProvider {
     static var previews: some View {
-        MessagingChatsView()
-            .environmentObject(MessagingChatsViewModel())
+        MessagingChatsView(viewModel: MessagingChatsViewModel())
     }
 }

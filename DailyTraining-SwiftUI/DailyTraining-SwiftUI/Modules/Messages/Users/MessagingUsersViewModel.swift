@@ -12,11 +12,13 @@ final class MessagingUsersViewModel: ObservableObject {
     
     private let fileLoader: WSRFileLoader
     
+    @Published var searchText: String = ""
+    
     init(fileLoader: WSRFileLoader = WSRFileLoader()) {
         self.fileLoader = fileLoader
     }
     
-    func getUsers() {
+    func getList() {
         let filename = "MessagingUsersData.json"
         logger.log(category: .fileloader, message: "filename: \(filename)")
         
@@ -29,11 +31,25 @@ final class MessagingUsersViewModel: ObservableObject {
                     case .failure(let error):
                         logger.error(message: "errorMessage: \(error.description)")
                     case .success(let list):
-                        logger.log(category: .fileloader, message: "total list: \(list.count)")
+                        
                         self?.list = list
+                        logger.log(category: .fileloader, message: "total list: \(list.count)")
                     }
                 }
             })
+    }
+    
+    func searchBy(key: String) {
+        if key.isEmpty {
+            list = []
+            getList()
+            logger.info(message: "All users")
+        }
+        else {
+            logger.info(message: "Search by: \(key)")
+        }
+        
+        self.searchText = key
     }
 }
 
