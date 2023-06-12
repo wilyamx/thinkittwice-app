@@ -77,7 +77,6 @@ A mobile application for bringing **digital training solution** in the luxury re
 	<img src="images/feed-2.png" alt="Feed 2" height="400">
 	<img src="images/feed-3.png" alt="Feed 3" height="400">
 	<img src="images/feed-4.png" alt="Feed 4" height="400">
-	<img src="images/feed-5.png" alt="Feed 5" height="400">
 </p>
 
 <p float="left">
