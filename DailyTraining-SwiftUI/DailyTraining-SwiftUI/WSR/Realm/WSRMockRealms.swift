@@ -19,7 +19,7 @@ class WSRMockRealms {
          do {
             realm = try Realm(configuration: config)
             try realm.write {
-                let model = BreedModel.example1()
+                let model = BreedModel.bombayCat()
                 
                 let cat = Cat()
                 cat.id = model.id

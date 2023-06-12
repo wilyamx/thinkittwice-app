@@ -13,13 +13,13 @@ struct NewsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             WSRWebImage(url: cat.imageUrl())
-                .frame(height: 200)
-                .frame(maxWidth: .infinity)
+                .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                 .overlay(alignment: .topLeading) {
                     VStack(alignment: .leading) {
                         Text("MARKET NEWS")
                             .fontWeight(.bold)
                             .padding([.top, .leading])
+                            .foregroundColor(.white)
 
                         Spacer()
 
@@ -32,6 +32,7 @@ struct NewsView: View {
                 .background(Color.secondary.opacity(0.5))
                 .clipped()
                 .cornerRadius(15)
+                .padding(.top)
                         
             HStack {
                 HStack(spacing: 20) {
@@ -53,6 +54,7 @@ struct NewsView: View {
                 Text("JAN 1ST")
                     .foregroundColor(Color.gray)
             }
+            .padding(.bottom)
         }
     }
 }
@@ -65,10 +67,26 @@ struct NewsView_Previews: PreviewProvider {
         List {
             let realm = WSRMockRealms.previewRealm
             let cats = realm.objects(Cat.self)
+            let rowSpacing: CGFloat = 10.0
             
             if let cat = cats.first {
-                NewsView(cat: cat)
+                Group {
+                    NewsView(cat: cat)
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 15)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+                )
             }
         }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
+        .buttonStyle(.borderless)
     }
 }

@@ -33,6 +33,7 @@ struct DailyChallengeView: View {
                         .lineLimit(1)
                 }
             }
+            .padding(.top)
             
             Button(action: {
                 logger.info(message: "Take the challenge! \(cat.name)")
@@ -47,6 +48,7 @@ struct DailyChallengeView: View {
                     .font(.footnote)
             })
             .cornerRadius(10)
+            .padding(.bottom)
         }
     }
 }
@@ -59,10 +61,26 @@ struct DailyChallengeView_Previews: PreviewProvider {
         List {
             let realm = WSRMockRealms.previewRealm
             let cats = realm.objects(Cat.self)
+            let rowSpacing: CGFloat = 10.0
             
             if let cat = cats.first {
-                DailyChallengeView(cat: cat)
+                Group {
+                    DailyChallengeView(cat: cat)
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 15)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+                )
             }
         }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
+        .buttonStyle(.borderless)
     }
 }

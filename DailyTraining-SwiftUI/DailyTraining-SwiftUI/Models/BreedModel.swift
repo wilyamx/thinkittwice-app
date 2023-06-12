@@ -154,4 +154,17 @@ struct BreedModel: Codable, Identifiable {
                           alt_names: "Turkish Cat, Swimming cat"
                      )
     }
+    
+    static func bombayCat() -> BreedModel {
+        return BreedModel(id: "bomb",
+                          name: "Bombay",
+                          temperament: "Affectionate, Dependent, Gentle, Intelligent, Playful",
+                          description: "The the golden eyes and the shiny black coa of the Bopmbay is absolutely striking. Likely to bond most with one family member, the Bombay will follow you from room to room and will almost always have something to say about what you are doing, loving attention and to be carried around, often on his caregiver's shoulder.",
+                          energy_level: 3,
+                          hairless: 0,
+                          wikipedia_url: "https://en.wikipedia.org/wiki/American_Curl",
+                          reference_image_id: "5iYq9NmT1",
+                          alt_names: "Small black Panther"
+                     )
+    }
 }

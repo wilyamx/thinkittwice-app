@@ -15,14 +15,14 @@ struct BrandTrainingView: View {
         VStack(alignment: .leading, spacing: 20) {
             Text("BRAND TRAINING")
                 .fontWeight(.bold)
+                .padding(.top)
                                     
             WSRWebImage(url: cat.imageUrl())
-                .frame(height: 200)
-                .frame(maxWidth: .infinity)
+                .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                 .foregroundColor(Color.white)
                 .background(Color.secondary.opacity(0.5))
-                .clipped()
                 .cornerRadius(15)
+                .clipped()
             
             Text(cat.breedExplanation)
                 .lineLimit(4)
@@ -41,6 +41,7 @@ struct BrandTrainingView: View {
                     .font(.footnote)
             })
             .cornerRadius(10)
+            .padding(.bottom)
         }
     }
 }
@@ -53,11 +54,26 @@ struct BrandTrainingView_Previews: PreviewProvider {
         List {
             let realm = WSRMockRealms.previewRealm
             let cats = realm.objects(Cat.self)
+            let rowSpacing: CGFloat = 10.0
             
             if let cat = cats.first {
-                BrandTrainingView(cat: cat)
+                Group {
+                    BrandTrainingView(cat: cat)
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 15)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+                )
             }
         }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
         .buttonStyle(.borderless)
         
     }

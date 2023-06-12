@@ -37,15 +37,12 @@ struct FeedsView: View {
                             ForEach(viewModel.cats.shuffled(), id: \.id) { cat in
                                 if [1, 2].contains(cat.energyLevel) {
                                     DailyChallengeView(cat: cat)
-                                        .padding(.vertical)
                                 }
                                 else if [3, 4].contains(cat.energyLevel) {
                                     BrandTrainingView(cat: cat)
-                                        .padding(.vertical)
                                 }
                                 else {
                                     NewsView(cat: cat)
-                                        .padding(.vertical)
                                 }
                             }
                         }
@@ -62,7 +59,6 @@ struct FeedsView: View {
                     }
                     .listStyle(.plain)
                     .background(ColorNames.listBackgroundColor.colorValue)
-                    .padding(5)
                     .buttonStyle(.borderless)
                 }
                 
