@@ -30,8 +30,8 @@ struct MessagingView: View {
                             .tag(channel.index)
                     }
                 }
-                .padding([.leading, .trailing], 10.0)
-                .pickerStyle(SegmentedPickerStyle())
+                .padding([.leading, .trailing], 15.0)
+                .pickerStyle(.segmented)
                 .onChange(of: pickerSelectedIndex) { index in
                     if index == 0 {
                         selectedChannel = .chats
@@ -41,23 +41,19 @@ struct MessagingView: View {
                     }
                 }
 
-                TabView(selection: $selectedChannel) {
+                switch selectedChannel {
+                case Channel.chats:
                     MessagingChatsView()
                         .environmentObject(MessagingChatsViewModel())
-                        .tag(Channel.chats)
+                case Channel.people:
                     MessagingUsersView()
                         .environmentObject(MessagingUsersViewModel())
-                        .tag(Channel.people)
                 }
-                .tabViewStyle(.automatic)
-                .onChange(of: selectedChannel) { channel in
-                    pickerSelectedIndex = channel.index
-                }
-    
+            
                 Spacer()
             }
             
-            .navigationBarTitle("Channel", displayMode: .inline)
+            .navigationBarTitle("Channel")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -75,7 +71,6 @@ struct MessagingView: View {
                     })
                 }
             }
-            .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(.white, for: .navigationBar)
         }
         .searchable(text: $searchText)

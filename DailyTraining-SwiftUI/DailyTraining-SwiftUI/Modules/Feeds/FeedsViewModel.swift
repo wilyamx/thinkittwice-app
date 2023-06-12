@@ -20,33 +20,6 @@ final class FeedsViewModel: WSRFetcher {
         super.init(service: service)
     }
     
-    func fetchAllBreeds() {
-        self.breeds = []
-        
-        self.requestStarted()
-        
-        let urlString = "https://api.thecatapi.com/v1/breeds"
-        service.getCatBreeds(
-            urlString: urlString,
-            completion: { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                        
-                    case .failure(let error):
-                        logger.error(message: error.localizedDescription)
-                        self?.requestFailed(reason: error.localizedDescription)
-                        
-                    case .success(let breeds):
-                        logger.api(message: "list count: \(breeds.count)")
-                        
-                        self?.breeds = breeds
-                        self?.requestSuccess()
-                    }
-                }
-            })
-
-    }
-    
     override func persist() async -> Bool {
         breeds.forEach { model in
             let cat = Cat()
@@ -65,7 +38,6 @@ final class FeedsViewModel: WSRFetcher {
         return true
     }
         
-    
     func initializeData(deletePersistedData: Bool = false) async -> Bool {
         logger.info(message: "Initializing data...")
         
@@ -124,6 +96,35 @@ final class FeedsViewModel: WSRFetcher {
         return true
     }
         
+    // MARK: - Public Methods
+    
+    func fetchAllBreeds() {
+        self.breeds = []
+        
+        self.requestStarted()
+        
+        let urlString = "https://api.thecatapi.com/v1/breeds"
+        service.getCatBreeds(
+            urlString: urlString,
+            completion: { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                        
+                    case .failure(let error):
+                        logger.error(message: error.localizedDescription)
+                        self?.requestFailed(reason: error.localizedDescription)
+                        
+                    case .success(let breeds):
+                        logger.api(message: "list count: \(breeds.count)")
+                        
+                        self?.breeds = breeds
+                        self?.requestSuccess()
+                    }
+                }
+            })
+
+    }
+    
     // MARK: - Logs
     
     func printAllBreeds() {

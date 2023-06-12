@@ -14,8 +14,6 @@ struct MessagingUsersView: View {
     
     var body: some View {
         VStack {
-            Text("People Listings")
-            
             List() {
                 ForEach(0..<viewModel.list.count, id: \.self) { index in
                     let item = viewModel.list[index]
