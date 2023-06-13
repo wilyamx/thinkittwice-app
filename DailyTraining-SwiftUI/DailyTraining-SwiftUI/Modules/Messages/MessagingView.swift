@@ -82,7 +82,7 @@ struct MessagingView: View {
             }
             .toolbarBackground(.white, for: .navigationBar)
         }
-        .searchable(text: $searchText, prompt: "Search by selected tab")
+        .searchable(text: $searchText, prompt: "\(selectedChannel.searchPrompt)")
         .onChange(of: searchText) { searchText in
             logger.info(message: "New search text: \"\(searchText)\" for: \(self.selectedChannel)")
             
@@ -110,6 +110,13 @@ enum Channel: String, CaseIterable, Equatable {
         switch self {
         case .chats: return 0
         case .people: return 1
+        }
+    }
+    
+    var searchPrompt: String {
+        switch self {
+        case .chats: return "Search by chat title"
+        case .people: return "Search by user title"
         }
     }
 }
