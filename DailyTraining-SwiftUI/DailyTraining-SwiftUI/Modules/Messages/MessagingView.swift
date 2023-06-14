@@ -24,7 +24,7 @@ struct MessagingView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Picker("Choose a channel", selection: $pickerSelectedIndex) {
                     ForEach(Channel.allCases, id: \.self) {

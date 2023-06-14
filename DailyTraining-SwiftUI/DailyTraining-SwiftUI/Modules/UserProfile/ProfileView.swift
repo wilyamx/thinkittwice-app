@@ -11,7 +11,7 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: ProfileViewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 ColorNames.listBackgroundColor.colorValue
                 
