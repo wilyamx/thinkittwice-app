@@ -25,7 +25,7 @@ struct FeedsView: View {
                             .scaleEffect(2)
                             .task {
                                 logger.info(message: "ProgressView.task.BEGIN")
-                                let _ = await viewModel.initializeData()
+                                await viewModel.initializeData()
                                 logger.info(message: "ProgressView.task.END")
                             }
                     }
@@ -78,7 +78,7 @@ struct FeedsView: View {
                     Button(action: {
                         Task {
                             logger.info(message: "Button.task.BEGIN")
-                            let _ = await viewModel.deleteAllPersistedData()
+                            await viewModel.deleteAllPersistedData()
                             logger.info(message: "Button.task.END")
                         }
                     }, label: {
@@ -86,6 +86,7 @@ struct FeedsView: View {
                     })
                 }
             }
+            
         }
         
     }

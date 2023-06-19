@@ -20,7 +20,7 @@ final class FeedsViewModel: WSRFetcher {
         super.init(service: service)
     }
     
-    override func persist() async -> Bool {
+    override func persist() async {
         breeds.forEach { model in
             let cat = Cat()
             cat.id = model.id
@@ -35,10 +35,9 @@ final class FeedsViewModel: WSRFetcher {
             
             $cats.append(cat)
         }
-        return true
     }
         
-    func initializeData(deletePersistedData: Bool = false) async -> Bool {
+    func initializeData(deletePersistedData: Bool = false) async {
         logger.info(message: "Initializing data...")
         
         self.requestStarted()
@@ -53,31 +52,29 @@ final class FeedsViewModel: WSRFetcher {
         }
         else {
             if !cats.isEmpty {
-                return false
+                return
             }
         }
         
         // api request + parse + persist
         do {
             breeds = try await WSRApiService().getCatBreeds(urlString: "https://api.thecatapi.com/v1/breeds")
-            let _ = await persist()
+            await persist()
             
             self.requestSuccess()
             
             logger.info(message: "Request data and persist COMPLETE!")
-            return true
         }
         catch(let error) {
             logger.error(message: "Error! \(error.localizedDescription)")
             self.requestFailed(reason: error.localizedDescription)
             
             logger.info(message: "Request data and persist ERROR!")
-            return false
         }
     
     }
     
-    func deleteAllPersistedData() async -> Bool {
+    func deleteAllPersistedData() async {
         logger.info(message: "Deleting all persisted data...")
         
         self.requestStarted()
@@ -93,7 +90,6 @@ final class FeedsViewModel: WSRFetcher {
         breeds = []
         
         logger.info(message: "Deleting all persisted data... END")
-        return true
     }
         
     // MARK: - Public Methods
