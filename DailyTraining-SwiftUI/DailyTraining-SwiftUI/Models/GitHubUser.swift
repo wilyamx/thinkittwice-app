@@ -20,18 +20,4 @@ struct GitHubUser: Codable {
     let login: String
     let bio: String
     let name: String
-    
-    static func placeholder() -> GitHubUser {
-        return GitHubUser(avatarUrl: "https://avatars.githubusercontent.com/u/2200483?v=4",
-                          login: "GITHUB USER",
-                          bio: "Software Developer",
-                          name: "GitHub User")
-    }
-    
-    static func example() -> GitHubUser {
-        return GitHubUser(avatarUrl: "https://avatars.githubusercontent.com/u/2200483?v=4",
-                          login: "WILYAMX",
-                          bio: "iOS Developer",
-                          name: "William Rena")
-    }
 }

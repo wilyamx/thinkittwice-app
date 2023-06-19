@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 final class MessagingChatsViewModel: WSRLocalFileLoader {
     @Published var list: [Chat] = [Chat]()

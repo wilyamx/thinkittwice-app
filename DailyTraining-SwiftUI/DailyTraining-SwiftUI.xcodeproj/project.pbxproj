@@ -45,6 +45,7 @@
 		606F08F12A01DB0400CC3995 /* DailyTraining_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08F02A01DB0400CC3995 /* DailyTraining_SwiftUIUITests.swift */; };
 		606F08F32A01DB0400CC3995 /* DailyTraining_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08F22A01DB0400CC3995 /* DailyTraining_SwiftUIUITestsLaunchTests.swift */; };
 		607C14302A0895EE00DE12F0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607C142F2A0895EE00DE12F0 /* TestView.swift */; };
+		608F51CC2A3FDE48001DA8B4 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F51CB2A3FDE48001DA8B4 /* MockData.swift */; };
 		6090BEEF2A03F1780043B1AE /* MessagingUsersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6090BEEE2A03F1780043B1AE /* MessagingUsersData.json */; };
 		6090BEF22A03F2320043B1AE /* WSRLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6090BEF12A03F2320043B1AE /* WSRLogger.swift */; };
 		6090BEF42A03F62A0043B1AE /* MessagingUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6090BEF32A03F62A0043B1AE /* MessagingUsersViewModel.swift */; };
@@ -144,6 +145,7 @@
 		606F08F02A01DB0400CC3995 /* DailyTraining_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTraining_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		606F08F22A01DB0400CC3995 /* DailyTraining_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTraining_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		607C142F2A0895EE00DE12F0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		608F51CB2A3FDE48001DA8B4 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		6090BEEE2A03F1780043B1AE /* MessagingUsersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MessagingUsersData.json; sourceTree = "<group>"; };
 		6090BEF12A03F2320043B1AE /* WSRLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRLogger.swift; sourceTree = "<group>"; };
 		6090BEF32A03F62A0043B1AE /* MessagingUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingUsersViewModel.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				606F08DC2A01DB0400CC3995 /* Preview Assets.xcassets */,
+				608F51CB2A3FDE48001DA8B4 /* MockData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				60FCD55F2A02B134003D8FAE /* MessagingUsersView.swift in Sources */,
 				6061E4012A2CC4F7005D0844 /* WSRRealmMigrator.swift in Sources */,
 				60FCD5572A02A48A003D8FAE /* NotificationsView.swift in Sources */,
+				608F51CC2A3FDE48001DA8B4 /* MockData.swift in Sources */,
 				60487E292A19656300AD6603 /* ConversationRow.swift in Sources */,
 				60AE67452A2E10BE00A172FF /* RetryView.swift in Sources */,
 				60A8CAA52A33EEC5001A73C5 /* WSRImageLoaderCachePolicy.swift in Sources */,
