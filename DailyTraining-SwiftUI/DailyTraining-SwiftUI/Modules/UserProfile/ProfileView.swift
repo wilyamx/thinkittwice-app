@@ -125,7 +125,9 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
+        let viewModel = ProfileViewModel(userDetails: GitHubUser.example())
+        
         ProfileView()
-            .environmentObject(ProfileViewModel())
+            .environmentObject(viewModel)
     }
 }

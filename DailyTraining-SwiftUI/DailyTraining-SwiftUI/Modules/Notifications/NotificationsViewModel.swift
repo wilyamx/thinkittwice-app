@@ -34,15 +34,3 @@ final class NotificationsViewModel: WSRLocalFileLoader {
             })
     }
 }
-
-struct Notification: Decodable, Identifiable {
-    let id: Int
-    let title: String
-    let description: String
-    
-    static func example() -> Notification {
-        return Notification(id: 1,
-                            title: "Your financial report is overdue",
-                            description: "Please submit your quarterly figures for Q2 by EOB on August 15")
-    }
-}

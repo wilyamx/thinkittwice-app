@@ -7,6 +7,44 @@
 
 import Foundation
 
+extension Chat {
+    static func example1() -> Chat {
+        return Chat(messageId: 200,
+                    title: "Tellus id interdum velit laoreet",
+                    message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
+                    avatar: "charleyrivers",
+                    unread: 125,
+                    type: 1)
+    }
+    
+    static func example2() -> Chat {
+        return Chat(messageId: 200,
+                    title: "Tellus id interdum velit laoreet",
+                    message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
+                    avatar: "charleyrivers",
+                    unread: 125,
+                    type: 2)
+    }
+    
+    static func example3() -> Chat {
+        return Chat(messageId: 200,
+                    title: "Tellus id interdum velit laoreet",
+                    message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
+                    avatar: "charleyrivers",
+                    unread: 125,
+                    type: 3)
+    }
+}
+
+extension ChatUser {
+    static func example() -> ChatUser {
+        return ChatUser(userId: 2000,
+                        title: "Tincidunt lobortis feugiat",
+                        avatar: "turtlerock",
+                        name: "Wiley McConway")
+    }
+}
+
 extension BreedModel {
     static func example1() -> BreedModel {
         return BreedModel(id: "abys",
@@ -61,5 +99,13 @@ extension GitHubUser {
                           login: "WILYAMX",
                           bio: "iOS Developer",
                           name: "William Rena")
+    }
+}
+
+extension Notification {
+    static func example() -> Notification {
+        return Notification(id: 1,
+                            title: "Your financial report is overdue",
+                            description: "Please submit your quarterly figures for Q2 by EOB on August 15")
     }
 }

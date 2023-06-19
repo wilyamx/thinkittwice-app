@@ -18,11 +18,22 @@ final class ProfileViewModel: WSRFetcher {
     @Environment(\.realm) var realm
     @ObservedResults(User.self) var registeredUsers
     
+    init(service: WSRApiServiceProtocol = WSRApiService(), userDetails: GitHubUser) {
+        super.init(service: service)
+        self.userDetails = userDetails
+    }
+    
     override init(service: WSRApiServiceProtocol = WSRApiService()) {
         super.init(service: service)
     }
     
     func getUserDetails() async {
+        guard userDetails == nil else {
+            logger.info(message: "using mock data")
+            return
+            
+        }
+        
         var cats: [BreedModel] = []
         var user: GitHubUser?
         

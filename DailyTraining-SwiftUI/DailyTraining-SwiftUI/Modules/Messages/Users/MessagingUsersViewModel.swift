@@ -52,37 +52,3 @@ final class MessagingUsersViewModel: ObservableObject {
         self.searchText = key
     }
 }
-
-struct ChatUser: Hashable, Codable, Identifiable {
-    var id = UUID()
-    var userId: Int
-    var title: String
-    var avatar: String
-    var name: String
-    
-    init(userId: Int,
-         title: String,
-         avatar: String,
-         name: String) {
-        
-        self.id = UUID()
-        self.userId = userId
-        self.title = title
-        self.avatar = avatar
-        self.name = name
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case userId
-        case title
-        case avatar
-        case name
-    }
-    
-    static func example() -> ChatUser {
-        return ChatUser(userId: 2000,
-                        title: "Tincidunt lobortis feugiat",
-                        avatar: "turtlerock",
-                        name: "Wiley McConway")
-    }
-}
