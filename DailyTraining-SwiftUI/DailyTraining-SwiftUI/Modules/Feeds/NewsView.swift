@@ -65,7 +65,7 @@ struct NewsView_Previews: PreviewProvider {
      */
     static var previews: some View {
         List {
-            let realm = WSRMockRealms.previewRealm
+            let realm = MockRealms.previewRealm
             let cats = realm.objects(Cat.self)
             let rowSpacing: CGFloat = 10.0
             

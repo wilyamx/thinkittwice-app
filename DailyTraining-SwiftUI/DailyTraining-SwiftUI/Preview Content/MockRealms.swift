@@ -1,5 +1,5 @@
 //
-//  WSRMockRealms.swift
+//  MockRealms.swift
 //  DailyTraining-SwiftUI
 //
 //  Created by William Rena on 6/12/23.
@@ -7,9 +7,9 @@
 
 import RealmSwift
 
-class WSRMockRealms {
+class MockRealms {
     static var config: Realm.Configuration {
-        WSRMockRealms.previewRealm.configuration
+        MockRealms.previewRealm.configuration
     }
     
    static var previewRealm: Realm = {
