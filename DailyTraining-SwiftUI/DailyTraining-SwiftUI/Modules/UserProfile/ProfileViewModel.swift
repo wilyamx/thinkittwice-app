@@ -41,8 +41,8 @@ final class ProfileViewModel: WSRFetcher {
         self.requestStarted()
         
         do {
-            cats = try await WSRApiService().getCatBreeds(urlString: "https://api.thecatapi.com/v1/breeds")
-            user = try await WSRApiService().getUserDetails(urlString: "https://api.github.com/users/wilyamx")
+            cats = try await WSRApiService().get([BreedModel].self, path: "/v1/breeds", queryItems: nil)
+            user = try await WSRApiService().get(GitHubUser.self, path: "/users/wilyamx", queryItems: nil)
             
             logger.api(message: "cats: \(cats.count)")
             if let user2 = user {

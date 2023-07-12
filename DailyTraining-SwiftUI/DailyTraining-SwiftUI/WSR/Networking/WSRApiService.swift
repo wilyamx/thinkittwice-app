@@ -8,6 +8,8 @@
 import Foundation
 
 struct WSRApiService: WSRApiServiceProtocol {
+    
+    // MARK: - Generics
     /**
         Using Generics
     
@@ -52,10 +54,80 @@ struct WSRApiService: WSRApiServiceProtocol {
             }).resume()
     }
     
+    // MARK: - WSRApiServiceProtocol
+    
     static func getURLSessionConfiguration() -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 10.0
         return configuration
+    }
+    
+    // MARK: - Restful methods
+    
+    public func get<T: Decodable>(
+        _ type: T.Type,
+        path: String,
+        queryItems: [URLQueryItem]?) async throws -> T {
+            
+        var urlString = "\(WSREnvironment.catBaseURL)\(path)"
+        if path.contains("/users/wilyamx") {
+            urlString = "\(WSREnvironment.gitHubBaseURL)\(path)"
+        }
+        
+        guard var url = URL(string: urlString) else {
+            throw WSRApiError.badURL
+        }
+        
+        if let queryItems = queryItems {
+            url.append(queryItems: queryItems)
+        }
+        
+        let session = URLSession(configuration: WSRApiService.getURLSessionConfiguration())
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let (data, response) = try await session.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw WSRApiError.serverError
+        }
+        
+        guard (200...299).contains(httpResponse.statusCode) else {
+            if (400...499).contains(httpResponse.statusCode) {
+                throw WSRApiError.badRequest
+            }
+            else if (500...599).contains(httpResponse.statusCode) {
+                throw WSRApiError.serverError
+            }
+            else {
+                throw WSRApiError.badResponse(statusCode: httpResponse.statusCode)
+            }
+        }
+        
+        logger.api(request: request, httpResponse: httpResponse, data: data)
+        
+        do {
+            let decoder = JSONDecoder()
+            if path.contains("/users/wilyamx") {
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+            }
+            return try decoder.decode(type, from: data)
+        }
+        catch(let error) {
+            throw WSRApiError.parsing(error as? DecodingError)
+        }
+    }
+    
+    public func post(path: String, bodyParam: String) {
+        
+    }
+    
+    public func put(path: String, bodyParam: String) {
+        
+    }
+    
+    public func delete(path: String, bodyParam: String) {
+        
     }
 }
 

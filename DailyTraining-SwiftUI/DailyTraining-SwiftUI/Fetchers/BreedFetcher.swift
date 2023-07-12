@@ -18,7 +18,7 @@ final class BreedFetcher: WSRFetcher {
     func fetchAllBreeds() {
         self.isLoading = true
         self.errorMessage = nil
-    
+        
         service.getCatBreeds(
             urlString: "https://api.thecatapi.com/v1/breeds",
             completion: {

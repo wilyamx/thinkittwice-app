@@ -1,0 +1,11 @@
+//
+//  WSRConfig.xcconfig
+//  DailyTraining-SwiftUI
+//
+//  Created by William Rena on 7/12/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = "https://api.thecatapi.com"

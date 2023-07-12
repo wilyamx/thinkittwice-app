@@ -29,6 +29,8 @@
 		60487E2B2A19C6E100AD6603 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E2A2A19C6E100AD6603 /* ConversationListView.swift */; };
 		60487E2D2A19F4D500AD6603 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E2C2A19F4D500AD6603 /* Colors.swift */; };
 		60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 60487E2E2A1A167200AD6603 /* NotificationsData.json */; };
+		605C70C52A5EF83100ED4F53 /* WSREnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C70C42A5EF83100ED4F53 /* WSREnvironment.swift */; };
+		605C70C72A5F02EA00ED4F53 /* WSRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 605C70C22A5EF6BB00ED4F53 /* WSRConfig.xcconfig */; };
 		6061E3F02A2BD84B005D0844 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6061E3EF2A2BD84B005D0844 /* Realm */; };
 		6061E3F22A2BD84B005D0844 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6061E3F12A2BD84B005D0844 /* RealmSwift */; };
 		6061E3F52A2BE336005D0844 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6061E3F42A2BE336005D0844 /* User.swift */; };
@@ -131,6 +133,8 @@
 		60487E2A2A19C6E100AD6603 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
 		60487E2C2A19F4D500AD6603 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		60487E2E2A1A167200AD6603 /* NotificationsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotificationsData.json; sourceTree = "<group>"; };
+		605C70C22A5EF6BB00ED4F53 /* WSRConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WSRConfig.xcconfig; sourceTree = "<group>"; };
+		605C70C42A5EF83100ED4F53 /* WSREnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSREnvironment.swift; sourceTree = "<group>"; };
 		6061E3F42A2BE336005D0844 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6061E3F72A2BEEE5005D0844 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		6061E3FA2A2BF9E3005D0844 /* View+WSR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+WSR.swift"; sourceTree = "<group>"; };
@@ -247,10 +251,20 @@
 			path = LoginView;
 			sourceTree = "<group>";
 		};
+		605C70C32A5EF7F700ED4F53 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				605C70C22A5EF6BB00ED4F53 /* WSRConfig.xcconfig */,
+				605C70C42A5EF83100ED4F53 /* WSREnvironment.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		6061E3EC2A2AB111005D0844 /* WSR */ = {
 			isa = PBXGroup;
 			children = (
 				60A8CAA92A33F410001A73C5 /* Views */,
+				605C70C32A5EF7F700ED4F53 /* Environment */,
 				6061E4022A2CC517005D0844 /* Realm */,
 				6061E3F92A2BF9C6005D0844 /* Extensions */,
 				60A5E0AB2A0C6AD500C8A9B1 /* Networking */,
@@ -686,6 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				606F08DD2A01DB0400CC3995 /* Preview Assets.xcassets in Resources */,
+				605C70C72A5F02EA00ED4F53 /* WSRConfig.xcconfig in Resources */,
 				60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */,
 				606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */,
 				60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */,
@@ -719,6 +734,7 @@
 				6026A6572A119B4000CC00E1 /* BreedFetcher.swift in Sources */,
 				6061E3F52A2BE336005D0844 /* User.swift in Sources */,
 				60FA07882A0330E4008405BE /* ChatRow.swift in Sources */,
+				605C70C52A5EF83100ED4F53 /* WSREnvironment.swift in Sources */,
 				60A8CAAB2A369567001A73C5 /* MockRealms.swift in Sources */,
 				60A507B72A0D45DC004D9586 /* WSRApiService+Extension.swift in Sources */,
 				60AE67432A2DCDEC00A172FF /* CatsApis.swift in Sources */,
@@ -938,6 +954,7 @@
 		};
 		606F08F72A01DB0400CC3995 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 605C70C22A5EF6BB00ED4F53 /* WSRConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -946,6 +963,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DailyTraining-SwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -974,6 +992,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DailyTraining-SwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

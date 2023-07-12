@@ -10,6 +10,7 @@ import Foundation
 enum WSRApiError: Error, CustomStringConvertible {
     case badURL
     case badResponse(statusCode: Int)
+    case badRequest
     case url(URLError?)
     case parsing(DecodingError?)
     case serverError
@@ -20,6 +21,8 @@ enum WSRApiError: Error, CustomStringConvertible {
         switch self {
         case .badURL, .parsing, .serverError, .unknown:
             return "Sorry, something went wrong."
+        case .badRequest:
+            return "Sorry, client error!"
         case .badResponse(_):
             return "Sorry, the connection to our server failed."
         case .url(let error):
@@ -38,6 +41,8 @@ enum WSRApiError: Error, CustomStringConvertible {
             return "Parsing error \(error?.localizedDescription ?? "")"
         case .badResponse(statusCode: let statusCode):
             return "Bad response with status code \(statusCode)"
+        case .badRequest:
+            return "Client error"
         }
     }
 }
