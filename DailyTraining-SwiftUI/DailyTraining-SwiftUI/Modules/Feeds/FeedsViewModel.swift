@@ -58,7 +58,7 @@ final class FeedsViewModel: WSRFetcher {
         
         // api request + parse + persist
         do {
-            breeds = try await WSRApiService().get([BreedModel].self,
+            breeds = try await CatApiService().get([BreedModel].self,
                                                    path: "/v1/breeds",
                                                    queryItems: nil)
             await persist()
@@ -68,7 +68,9 @@ final class FeedsViewModel: WSRFetcher {
             logger.info(message: "Request data and persist COMPLETE!")
         }
         catch(let error) {
-            logger.error(message: "Error! \(error.localizedDescription)")
+            if let error = error as? WSRApiError {
+                logger.error(message: error.localizedDescription)
+            }
             self.requestFailed(reason: error.localizedDescription)
             
             logger.info(message: "Request data and persist ERROR!")

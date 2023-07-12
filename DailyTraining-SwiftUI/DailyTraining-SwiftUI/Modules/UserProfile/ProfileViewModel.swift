@@ -41,8 +41,8 @@ final class ProfileViewModel: WSRFetcher {
         self.requestStarted()
         
         do {
-            cats = try await WSRApiService().get([BreedModel].self, path: "/v1/breeds", queryItems: nil)
-            user = try await WSRApiService().get(GitHubUser.self, path: "/users/wilyamx", queryItems: nil)
+            cats = try await CatApiService().get([BreedModel].self, path: "/v1/breeds", queryItems: nil)
+            user = try await GitHubApiService().get(GitHubUser.self, path: "/users/wilyamx", queryItems: nil)
             
             logger.api(message: "cats: \(cats.count)")
             if let user2 = user {
@@ -54,7 +54,9 @@ final class ProfileViewModel: WSRFetcher {
             self.requestSuccess()
             
         } catch(let error) {
-            logger.error(message: "Error! \(error.localizedDescription)")
+            if let error = error as? WSRApiError {
+                logger.error(message: error.localizedDescription)
+            }
             self.requestFailed(reason: error.localizedDescription)
         }
     
