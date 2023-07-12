@@ -19,7 +19,7 @@ final class BreedFetcher: WSRFetcher {
         self.isLoading = true
         self.errorMessage = nil
         
-        service.getCatBreeds(
+        CatApiService().getCatBreeds(
             urlString: "https://api.thecatapi.com/v1/breeds",
             completion: {
                 [weak self] result in

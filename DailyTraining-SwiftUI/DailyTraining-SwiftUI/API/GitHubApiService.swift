@@ -8,9 +8,6 @@
 import Foundation
 
 struct GitHubApiService: WSRApiServiceProtocol {
-    func getCatBreeds(urlString: String, completion: @escaping (Result<[BreedModel], WSRApiError>) -> Void) {
-        
-    }
     
     static func getURLSessionConfiguration() -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default

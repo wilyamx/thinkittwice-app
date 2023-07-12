@@ -104,7 +104,7 @@ final class FeedsViewModel: WSRFetcher {
         self.requestStarted()
         
         let urlString = "https://api.thecatapi.com/v1/breeds"
-        service.getCatBreeds(
+        CatApiService().getCatBreeds(
             urlString: urlString,
             completion: { [weak self] result in
                 DispatchQueue.main.async {

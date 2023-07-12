@@ -26,13 +26,5 @@ struct APIServiceMock: WSRApiServiceProtocol {
     
     func delete(path: String, bodyParam: String) { }
     
-    
-    
     var result: Result<[BreedModel], WSRApiError>
-
-    func getCatBreeds(
-        urlString: String,
-        completion: @escaping(Result<[BreedModel], WSRApiError>) -> Void) {
-            completion(result)
-        }
 }

@@ -8,10 +8,7 @@
 import Foundation
 
 protocol WSRApiServiceProtocol {
-    func getCatBreeds(
-        urlString: String,
-        completion: @escaping(Result<[BreedModel], WSRApiError>) -> Void)
-    
+
     static func getURLSessionConfiguration() -> URLSessionConfiguration
     
     // MARK: - Restful methods
