@@ -532,6 +532,7 @@
 			children = (
 				605C70C82A5F0AF600ED4F53 /* CatApiService.swift */,
 				605C70CA2A5F0C4E00ED4F53 /* GitHubApiService.swift */,
+				60ECA76D2A13040100EA663E /* APIServiceMock.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -550,7 +551,6 @@
 			isa = PBXGroup;
 			children = (
 				6026A6562A119B4000CC00E1 /* BreedFetcher.swift */,
-				60ECA76D2A13040100EA663E /* APIServiceMock.swift */,
 			);
 			path = Fetchers;
 			sourceTree = "<group>";

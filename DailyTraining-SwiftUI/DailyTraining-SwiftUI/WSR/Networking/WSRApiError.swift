@@ -4,6 +4,7 @@
 //
 //  Created by William Rena on 5/11/23.
 //
+// https://www.django-rest-framework.org/api-guide/status-codes/
 
 import Foundation
 
