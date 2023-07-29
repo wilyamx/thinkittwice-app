@@ -59,7 +59,7 @@ final class FeedsViewModel: WSRFetcher {
         // api request + parse + persist
         do {
             breeds = try await CatApiService().get([BreedModel].self,
-                                                   path: "/v1/breeds",
+                                                   path: CatApiEndpoints.breeds,
                                                    queryItems: nil)
             await persist()
             

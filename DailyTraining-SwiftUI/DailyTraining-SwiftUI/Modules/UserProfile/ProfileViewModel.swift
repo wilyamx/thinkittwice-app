@@ -41,8 +41,12 @@ final class ProfileViewModel: WSRFetcher {
         self.requestStarted()
         
         do {
-            cats = try await CatApiService().get([BreedModel].self, path: "/v1/breeds", queryItems: nil)
-            user = try await GitHubApiService().get(GitHubUser.self, path: "/users/wilyamx", queryItems: nil)
+            cats = try await CatApiService().get([BreedModel].self,
+                                                 path: CatApiEndpoints.breeds,
+                                                 queryItems: nil)
+            user = try await GitHubApiService().get(GitHubUser.self,
+                                                    path: GithubApiEndpoints.userDetails,
+                                                    queryItems: nil)
             
             logger.api(message: "cats: \(cats.count)")
             if let user2 = user {
