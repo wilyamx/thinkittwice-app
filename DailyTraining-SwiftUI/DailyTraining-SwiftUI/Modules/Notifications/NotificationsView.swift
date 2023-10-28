@@ -17,7 +17,9 @@ struct NotificationsView: View {
             return viewModel.list
         }
         else {
-            return viewModel.list.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+            return viewModel.list.filter {
+                $0.title.localizedCaseInsensitiveContains(searchText)
+            }
         }
     }
     

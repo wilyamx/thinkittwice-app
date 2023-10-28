@@ -33,29 +33,35 @@ struct NewsView: View {
                 .clipped()
                 .cornerRadius(15)
                 .padding(.top)
-                        
-            HStack {
-                HStack(spacing: 20) {
-                    HStack(spacing: 0) {
-                        Image(systemName: "heart")
-                        Text("12")
-                            .fontWeight(.bold)
-                    }
                     
-                    HStack(spacing: 0) {
-                        Image(systemName: "bubble.left")
-                        Text("223")
-                            .fontWeight(.bold)
-                    }
+            // Footer View
+            footerView
+        }
+    }
+    
+    @ViewBuilder
+    private var footerView: some View {
+        HStack {
+            HStack(spacing: 20) {
+                HStack(spacing: 0) {
+                    Image(systemName: "heart")
+                    Text("12")
+                        .fontWeight(.bold)
                 }
                 
-                Spacer()
-                
-                Text("JAN 1ST")
-                    .foregroundColor(Color.gray)
+                HStack(spacing: 0) {
+                    Image(systemName: "bubble.left")
+                    Text("223")
+                        .fontWeight(.bold)
+                }
             }
-            .padding(.bottom)
+            
+            Spacer()
+            
+            Text("JAN 1ST")
+                .foregroundColor(Color.gray)
         }
+        .padding(.bottom)
     }
 }
 

@@ -31,35 +31,7 @@ struct FeedsView: View {
                     }
                 }
                 else {
-                    List {
-                        Group {
-                            // display persisted data
-                            ForEach(viewModel.cats.shuffled(), id: \.id) { cat in
-                                if [1, 2].contains(cat.energyLevel) {
-                                    DailyChallengeView(cat: cat)
-                                }
-                                else if [3, 4].contains(cat.energyLevel) {
-                                    BrandTrainingView(cat: cat)
-                                }
-                                else {
-                                    NewsView(cat: cat)
-                                }
-                            }
-                        }
-                        .listRowSeparator(.hidden)
-                        .listRowBackground(
-                            RoundedRectangle(cornerRadius: 15)
-                                .padding(EdgeInsets(top: rowSpacing,
-                                                    leading: rowSpacing,
-                                                    bottom: rowSpacing,
-                                                    trailing: rowSpacing))
-                                .background(.clear)
-                                .foregroundColor(.white)
-                        )
-                    }
-                    .listStyle(.plain)
-                    .background(ColorNames.listBackgroundColor.colorValue)
-                    .buttonStyle(.borderless)
+                    listView
                 }
                 
             }
@@ -90,6 +62,40 @@ struct FeedsView: View {
         }
         
     }
+    
+    @ViewBuilder
+    private var listView: some View {
+        List {
+            Group {
+                // display persisted data
+                ForEach(viewModel.cats.shuffled(), id: \.id) { cat in
+                    if [1, 2].contains(cat.energyLevel) {
+                        DailyChallengeView(cat: cat)
+                    }
+                    else if [3, 4].contains(cat.energyLevel) {
+                        BrandTrainingView(cat: cat)
+                    }
+                    else {
+                        NewsView(cat: cat)
+                    }
+                }
+            }
+            .listRowSeparator(.hidden)
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 15)
+                    .padding(EdgeInsets(top: rowSpacing,
+                                        leading: rowSpacing,
+                                        bottom: rowSpacing,
+                                        trailing: rowSpacing))
+                    .background(.clear)
+                    .foregroundColor(.white)
+            )
+        }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
+        .buttonStyle(.borderless)
+    }
+    
 }
 
 struct FeedsView_Previews: PreviewProvider {
