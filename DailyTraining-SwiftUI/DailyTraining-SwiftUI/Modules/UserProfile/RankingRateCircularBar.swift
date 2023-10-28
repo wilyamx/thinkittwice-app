@@ -50,6 +50,9 @@ struct RankingRateCircularBar: View {
 
 struct RankingRateCircularBar_Previews: PreviewProvider {
     static var previews: some View {
-        RankingRateCircularBar()
+        ZStack {
+            Color.gray
+            RankingRateCircularBar()
+        }
     }
 }

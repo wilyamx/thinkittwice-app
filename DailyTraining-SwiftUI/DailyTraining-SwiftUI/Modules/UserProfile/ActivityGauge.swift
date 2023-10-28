@@ -27,6 +27,9 @@ struct ActivityGauge: View {
 
 struct ActivityGauge_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityGauge(value: "80%", dimension: "Rate")
+        ZStack {
+            Color.white
+            ActivityGauge(value: "80%", dimension: "Rate")
+        }
     }
 }

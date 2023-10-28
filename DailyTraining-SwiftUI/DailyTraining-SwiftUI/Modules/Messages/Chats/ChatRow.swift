@@ -99,7 +99,10 @@ struct ChatRow: View {
 struct ChatRow_Previews: PreviewProvider {
     static var previews: some View {
         List {
+            ChatRow(chat: Chat.example0())
             ChatRow(chat: Chat.example1())
+            ChatRow(chat: Chat.example2())
+            ChatRow(chat: Chat.example3())
         }
     }
 }

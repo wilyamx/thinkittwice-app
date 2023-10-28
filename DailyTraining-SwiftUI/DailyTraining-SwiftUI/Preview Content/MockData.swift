@@ -8,6 +8,15 @@
 import Foundation
 
 extension Chat {
+    static func example0() -> Chat {
+        return Chat(messageId: 200,
+                    title: "Tellus id interdum velit laoreet",
+                    message: "Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Nec feugiat nisl pretium fusce id velit ut.",
+                    avatar: "charleyrivers",
+                    unread: 125,
+                    type: 0)
+    }
+    
     static func example1() -> Chat {
         return Chat(messageId: 200,
                     title: "Tellus id interdum velit laoreet",
