@@ -80,8 +80,8 @@ final class ProfileViewModel: WSRFetcher {
         
         logger.realm(message: "Logout registered user! \(email)")
         UserDefaults.standard.removeObject(forKey: WSRUserDefaultsKey.isLoggedOut.rawValue)
+        UserDefaults.standard.removeObject(forKey: WSRUserDefaultsKey.email.rawValue)
         //deleteRegisteredUser(user: activeUser)
-        //resetUserEmail()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.isLoggedOut = true
@@ -101,10 +101,6 @@ final class ProfileViewModel: WSRFetcher {
 extension ProfileViewModel {
     func getUserEmail() -> String? {
         UserDefaults.standard.string(forKey: WSRUserDefaultsKey.email.rawValue)
-    }
-    
-    func resetUserEmail() {
-        UserDefaults.standard.removeObject(forKey: WSRUserDefaultsKey.email.rawValue)
     }
     
     public func showActiveEmail() {
