@@ -15,3 +15,12 @@ extension String {
         return emailPred.evaluate(with: self)
     }
 }
+
+extension String {
+    // Common
+    static let empty = ""
+    static let invalid_email = "Invalid email"
+    static let invalid_password = "Invalid password"
+    static let invalid_credentials = "Invalid Credentials"
+    static let something_went_wrong = "Something went wrong!"
+}

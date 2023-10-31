@@ -19,7 +19,7 @@ struct LoginView: View {
     }
     
     var body: some View {
-        if viewModel.isValidCredentials {
+        if viewModel.viewState == .populated {
             SplashScreen()
         }
         else {
@@ -165,9 +165,9 @@ struct LoginView: View {
         })
         .padding(.vertical)
         .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text("Invalid credentials"),
+            Alert(title: Text(viewModel.errorMessage),
                   dismissButton: .default(Text("Got it!")) {
-                viewModel.password = ""
+                viewModel.password = String.empty
                 focusField = .password
                 }
             )
