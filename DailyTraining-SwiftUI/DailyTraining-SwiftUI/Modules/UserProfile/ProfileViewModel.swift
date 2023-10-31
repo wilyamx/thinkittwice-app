@@ -79,6 +79,7 @@ final class ProfileViewModel: WSRFetcher {
         self.logoutButtonAction = "Logging out..."
         
         logger.realm(message: "Logout registered user! \(email)")
+        UserDefaults.standard.removeObject(forKey: WSRUserDefaultsKey.isLoggedOut.rawValue)
         //deleteRegisteredUser(user: activeUser)
         //resetUserEmail()
         

@@ -66,11 +66,25 @@ final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
         
         UserDefaults.standard.set(username,
                                   forKey: WSRUserDefaultsKey.email.rawValue)
+        UserDefaults.standard.set(true,
+                                  forKey: WSRUserDefaultsKey.isLoggedOut.rawValue)
         
         viewState = .populated
     }
 
     func checkForReturneeUser() {
-        isReturneeUser = registeredUsers.count > 0
+        // if logged out we force the user to login
+        if UserDefaults.standard.bool(forKey: WSRUserDefaultsKey.isLoggedOut.rawValue) {
+            if let _ = registeredUsers.first(where: {
+                $0.email == username
+            }) {
+                isReturneeUser = false
+            }
+
+            isReturneeUser = true
+            return
+        }
+        
+        isReturneeUser = false
     }
 }

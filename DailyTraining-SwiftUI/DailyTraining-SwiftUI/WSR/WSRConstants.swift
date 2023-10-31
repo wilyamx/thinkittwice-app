@@ -20,4 +20,5 @@ enum WSRViewState {
 
 enum WSRUserDefaultsKey: String, CaseIterable {
     case email = "WSR_Email"
+    case isLoggedOut = "WSR_IsLoggedOut"
 }
