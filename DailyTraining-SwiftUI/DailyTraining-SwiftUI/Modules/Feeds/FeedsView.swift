@@ -15,8 +15,8 @@ struct FeedsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                if viewModel.errorMessage != nil {
-                    RetryView(message: viewModel.errorMessage ?? "Error message")
+                if viewModel.viewState == .error {
+                    RetryView(message: viewModel.errorMessage)
                 }
                 // checking for persisted data
                 else if viewModel.cats.isEmpty {

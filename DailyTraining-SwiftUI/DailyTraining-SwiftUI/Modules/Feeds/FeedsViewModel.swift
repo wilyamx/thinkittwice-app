@@ -8,7 +8,7 @@
 import RealmSwift
 import SwiftUI
 
-final class FeedsViewModel: WSRFetcher {
+final class FeedsViewModel: WSRFetcher2 {
     // request model
     @Published var breeds: [BreedModel] = [BreedModel]()
     
