@@ -27,7 +27,7 @@ final class ProfileViewModel: WSRFetcher {
         super.init(service: service)
     }
     
-    func getUserDetails() async {
+    public func getUserDetails() async {
         guard userDetails == nil else {
             logger.info(message: "using mock data")
             return
@@ -66,18 +66,49 @@ final class ProfileViewModel: WSRFetcher {
     
     }
     
-    func logout() {
+    public func logout() {
+        guard let email = getUserEmail() else {
+            return
+        }
+        guard let activeUser = registeredUsers.first(where: {
+            $0.email == email
+        }) else {
+            return
+        }
+        
         self.logoutButtonAction = "Logging out..."
         
-        logger.realm(message: "Deleting all registered users!")
-        registeredUsers.forEach { user in
-            try! realm.write {
-                realm.delete(user)
-            }
-        }
+        logger.realm(message: "Logout registered user! \(email)")
+        //deleteRegisteredUser(user: activeUser)
+        //resetUserEmail()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.isLoggedOut = true
+        }
+    }
+    
+    private func deleteRegisteredUser(user: User) {
+        try! realm.write {
+            realm.delete(user)
+        }
+    }
+
+}
+
+// MARK: - Setters and Getters
+
+extension ProfileViewModel {
+    func getUserEmail() -> String? {
+        UserDefaults.standard.string(forKey: WSRUserDefaultsKey.email.rawValue)
+    }
+    
+    func resetUserEmail() {
+        UserDefaults.standard.removeObject(forKey: WSRUserDefaultsKey.email.rawValue)
+    }
+    
+    public func showActiveEmail() {
+        if let email = getUserEmail() {
+            logger.info(message: "Active user: \(email)!")
         }
     }
 }

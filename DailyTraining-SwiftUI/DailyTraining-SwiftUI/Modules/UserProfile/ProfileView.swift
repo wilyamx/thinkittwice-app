@@ -38,7 +38,7 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        logger.info(message: "Settings!")
+                        viewModel.showActiveEmail()
                     }, label: {
                         Image(systemName: "gearshape")
                     })

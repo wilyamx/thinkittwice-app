@@ -9,5 +9,7 @@ import Foundation
 
 protocol WSRViewStateProtocol {
     var viewState: WSRViewState { get set }
+    //
+    var loadingMessage: String { get set }
     var errorMessage: String { get set }
 }

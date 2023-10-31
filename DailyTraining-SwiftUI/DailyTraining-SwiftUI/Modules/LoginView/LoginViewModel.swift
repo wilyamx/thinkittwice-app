@@ -9,10 +9,10 @@ import Foundation
 import RealmSwift
 
 final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
-    var errorMessage: String = String.empty
-    
     @Published var viewState: WSRViewState = .empty
-    
+    var loadingMessage: String = String.empty
+    var errorMessage: String = String.empty
+   
     @Published var username: String = String.empty
     @Published var password: String = String.empty
     
@@ -44,13 +44,6 @@ final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
             return
         }
         
-        guard registeredUsers.count > 0 else {
-            errorMessage = String.something_went_wrong
-            showingAlert = true
-            viewState = .error
-            return
-        }
-        
         // user validation
         
         let userList = registeredUsers.where({ $0.email == username })
@@ -71,18 +64,13 @@ final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
             return
         }
         
+        UserDefaults.standard.set(username,
+                                  forKey: WSRUserDefaultsKey.email.rawValue)
+        
         viewState = .populated
     }
 
     func checkForReturneeUser() {
         isReturneeUser = registeredUsers.count > 0
-    }
-}
-
-// MARK: - Getters and Setters
-
-extension LoginViewModel {
-    public func showInvalidCredentialsAlert() -> Bool {
-        return viewState == .error
     }
 }

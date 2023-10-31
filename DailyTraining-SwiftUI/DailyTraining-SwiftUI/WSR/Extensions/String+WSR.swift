@@ -23,4 +23,6 @@ extension String {
     static let invalid_password = "Invalid password"
     static let invalid_credentials = "Invalid Credentials"
     static let something_went_wrong = "Something went wrong!"
+    static let invalid_registrations = "Invalid registration"
+    static let registered_user = "Already registered user"
 }

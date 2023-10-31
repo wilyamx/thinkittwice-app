@@ -53,6 +53,13 @@ struct RegistrationView: View {
                     })
                 }
             }
+            .alert(isPresented: $viewModel.showErrorAlert) {
+                Alert(title: Text(viewModel.errorMessage),
+                      dismissButton: .default(Text("Got it!")) {
+                    
+                    }
+                )
+            }
         }
         
     }
@@ -108,6 +115,9 @@ struct RegistrationView: View {
         Button(action: {
             if viewModel.register() {
                 presentationMode.wrappedValue.dismiss()
+            }
+            else {
+                logger.info(message: "Already a registered user email!")
             }
         },
                label: {

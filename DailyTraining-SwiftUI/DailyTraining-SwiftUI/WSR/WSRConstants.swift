@@ -17,3 +17,7 @@ enum WSRViewState {
     // error message display
     case error
 }
+
+enum WSRUserDefaultsKey: String, CaseIterable {
+    case email = "WSR_Email"
+}
