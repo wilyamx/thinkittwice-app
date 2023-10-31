@@ -7,34 +7,39 @@
 
 import Foundation
 
-class WSRFetcher: ObservableObject {
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String? = nil
+class WSRFetcher2: ObservableObject, WSRViewStateProtocol {
+    @Published var viewState: WSRViewState = .empty
+    var loadingMessage: String = String.empty
+    var errorMessage: String = String.empty
     
     var service: WSRApiServiceProtocol
     
     init(service: WSRApiServiceProtocol = WSRApiService()) {
-       self.service = service
+        self.service = service
     }
     
-    func requestStarted(loadingMessage: String = String.empty) {
+    func requestStarted(message: String? = nil) {
         DispatchQueue.main.async {
-            self.errorMessage = nil
-            self.isLoading = true
+            self.errorMessage = String.empty
+            self.viewState = .loading
+            
+            if let message = message {
+                self.loadingMessage = message
+            }
         }
     }
     
     func requestFailed(reason: String) {
         DispatchQueue.main.async {
             self.errorMessage = reason
-            self.isLoading = false
+            self.viewState = .error
         }
     }
     
     func requestSuccess() {
         DispatchQueue.main.async {
-            self.errorMessage = nil
-            self.isLoading = false
+            self.errorMessage = String.empty
+            self.viewState = .populated
         }
     }
     

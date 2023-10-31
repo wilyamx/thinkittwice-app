@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-final class ProfileViewModel: WSRFetcher {
+final class ProfileViewModel: WSRFetcher2 {
     @Published var isLoggedOut: Bool = false
     @Published var logoutButtonAction: String = "Logout"
     
@@ -31,7 +31,6 @@ final class ProfileViewModel: WSRFetcher {
         guard userDetails == nil else {
             logger.info(message: "using mock data")
             return
-            
         }
         
         var cats: [BreedModel] = []
@@ -70,7 +69,7 @@ final class ProfileViewModel: WSRFetcher {
         guard let email = getUserEmail() else {
             return
         }
-        guard let activeUser = registeredUsers.first(where: {
+        guard let _ = registeredUsers.first(where: {
             $0.email == email
         }) else {
             return

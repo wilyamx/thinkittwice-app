@@ -15,12 +15,12 @@ struct ProfileView: View {
             ZStack {
                 ColorNames.listBackgroundColor.colorValue
                 
-                if viewModel.isLoading {
+                if viewModel.viewState == .loading {
                     ProgressView()
                         .scaleEffect(2)
                 }
-                else if viewModel.errorMessage != nil {
-                    RetryView(message: viewModel.errorMessage ?? "Error message")
+                else if viewModel.viewState == .error {
+                    RetryView(message: viewModel.errorMessage)
                 }
                 else {
                     VStack(spacing: 20) {

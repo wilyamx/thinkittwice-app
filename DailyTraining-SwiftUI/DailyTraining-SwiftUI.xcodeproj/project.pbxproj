@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6002D5C22AF0D2A4001E96B8 /* WSRFetcher2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */; };
 		6009233F2A0A8C4D00CE8562 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009233E2A0A8C4D00CE8562 /* SplashScreen.swift */; };
 		600923422A0A954E00CE8562 /* LandingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600923412A0A954E00CE8562 /* LandingScreen.swift */; };
 		600923452A0A9EF300CE8562 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600923442A0A9EF300CE8562 /* LoginView.swift */; };
@@ -113,6 +114,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSRFetcher2.swift; sourceTree = "<group>"; };
 		6009233E2A0A8C4D00CE8562 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		600923412A0A954E00CE8562 /* LandingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreen.swift; sourceTree = "<group>"; };
 		600923442A0A9EF300CE8562 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				60A5E0AC2A0C6B3600C8A9B1 /* WSRApiError.swift */,
 				60A5E0AE2A0C6C0900C8A9B1 /* WSRApiService.swift */,
 				60A5E0B12A0C6D4C00C8A9B1 /* WSRFetcher.swift */,
+				6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */,
 				60ECA76B2A13038100EA663E /* WSRApiServiceProtocol.swift */,
 			);
 			path = Networking;
@@ -749,6 +752,7 @@
 				6090BEF62A03F8420043B1AE /* ChatUserRow.swift in Sources */,
 				60487E272A1964D400AD6603 /* ConversationsViewModel.swift in Sources */,
 				60ECA76C2A13038100EA663E /* WSRApiServiceProtocol.swift in Sources */,
+				6002D5C22AF0D2A4001E96B8 /* WSRFetcher2.swift in Sources */,
 				606F08D82A01DB0100CC3995 /* ContentView.swift in Sources */,
 				60FCD5592A02A49D003D8FAE /* MessagingView.swift in Sources */,
 				60FCD5612A0321C7003D8FAE /* DailyTrainingViewModel.swift in Sources */,
