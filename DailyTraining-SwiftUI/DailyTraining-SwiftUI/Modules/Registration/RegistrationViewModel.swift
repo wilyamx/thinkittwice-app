@@ -8,52 +8,46 @@
 import Foundation
 import RealmSwift
 
-final class RegistrationViewModel: ObservableObject, WSRViewStateProtocol {
+final class RegistrationViewModel: WSRFetcher2 {
     
-    @Published var viewState: WSRViewState = .empty
-    var loadingMessage: String = String.empty
-    var errorMessage: String = String.empty
-    var errorAlertType: WSRErrorAlertType = .none
-    
-    @Published var firstName = ""
-    @Published var lastName = ""
-    @Published var email = ""
+    @Published var firstName = String.empty
+    @Published var lastName = String.empty
+    @Published var email = String.empty
     @Published var birthdate = Date()
     @Published var shouldSendNewsLetter = false
     @Published var yearsOfExperience = 0
-    @Published var password = ""
-    
-    @Published var showErrorAlert = false
+    @Published var password = String.empty
     
     @ObservedResults(User.self) var users
     
     public func register() -> Bool {
-        viewState = .loading
+        requestStarted()
         
         // validation
         guard !firstName.isEmpty else {
-            errorMessage = String.invalid_registrations
-            viewState = .error
+            requestFailed(reason: String.invalid_registrations)
             showErrorAlert = true
             return false
         }
         guard !lastName.isEmpty else {
-            errorMessage = String.invalid_registrations
-            viewState = .error
+            requestFailed(reason: String.invalid_registrations)
             showErrorAlert = true
             return false
         }
         guard !email.isEmpty, email.isValidEmail() else {
-            errorMessage = String.invalid_email
-            viewState = .error
+            requestFailed(reason: String.invalid_email)
+            showErrorAlert = true
+            return false
+        }
+        guard !password.isEmpty, password.count > 8 else {
+            requestFailed(reason: String.invalid_registrations)
             showErrorAlert = true
             return false
         }
         
         // check if registered user
         if isRegisteredUser() {
-            errorMessage = String.registered_user
-            viewState = .error
+            requestFailed(reason: String.registered_user)
             showErrorAlert = true
             return false
         }
@@ -66,15 +60,13 @@ final class RegistrationViewModel: ObservableObject, WSRViewStateProtocol {
             
             $users.append(user)
             
-            errorMessage = String.empty
-            viewState = .populated
-            showErrorAlert = false
+            requestSuccess()
             return true
         }
     }
     
     private func isRegisteredUser() -> Bool {
-        guard let user = users.first(where: {
+        guard let _ = users.first(where: {
             $0.email == email
         }) else {
             return false

@@ -59,6 +59,7 @@ extension WSRFetcher2 {
         DispatchQueue.main.async {
             self.errorMessage = String.empty
             self.viewState = .populated
+            self.showErrorAlert = false
         }
     }
 }
