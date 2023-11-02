@@ -33,7 +33,8 @@ struct LoginView: View {
                     VStack(spacing: 10) {
 
                         HStack {
-                            Text("Daily Training")
+                            Text(String.daily_training)
+                                .foregroundColor(.black)
                                 .font(.title)
                                 .fontWeight(.bold)
                             Spacer()
@@ -85,9 +86,9 @@ struct LoginView: View {
     @ViewBuilder
     private var emailInputView: some View {
         ZStack(alignment: .trailing) {
-            TextField("Email", text: $viewModel.username)
+            TextField(String.email, text: $viewModel.username)
                 .font(.system(size: 17, weight: .thin))
-                .foregroundColor(.primary)
+                .foregroundColor(.black)
                 .frame(height: 44)
                 .padding(.horizontal, 12)
                 .background(ColorNames.accentColor.colorValue.opacity(0.25))
@@ -98,9 +99,9 @@ struct LoginView: View {
                 .keyboardType(.emailAddress)
             
             Button {
-                viewModel.username = ""
+                viewModel.username = String.empty
             } label: {
-                Image(systemName: "xmark")
+                Image(systemName: .systemName(.xmark))
             }
             .padding(.trailing)
         }
@@ -110,9 +111,9 @@ struct LoginView: View {
     private var passwordInputView: some View {
         ZStack(alignment: .trailing) {
             if viewModel.isSecured {
-                SecureField("Password", text: $viewModel.password)
+                SecureField(String.password, text: $viewModel.password)
                     .font(.system(size: 17, weight: .thin))
-                    .foregroundColor(.primary)
+                    .foregroundColor(.black)
                     .frame(height: 44)
                     .padding(.horizontal, 12)
                     .background(ColorNames.accentColor.colorValue.opacity(0.25))
@@ -125,9 +126,9 @@ struct LoginView: View {
                     }
             }
             else {
-                TextField("Password", text: $viewModel.password)
+                TextField(String.password, text: $viewModel.password)
                     .font(.system(size: 17, weight: .thin))
-                    .foregroundColor(.primary)
+                    .foregroundColor(.black)
                     .frame(height: 44)
                     .padding(.horizontal, 12)
                     .background(ColorNames.accentColor.colorValue.opacity(0.25))
@@ -143,7 +144,7 @@ struct LoginView: View {
             Button {
                 viewModel.isSecured.toggle()
             } label: {
-                Image(systemName: viewModel.isSecured ? "eye" : "eye.slash")
+                Image(systemName: .systemName(viewModel.isSecured ? .eye : .eye_slash))
             }
             .padding(.trailing)
         }
@@ -155,7 +156,7 @@ struct LoginView: View {
             viewModel.login()
         },
                label: {
-            Text("Login")
+            Text(String.login)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -166,7 +167,7 @@ struct LoginView: View {
         .padding(.vertical)
         .alert(isPresented: $viewModel.showingAlert) {
             Alert(title: Text(viewModel.errorMessage),
-                  dismissButton: .default(Text("Got it!")) {
+                  dismissButton: .default(Text(String.got_it)) {
                 viewModel.password = String.empty
                 focusField = .password
                 }
@@ -181,7 +182,7 @@ struct LoginView: View {
                 .fill(.black.opacity(0.3))
                 .frame(height: 1)
             
-            Text("OR")
+            Text(String.or.uppercased())
                 .fontWeight(.bold)
                 .foregroundColor(.black.opacity(0.3))
             Rectangle()
@@ -194,12 +195,12 @@ struct LoginView: View {
     @ViewBuilder
     private var buttonLink: some View {
         HStack {
-            Link(destination: URL(string: "https://www.facebook.com/")!,
+            Link(destination: URL(string: String.facebook_url)!,
                  label: {
                 HStack(spacing: 5) {
-                    Image(systemName: "square.and.arrow.up")
+                    Image(systemName: .systemName(.square_and_arrow_up))
                         .foregroundColor(.white)
-                    Text("Facebook")
+                    Text(String.facebook)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                 }
@@ -210,12 +211,12 @@ struct LoginView: View {
             })
             .padding(.bottom)
 
-            Link(destination: URL(string: "https://www.google.com/")!,
+            Link(destination: URL(string: String.google_url)!,
                  label: {
                 HStack(spacing: 5) {
-                    Image(systemName: "globe")
+                    Image(systemName: .systemName(.globe))
                         .foregroundColor(.white)
-                    Text("Google")
+                    Text(String.google)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                 }
@@ -233,8 +234,9 @@ struct LoginView: View {
     @ViewBuilder
     private var signinLink: some View {
         HStack {
-            Text("New around here?")
-            Text("Sign in")
+            Text(String.new_around_here)
+                .foregroundColor(Color.black)
+            Text(String.sign_in)
                 .foregroundColor(Color.red)
                 .onTapGesture {
                     isPresentedRegistration = true

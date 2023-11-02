@@ -34,5 +34,9 @@ extension String {
         case xmark = "xmark"
         case exclamation_mark = "exclamationmark"
         case wifi_slash = "wifi.slash"
+        case eye = "eye"
+        case eye_slash = "eye.slash"
+        case square_and_arrow_up = "square.and.arrow.up"
+        case globe = "globe"
     }
 }
