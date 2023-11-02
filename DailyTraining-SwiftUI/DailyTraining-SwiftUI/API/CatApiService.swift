@@ -110,17 +110,43 @@ extension CatApiService {
                 
                 if let error = error as? URLError {
                     completion(Result.failure(WSRApiError.url(error)))
-                } else if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
-                    completion(Result.failure(WSRApiError.badResponse(statusCode: response.statusCode)))
-                } else if let data = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        let responseModel = try decoder.decode([BreedModel].self, from: data)
-                        completion(Result.success(responseModel))
-                    } catch {
-                        completion(Result.failure(WSRApiError.parsing(error as? DecodingError)))
-                    }
+                    return
                 }
-            }).resume()
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completion(Result.failure(WSRApiError.serverError))
+                    return
+                }
+                
+                guard (200...299).contains(httpResponse.statusCode) else {
+                    if (400...499).contains(httpResponse.statusCode) {
+                        completion(Result.failure(WSRApiError.badRequest))
+                    }
+                    else if (500...599).contains(httpResponse.statusCode) {
+                        completion(Result.failure(WSRApiError.serverError))
+                    }
+                    else {
+                        completion(Result.failure(
+                            WSRApiError.badResponse(statusCode: httpResponse.statusCode)
+                        ))
+                    }
+                    return
+                }
+                
+                guard let data2 = data else {
+                    completion(Result.failure(WSRApiError.serverError))
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let responseModel = try decoder.decode([BreedModel].self, from: data2)
+                    completion(Result.success(responseModel))
+                }
+                catch {
+                    completion(Result.failure(WSRApiError.parsing(error as? DecodingError)))
+                }
+            }
+        ).resume()
     }
 }
