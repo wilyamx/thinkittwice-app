@@ -74,6 +74,11 @@ A mobile application for bringing **digital training solution** in the luxury re
 </p>
 
 <p float="left">
+	<img src="images/error-message-alert.png" alt="Error message alert" height="400">
+	<img src="images/error-tap-to-retry.png" alt="Tap to retry" height="400">
+</p>
+
+<p float="left">
 	<img src="images/feed-1.png" alt="Feed 1" height="400">
 	<img src="images/feed-2.png" alt="Feed 2" height="400">
 	<img src="images/feed-3.png" alt="Feed 3" height="400">
