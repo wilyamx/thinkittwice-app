@@ -55,6 +55,7 @@
 		606F08F12A01DB0400CC3995 /* DailyTraining_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08F02A01DB0400CC3995 /* DailyTraining_SwiftUIUITests.swift */; };
 		606F08F32A01DB0400CC3995 /* DailyTraining_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F08F22A01DB0400CC3995 /* DailyTraining_SwiftUIUITestsLaunchTests.swift */; };
 		607C14302A0895EE00DE12F0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607C142F2A0895EE00DE12F0 /* TestView.swift */; };
+		607CA0CB2AF3B6CB0073A7B8 /* WSRButtonLabelModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607CA0CA2AF3B6CB0073A7B8 /* WSRButtonLabelModifier.swift */; };
 		608F51CC2A3FDE48001DA8B4 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F51CB2A3FDE48001DA8B4 /* MockData.swift */; };
 		608F51CE2A3FEEFF001DA8B4 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F51CD2A3FEEFF001DA8B4 /* Chat.swift */; };
 		608F51D02A3FEF62001DA8B4 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F51CF2A3FEF62001DA8B4 /* ChatUser.swift */; };
@@ -168,6 +169,7 @@
 		606F08F02A01DB0400CC3995 /* DailyTraining_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTraining_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		606F08F22A01DB0400CC3995 /* DailyTraining_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTraining_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		607C142F2A0895EE00DE12F0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		607CA0CA2AF3B6CB0073A7B8 /* WSRButtonLabelModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRButtonLabelModifier.swift; sourceTree = "<group>"; };
 		608F51CB2A3FDE48001DA8B4 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		608F51CD2A3FEEFF001DA8B4 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		608F51CF2A3FEF62001DA8B4 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
@@ -470,6 +472,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		607CA0C92AF3B6700073A7B8 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				607CA0CA2AF3B6CB0073A7B8 /* WSRButtonLabelModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		6090BEF02A03F1E40043B1AE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +538,7 @@
 		60A8CAA92A33F410001A73C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				607CA0C92AF3B6700073A7B8 /* Modifiers */,
 				60A8CAA62A33F291001A73C5 /* WSRWebImage */,
 				60CFE9102A302A0600275AE1 /* WSRRemoteImage */,
 				6002D5CA2AF1CACE001E96B8 /* WSRErrorAlertView.swift */,
@@ -841,6 +852,7 @@
 				603EED372A092FAA00EC9C2E /* RankingRateCircularBar.swift in Sources */,
 				60ECA76E2A13040100EA663E /* APIServiceMock.swift in Sources */,
 				60A5E0B42A0C704F00C8A9B1 /* BreedModel.swift in Sources */,
+				607CA0CB2AF3B6CB0073A7B8 /* WSRButtonLabelModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

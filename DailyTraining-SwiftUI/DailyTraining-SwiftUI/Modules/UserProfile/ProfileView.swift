@@ -140,12 +140,7 @@ struct ProfileView: View {
         },
                label: {
             Text(self.viewModel.logoutButtonAction)
-                .frame(height: 45)
-                .frame(maxWidth: .infinity)
-                .font(.title2)
-                .foregroundColor(.white)
-                .background(.green)
-                .cornerRadius(20)
+                .wsr_ButtonLabel(bgColor: .green, fgColor: .white, font: .title2)
         })
         .padding(.horizontal)
     }

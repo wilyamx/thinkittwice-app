@@ -17,3 +17,15 @@ extension View {
     }
 }
 #endif
+
+extension View {
+    func wsr_ButtonLabel(bgColor: Color, fgColor: Color, font: Font? = nil) -> some View {
+        modifier(
+            WSRButtonLabelModifier(
+                bgColor: bgColor,
+                fgColor: fgColor,
+                font: font
+            )
+        )
+    }
+}

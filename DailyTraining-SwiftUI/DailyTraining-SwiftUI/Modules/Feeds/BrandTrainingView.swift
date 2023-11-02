@@ -33,14 +33,8 @@ struct BrandTrainingView: View {
             },
                    label: {
                 Text("TAKE THE COURSE")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 40)
-                    .background(.black)
-                    .font(.footnote)
+                    .wsr_ButtonLabel(bgColor: .black, fgColor: .white, font: .footnote.bold())
             })
-            .cornerRadius(10)
             .padding(.bottom)
         }
     }
