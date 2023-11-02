@@ -8,11 +8,8 @@
 import Foundation
 import RealmSwift
 
-final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
-    @Published var viewState: WSRViewState = .empty
-    var loadingMessage: String = String.empty
-    var errorMessage: String = String.empty
-   
+final class LoginViewModel: WSRFetcher2 {
+        
     @Published var username: String = String.empty
     @Published var password: String = String.empty
     
@@ -26,21 +23,19 @@ final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
     @ObservedResults(User.self) var registeredUsers
     
     func login() {
-        viewState = .loading
+        requestStarted()
         
         // entry validation
         
         guard !username.isEmpty, username.isValidEmail() else {
-            errorMessage = String.invalid_email
+            requestFailed(reason: String.invalid_email)
             showingAlert = true
-            viewState = .error
             return
         }
         
         guard !password.isEmpty, password.count > 8 else {
-            errorMessage = String.invalid_password
+            requestFailed(reason: String.invalid_password)
             showingAlert = true
-            viewState = .error
             return
         }
         
@@ -49,18 +44,16 @@ final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
         let userList = registeredUsers.where({ $0.email == username })
         
         guard userList.count ==  1 else {
-            errorMessage = String.invalid_credentials
+            requestFailed(reason: String.invalid_credentials)
             showingAlert = true
-            viewState = .error
             return
         }
                 
         guard let user = userList.first,
             user.email == username.lowercased(),
             user.password == password else {
-            errorMessage = String.invalid_credentials
+            requestFailed(reason: String.invalid_credentials)
             showingAlert = true
-            viewState = .error
             return
         }
         
@@ -69,7 +62,7 @@ final class LoginViewModel: ObservableObject, WSRViewStateProtocol {
         UserDefaults.standard.set(true,
                                   forKey: WSRUserDefaultsKey.isLoggedOut.rawValue)
         
-        viewState = .populated
+        requestSuccess()
     }
 
     func checkForReturneeUser() {

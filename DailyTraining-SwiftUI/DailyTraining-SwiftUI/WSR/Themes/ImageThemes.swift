@@ -6,3 +6,33 @@
 //
 
 import Foundation
+
+extension String {
+    
+    static func assets(_ value: Assets) -> String {
+        return value.rawValue
+    }
+    
+    enum Assets: String {
+        
+        //static var getLogo: Assets { return Config.shared.isPLS() ? .sg_logo : .my_logo }
+
+        // common
+        case sg_logo = "pls-logo"
+        
+    }
+}
+
+
+extension String {
+    
+    static func systemName(_ value: SystemName) -> String {
+        return value.rawValue
+    }
+    
+    enum SystemName: String {
+        case xmark = "xmark"
+        case exclamation_mark = "exclamationmark"
+        case wifi_slash = "wifi.slash"
+    }
+}

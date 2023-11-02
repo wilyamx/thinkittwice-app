@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6002D5C22AF0D2A4001E96B8 /* WSRFetcher2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */; };
+		6002D5C52AF1C912001E96B8 /* FontThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C42AF1C912001E96B8 /* FontThemes.swift */; };
+		6002D5C72AF1C91F001E96B8 /* ImageThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C62AF1C91F001E96B8 /* ImageThemes.swift */; };
+		6002D5C92AF1C930001E96B8 /* StringThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C82AF1C930001E96B8 /* StringThemes.swift */; };
+		6002D5CB2AF1CACE001E96B8 /* WSRErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5CA2AF1CACE001E96B8 /* WSRErrorAlertView.swift */; };
+		6002D5CD2AF366A0001E96B8 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5CC2AF366A0001E96B8 /* ColorThemes.swift */; };
 		6009233F2A0A8C4D00CE8562 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009233E2A0A8C4D00CE8562 /* SplashScreen.swift */; };
 		600923422A0A954E00CE8562 /* LandingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600923412A0A954E00CE8562 /* LandingScreen.swift */; };
 		600923452A0A9EF300CE8562 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600923442A0A9EF300CE8562 /* LoginView.swift */; };
@@ -115,6 +120,11 @@
 
 /* Begin PBXFileReference section */
 		6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSRFetcher2.swift; sourceTree = "<group>"; };
+		6002D5C42AF1C912001E96B8 /* FontThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontThemes.swift; sourceTree = "<group>"; };
+		6002D5C62AF1C91F001E96B8 /* ImageThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageThemes.swift; sourceTree = "<group>"; };
+		6002D5C82AF1C930001E96B8 /* StringThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringThemes.swift; sourceTree = "<group>"; };
+		6002D5CA2AF1CACE001E96B8 /* WSRErrorAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSRErrorAlertView.swift; sourceTree = "<group>"; };
+		6002D5CC2AF366A0001E96B8 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 		6009233E2A0A8C4D00CE8562 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		600923412A0A954E00CE8562 /* LandingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreen.swift; sourceTree = "<group>"; };
 		600923442A0A9EF300CE8562 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -231,6 +241,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6002D5C32AF1C8F4001E96B8 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				6002D5C42AF1C912001E96B8 /* FontThemes.swift */,
+				6002D5C62AF1C91F001E96B8 /* ImageThemes.swift */,
+				6002D5C82AF1C930001E96B8 /* StringThemes.swift */,
+				6002D5CC2AF366A0001E96B8 /* ColorThemes.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		6009233D2A0A8C2F00CE8562 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +290,7 @@
 		6061E3EC2A2AB111005D0844 /* WSR */ = {
 			isa = PBXGroup;
 			children = (
+				6002D5C32AF1C8F4001E96B8 /* Themes */,
 				60A8CAA92A33F410001A73C5 /* Views */,
 				605C70C32A5EF7F700ED4F53 /* Environment */,
 				6061E4022A2CC517005D0844 /* Realm */,
@@ -508,6 +530,7 @@
 			children = (
 				60A8CAA62A33F291001A73C5 /* WSRWebImage */,
 				60CFE9102A302A0600275AE1 /* WSRRemoteImage */,
+				6002D5CA2AF1CACE001E96B8 /* WSRErrorAlertView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -741,6 +764,7 @@
 			files = (
 				6009233F2A0A8C4D00CE8562 /* SplashScreen.swift in Sources */,
 				6026A6572A119B4000CC00E1 /* BreedFetcher.swift in Sources */,
+				6002D5C52AF1C912001E96B8 /* FontThemes.swift in Sources */,
 				6061E3F52A2BE336005D0844 /* User.swift in Sources */,
 				605C70CB2A5F0C4E00ED4F53 /* GitHubApiService.swift in Sources */,
 				60FA07882A0330E4008405BE /* ChatRow.swift in Sources */,
@@ -757,6 +781,7 @@
 				60FCD5592A02A49D003D8FAE /* MessagingView.swift in Sources */,
 				60FCD5612A0321C7003D8FAE /* DailyTrainingViewModel.swift in Sources */,
 				60487E2D2A19F4D500AD6603 /* Colors.swift in Sources */,
+				6002D5CB2AF1CACE001E96B8 /* WSRErrorAlertView.swift in Sources */,
 				6090BEF82A0486CF0043B1AE /* NotificationsViewModel.swift in Sources */,
 				6090BEF42A03F62A0043B1AE /* MessagingUsersViewModel.swift in Sources */,
 				60FCD55D2A02B11A003D8FAE /* MessagingChatsView.swift in Sources */,
@@ -773,12 +798,15 @@
 				600923452A0A9EF300CE8562 /* LoginView.swift in Sources */,
 				6061E3FB2A2BF9E3005D0844 /* View+WSR.swift in Sources */,
 				60A507B92A0D4632004D9586 /* WSRFileLoader+Extension.swift in Sources */,
+				6002D5C92AF1C930001E96B8 /* StringThemes.swift in Sources */,
 				608F51D02A3FEF62001DA8B4 /* ChatUser.swift in Sources */,
 				603EED392A0930C600EC9C2E /* ActivityGauge.swift in Sources */,
 				6022153D2A2F3C2E00034314 /* NewsView.swift in Sources */,
+				6002D5CD2AF366A0001E96B8 /* ColorThemes.swift in Sources */,
 				607C14302A0895EE00DE12F0 /* TestView.swift in Sources */,
 				600923472A0B321600CE8562 /* TabViewModel.swift in Sources */,
 				600923422A0A954E00CE8562 /* LandingScreen.swift in Sources */,
+				6002D5C72AF1C91F001E96B8 /* ImageThemes.swift in Sources */,
 				602215372A2F071C00034314 /* Cat.swift in Sources */,
 				60AE673E2A2DBB8D00A172FF /* GitHubUser.swift in Sources */,
 				603EED332A092D8400EC9C2E /* ProfileViewModel.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum WSRViewState {
     // processing
@@ -21,4 +22,54 @@ enum WSRViewState {
 enum WSRUserDefaultsKey: String, CaseIterable {
     case email = "WSR_Email"
     case isLoggedOut = "WSR_IsLoggedOut"
+}
+
+enum WSRErrorAlertType: String {
+    case somethingWentWrong
+    case connectionTimedOut
+    case noInternetConnection
+    case badRequest
+    case domain
+    case none
+    
+    func getIconSystemName() -> String {
+        switch self {
+        case .somethingWentWrong, .badRequest, .connectionTimedOut, .domain:
+            return "exclamationmark"
+        case .noInternetConnection:
+            return "wifi.slash"
+        case .none:
+            return "checkmark"
+        }
+    }
+    
+    func getTitle() -> String {
+        switch self {
+        case .somethingWentWrong: return "Something Went Wrong"
+        case .badRequest: return "Bad Request"
+        case .connectionTimedOut: return "Connection Timed Out"
+        case .noInternetConnection: return "No Internet Connection"
+        case .domain: return "Domain Connection"
+        case .none: return "Works well"
+        }
+    }
+    
+    func getMessage() -> String {
+        switch self {
+        case .somethingWentWrong: return "Sorry, an error occured while trying to sign in.\nPlease try again later."
+        case .connectionTimedOut: return "Sorry, connection timeout.\nPlease try again later."
+        case .noInternetConnection: return "Please try again when your connection is available."
+            
+        case .badRequest: return "Sorry, bad request."
+        case .domain: return "Could not connect to the server."
+        case .none: return "Work as expected."
+        }
+    }
+    
+    func getActionButtonText() -> String {
+        switch self {
+        case .somethingWentWrong, .badRequest, .connectionTimedOut, .noInternetConnection, .domain, .none:
+            return "Got it"
+        }
+    }
 }

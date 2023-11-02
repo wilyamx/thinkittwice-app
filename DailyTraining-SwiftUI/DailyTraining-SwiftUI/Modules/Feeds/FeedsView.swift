@@ -15,8 +15,20 @@ struct FeedsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                Color.white
+                
                 if viewModel.viewState == .error {
-                    RetryView(message: viewModel.errorMessage)
+                    if viewModel.showErrorAlert && viewModel.errorAlertType != .none {
+                        WSRErrorAlertView(
+                            showErrorAlert: $viewModel.showErrorAlert,
+                            errorAlertType: viewModel.errorAlertType,
+                            closeErrorAlert: {
+                                
+                            })
+                    }
+                    else {
+                        RetryView(message: viewModel.errorMessage)
+                    }
                 }
                 // checking for persisted data
                 else if viewModel.cats.isEmpty {

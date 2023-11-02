@@ -9,9 +9,11 @@ import Foundation
 import RealmSwift
 
 final class RegistrationViewModel: ObservableObject, WSRViewStateProtocol {
+    
     @Published var viewState: WSRViewState = .empty
     var loadingMessage: String = String.empty
     var errorMessage: String = String.empty
+    var errorAlertType: WSRErrorAlertType = .none
     
     @Published var firstName = ""
     @Published var lastName = ""
