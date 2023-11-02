@@ -62,4 +62,13 @@ extension WSRFetcher2 {
             self.showErrorAlert = false
         }
     }
+    
+    func resetErrorStatuses() {
+        viewState = .empty
+        showErrorAlert = false
+        
+        loadingMessage = String.empty
+        errorMessage = String.empty
+        errorAlertType = .none
+    }
 }

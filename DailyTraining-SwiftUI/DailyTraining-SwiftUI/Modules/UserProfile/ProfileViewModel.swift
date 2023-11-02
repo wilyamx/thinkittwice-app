@@ -58,9 +58,23 @@ final class ProfileViewModel: WSRFetcher2 {
             
         } catch(let error) {
             if let error = error as? WSRApiError {
+                self.requestFailed(reason: error.localizedDescription)
                 logger.error(message: error.localizedDescription)
             }
-            self.requestFailed(reason: error.localizedDescription)
+            else if let error = error as? URLError {
+                if error.code == .notConnectedToInternet {
+                    self.requestFailed(
+                        reason: error.localizedDescription,
+                        errorAlertType: .noInternetConnection
+                    )
+                }
+                else {
+                    self.requestFailed(
+                        reason: error.localizedDescription,
+                        errorAlertType: .somethingWentWrong
+                    )
+                }
+            }
         }
     
     }

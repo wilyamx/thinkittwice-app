@@ -13,14 +13,24 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ColorNames.listBackgroundColor.colorValue
+                Color.white
                 
                 if viewModel.viewState == .loading {
                     ProgressView()
                         .scaleEffect(2)
                 }
                 else if viewModel.viewState == .error {
-                    RetryView(message: viewModel.errorMessage)
+                    if viewModel.showErrorAlert && viewModel.errorAlertType != .none {
+                        WSRErrorAlertView(
+                            showErrorAlert: $viewModel.showErrorAlert,
+                            errorAlertType: viewModel.errorAlertType,
+                            closeErrorAlert: {
+                                viewModel.resetErrorStatuses()
+                            })
+                    }
+                    else {
+                        RetryView(message: viewModel.errorMessage)
+                    }
                 }
                 else {
                     VStack(spacing: 20) {

@@ -23,7 +23,7 @@ struct FeedsView: View {
                             showErrorAlert: $viewModel.showErrorAlert,
                             errorAlertType: viewModel.errorAlertType,
                             closeErrorAlert: {
-                                
+                                viewModel.resetErrorStatuses()
                             })
                     }
                     else {
