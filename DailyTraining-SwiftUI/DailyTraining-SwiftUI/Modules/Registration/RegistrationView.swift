@@ -53,12 +53,12 @@ struct RegistrationView: View {
                     })
                 }
             }
-            .alert(isPresented: $viewModel.showErrorAlert) {
-                Alert(title: Text(viewModel.errorMessage),
-                      dismissButton: .default(Text("Got it!")) {
-                    
-                    }
-                )
+            .wsr_LoadingView(viewModel: viewModel)
+            .wsr_ErrorAlertView(viewModel: viewModel)
+            .onChange(of: viewModel.validatedUser) { newValue in
+                if newValue {
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
         }
         
@@ -113,12 +113,7 @@ struct RegistrationView: View {
     @ViewBuilder
     private var saveButton: some View {
         Button(action: {
-            if viewModel.register() {
-                presentationMode.wrappedValue.dismiss()
-            }
-            else {
-                logger.info(message: "Already a registered user email!")
-            }
+            viewModel.register()
         },
                label: {
             Text("Save")

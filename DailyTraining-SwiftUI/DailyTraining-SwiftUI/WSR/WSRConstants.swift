@@ -24,22 +24,25 @@ enum WSRUserDefaultsKey: String, CaseIterable {
     case isLoggedOut = "WSR_IsLoggedOut"
 }
 
-enum WSRErrorAlertType: String {
+enum WSRErrorAlertType: Equatable {
     case somethingWentWrong
     case connectionTimedOut
     case noInternetConnection
     case badRequest
     case domain
     case none
+    case custom(String)
     
     func getIconSystemName() -> String {
         switch self {
-        case .somethingWentWrong, .badRequest, .connectionTimedOut, .domain:
+        case .somethingWentWrong,
+                .badRequest,
+                .connectionTimedOut,
+                .domain:
             return "exclamationmark"
-        case .noInternetConnection:
-            return "wifi.slash"
-        case .none:
-            return "checkmark"
+        case .noInternetConnection: return "wifi.slash"
+        case .none: return "checkmark"
+        case .custom(_): return "person.fill.questionmark"
         }
     }
     
@@ -51,6 +54,7 @@ enum WSRErrorAlertType: String {
         case .noInternetConnection: return "No Internet Connection"
         case .domain: return "Domain Connection"
         case .none: return "Works well"
+        case .custom(_): return "Custom Error"
         }
     }
     
@@ -63,12 +67,19 @@ enum WSRErrorAlertType: String {
         case .badRequest: return "Sorry, bad request."
         case .domain: return "Could not connect to the server."
         case .none: return "Work as expected."
+        case .custom(let message): return message
         }
     }
     
     func getActionButtonText() -> String {
         switch self {
-        case .somethingWentWrong, .badRequest, .connectionTimedOut, .noInternetConnection, .domain, .none:
+        case .somethingWentWrong,
+                .badRequest,
+                .connectionTimedOut,
+                .noInternetConnection,
+                .domain,
+                .none,
+                .custom(_):
             return "Got it"
         }
     }

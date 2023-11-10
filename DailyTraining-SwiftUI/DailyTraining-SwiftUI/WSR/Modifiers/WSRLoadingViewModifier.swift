@@ -15,6 +15,9 @@ struct WSRLoadingViewModifier: ViewModifier {
             content
             
             if viewModel.viewState == .loading {
+                Color.black
+                    .opacity(0.25)
+                
                 WSRProcessingView(loadingMessage: viewModel.loadingMessage)
             }
         }

@@ -65,6 +65,7 @@ struct LoginView: View {
                     signinLink
                 }
                 
+                
             }
 //            .toolbar {
 //                ToolbarItemGroup(placement: .keyboard) {
@@ -80,7 +81,9 @@ struct LoginView: View {
             .fullScreenCover(isPresented: $isPresentedRegistration) {
                 RegistrationView()
             }
+            .wsr_LoadingView(viewModel: viewModel)
         }
+        
     }
     
     @ViewBuilder

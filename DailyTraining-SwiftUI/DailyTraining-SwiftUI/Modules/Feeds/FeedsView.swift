@@ -18,17 +18,17 @@ struct FeedsView: View {
                 Color.white
                 
                 if viewModel.viewState == .error {
-                    if viewModel.showErrorAlert && viewModel.errorAlertType != .none {
-                        WSRErrorAlertView(
-                            showErrorAlert: $viewModel.showErrorAlert,
-                            errorAlertType: viewModel.errorAlertType,
-                            closeErrorAlert: {
-                                viewModel.resetErrorStatuses()
-                            })
-                    }
-                    else {
-                        RetryView(message: viewModel.errorMessage)
-                    }
+//                    if viewModel.showErrorAlert && viewModel.errorAlertType != .none {
+//                        WSRErrorAlertView(
+//                            showErrorAlert: $viewModel.showErrorAlert,
+//                            errorAlertType: viewModel.errorAlertType,
+//                            closeErrorAlert: {
+//                                viewModel.resetErrorStatuses()
+//                            })
+//                    }
+//                    else {
+//                        RetryView(message: viewModel.errorMessage)
+//                    }
                 }
                 // checking for persisted data
                 else if viewModel.cats.isEmpty {

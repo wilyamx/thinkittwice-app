@@ -11,116 +11,118 @@ struct ModifiedLoaderView: View {
     @ObservedObject var viewModel = ModifiedLoaderViewModel()
     
     var body: some View {
-        VStack(spacing: 10) {
-            Text("Fetcher 2 Modifiers")
-                .font(.title)
-                .bold()
-            
-            Button {
-                viewModel.requestStarted(message: "Calculating")
-                DispatchQueue.main.asyncAfter(
-                    deadline: .now() + 2,
-                    execute: {
-                        viewModel.requestSuccess()
-                    })
+        ZStack {
+            VStack(spacing: 10) {
+                Text("Fetcher 2 Modifiers")
+                    .font(.title)
+                    .bold()
                 
-            } label: {
-                Text("Successful Request")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.gray)
-                    .cornerRadius(10)
-            }
-            
-            Button {
-                viewModel.requestStarted(message: "Authenticating")
-                DispatchQueue.main.asyncAfter(
-                    deadline: .now() + 2,
-                    execute: {
-                        viewModel.requestFailed(
-                            reason: "Invalid Credential",
-                            errorAlertType: .somethingWentWrong
-                        )
-                    })
+                Button {
+                    viewModel.requestStarted(message: "Calculating")
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + 2,
+                        execute: {
+                            viewModel.requestSuccess()
+                        })
+                    
+                } label: {
+                    Text("Successful Request")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(10)
+                }
                 
-            } label: {
-                Text("Something Went Wrong!")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.gray)
-                    .cornerRadius(10)
-            }
-            
-            Button {
-                viewModel.requestStarted(message: "Logging in")
-                DispatchQueue.main.asyncAfter(
-                    deadline: .now() + 2,
-                    execute: {
-                        viewModel.requestFailed(
-                            reason: "Invalid Credential",
-                            errorAlertType: .domain
-                        )
-                    })
-            } label: {
-                Text("Domain Error")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.gray)
-                    .cornerRadius(10)
-            }
-
-            Button {
-                viewModel.requestStarted(message: "Logging in")
-                DispatchQueue.main.asyncAfter(
-                    deadline: .now() + 2,
-                    execute: {
-                        viewModel.requestFailed(
-                            reason: "Check payload",
-                            errorAlertType: .badRequest
-                        )
-                    })
-            } label: {
-                Text("Bad Request")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.gray)
-                    .cornerRadius(10)
-            }
-            
-            Button {
-                viewModel.requestStarted(message: "Logging in")
-                DispatchQueue.main.asyncAfter(
-                    deadline: .now() + 2,
-                    execute: {
-                        viewModel.requestFailed(
-                            reason: "Check payload",
-                            errorAlertType: .connectionTimedOut
-                        )
-                    })
-            } label: {
-                Text("Connection Timeout")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.gray)
-                    .cornerRadius(10)
-            }
-            
-            Button {
-                viewModel.requestStarted(message: "Logging in")
-                DispatchQueue.main.asyncAfter(
-                    deadline: .now() + 2,
-                    execute: {
-                        viewModel.requestFailed(
-                            reason: "Check payload",
-                            errorAlertType: .noInternetConnection
-                        )
-                    })
-            } label: {
-                Text("No internet connection")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.gray)
-                    .cornerRadius(10)
+                Button {
+                    viewModel.requestStarted(message: "Authenticating")
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + 2,
+                        execute: {
+                            viewModel.requestFailed(
+                                reason: "Invalid Credential",
+                                errorAlertType: .somethingWentWrong
+                            )
+                        })
+                    
+                } label: {
+                    Text("Something Went Wrong!")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(10)
+                }
+                
+                Button {
+                    viewModel.requestStarted(message: "Logging in")
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + 2,
+                        execute: {
+                            viewModel.requestFailed(
+                                reason: "Invalid Credential",
+                                errorAlertType: .domain
+                            )
+                        })
+                } label: {
+                    Text("Domain Error")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(10)
+                }
+                
+                Button {
+                    viewModel.requestStarted(message: "Logging in")
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + 2,
+                        execute: {
+                            viewModel.requestFailed(
+                                reason: "Check payload",
+                                errorAlertType: .badRequest
+                            )
+                        })
+                } label: {
+                    Text("Bad Request")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(10)
+                }
+                
+                Button {
+                    viewModel.requestStarted(message: "Logging in")
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + 2,
+                        execute: {
+                            viewModel.requestFailed(
+                                reason: "Check payload",
+                                errorAlertType: .connectionTimedOut
+                            )
+                        })
+                } label: {
+                    Text("Connection Timeout")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(10)
+                }
+                
+                Button {
+                    viewModel.requestStarted(message: "Logging in")
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + 2,
+                        execute: {
+                            viewModel.requestFailed(
+                                reason: "Check payload",
+                                errorAlertType: .noInternetConnection
+                            )
+                        })
+                } label: {
+                    Text("No internet connection")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(10)
+                }
             }
         }
         .wsr_ErrorAlertView(viewModel: viewModel)

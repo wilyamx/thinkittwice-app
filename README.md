@@ -60,6 +60,9 @@ A mobile application for bringing **digital training solution** in the luxury re
 - Image Caching
 - API Integration
 - Logger
+- Reusable View Modifiers
+	- Loader
+	- Error Alert
 
 **INSPIRED BY**
 
@@ -74,7 +77,8 @@ A mobile application for bringing **digital training solution** in the luxury re
 </p>
 
 <p float="left">
-	<img src="images/error-message-alert.png" alt="Error message alert" height="400">
+	<img src="images/view-modifier-loading.png" alt="Loading" height="400">
+	<img src="images/view-modifier-error-alert.png" alt="Error message alert" height="400">
 	<img src="images/error-tap-to-retry.png" alt="Tap to retry" height="400">
 </p>
 
