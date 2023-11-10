@@ -18,6 +18,8 @@ extension View {
 }
 #endif
 
+// MARK: - WSRButtonLabelModifier
+
 extension View {
     func wsr_ButtonLabel(bgColor: Color, fgColor: Color, font: Font? = nil) -> some View {
         modifier(
@@ -26,6 +28,22 @@ extension View {
                 fgColor: fgColor,
                 font: font
             )
+        )
+    }
+}
+
+// MARK: - WSRFetcher2 Modifiers
+
+extension View {
+    func wsr_ErrorAlertView(viewModel: WSRFetcher2) -> some View {
+        modifier(
+            WSRErrorAlertViewModifier(viewModel: viewModel)
+        )
+    }
+    
+    func wsr_LoadingView(viewModel: WSRFetcher2) -> some View {
+        modifier(
+            WSRLoadingViewModifier(viewModel: viewModel)
         )
     }
 }

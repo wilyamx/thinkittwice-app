@@ -13,7 +13,7 @@ struct WSRButtonLabelModifier: ViewModifier {
     var fgColor: Color
     var font: Font? = nil
     
-    func body(content : Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .font(getFont())
             .frame(maxWidth: .infinity)
