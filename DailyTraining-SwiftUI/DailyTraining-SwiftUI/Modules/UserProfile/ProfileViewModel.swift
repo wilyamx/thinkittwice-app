@@ -28,16 +28,11 @@ final class ProfileViewModel: WSRFetcher2 {
     }
     
     public func getUserDetails() async {
-        guard userDetails == nil else {
-            logger.info(message: "using mock data")
-            return
-        }
-        
         var cats: [BreedModel] = []
         var user: GitHubUser?
         
         logger.api(message: "Asynchronous requests...")
-        self.requestStarted()
+        self.requestStarted(message: "User Details")
         
         do {
             cats = try await CatApiService().get([BreedModel].self,
@@ -54,8 +49,11 @@ final class ProfileViewModel: WSRFetcher2 {
             
             userDetails = user
             
-            self.requestSuccess()
-            
+            DispatchQueue.main.asyncAfter(
+                deadline: .now() + 1,
+                execute: {
+                    self.requestSuccess()
+                })
         } catch(let error) {
             if let error = error as? WSRApiError {
                 self.requestFailed(reason: error.localizedDescription)

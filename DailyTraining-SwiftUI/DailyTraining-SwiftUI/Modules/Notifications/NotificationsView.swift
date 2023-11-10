@@ -28,7 +28,7 @@ struct NotificationsView: View {
      */
     var body: some View {
         NavigationStack {
-            VStack() {
+            VStack {
                 List {
                     ForEach(Array(filteredList.enumerated()), id: \.offset) { index, notification in
                         NotificationRow(list: $viewModel.list,

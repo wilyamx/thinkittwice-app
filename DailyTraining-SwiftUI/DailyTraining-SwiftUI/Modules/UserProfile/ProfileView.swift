@@ -12,37 +12,15 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color.white
-                
-                if viewModel.viewState == .loading {
-                    ProgressView()
-                        .scaleEffect(2)
-                }
-                else if viewModel.viewState == .error {
-                    if viewModel.showErrorAlert && viewModel.errorAlertType != .none {
-                        WSRErrorAlertView(
-                            showErrorAlert: $viewModel.showErrorAlert,
-                            errorAlertType: viewModel.errorAlertType,
-                            closeErrorAlert: {
-                                viewModel.resetErrorStatuses()
-                            })
-                    }
-                    else {
-                        RetryView(message: viewModel.errorMessage)
-                    }
-                }
-                else {
-                    VStack(spacing: 20) {
-                        userInfoView
-                        rankingActivityView
-                        gaugesView
-                        logoutButton
-                        Spacer()
-                    }
-                }
-                
+            VStack(spacing: 20) {
+                userInfoView
+                rankingActivityView
+                gaugesView
+                logoutButton
+                Spacer()
             }
+            .wsr_LoadingView(viewModel: viewModel)
+            .wsr_ErrorAlertView(viewModel: viewModel)
             .navigationBarTitle("Your Profile", displayMode: .inline)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {

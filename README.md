@@ -78,8 +78,8 @@ A mobile application for bringing **digital training solution** in the luxury re
 </p>
 
 <p float="left">
-	<img src="images/registration.png" alt="Registration" height="400">
 	<img src="images/view-modifier-registration-1.png" alt="Loading" height="400">
+	<img src="images/registration.png" alt="Registration" height="400">
 	<img src="images/view-modifier-registration-2.png" alt="Error message alert" height="400">
 </p>
 
@@ -89,12 +89,12 @@ A mobile application for bringing **digital training solution** in the luxury re
 </p>
 
 <p float="left">
+	<img src="images/view-modifier-feeds-1.png" alt="Loading" height="400">
 	<img src="images/feed-1.png" alt="Feed 1" height="400">
 	<img src="images/feed-2.png" alt="Feed 2" height="400">
 	<img src="images/feed-3.png" alt="Feed 3" height="400">
 	<img src="images/feed-4.png" alt="Feed 4" height="400">
-	<img src="images/view-modifier-feeds-1.png" alt="Loading" height="400">
-	<img src="images/view-modifier-feeds-2.png" alt="Loading" height="400">
+	<img src="images/view-modifier-feeds-2.png" alt="Error Alert" height="400">
 </p>
 
 <p float="left">
@@ -118,7 +118,9 @@ A mobile application for bringing **digital training solution** in the luxury re
 </p>
 
 <p float="left">
+	<img src="images/view-modifier-profile-1.png" alt="Loading" height="400">
 	<img src="images/profile-logout.png" alt="Profile Logout" height="400">
 	<img src="images/profile-logging-out.png" alt="Profile Logging Out" height="400">
 	<img src="images/profile-dynamic.png" alt="Profile Dynamic" height="400">
+	<img src="images/view-modifier-profile-2.png" alt="Error Alert" height="400">
 </p>
