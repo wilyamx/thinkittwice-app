@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WSRProcessingView: View {
     let gradientColor = LinearGradient(
-        gradient: Gradient(colors: [.orange, .black]),
+        gradient: Gradient(colors: [.green, .black]),
         startPoint: .top,
         endPoint: .bottom
     )
@@ -18,14 +18,33 @@ struct WSRProcessingView: View {
     
     var body: some View {
         VStack {
-            ProgressView {
-                Text(loadingMessage)
-                    .foregroundColor(.orange)
-                    .font(.title)
-                    .bold()
+            VStack {
+                Image(systemName: "eyes")
+                    .font(.system(size: 50, weight: .bold))
+                    .foregroundColor(.black)
+                
+                Text("Digital Training")
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.yellow)
+                
+                Text("SOLUTION")
+                    .font(.caption)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .tracking(10)
+                
+                ProgressView(){
+                    Text(loadingMessage)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.orange)
+                        .font(.title2)
+                        .bold()
+                }
+                    .tint(.white)
+                    .controlSize(.large)
+                    .padding()
             }
-            .tint(.orange)
-            .controlSize(.large)
         }
         .padding(40)
         .background(gradientColor).opacity(0.95)

@@ -11,7 +11,10 @@ struct ModifiedLoaderView: View {
     @ObservedObject var viewModel = ModifiedLoaderViewModel()
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
+            Text("Fetcher 2 Modifiers")
+                .font(.title)
+                .bold()
             
             Button {
                 viewModel.requestStarted(message: "Calculating")
@@ -30,7 +33,7 @@ struct ModifiedLoaderView: View {
             }
             
             Button {
-                viewModel.requestStarted(message: "Calculating")
+                viewModel.requestStarted(message: "Authenticating")
                 DispatchQueue.main.asyncAfter(
                     deadline: .now() + 2,
                     execute: {
@@ -49,7 +52,15 @@ struct ModifiedLoaderView: View {
             }
             
             Button {
-                viewModel.showErrorAlert.toggle()
+                viewModel.requestStarted(message: "Logging in")
+                DispatchQueue.main.asyncAfter(
+                    deadline: .now() + 2,
+                    execute: {
+                        viewModel.requestFailed(
+                            reason: "Invalid Credential",
+                            errorAlertType: .domain
+                        )
+                    })
             } label: {
                 Text("Domain Error")
                     .foregroundColor(.white)
@@ -58,6 +69,59 @@ struct ModifiedLoaderView: View {
                     .cornerRadius(10)
             }
 
+            Button {
+                viewModel.requestStarted(message: "Logging in")
+                DispatchQueue.main.asyncAfter(
+                    deadline: .now() + 2,
+                    execute: {
+                        viewModel.requestFailed(
+                            reason: "Check payload",
+                            errorAlertType: .badRequest
+                        )
+                    })
+            } label: {
+                Text("Bad Request")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(.gray)
+                    .cornerRadius(10)
+            }
+            
+            Button {
+                viewModel.requestStarted(message: "Logging in")
+                DispatchQueue.main.asyncAfter(
+                    deadline: .now() + 2,
+                    execute: {
+                        viewModel.requestFailed(
+                            reason: "Check payload",
+                            errorAlertType: .connectionTimedOut
+                        )
+                    })
+            } label: {
+                Text("Connection Timeout")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(.gray)
+                    .cornerRadius(10)
+            }
+            
+            Button {
+                viewModel.requestStarted(message: "Logging in")
+                DispatchQueue.main.asyncAfter(
+                    deadline: .now() + 2,
+                    execute: {
+                        viewModel.requestFailed(
+                            reason: "Check payload",
+                            errorAlertType: .noInternetConnection
+                        )
+                    })
+            } label: {
+                Text("No internet connection")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(.gray)
+                    .cornerRadius(10)
+            }
         }
         .wsr_ErrorAlertView(viewModel: viewModel)
         .wsr_LoadingView(viewModel: viewModel)
