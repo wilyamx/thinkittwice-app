@@ -72,13 +72,20 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 <p float="left">
 	<img src="images/login.png" alt="Login" height="400">
-	<img src="images/registration.png" alt="Registration" height="400">
-	<img src="images/splashscreen.png" alt="Splashscreen" height="400">
+	<img src="images/view-modifier-login-1.png" alt="Loading" height="400">
+	<img src="images/view-modifier-login-2.png" alt="Loading" height="400">
+	<img src="images/view-modifier-login-3.png" alt="Loading" height="400">
 </p>
 
 <p float="left">
-	<img src="images/view-modifier-loading.png" alt="Loading" height="400">
-	<img src="images/view-modifier-error-alert.png" alt="Error message alert" height="400">
+	<img src="images/registration.png" alt="Registration" height="400">
+	<img src="images/view-modifier-registration-1.png" alt="Loading" height="400">
+	<img src="images/view-modifier-registration-2.png" alt="Error message alert" height="400">
+	
+</p>
+
+<p float="left">
+<img src="images/splashscreen.png" alt="Splashscreen" height="400">
 	<img src="images/error-tap-to-retry.png" alt="Tap to retry" height="400">
 </p>
 

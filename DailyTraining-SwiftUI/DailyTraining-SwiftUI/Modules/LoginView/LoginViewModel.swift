@@ -24,18 +24,26 @@ final class LoginViewModel: WSRFetcher2 {
     
     func login() {
         requestStarted(message: "Logging in")
-        
+    
         // entry validation
         
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + 2,
+            execute: {
+                self.validate()
+            })
+    }
+
+    private func validate() {
         guard !username.isEmpty, username.isValidEmail() else {
-            requestFailed(reason: String.invalid_email)
-            showingAlert = true
+            errorMessage = String.invalid_email
+            requestFailed(reason: String.email, errorAlertType: .custom(self.errorMessage))
             return
         }
         
         guard !password.isEmpty, password.count > 8 else {
-            requestFailed(reason: String.invalid_password)
-            showingAlert = true
+            errorMessage = String.invalid_password
+            requestFailed(reason: String.email, errorAlertType: .custom(self.errorMessage))
             return
         }
         
@@ -44,7 +52,8 @@ final class LoginViewModel: WSRFetcher2 {
         let userList = registeredUsers.where({ $0.email == username })
         
         guard userList.count ==  1 else {
-            requestFailed(reason: String.invalid_credentials)
+            errorMessage = String.invalid_credentials
+            requestFailed(reason: String.empty, errorAlertType: .custom(self.errorMessage))
             showingAlert = true
             return
         }
@@ -52,7 +61,9 @@ final class LoginViewModel: WSRFetcher2 {
         guard let user = userList.first,
             user.email == username.lowercased(),
             user.password == password else {
-            requestFailed(reason: String.invalid_credentials)
+            
+            errorMessage = String.invalid_credentials
+            requestFailed(reason: String.empty, errorAlertType: .custom(errorMessage))
             showingAlert = true
             return
         }
@@ -64,7 +75,7 @@ final class LoginViewModel: WSRFetcher2 {
         
         requestSuccess()
     }
-
+    
     func checkForReturneeUser() {
         // if logged out we force the user to login
         if UserDefaults.standard.bool(forKey: WSRUserDefaultsKey.isLoggedOut.rawValue) {

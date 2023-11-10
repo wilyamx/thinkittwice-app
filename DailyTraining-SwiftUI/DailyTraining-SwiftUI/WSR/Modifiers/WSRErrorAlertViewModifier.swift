@@ -17,6 +17,7 @@ struct WSRErrorAlertViewModifier: ViewModifier {
             if viewModel.showErrorAlert {
                 Color.black
                     .opacity(0.25)
+                    .ignoresSafeArea()
                 
                 WSRErrorAlertView(
                     showErrorAlert: $viewModel.showErrorAlert,

@@ -82,6 +82,7 @@ struct LoginView: View {
                 RegistrationView()
             }
             .wsr_LoadingView(viewModel: viewModel)
+            .wsr_ErrorAlertView(viewModel: viewModel)
         }
         
     }
@@ -168,14 +169,6 @@ struct LoginView: View {
                 .clipShape(Capsule())
         })
         .padding(.vertical)
-        .alert(isPresented: $viewModel.showingAlert) {
-            Alert(title: Text(viewModel.errorMessage),
-                  dismissButton: .default(Text(String.got_it)) {
-                viewModel.password = String.empty
-                focusField = .password
-                }
-            )
-        }
     }
     
     @ViewBuilder

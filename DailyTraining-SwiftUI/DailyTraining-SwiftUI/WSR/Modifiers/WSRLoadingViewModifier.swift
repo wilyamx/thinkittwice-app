@@ -17,6 +17,7 @@ struct WSRLoadingViewModifier: ViewModifier {
             if viewModel.viewState == .loading {
                 Color.black
                     .opacity(0.25)
+                    .ignoresSafeArea()
                 
                 WSRProcessingView(loadingMessage: viewModel.loadingMessage)
             }
