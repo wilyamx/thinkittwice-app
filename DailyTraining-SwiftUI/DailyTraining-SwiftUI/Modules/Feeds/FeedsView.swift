@@ -14,62 +14,37 @@ struct FeedsView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color.white
-                
-                if viewModel.viewState == .error {
-//                    if viewModel.showErrorAlert && viewModel.errorAlertType != .none {
-//                        WSRErrorAlertView(
-//                            showErrorAlert: $viewModel.showErrorAlert,
-//                            errorAlertType: viewModel.errorAlertType,
-//                            closeErrorAlert: {
-//                                viewModel.resetErrorStatuses()
-//                            })
-//                    }
-//                    else {
-//                        RetryView(message: viewModel.errorMessage)
-//                    }
+            listView
+                .wsr_LoadingView(viewModel: viewModel)
+                .wsr_ErrorAlertView(viewModel: viewModel)
+                .task {
+                    logger.info(message: "ProgressView.task.BEGIN")
+                    await viewModel.initializeData(deletePersistedData: true)
+                    logger.info(message: "ProgressView.task.END")
                 }
-                // checking for persisted data
-                else if viewModel.cats.isEmpty {
-                    if viewModel.breeds.isEmpty {
-                        ProgressView()
-                            .scaleEffect(2)
-                            .task {
-                                logger.info(message: "ProgressView.task.BEGIN")
-                                await viewModel.initializeData()
-                                logger.info(message: "ProgressView.task.END")
+                .navigationTitle("Daily Training")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            logger.log(category: .info, message: "Settings!")
+                        }, label: {
+                            Image(systemName: "slider.horizontal.3")
+                        })
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            Task {
+                                logger.info(message: "Button.task.BEGIN")
+                                await viewModel.deleteAllPersistedData()
+                                logger.info(message: "Button.task.END")
                             }
+                        }, label: {
+                            Image(systemName: "arrow.clockwise.circle")
+                        })
                     }
                 }
-                else {
-                    listView
-                }
-                
-            }
-            .navigationTitle("Daily Training")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        logger.log(category: .info, message: "Settings!")
-                    }, label: {
-                        Image(systemName: "slider.horizontal.3")
-                    })
-                }
-
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        Task {
-                            logger.info(message: "Button.task.BEGIN")
-                            await viewModel.deleteAllPersistedData()
-                            logger.info(message: "Button.task.END")
-                        }
-                    }, label: {
-                        Image(systemName: "arrow.clockwise.circle")
-                    })
-                }
-            }
             
         }
         

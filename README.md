@@ -81,7 +81,6 @@ A mobile application for bringing **digital training solution** in the luxury re
 	<img src="images/registration.png" alt="Registration" height="400">
 	<img src="images/view-modifier-registration-1.png" alt="Loading" height="400">
 	<img src="images/view-modifier-registration-2.png" alt="Error message alert" height="400">
-	
 </p>
 
 <p float="left">
@@ -94,6 +93,8 @@ A mobile application for bringing **digital training solution** in the luxury re
 	<img src="images/feed-2.png" alt="Feed 2" height="400">
 	<img src="images/feed-3.png" alt="Feed 3" height="400">
 	<img src="images/feed-4.png" alt="Feed 4" height="400">
+	<img src="images/view-modifier-feeds-1.png" alt="Loading" height="400">
+	<img src="images/view-modifier-feeds-2.png" alt="Loading" height="400">
 </p>
 
 <p float="left">
