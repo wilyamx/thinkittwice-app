@@ -18,9 +18,12 @@ struct FeedsView: View {
                 .wsr_LoadingView(viewModel: viewModel)
                 .wsr_ErrorAlertView(viewModel: viewModel)
                 .task {
-                    logger.info(message: "ProgressView.task.BEGIN")
+                    logger.info(message: "listView.task.BEGIN")
                     await viewModel.initializeData(deletePersistedData: true)
-                    logger.info(message: "ProgressView.task.END")
+                    logger.info(message: "listView.task.END")
+                }
+                .refreshable {
+                    await viewModel.initializeData(deletePersistedData: true)
                 }
                 .navigationTitle("Daily Training")
                 .navigationBarTitleDisplayMode(.inline)
