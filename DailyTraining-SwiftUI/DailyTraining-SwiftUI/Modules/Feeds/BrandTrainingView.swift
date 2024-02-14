@@ -13,7 +13,7 @@ struct BrandTrainingView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("BRAND TRAINING")
+            Text(String.branch_training.localizedString().uppercased())
                 .fontWeight(.bold)
                 .padding(.top)
                                     
@@ -32,7 +32,7 @@ struct BrandTrainingView: View {
                 logger.info(message: "\(cat.breedExplanation)")
             },
                    label: {
-                Text("TAKE THE COURSE")
+                Text(String.take_the_course.localizedString().uppercased())
                     .wsr_ButtonLabel(bgColor: .black, fgColor: .white, font: .footnote.bold())
             })
             .padding(.bottom)

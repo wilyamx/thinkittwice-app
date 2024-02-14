@@ -21,7 +21,7 @@ struct ProfileView: View {
             }
             .wsr_LoadingView(viewModel: viewModel)
             .wsr_ErrorAlertView(viewModel: viewModel)
-            .navigationBarTitle("Your Profile", displayMode: .inline)
+            .navigationBarTitle(LocalizedStringKey(String.your_profile), displayMode: .inline)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -76,7 +76,7 @@ struct ProfileView: View {
     @ViewBuilder
     private var rankingActivityView: some View {
         HStack {
-            Text("Ranking Your Activity")
+            Text(LocalizedStringKey(String.ranking_your_activity))
                 .font(.body)
                 .fontWeight(.bold)
                 .minimumScaleFactor(0.5)
@@ -98,9 +98,9 @@ struct ProfileView: View {
             .padding(.top)
             
             HStack(spacing: 30) {
-                ActivityGauge(value: "80%", dimension: "Rate")
-                ActivityGauge(value: "75%", dimension: "Rate")
-                ActivityGauge(value: "4 mins.", dimension: "Ranking Page All Time")
+                ActivityGauge(value: "80%", dimension: String.rate.localizedString())
+                ActivityGauge(value: "75%", dimension: String.rate.localizedString())
+                ActivityGauge(value: "40 \(String.mins.localizedString())", dimension: String.ranking_page_all_time.localizedString())
             }
             .background(.clear)
             .padding(.bottom)
@@ -130,5 +130,6 @@ struct ProfileView_Previews: PreviewProvider {
         
         ProfileView()
             .environmentObject(viewModel)
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }

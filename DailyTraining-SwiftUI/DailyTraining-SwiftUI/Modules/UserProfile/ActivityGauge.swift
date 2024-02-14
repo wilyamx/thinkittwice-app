@@ -29,7 +29,7 @@ struct ActivityGauge_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.white
-            ActivityGauge(value: "80%", dimension: "Rate")
+            ActivityGauge(value: "80%", dimension: String.rate.localizedString())
         }
     }
 }

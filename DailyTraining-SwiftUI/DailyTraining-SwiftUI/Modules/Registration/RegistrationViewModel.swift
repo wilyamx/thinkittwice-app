@@ -23,7 +23,7 @@ final class RegistrationViewModel: WSRFetcher2 {
     @ObservedResults(User.self) var users
     
     public func register() {
-        requestStarted(message: "Registering User")
+        requestStarted(message: String.registering_user.localizedString())
         
         DispatchQueue.main.asyncAfter(
             deadline: .now() + 2,

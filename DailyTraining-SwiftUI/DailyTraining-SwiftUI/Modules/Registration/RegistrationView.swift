@@ -35,7 +35,7 @@ struct RegistrationView: View {
                 Spacer()
             }
             .accentColor(ColorNames.accentColor.colorValue)
-            .navigationTitle("Registration")
+            .navigationTitle(LocalizedStringKey(String.registration))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -66,48 +66,60 @@ struct RegistrationView: View {
     
     @ViewBuilder
     private var personalInformationSection: some View {
-        Section(header: Text("Personal Information")) {
+        Section(header: Text(LocalizedStringKey(String.personal_information))) {
             HStack {
                 Text("👤")
-                TextField("First Name", text: $viewModel.firstName)
+                TextField(LocalizedStringKey(String.first_name), text: $viewModel.firstName)
                     .focused($focusField, equals: .firstname)
             }
             HStack {
                 Text("👤")
-                TextField("Last Name", text: $viewModel.lastName)
+                TextField(LocalizedStringKey(String.last_name), text: $viewModel.lastName)
                     .focused($focusField, equals: .lastname)
             }
             
             HStack {
                 Text("✉️")
-                TextField("Email", text: $viewModel.email)
+                TextField(LocalizedStringKey(String.email), text: $viewModel.email)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .focused($focusField, equals: .email)
             }
             HStack {
                 Text("🔑")
-                SecureField("Password", text: $viewModel.password)
+                SecureField(LocalizedStringKey(String.password), text: $viewModel.password)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .focused($focusField, equals: .password)
             }
             HStack {
                 Text("🎂")
-                DatePicker("Birthdate", selection: $viewModel.birthdate, displayedComponents: .date)
+                DatePicker(LocalizedStringKey(String.birthdate), selection: $viewModel.birthdate, displayedComponents: .date)
             }
         }
     }
     
     @ViewBuilder
     private var actionsSection: some View {
-        Section(header: Text("Actions")) {
-            Toggle("Send Newsletter", isOn: $viewModel.shouldSendNewsLetter)
-            Stepper("Years", value: $viewModel.yearsOfExperience)
-            Text("\(viewModel.yearsOfExperience) years in Software Development")
-            Link("Privacy Policy", destination: URL(string: "https://www.facebook.com/")!)
-            Link("Term and Conditions", destination: URL(string: "https://www.google.com/")!)
+        Section(header: Text(LocalizedStringKey(String.actions))) {
+            Toggle(LocalizedStringKey(String.send_newsletter), isOn: $viewModel.shouldSendNewsLetter)
+            Stepper(LocalizedStringKey(String.years), value: $viewModel.yearsOfExperience)
+            Text(getYearsOfExperience())
+            Link(LocalizedStringKey(String.privacy_policy), destination: URL(string: "https://www.facebook.com/")!)
+            Link(LocalizedStringKey(String.terms_and_conditions), destination: URL(string: "https://www.google.com/")!)
         }
+    }
+    
+    private func getYearsOfExperience() -> String {
+        let localized = NSLocalizedString(
+            String.years_in_software_development,
+            comment: ""
+        )
+        let formatted = String.localizedStringWithFormat(
+            localized,
+            "\(viewModel.yearsOfExperience)"
+        )
+        return formatted
     }
     
     @ViewBuilder
@@ -116,7 +128,7 @@ struct RegistrationView: View {
             viewModel.register()
         },
                label: {
-            Text("Save")
+            Text(LocalizedStringKey(String.save))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -126,10 +138,21 @@ struct RegistrationView: View {
         })
         .padding()
     }
+    
 }
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         RegistrationView()
+            .previewDisplayName("en")
+            .environment(\.locale, .init(identifier: "en"))
+        
+        RegistrationView()
+            .previewDisplayName("fr")
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        RegistrationView()
+            .previewDisplayName("ar")
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }

@@ -20,7 +20,7 @@ struct LandingScreen: View {
                 FeedsView()
                     .tabItem {
                         Image(systemName: "house")
-                        Text("Feeds")
+                        Text(LocalizedStringKey(String.feeds))
                     }
                     .badge(14)
                     .environmentObject(FeedsViewModel())
@@ -28,7 +28,7 @@ struct LandingScreen: View {
                 NotificationsView()
                     .tabItem {
                         Image(systemName: "note")
-                        Text("Notifications")
+                        Text(LocalizedStringKey(String.notifications))
                     }
                     .badge("!")
                     .environmentObject(NotificationsViewModel())
@@ -36,13 +36,13 @@ struct LandingScreen: View {
                 MessagingView()
                     .tabItem {
                         Image(systemName: "message.badge")
-                        Text("Messages")
+                        Text(LocalizedStringKey(String.messages))
                     }
                 
                 ProfileView()
                     .tabItem {
                         Image(systemName: "person")
-                        Text("Profile")
+                        Text(LocalizedStringKey(String.profile))
                     }
             }
             .accentColor(ColorNames.accentColor.colorValue)
@@ -55,5 +55,6 @@ struct LandingScreen_Previews: PreviewProvider {
         LandingScreen()
             .environmentObject(FeedsViewModel())
             .environmentObject(ProfileViewModel())
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }

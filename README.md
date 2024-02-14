@@ -54,15 +54,16 @@ A mobile application for bringing **digital training solution** in the luxury re
 
 **FEATURES**
 
-- MVVM
+- MVVM Architectural Design
 - Data Cache: `Realm Database`
 - Remember Me
 - Image Caching
 - API Integration
-- Logger
+- Custom Logger
 - Reusable View Modifiers
 	- Loader
 	- Error Alert
+- Localized Strings
 
 **INSPIRED BY**
 

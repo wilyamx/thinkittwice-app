@@ -23,7 +23,7 @@ final class LoginViewModel: WSRFetcher2 {
     @ObservedResults(User.self) var registeredUsers
     
     func login() {
-        requestStarted(message: "Logging in")
+        requestStarted(message: String.logging_in.localizedString())
     
         // entry validation
         

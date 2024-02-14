@@ -29,7 +29,7 @@ struct MessagingView: View {
                 Picker("Choose a channel", selection: $pickerSelectedIndex) {
                     ForEach(Channel.allCases, id: \.self) {
                         channel in
-                        Text(channel.rawValue.uppercased())
+                        Text(channel.title)
                             .tag(channel.index)
                     }
                 }
@@ -61,7 +61,7 @@ struct MessagingView: View {
                 Spacer()
             }
             
-            .navigationBarTitle("Channel")
+            .navigationBarTitle(LocalizedStringKey(String.channel))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -99,6 +99,7 @@ struct MessagingView: View {
 struct MessagingView_Previews: PreviewProvider {
     static var previews: some View {
         MessagingView()
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }
 
@@ -113,10 +114,17 @@ enum Channel: String, CaseIterable, Equatable {
         }
     }
     
+    var title: String {
+        switch self {
+        case .chats: return String.chats.localizedString().uppercased()
+        case .people: return String.people.localizedString().uppercased()
+        }
+    }
+    
     var searchPrompt: String {
         switch self {
-        case .chats: return "Search by chat title"
-        case .people: return "Search by user title"
+        case .chats: return String.search_by_chat_title.localizedString()
+        case .people: return String.search_by_user_title.localizedString()
         }
     }
 }

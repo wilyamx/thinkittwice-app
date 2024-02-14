@@ -1,0 +1,79 @@
+/* 
+  Localizable.strings
+  DailyTraining-SwiftUI
+
+  Created by William Rena on 2/13/24.
+  
+*/
+
+// Signin
+"Email" = "Email";
+"Password" = "Password";
+"Login" = "Login";
+"OR" = "OR";
+"New around here?" = "New around here?";
+"Sign in" = "Sign in";
+
+// Tabs
+"Profile" = "Profile";
+"Notifications" = "Notifications";
+"Messages" = "Messages";
+"Feeds" = "Feeds";
+
+// Request
+"User Details" = "User Details";
+"Calculating" = "Calculating";
+"Authenticating" = "Authenticating";
+"Logging in" = "Logging in";
+"Registering User" = "Registering User";
+"Initializing Data" = "Initializing Data";
+"Resetting Data" = "Resetting Data";
+
+// Registration
+"Registration" = "Registration";
+"Personal Information" = "Personal Information";
+"First Name" = "First Name";
+"Last Name" = "Last Name";
+"Birthdate" = "Birthdate";
+"Actions" = "Actions";
+"Send Newsletter" = "Send Newsletter";
+"Years" = "Years";
+"years in Software Development" = "%@ years in Software Development";
+"Privacy Policy" = "Privacy Policy";
+"Terms and Conditions" = "Terms and Conditions";
+
+// Feeds
+"Daily Training" = "Daily Training";
+"Solution" = "Solution";
+"Daily Challenge" = "Daily Challenge";
+"Market News" = "Market News";
+"Brand Training" = "Brand Training";
+"Take the Course" = "Take the Course";
+"Take the Challenge" = "Take the Challenge";
+
+// Notifications
+"Search from title" = "Search from title";
+
+// Messages
+"Channel" = "Channel";
+"Search by chat title" = "Search by chat title";
+"Search by user title" = "Search by user title";
+"Chats" = "Chats";
+"People" = "People";
+
+// Profile
+"Your Profile" = "Your Profile";
+"Ranking Your Activity" = "Ranking Your Activity";
+"Logout" = "Logout";
+"Combo" = "Combo";
+"Days" = "Days";
+"Rank" = "Rank";
+"Rate" = "Rate";
+"Ranking Page All Time" = "Ranking Page All Time";
+"mins" = "mins.";
+"points" = "points";
+"Level" = "Level";
+"Logging out" = "Logging out";
+
+// Action Buttons
+"Save" = "Save";

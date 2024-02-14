@@ -25,7 +25,7 @@ struct FeedsView: View {
                 .refreshable {
                     await viewModel.initializeData(deletePersistedData: true)
                 }
-                .navigationTitle("Daily Training")
+                .navigationTitle(LocalizedStringKey(String.daily_training))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -92,5 +92,14 @@ struct FeedsView_Previews: PreviewProvider {
     static var previews: some View {
         FeedsView()
             .environmentObject(FeedsViewModel())
+            .environment(\.locale, .init(identifier: "en"))
+        
+        FeedsView()
+            .environmentObject(FeedsViewModel())
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        FeedsView()
+            .environmentObject(FeedsViewModel())
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }

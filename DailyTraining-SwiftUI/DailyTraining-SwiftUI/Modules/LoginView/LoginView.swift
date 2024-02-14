@@ -33,7 +33,7 @@ struct LoginView: View {
                     VStack(spacing: 10) {
 
                         HStack {
-                            Text(String.daily_training)
+                            Text(LocalizedStringKey(String.daily_training))
                                 .foregroundColor(.black)
                                 .font(.title)
                                 .fontWeight(.bold)
@@ -90,7 +90,7 @@ struct LoginView: View {
     @ViewBuilder
     private var emailInputView: some View {
         ZStack(alignment: .trailing) {
-            TextField(String.email, text: $viewModel.username)
+            TextField(LocalizedStringKey(String.email), text: $viewModel.username)
                 .font(.system(size: 17, weight: .thin))
                 .foregroundColor(.black)
                 .frame(height: 44)
@@ -115,7 +115,7 @@ struct LoginView: View {
     private var passwordInputView: some View {
         ZStack(alignment: .trailing) {
             if viewModel.isSecured {
-                SecureField(String.password, text: $viewModel.password)
+                SecureField(LocalizedStringKey(String.password), text: $viewModel.password)
                     .font(.system(size: 17, weight: .thin))
                     .foregroundColor(.black)
                     .frame(height: 44)
@@ -130,7 +130,7 @@ struct LoginView: View {
                     }
             }
             else {
-                TextField(String.password, text: $viewModel.password)
+                TextField(LocalizedStringKey(String.password), text: $viewModel.password)
                     .font(.system(size: 17, weight: .thin))
                     .foregroundColor(.black)
                     .frame(height: 44)
@@ -160,7 +160,7 @@ struct LoginView: View {
             viewModel.login()
         },
                label: {
-            Text(String.login)
+            Text(LocalizedStringKey(String.login))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -178,7 +178,7 @@ struct LoginView: View {
                 .fill(.black.opacity(0.3))
                 .frame(height: 1)
             
-            Text(String.or.uppercased())
+            Text(LocalizedStringKey(String.or.uppercased()))
                 .fontWeight(.bold)
                 .foregroundColor(.black.opacity(0.3))
             Rectangle()
@@ -230,9 +230,9 @@ struct LoginView: View {
     @ViewBuilder
     private var signinLink: some View {
         HStack {
-            Text(String.new_around_here)
+            Text(LocalizedStringKey(String.new_around_here))
                 .foregroundColor(Color.black)
-            Text(String.sign_in)
+            Text(LocalizedStringKey(String.sign_in))
                 .foregroundColor(Color.red)
                 .onTapGesture {
                     isPresentedRegistration = true
@@ -244,6 +244,19 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .previewDisplayName("en")
             .environmentObject(LoginViewModel())
+            .environment(\.locale, .init(identifier: "en"))
+        
+        LoginView()
+            .previewDisplayName("fr")
+            .environmentObject(LoginViewModel())
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        LoginView()
+            .previewDisplayName("ar")
+            .environmentObject(LoginViewModel())
+            .environment(\.locale, .init(identifier: "ar"))
+        
     }
 }

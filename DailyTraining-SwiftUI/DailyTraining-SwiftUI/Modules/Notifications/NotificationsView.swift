@@ -47,7 +47,9 @@ struct NotificationsView: View {
                 viewModel.getList()
             }
         }
-        .searchable(text: $searchText, prompt: "Search from title")
+        .searchable(
+            text: $searchText,
+            prompt: LocalizedStringKey(String.search_from_title))
     }
 }
 
@@ -55,5 +57,6 @@ struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()
             .environmentObject(NotificationsViewModel())
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }

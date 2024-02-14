@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10813BE92B7B084A00A26463 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10813BEB2B7B084A00A26463 /* Localizable.strings */; };
+		10813BF02B7B3A6E00A26463 /* StringThemes+DT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10813BEF2B7B3A6E00A26463 /* StringThemes+DT.swift */; };
 		6002D5C22AF0D2A4001E96B8 /* WSRFetcher2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */; };
 		6002D5C52AF1C912001E96B8 /* FontThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C42AF1C912001E96B8 /* FontThemes.swift */; };
 		6002D5C72AF1C91F001E96B8 /* ImageThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C62AF1C91F001E96B8 /* ImageThemes.swift */; };
@@ -125,6 +127,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10813BEA2B7B084A00A26463 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10813BEC2B7B087700A26463 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10813BED2B7B088400A26463 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10813BEF2B7B3A6E00A26463 /* StringThemes+DT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringThemes+DT.swift"; sourceTree = "<group>"; };
 		6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSRFetcher2.swift; sourceTree = "<group>"; };
 		6002D5C42AF1C912001E96B8 /* FontThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontThemes.swift; sourceTree = "<group>"; };
 		6002D5C62AF1C91F001E96B8 /* ImageThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageThemes.swift; sourceTree = "<group>"; };
@@ -253,6 +259,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10813BEE2B7B3A0600A26463 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				10813BEF2B7B3A6E00A26463 /* StringThemes+DT.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		6002D5C32AF1C8F4001E96B8 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +398,7 @@
 			children = (
 				6061E3EC2A2AB111005D0844 /* WSR */,
 				6061E3ED2A2AB43C005D0844 /* Helpers */,
+				10813BEE2B7B3A0600A26463 /* Themes */,
 				60FCD5642A032330003D8FAE /* Resources */,
 				60AE673F2A2DCCB000A172FF /* API */,
 				60ECA76A2A1302C000EA663E /* Fetchers */,
@@ -395,6 +410,7 @@
 				606F08D72A01DB0100CC3995 /* ContentView.swift */,
 				606F08D92A01DB0400CC3995 /* Assets.xcassets */,
 				606F08DB2A01DB0400CC3995 /* Preview Content */,
+				10813BEB2B7B084A00A26463 /* Localizable.strings */,
 			);
 			path = "DailyTraining-SwiftUI";
 			sourceTree = "<group>";
@@ -721,8 +737,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				CLASSPREFIX = DT;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
+				ORGANIZATIONNAME = "Training Project";
 				TargetAttributes = {
 					606F08D12A01DB0100CC3995 = {
 						CreatedOnToolsVersion = 14.2;
@@ -744,6 +762,8 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				ar,
 			);
 			mainGroup = 606F08C92A01DB0000CC3995;
 			packageReferences = (
@@ -770,6 +790,7 @@
 				60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */,
 				606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */,
 				60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */,
+				10813BE92B7B084A00A26463 /* Localizable.strings in Resources */,
 				6090BEEF2A03F1780043B1AE /* MessagingUsersData.json in Resources */,
 				60FCD5682A0323B8003D8FAE /* MessagingChatsData.json in Resources */,
 			);
@@ -800,6 +821,7 @@
 				607B30FE2AFDC32E0013BD9C /* WSRErrorAlertViewModifier.swift in Sources */,
 				6026A6572A119B4000CC00E1 /* BreedFetcher.swift in Sources */,
 				6002D5C52AF1C912001E96B8 /* FontThemes.swift in Sources */,
+				10813BF02B7B3A6E00A26463 /* StringThemes+DT.swift in Sources */,
 				6061E3F52A2BE336005D0844 /* User.swift in Sources */,
 				605C70CB2A5F0C4E00ED4F53 /* GitHubApiService.swift in Sources */,
 				60FA07882A0330E4008405BE /* ChatRow.swift in Sources */,
@@ -917,11 +939,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		10813BEB2B7B084A00A26463 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10813BEA2B7B084A00A26463 /* en */,
+				10813BEC2B7B087700A26463 /* fr */,
+				10813BED2B7B088400A26463 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		606F08F42A01DB0400CC3995 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -982,6 +1018,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

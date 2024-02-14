@@ -41,7 +41,7 @@ final class FeedsViewModel: WSRFetcher2 {
     public func initializeData(deletePersistedData: Bool = false) async {
         logger.info(message: "Initializing data...")
         
-        self.requestStarted(message: "Initializing Data")
+        requestStarted(message: String.initializing_data.localizedString())
         
         if deletePersistedData {
             cats.forEach { cat in
@@ -105,7 +105,7 @@ final class FeedsViewModel: WSRFetcher2 {
     public func deleteAllPersistedData() async {
         logger.info(message: "Deleting all persisted data...")
         
-        requestStarted(message: "Resetting Data")
+        requestStarted(message: String.resetting_data.localizedString())
         
         // delete persisted data
         cats.forEach { cat in

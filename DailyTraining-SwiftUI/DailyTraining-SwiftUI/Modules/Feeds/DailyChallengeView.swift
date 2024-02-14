@@ -26,7 +26,7 @@ struct DailyChallengeView: View {
                 .clipShape(Circle())
                 
                 VStack(alignment: .leading) {
-                    Text("Daily Challenge")
+                    Text(LocalizedStringKey(String.daily_challenge))
                         .fontWeight(.bold)
                     
                     Text("\(cat.name): \(cat.temperament)")
@@ -39,13 +39,14 @@ struct DailyChallengeView: View {
                 logger.info(message: "Take the challenge! \(cat.name)")
             },
                    label: {
-                Text("TAKE THE CHALLENGE")
+                Text(String.take_the_challenge.localizedString().uppercased())
                     .wsr_ButtonLabel(bgColor: .black, fgColor: .white, font: .footnote.bold())
             })
             .cornerRadius(10)
             .padding(.bottom)
         }
     }
+    
 }
 
 struct DailyChallengeView_Previews: PreviewProvider {
@@ -77,5 +78,6 @@ struct DailyChallengeView_Previews: PreviewProvider {
         .listStyle(.plain)
         .background(ColorNames.listBackgroundColor.colorValue)
         .buttonStyle(.borderless)
+        .environment(\.locale, .init(identifier: "fr"))
     }
 }

@@ -18,7 +18,7 @@ struct ModifiedLoaderView: View {
                     .bold()
                 
                 Button {
-                    viewModel.requestStarted(message: "Calculating")
+                    viewModel.requestStarted(message: String.calculating.localizedString())
                     DispatchQueue.main.asyncAfter(
                         deadline: .now() + 2,
                         execute: {
@@ -34,7 +34,7 @@ struct ModifiedLoaderView: View {
                 }
                 
                 Button {
-                    viewModel.requestStarted(message: "Authenticating")
+                    viewModel.requestStarted(message: String.authenticating.localizedString())
                     DispatchQueue.main.asyncAfter(
                         deadline: .now() + 2,
                         execute: {
@@ -53,7 +53,7 @@ struct ModifiedLoaderView: View {
                 }
                 
                 Button {
-                    viewModel.requestStarted(message: "Logging in")
+                    viewModel.requestStarted(message: String.logging_in.localizedString())
                     DispatchQueue.main.asyncAfter(
                         deadline: .now() + 2,
                         execute: {
@@ -71,7 +71,7 @@ struct ModifiedLoaderView: View {
                 }
                 
                 Button {
-                    viewModel.requestStarted(message: "Logging in")
+                    viewModel.requestStarted(message: String.logging_in.localizedString())
                     DispatchQueue.main.asyncAfter(
                         deadline: .now() + 2,
                         execute: {
@@ -89,7 +89,7 @@ struct ModifiedLoaderView: View {
                 }
                 
                 Button {
-                    viewModel.requestStarted(message: "Logging in")
+                    viewModel.requestStarted(message: String.logging_in.lowercased())
                     DispatchQueue.main.asyncAfter(
                         deadline: .now() + 2,
                         execute: {
@@ -107,7 +107,7 @@ struct ModifiedLoaderView: View {
                 }
                 
                 Button {
-                    viewModel.requestStarted(message: "Logging in")
+                    viewModel.requestStarted(message: String.logging_in.localizedString())
                     DispatchQueue.main.asyncAfter(
                         deadline: .now() + 2,
                         execute: {

@@ -10,7 +10,7 @@ import RealmSwift
 
 final class ProfileViewModel: WSRFetcher2 {
     @Published var isLoggedOut: Bool = false
-    @Published var logoutButtonAction: String = "Logout"
+    @Published var logoutButtonAction: String = String.logout.localizedString()
     
     @Published var userDetails: GitHubUser?
     
@@ -32,7 +32,7 @@ final class ProfileViewModel: WSRFetcher2 {
         var user: GitHubUser?
         
         logger.api(message: "Asynchronous requests...")
-        self.requestStarted(message: "User Details")
+        requestStarted(message: String.user_details.localizedString())
         
         do {
             cats = try await CatApiService().get([BreedModel].self,
@@ -87,7 +87,7 @@ final class ProfileViewModel: WSRFetcher2 {
             return
         }
         
-        self.logoutButtonAction = "Logging out..."
+        self.logoutButtonAction = String.logging_out.localizedString()
         
         logger.realm(message: "Logout registered user! \(email)")
         UserDefaults.standard.removeObject(forKey: WSRUserDefaultsKey.isLoggedOut.rawValue)

@@ -16,7 +16,7 @@ struct NewsView: View {
                 .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                 .overlay(alignment: .topLeading) {
                     VStack(alignment: .leading) {
-                        Text("MARKET NEWS")
+                        Text(String.market_news.localizedString().uppercased())
                             .fontWeight(.bold)
                             .padding([.top, .leading])
                             .foregroundColor(.white)

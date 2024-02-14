@@ -23,12 +23,12 @@ struct WSRProcessingView: View {
                     .font(.system(size: 50, weight: .bold))
                     .foregroundColor(.black)
                 
-                Text("Digital Training")
+                Text(LocalizedStringKey(String.daily_training))
                     .font(.title2)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.yellow)
                 
-                Text("SOLUTION")
+                Text(String.solution.localizedString().uppercased())
                     .font(.caption)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
