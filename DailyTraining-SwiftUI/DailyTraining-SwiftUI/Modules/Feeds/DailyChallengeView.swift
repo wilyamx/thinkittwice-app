@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DailyChallengeView: View {
+    @Binding var list: [Notification]
     var cat: Cat
     
     var body: some View {
@@ -37,6 +38,16 @@ struct DailyChallengeView: View {
             
             Button(action: {
                 logger.info(message: "Take the challenge! \(cat.name)")
+                
+                // add item from the notification
+                if let lastItem = list.first {
+                    let notification = Notification(
+                        id: lastItem.id + 1,
+                        title: cat.name,
+                        description: cat.description
+                    )
+                    list.append(notification)
+                }
             },
                    label: {
                 Text(String.take_the_challenge.localizedString().uppercased())
@@ -53,6 +64,8 @@ struct DailyChallengeView_Previews: PreviewProvider {
     /**
         https://www.mongodb.com/docs/realm/sdk/swift/swiftui/swiftui-previews/
      */
+    let notificationViewModel = NotificationsViewModel()
+    
     static var previews: some View {
         List {
             let realm = MockRealms.previewRealm
@@ -61,7 +74,10 @@ struct DailyChallengeView_Previews: PreviewProvider {
             
             if let cat = cats.first {
                 Group {
-                    DailyChallengeView(cat: cat)
+                    DailyChallengeView(
+                        list: .constant([Notification]()),
+                        cat: cat
+                    )
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(

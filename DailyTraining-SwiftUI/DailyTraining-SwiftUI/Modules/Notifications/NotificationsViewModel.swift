@@ -15,6 +15,11 @@ final class NotificationsViewModel: WSRLocalFileLoader {
     }
     
     func getList() {
+        guard list.count == 0 else {
+            logger.info(message: "Existing notification list: \(list.map({ $0.id }))")
+            return
+        }
+        
         let filename = "NotificationsData.json"
         logger.log(category: .fileloader, message: "filename: \(filename)")
         
@@ -32,5 +37,10 @@ final class NotificationsViewModel: WSRLocalFileLoader {
                     }
                 }
             })
+    }
+    
+    func sortList() {
+        list = list.sorted(by: { $0.id > $1.id })
+        //logger.info(message: "Sorted list: \(list.map({ $0.id }))")
     }
 }

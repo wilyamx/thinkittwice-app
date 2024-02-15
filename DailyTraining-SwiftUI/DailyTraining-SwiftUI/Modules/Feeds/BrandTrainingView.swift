@@ -9,6 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct BrandTrainingView: View {
+    @Binding var list: [Notification]
     var cat: Cat
     
     var body: some View {
@@ -30,6 +31,16 @@ struct BrandTrainingView: View {
             Button(action: {
                 logger.info(message: "Take the course! \(cat.name) (\(cat.referenceImageId).jpg)")
                 logger.info(message: "\(cat.breedExplanation)")
+                
+                // add item from the notification
+                if let lastItem = list.first {
+                    let notification = Notification(
+                        id: lastItem.id + 1,
+                        title: cat.name,
+                        description: cat.breedExplanation
+                    )
+                    list.append(notification)
+                }
             },
                    label: {
                 Text(String.take_the_course.localizedString().uppercased())
@@ -52,7 +63,10 @@ struct BrandTrainingView_Previews: PreviewProvider {
             
             if let cat = cats.first {
                 Group {
-                    BrandTrainingView(cat: cat)
+                    BrandTrainingView(
+                        list: .constant([Notification]()),
+                        cat: cat
+                    )
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(

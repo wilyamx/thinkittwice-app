@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FeedsView: View {
     @EnvironmentObject var viewModel: FeedsViewModel
+    @EnvironmentObject var notificationsViewModel: NotificationsViewModel
     
     let rowSpacing: CGFloat = 10.0
     
@@ -18,9 +19,11 @@ struct FeedsView: View {
                 .wsr_LoadingView(viewModel: viewModel)
                 .wsr_ErrorAlertView(viewModel: viewModel)
                 .task {
-                    logger.info(message: "listView.task.BEGIN")
-                    await viewModel.initializeData(deletePersistedData: true)
-                    logger.info(message: "listView.task.END")
+                    if viewModel.breeds.count == 0 {
+                        logger.info(message: "listView.task.BEGIN")
+                        await viewModel.initializeData(deletePersistedData: true)
+                        logger.info(message: "listView.task.END")
+                    }
                 }
                 .refreshable {
                     await viewModel.initializeData(deletePersistedData: true)
@@ -60,10 +63,16 @@ struct FeedsView: View {
                 // display persisted data
                 ForEach(viewModel.cats.shuffled(), id: \.id) { cat in
                     if [1, 2].contains(cat.energyLevel) {
-                        DailyChallengeView(cat: cat)
+                        DailyChallengeView(
+                            list: $notificationsViewModel.list,
+                            cat: cat
+                        )
                     }
                     else if [3, 4].contains(cat.energyLevel) {
-                        BrandTrainingView(cat: cat)
+                        BrandTrainingView(
+                            list: $notificationsViewModel.list,
+                            cat: cat
+                        )
                     }
                     else {
                         NewsView(cat: cat)

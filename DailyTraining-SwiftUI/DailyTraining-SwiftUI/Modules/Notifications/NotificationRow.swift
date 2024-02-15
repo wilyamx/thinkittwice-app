@@ -46,7 +46,7 @@ struct NotificationRow: View {
             ZStack {
                 Circle()
                     .frame(height: 50)
-                Text("WR")
+                Text(notification.title.prefix(2).uppercased())
                     .foregroundColor(.white)
                     .minimumScaleFactor(0.5)
             }
@@ -100,7 +100,7 @@ struct NotificationRow: View {
             }
         }
         .padding([.top], -40)
-        .navigationTitle("Notifications")
+        .navigationTitle(LocalizedStringKey(String.notifications))
     }
 }
 

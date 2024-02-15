@@ -12,3 +12,9 @@ struct Notification: Decodable, Identifiable {
     let title: String
     let description: String
 }
+
+extension Notification: Equatable {
+    static func ==(lhs: Notification, rhs: Notification) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

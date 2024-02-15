@@ -10,6 +10,8 @@ import SwiftUI
 struct LandingScreen: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
     
+    let notificationsViewModel = NotificationsViewModel()
+    
     var body: some View {
         if profileViewModel.isLoggedOut {
             LoginView()
@@ -24,6 +26,7 @@ struct LandingScreen: View {
                     }
                     .badge(14)
                     .environmentObject(FeedsViewModel())
+                    .environmentObject(notificationsViewModel)
                 
                 NotificationsView()
                     .tabItem {
@@ -31,7 +34,7 @@ struct LandingScreen: View {
                         Text(LocalizedStringKey(String.notifications))
                     }
                     .badge("!")
-                    .environmentObject(NotificationsViewModel())
+                    .environmentObject(notificationsViewModel)
                 
                 MessagingView()
                     .tabItem {
