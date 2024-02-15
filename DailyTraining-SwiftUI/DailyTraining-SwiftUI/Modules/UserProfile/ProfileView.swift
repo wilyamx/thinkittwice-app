@@ -21,7 +21,10 @@ struct ProfileView: View {
             }
             .wsr_LoadingView(viewModel: viewModel)
             .wsr_ErrorAlertView(viewModel: viewModel)
-            .navigationBarTitle(LocalizedStringKey(String.your_profile), displayMode: .inline)
+            .navigationBarTitle(
+                LocalizedStringKey(String.your_profile),
+                displayMode: .inline
+            )
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -100,7 +103,10 @@ struct ProfileView: View {
             HStack(spacing: 30) {
                 ActivityGauge(value: "80%", dimension: String.rate.localizedString())
                 ActivityGauge(value: "75%", dimension: String.rate.localizedString())
-                ActivityGauge(value: "40 \(String.mins.localizedString())", dimension: String.ranking_page_all_time.localizedString())
+                ActivityGauge(
+                    value: "40 \(String.mins.localizedString())",
+                    dimension: String.ranking_page_all_time.localizedString()
+                )
             }
             .background(.clear)
             .padding(.bottom)

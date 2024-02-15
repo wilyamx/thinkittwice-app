@@ -26,7 +26,10 @@ struct FeedsView: View {
                     }
                 }
                 .refreshable {
-                    await viewModel.initializeData(deletePersistedData: true)
+                    await viewModel.initializeData(
+                        deletePersistedData: true,
+                        shuffle: true
+                    )
                 }
                 .navigationTitle(LocalizedStringKey(String.daily_training))
                 .navigationBarTitleDisplayMode(.inline)
@@ -61,7 +64,7 @@ struct FeedsView: View {
         List {
             Group {
                 // display persisted data
-                ForEach(viewModel.cats.shuffled(), id: \.id) { cat in
+                ForEach(viewModel.cats, id: \.id) { cat in
                     if [1, 2].contains(cat.energyLevel) {
                         DailyChallengeView(
                             list: $notificationsViewModel.list,

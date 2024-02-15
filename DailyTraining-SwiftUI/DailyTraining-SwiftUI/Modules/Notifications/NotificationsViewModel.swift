@@ -16,7 +16,7 @@ final class NotificationsViewModel: WSRLocalFileLoader {
     
     func getList() {
         guard list.count == 0 else {
-            logger.info(message: "Existing notification list: \(list.map({ $0.id }))")
+            //logger.info(message: "Existing notification list: \(list.map({ $0.id }))")
             return
         }
         

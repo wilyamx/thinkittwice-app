@@ -38,7 +38,10 @@ final class FeedsViewModel: WSRFetcher2 {
         }
     }
         
-    public func initializeData(deletePersistedData: Bool = false) async {
+    public func initializeData(
+        deletePersistedData: Bool = false,
+        shuffle: Bool = false
+    ) async {
         logger.info(message: "Initializing data...")
         
         requestStarted(message: String.initializing_data.localizedString())
@@ -68,9 +71,14 @@ final class FeedsViewModel: WSRFetcher2 {
         // api request + parse + persist
         do {
             // using generics
-            breeds = try await CatApiService().get([BreedModel].self,
+            var list = try await CatApiService().get([BreedModel].self,
                                                    path: CatApiEndpoints.breeds,
                                                    queryItems: nil)
+            if shuffle {
+                list.shuffle()
+            }
+            self.breeds = list
+            
             await persist()
             
             self.requestSuccess()
