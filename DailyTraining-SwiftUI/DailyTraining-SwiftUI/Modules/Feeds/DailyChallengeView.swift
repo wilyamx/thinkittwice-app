@@ -44,7 +44,7 @@ struct DailyChallengeView: View {
                     let notification = Notification(
                         id: lastItem.id + 1,
                         title: cat.name,
-                        description: cat.description
+                        description: cat.temperament
                     )
                     list.append(notification)
                 }
