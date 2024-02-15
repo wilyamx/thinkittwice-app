@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct LandingScreen: View {
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    
+    let profileViewModel = ProfileViewModel()
     let notificationsViewModel = NotificationsViewModel()
     
     var body: some View {
@@ -47,6 +46,7 @@ struct LandingScreen: View {
                         Image(systemName: "person")
                         Text(LocalizedStringKey(String.profile))
                     }
+                    .environmentObject(profileViewModel)
             }
             .accentColor(ColorNames.accentColor.colorValue)
         }

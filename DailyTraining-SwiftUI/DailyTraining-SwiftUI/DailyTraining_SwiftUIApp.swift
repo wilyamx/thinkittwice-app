@@ -14,11 +14,13 @@ struct DailyTraining_SwiftUIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let _ = UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+            let _ = UserDefaults.standard.set(
+                false,
+                forKey: "_UIConstraintBasedLayoutLogUnsatisfiable"
+            )
             let _ = logger.realmDB()
             
             ContentView()
-                .environmentObject(ProfileViewModel())
         }
     }
 }

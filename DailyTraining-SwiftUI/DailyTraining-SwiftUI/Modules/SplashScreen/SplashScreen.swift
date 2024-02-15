@@ -14,8 +14,6 @@ struct SplashScreen: View {
     var body: some View {
         if isActive {
             LandingScreen()
-                .environmentObject(TabViewModel())
-                .environmentObject(ProfileViewModel())
         }
         else {
             ZStack {
