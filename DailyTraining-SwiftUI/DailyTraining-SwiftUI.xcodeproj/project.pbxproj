@@ -38,7 +38,6 @@
 		60487E2D2A19F4D500AD6603 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60487E2C2A19F4D500AD6603 /* Colors.swift */; };
 		60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 60487E2E2A1A167200AD6603 /* NotificationsData.json */; };
 		605C70C52A5EF83100ED4F53 /* WSREnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C70C42A5EF83100ED4F53 /* WSREnvironment.swift */; };
-		605C70C72A5F02EA00ED4F53 /* WSRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 605C70C22A5EF6BB00ED4F53 /* WSRConfig.xcconfig */; };
 		605C70C92A5F0AF600ED4F53 /* CatApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C70C82A5F0AF600ED4F53 /* CatApiService.swift */; };
 		605C70CB2A5F0C4E00ED4F53 /* GitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C70CA2A5F0C4E00ED4F53 /* GitHubApiService.swift */; };
 		6061E3F02A2BD84B005D0844 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6061E3EF2A2BD84B005D0844 /* Realm */; };
@@ -739,7 +738,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				CLASSPREFIX = DT;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Training Project";
 				TargetAttributes = {
 					606F08D12A01DB0100CC3995 = {
@@ -786,7 +785,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				606F08DD2A01DB0400CC3995 /* Preview Assets.xcassets in Resources */,
-				605C70C72A5F02EA00ED4F53 /* WSRConfig.xcconfig in Resources */,
 				60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */,
 				606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */,
 				60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */,
@@ -990,6 +988,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1004,7 +1003,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1051,6 +1050,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1059,7 +1059,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1142,7 +1142,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.DailyTraining-SwiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1161,7 +1161,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.DailyTraining-SwiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

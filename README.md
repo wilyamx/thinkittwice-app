@@ -47,7 +47,7 @@ A mobile application for bringing **digital training solution** in the luxury re
 **PROJECT SPECIFICATIONS:**
 
 - **Root Directory:** `/ DailyTraining-SwiftUI`
-- **IDE:** `XCode 14.3.1 for iOS 16.4`
+- **IDE:** `XCode 15.2 for iOS 17.2`
 - **Language:** `Swift 5`
 - **Interface:** `SwiftUI`
 - [Architecture Diagram](https://drive.google.com/file/d/17IRKrt5H3WeYHVrtgEdXN8UVBIiFtWvO/view?usp=sharing)
