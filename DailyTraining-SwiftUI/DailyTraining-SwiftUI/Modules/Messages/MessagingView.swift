@@ -35,11 +35,11 @@ struct MessagingView: View {
                 }
                 .padding(.horizontal, 15.0)
                 .pickerStyle(.segmented)
-                .onChange(of: pickerSelectedIndex) { index in
-                    if index == 0 {
+                .onChange(of: pickerSelectedIndex) {
+                    if pickerSelectedIndex == 0 {
                         selectedChannel = .chats
                     }
-                    else if index == 1 {
+                    else if pickerSelectedIndex == 1 {
                         selectedChannel = .people
                     }
                     logger.info(message: "Channel change: \(selectedChannel)")
@@ -83,7 +83,7 @@ struct MessagingView: View {
             .toolbarBackground(.white, for: .navigationBar)
         }
         .searchable(text: $searchText, prompt: "\(selectedChannel.searchPrompt)")
-        .onChange(of: searchText) { searchText in
+        .onChange(of: searchText) {
             logger.info(message: "New search text: \"\(searchText)\" for: \(self.selectedChannel)")
             
             switch selectedChannel {
@@ -99,7 +99,7 @@ struct MessagingView: View {
 struct MessagingView_Previews: PreviewProvider {
     static var previews: some View {
         MessagingView()
-            .environment(\.locale, .init(identifier: "ar"))
+            .environment(\.locale, .init(identifier: "en"))
     }
 }
 

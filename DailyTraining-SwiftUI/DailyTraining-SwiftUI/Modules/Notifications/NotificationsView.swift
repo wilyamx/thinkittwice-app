@@ -50,9 +50,9 @@ struct NotificationsView: View {
         .searchable(
             text: $searchText,
             prompt: LocalizedStringKey(String.search_from_title))
-        .onChange(of: viewModel.list) { newValue in
+        .onChange(of: viewModel.list) {
             viewModel.sortList()
-            logger.info(message: "Notification list onChange: \(newValue.count)")
+            logger.info(message: "Notification list onChange: \(viewModel.list.count)")
         }
     }
 }

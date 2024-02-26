@@ -55,8 +55,8 @@ struct RegistrationView: View {
             }
             .wsr_LoadingView(viewModel: viewModel)
             .wsr_ErrorAlertView(viewModel: viewModel)
-            .onChange(of: viewModel.validatedUser) { newValue in
-                if newValue {
+            .onChange(of: viewModel.validatedUser) {
+                if viewModel.validatedUser {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
