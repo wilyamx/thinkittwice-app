@@ -63,7 +63,8 @@ A mobile application for bringing **digital training solution** in the luxury re
 - Reusable View Modifiers
 	- Loader
 	- Error Alert
-- Localized Strings
+- Localizable String
+	-  [Migrate to String Catalogs](https://www.youtube.com/watch?v=slOQbTacj4k)
 
 **INSPIRED BY**
 
