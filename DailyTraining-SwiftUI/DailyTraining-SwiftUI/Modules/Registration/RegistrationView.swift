@@ -110,16 +110,8 @@ struct RegistrationView: View {
         }
     }
     
-    private func getYearsOfExperience() -> String {
-        let localized = NSLocalizedString(
-            String.years_in_software_development,
-            comment: ""
-        )
-        let formatted = String.localizedStringWithFormat(
-            localized,
-            "\(viewModel.yearsOfExperience)"
-        )
-        return formatted
+    private func getYearsOfExperience() -> LocalizedStringResource {
+        return "\(viewModel.yearsOfExperience) years in Software Development"
     }
     
     @ViewBuilder

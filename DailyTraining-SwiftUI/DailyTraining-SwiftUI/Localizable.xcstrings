@@ -17,9 +17,6 @@
         }
       }
     },
-    "%@ 1" : {
-
-    },
     "%@: %@" : {
       "localizations" : {
         "en" : {
@@ -32,6 +29,88 @@
     },
     "%lld" : {
 
+    },
+    "%lld years in Software Development" : {
+      "localizations" : {
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld سنوات في تطوير البرمجيات"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld سنوات في تطوير البرمجيات"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld سنة في تطوير البرمجيات"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld سنوات في تطوير البرمجيات"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld سنوات في تطوير البرمجيات"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld سنوات في تطوير البرمجيات"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld year in Software Development"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%lld years in Software Development"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld année en développement de logiciels"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld années en développement de logiciels"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "Actions" : {
       "extractionState" : "manual",
@@ -413,28 +492,8 @@
         }
       }
     },
-    "Level" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "مستوى"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Level"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Niveau"
-          }
-        }
-      }
+    "Level %lld" : {
+
     },
     "Logging in" : {
       "extractionState" : "manual",
@@ -1253,29 +1312,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Années"
-          }
-        }
-      }
-    },
-    "years in Software Development" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ سنوات في تطوير البرمجيات"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ years in Software Development"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ ans en développement logiciel"
           }
         }
       }

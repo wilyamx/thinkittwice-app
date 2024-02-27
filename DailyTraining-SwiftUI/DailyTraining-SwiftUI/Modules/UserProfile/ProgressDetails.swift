@@ -10,7 +10,7 @@ import SwiftUI
 struct ProgressDetails: View {
     var body: some View {
         VStack(spacing: 5) {
-            Text("\(String.level.localizedString()) 1")
+            Text("Level \(1)")
                 .font(.body)
                 .minimumScaleFactor(0.8)
             ProgressView(value: 0.5)
