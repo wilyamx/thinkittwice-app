@@ -68,32 +68,32 @@ struct RegistrationView: View {
     private var personalInformationSection: some View {
         Section(header: Text(LocalizedStringKey(String.personal_information))) {
             HStack {
-                Text("👤")
+                Text(String("👤"))
                 TextField(LocalizedStringKey(String.first_name), text: $viewModel.firstName)
                     .focused($focusField, equals: .firstname)
             }
             HStack {
-                Text("👤")
+                Text(String("👤"))
                 TextField(LocalizedStringKey(String.last_name), text: $viewModel.lastName)
                     .focused($focusField, equals: .lastname)
             }
             
             HStack {
-                Text("✉️")
+                Text(String("✉️"))
                 TextField(LocalizedStringKey(String.email), text: $viewModel.email)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .focused($focusField, equals: .email)
             }
             HStack {
-                Text("🔑")
+                Text(String("🔑"))
                 SecureField(LocalizedStringKey(String.password), text: $viewModel.password)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .focused($focusField, equals: .password)
             }
             HStack {
-                Text("🎂")
+                Text(String("🎂"))
                 DatePicker(LocalizedStringKey(String.birthdate), selection: $viewModel.birthdate, displayedComponents: .date)
             }
         }

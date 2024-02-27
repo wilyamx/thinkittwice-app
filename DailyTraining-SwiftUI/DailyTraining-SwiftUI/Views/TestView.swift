@@ -11,8 +11,8 @@ struct TestView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                NavigationLink("Tap Me") {
-                    Text("Detail View")
+                NavigationLink(String("Tap Me")) {
+                    Text(String("Detail View"))
                         .toolbar(.hidden, for: .tabBar)
                 }
                 .navigationTitle("Channel")

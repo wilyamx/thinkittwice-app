@@ -1,8 +1,40 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "!" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ 1" : {
+
+    },
+    "%@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
     "Actions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -24,8 +56,14 @@
         }
       }
     },
+    "Approve" : {
+
+    },
+    "Are you sure you want to delete this notification with id: %lld?" : {
+
+    },
     "Authenticating" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -47,8 +85,11 @@
         }
       }
     },
+    "Bad Request" : {
+
+    },
     "Birthdate" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -71,7 +112,7 @@
       }
     },
     "Brand Training" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -94,7 +135,7 @@
       }
     },
     "Calculating" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -118,18 +159,11 @@
     },
     "Channel" : {
       "comment" : "Messages",
-      "extractionState" : "migrated",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "قناة"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Channel"
           }
         },
         "fr" : {
@@ -141,7 +175,7 @@
       }
     },
     "Chats" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -163,19 +197,15 @@
         }
       }
     },
+    "Choose a channel" : {
+
+    },
     "Combo" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "كومبو"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Combo"
           }
         },
         "fr" : {
@@ -186,8 +216,11 @@
         }
       }
     },
+    "Connection Timeout" : {
+
+    },
     "Daily Challenge" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -211,7 +244,7 @@
     },
     "Daily Training" : {
       "comment" : "Feeds",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -234,18 +267,11 @@
       }
     },
     "Days" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "أيام"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Days"
           }
         },
         "fr" : {
@@ -256,9 +282,15 @@
         }
       }
     },
+    "Delete" : {
+
+    },
+    "Domain Error" : {
+
+    },
     "Email" : {
       "comment" : "Signin",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -281,7 +313,7 @@
       }
     },
     "Feeds" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -303,8 +335,11 @@
         }
       }
     },
+    "Fetcher 2 Modifiers" : {
+
+    },
     "First Name" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -326,8 +361,14 @@
         }
       }
     },
+    "Forward" : {
+
+    },
+    "Home" : {
+
+    },
     "Initializing Data" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -350,7 +391,7 @@
       }
     },
     "Last Name" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -373,7 +414,7 @@
       }
     },
     "Level" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -396,7 +437,7 @@
       }
     },
     "Logging in" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -419,7 +460,7 @@
       }
     },
     "Logging out" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -442,7 +483,7 @@
       }
     },
     "Login" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -465,7 +506,7 @@
       }
     },
     "Logout" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -488,7 +529,7 @@
       }
     },
     "Market News" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -511,7 +552,7 @@
       }
     },
     "Messages" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -533,19 +574,8 @@
         }
       }
     },
-    "mins" : {
-      "extractionState" : "migrated",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "mins."
-          }
-        }
-      }
-    },
     "mins." : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -562,7 +592,7 @@
       }
     },
     "New around here?" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -584,8 +614,11 @@
         }
       }
     },
+    "No internet connection" : {
+
+    },
     "Notifications" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -608,7 +641,7 @@
       }
     },
     "OR" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -631,7 +664,7 @@
       }
     },
     "Password" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -654,7 +687,7 @@
       }
     },
     "People" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -677,7 +710,7 @@
       }
     },
     "Personal Information" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -700,7 +733,7 @@
       }
     },
     "points" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -723,7 +756,7 @@
       }
     },
     "Privacy Policy" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -747,7 +780,7 @@
     },
     "Profile" : {
       "comment" : "Tabs",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -770,18 +803,11 @@
       }
     },
     "Rank" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "رتبة"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rank"
           }
         },
         "fr" : {
@@ -793,7 +819,7 @@
       }
     },
     "Ranking Page All Time" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -816,7 +842,7 @@
       }
     },
     "Ranking Your Activity" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -839,7 +865,7 @@
       }
     },
     "Rate" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -862,7 +888,7 @@
       }
     },
     "Registering User" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -886,7 +912,7 @@
     },
     "Registration" : {
       "comment" : "Registration",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -908,8 +934,11 @@
         }
       }
     },
+    "Reject" : {
+
+    },
     "Resetting Data" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -931,9 +960,12 @@
         }
       }
     },
+    "SAP Analytics | Just Now" : {
+
+    },
     "Save" : {
       "comment" : "Action Buttons",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -956,7 +988,7 @@
       }
     },
     "Search by chat title" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -979,7 +1011,7 @@
       }
     },
     "Search by user title" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1003,7 +1035,7 @@
     },
     "Search from title" : {
       "comment" : "Notifications",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1025,8 +1057,11 @@
         }
       }
     },
+    "Send a message..." : {
+
+    },
     "Send Newsletter" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1049,7 +1084,7 @@
       }
     },
     "Sign in" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1072,7 +1107,7 @@
       }
     },
     "Solution" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1094,8 +1129,14 @@
         }
       }
     },
+    "Something Went Wrong!" : {
+
+    },
+    "Successful Request" : {
+
+    },
     "Take the Challenge" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1118,7 +1159,7 @@
       }
     },
     "Take the Course" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1140,8 +1181,11 @@
         }
       }
     },
+    "Tap to Retry" : {
+
+    },
     "Terms and Conditions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1163,9 +1207,12 @@
         }
       }
     },
+    "There is no undo" : {
+
+    },
     "User Details" : {
       "comment" : "Request",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1188,7 +1235,7 @@
       }
     },
     "Years" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1211,7 +1258,7 @@
       }
     },
     "years in Software Development" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1235,7 +1282,7 @@
     },
     "Your Profile" : {
       "comment" : "Profile",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
