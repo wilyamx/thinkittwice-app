@@ -10,7 +10,7 @@ import RealmSwift
 
 final class ProfileViewModel: WSRFetcher2 {
     @Published var isLoggedOut: Bool = false
-    @Published var logoutButtonAction: String = String.logout.localizedString()
+    @Published var logoutButtonAction: LocalizedStringKey = LocalizedStringKey(String.logout)
     
     @Published var userDetails: GitHubUser?
     
@@ -87,7 +87,7 @@ final class ProfileViewModel: WSRFetcher2 {
             return
         }
         
-        self.logoutButtonAction = String.logging_out.localizedString()
+        self.logoutButtonAction = LocalizedStringKey(String.logout)
         
         logger.realm(message: "Logout registered user! \(email)")
         UserDefaults.standard.removeObject(forKey: WSRUserDefaultsKey.isLoggedOut.rawValue)

@@ -27,7 +27,7 @@ struct NotificationRow: View {
                     .font(.subheadline)
                     .minimumScaleFactor(0.9)
                     .lineLimit(2)
-                Text("SAP Analytics | Just Now")
+                Text(String("SAP Analytics | Just Now"))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .minimumScaleFactor(0.9)

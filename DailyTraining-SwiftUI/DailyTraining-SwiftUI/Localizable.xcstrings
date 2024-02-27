@@ -444,7 +444,20 @@
 
     },
     "Home" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بيت"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maison"
+          }
+        }
+      }
     },
     "Initializing Data" : {
       "extractionState" : "manual",
@@ -493,7 +506,20 @@
       }
     },
     "Level %lld" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مستوى %lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Niveau %lld"
+          }
+        }
+      }
     },
     "Logging in" : {
       "extractionState" : "manual",
@@ -1018,9 +1044,6 @@
           }
         }
       }
-    },
-    "SAP Analytics | Just Now" : {
-
     },
     "Save" : {
       "comment" : "Action Buttons",

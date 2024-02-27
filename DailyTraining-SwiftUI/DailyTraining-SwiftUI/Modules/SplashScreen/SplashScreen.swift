@@ -29,8 +29,9 @@ struct SplashScreen: View {
                         .multilineTextAlignment(.center)
                         .foregroundColor(.purple)
                     
-                    Text(String.solution.localizedString().uppercased())
+                    Text(LocalizedStringKey(String.solution))
                         .font(.caption)
+                        .textCase(.uppercase)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         .tracking(10)
@@ -56,5 +57,15 @@ struct SplashScreen: View {
 struct SplashScreen_Previews: PreviewProvider {
     static var previews: some View {
         SplashScreen()
+            .previewDisplayName("en")
+            .environment(\.locale, .init(identifier: "en"))
+        
+        SplashScreen()
+            .previewDisplayName("fr")
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        SplashScreen()
+            .previewDisplayName("ar")
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }

@@ -101,11 +101,13 @@ struct ProfileView: View {
             .padding(.top)
             
             HStack(spacing: 30) {
-                ActivityGauge(value: "80%", dimension: String.rate.localizedString())
-                ActivityGauge(value: "75%", dimension: String.rate.localizedString())
+                ActivityGauge(value: "80%",
+                              dimension: LocalizedStringKey(String.rate))
+                ActivityGauge(value: "75%",
+                              dimension: LocalizedStringKey(String.rate))
                 ActivityGauge(
                     value: "40 \(String.mins.localizedString())",
-                    dimension: String.ranking_page_all_time.localizedString()
+                    dimension: LocalizedStringKey(String.ranking_page_all_time)
                 )
             }
             .background(.clear)
@@ -135,6 +137,17 @@ struct ProfileView_Previews: PreviewProvider {
         let viewModel = ProfileViewModel(userDetails: GitHubUser.example())
         
         ProfileView()
+            .previewDisplayName("en")
+            .environmentObject(viewModel)
+            .environment(\.locale, .init(identifier: "en"))
+        
+        ProfileView()
+            .previewDisplayName("fr")
+            .environmentObject(viewModel)
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        ProfileView()
+            .previewDisplayName("ar")
             .environmentObject(viewModel)
             .environment(\.locale, .init(identifier: "ar"))
     }
