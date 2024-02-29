@@ -37,6 +37,8 @@ struct ProfileView: View {
             }
             .onAppear {
                 logger.info(message: "onAppear!")
+                //viewModel.getBreedsUsingCombine()
+                //viewModel.getUserInfoUsingCombine()
             }
             .task {
                 logger.info(message: "task!")

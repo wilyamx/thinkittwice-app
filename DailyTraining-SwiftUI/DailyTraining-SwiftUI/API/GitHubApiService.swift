@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct GitHubApiService: WSRApiServiceProtocol {
     
@@ -75,5 +76,32 @@ struct GitHubApiService: WSRApiServiceProtocol {
         
     }
     
+}
+
+extension GitHubApiService {
     
+    func getUserInfoUsingCombine(
+        urlString: String
+    ) -> AnyPublisher<GitHubUser, WSRApiError> {
+        
+        guard let url = URL(string: urlString) else {
+            let apiError = WSRApiError.badURL
+            return (
+                Fail(error: apiError)
+                    .eraseToAnyPublisher()
+            )
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map({ $0.data })
+            .decode(type: GitHubUser.self, decoder: decoder)
+            .mapError({ error in
+                return WSRApiError.parsing(error as? DecodingError)
+            })
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Combine
 
 final class ProfileViewModel: WSRFetcher2 {
     @Published var isLoggedOut: Bool = false
@@ -17,6 +18,9 @@ final class ProfileViewModel: WSRFetcher2 {
     // realm
     @Environment(\.realm) var realm
     @ObservedResults(User.self) var registeredUsers
+    
+    // combine
+    var cancellables = Set<AnyCancellable>()
     
     init(service: WSRApiServiceProtocol = WSRApiService(), userDetails: GitHubUser) {
         super.init(service: service)
@@ -119,4 +123,35 @@ extension ProfileViewModel {
             logger.info(message: "Active user: \(email)!")
         }
     }
+}
+
+// MARK: - Using Combine
+
+extension ProfileViewModel {
+    func getBreedsUsingCombine() {
+        let endpoint = CatApiEndpoints.breeds
+        let urlString = "\(WSREnvironment.catBaseURL)\(endpoint)"
+        
+        CatApiService().getCatBreedsUsingCombine(urlString: urlString)
+            .sink { _ in
+                
+            } receiveValue: { cats in
+                logger.api(message: "cats: \(cats.count)")
+            }
+            .store(in: &cancellables)
+    }
+    
+    func getUserInfoUsingCombine() {
+        let endpoint = GithubApiEndpoints.userDetails
+        let urlString = "\(WSREnvironment.gitHubBaseURL)\(endpoint)"
+        
+        GitHubApiService().getUserInfoUsingCombine(urlString: urlString)
+            .sink { _ in
+                
+            } receiveValue: { info in
+                logger.api(message: "info: \(info.avatarUrl)")
+            }
+            .store(in: &cancellables)
+    }
+    
 }

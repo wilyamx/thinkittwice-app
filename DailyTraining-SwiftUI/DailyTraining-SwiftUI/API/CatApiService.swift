@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct CatApiService: WSRApiServiceProtocol {
     
@@ -76,6 +77,8 @@ struct CatApiService: WSRApiServiceProtocol {
     
     
 }
+
+// Using Escaping Closure
 
 extension CatApiService {
     /**
@@ -149,4 +152,34 @@ extension CatApiService {
             }
         ).resume()
     }
+    
+    
 }
+
+// MARK: - Using Combine
+
+extension CatApiService {
+    
+    func getCatBreedsUsingCombine(
+        urlString: String
+    ) -> AnyPublisher<[BreedModel], WSRApiError> {
+        
+        guard let url = URL(string: urlString) else {
+            let apiError = WSRApiError.badURL
+            return (
+                Fail(error: apiError)
+                    .eraseToAnyPublisher()
+            )
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map({ $0.data })
+            .decode(type: [BreedModel].self, decoder: JSONDecoder())
+            .mapError({ error in
+                return WSRApiError.parsing(error as? DecodingError)
+            })
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+}
+
