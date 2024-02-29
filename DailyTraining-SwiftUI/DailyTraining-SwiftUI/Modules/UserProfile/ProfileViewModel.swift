@@ -133,8 +133,14 @@ extension ProfileViewModel {
         let urlString = "\(WSREnvironment.catBaseURL)\(endpoint)"
         
         CatApiService().getCatBreedsUsingCombine(urlString: urlString)
-            .sink { _ in
-                
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    logger.error(message: error.localizedDescription)
+                    break
+                }
             } receiveValue: { cats in
                 logger.api(message: "cats: \(cats.count)")
             }
@@ -146,8 +152,14 @@ extension ProfileViewModel {
         let urlString = "\(WSREnvironment.gitHubBaseURL)\(endpoint)"
         
         GitHubApiService().getUserInfoUsingCombine(urlString: urlString)
-            .sink { _ in
-                
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    logger.error(message: error.localizedDescription)
+                    break
+                }
             } receiveValue: { info in
                 logger.api(message: "info: \(info.avatarUrl)")
             }
