@@ -57,6 +57,7 @@ struct GitHubApiService: WSRApiServiceProtocol {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
             return try decoder.decode(type, from: data)
         }
         catch(let error) {
@@ -103,5 +104,45 @@ extension GitHubApiService {
             })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    }
+    
+    func getUserInfoUsingCombineMocked(
+        urlString: String
+    ) -> AnyPublisher<GitHubUser, WSRApiError> {
+        
+        if let path = Bundle.main.url(
+            forResource: "GithubUser",
+            withExtension: ".json") {
+            do {
+                let data = try Data(contentsOf: path)
+                
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                let objectList = try decoder.decode(GitHubUser.self, from: data)
+                
+                return (
+                    Just(objectList)
+                        .tryMap({ $0 })
+                        .mapError({ error in
+                            return WSRApiError.parsing(error as? DecodingError)
+                        })
+                        .eraseToAnyPublisher()
+                )
+            } catch {
+                logger.error(message: "\(error.localizedDescription)")
+                return (
+                    Fail(error: WSRApiError.parsing(error as? DecodingError))
+                        .eraseToAnyPublisher()
+                )
+            }
+        }
+        else {
+            logger.error(message: "GithubUser.json not found!")
+            return (
+                Fail(error: WSRApiError.badURL)
+                    .eraseToAnyPublisher()
+            )
+        }
     }
 }

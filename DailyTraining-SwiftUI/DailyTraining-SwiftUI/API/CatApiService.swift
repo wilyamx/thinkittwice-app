@@ -181,5 +181,43 @@ extension CatApiService {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func getCatBreedsUsingCombineMocked(
+        urlString: String
+    ) -> AnyPublisher<[BreedModel], WSRApiError> {
+        
+        if let path = Bundle.main.url(
+            forResource: "Breeds",
+            withExtension: ".json") {
+            do {
+                let data = try Data(contentsOf: path)
+                
+                let decoder = JSONDecoder()
+                let objectList = try decoder.decode([BreedModel].self, from: data)
+                
+                return (
+                    Just(objectList)
+                        .tryMap({ $0 })
+                        .mapError({ error in
+                            return WSRApiError.parsing(error as? DecodingError)
+                        })
+                        .eraseToAnyPublisher()
+                )
+            } catch {
+                logger.error(message: "\(error.localizedDescription)")
+                return (
+                    Fail(error: WSRApiError.parsing(error as? DecodingError))
+                        .eraseToAnyPublisher()
+                )
+            }
+        }
+        else {
+            logger.error(message: "Breeds.json not found!")
+            return (
+                Fail(error: WSRApiError.badURL)
+                    .eraseToAnyPublisher()
+            )
+        }
+    }
 }
 

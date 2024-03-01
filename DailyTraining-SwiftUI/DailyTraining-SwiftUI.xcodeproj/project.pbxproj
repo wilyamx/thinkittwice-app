@@ -106,6 +106,10 @@
 		60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 60FCD5652A03235F003D8FAE /* landmarkData.json */; };
 		60FCD5682A0323B8003D8FAE /* MessagingChatsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 60FCD5672A0323B8003D8FAE /* MessagingChatsData.json */; };
 		A21D39E42B8C65DA009F47B3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A21D39E32B8C65D9009F47B3 /* Localizable.xcstrings */; };
+		A23D6FEF2B915EF500DCD8AD /* Breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = A28F8C4F2B911C0900CAA4A5 /* Breeds.json */; };
+		A23D6FF12B91653800DCD8AD /* GithubUser.json in Resources */ = {isa = PBXBuildFile; fileRef = A23D6FF02B9164C100DCD8AD /* GithubUser.json */; };
+		A23D6FF42B916B9400DCD8AD /* MockGitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D6FF32B916B9300DCD8AD /* MockGitHubApiService.swift */; };
+		A28F8C4D2B9119D100CAA4A5 /* MockCatApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28F8C4C2B9119D100CAA4A5 /* MockCatApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +231,10 @@
 		60FCD5652A03235F003D8FAE /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		60FCD5672A0323B8003D8FAE /* MessagingChatsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MessagingChatsData.json; sourceTree = "<group>"; };
 		A21D39E32B8C65D9009F47B3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A23D6FF02B9164C100DCD8AD /* GithubUser.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GithubUser.json; sourceTree = "<group>"; };
+		A23D6FF32B916B9300DCD8AD /* MockGitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGitHubApiService.swift; sourceTree = "<group>"; };
+		A28F8C4C2B9119D100CAA4A5 /* MockCatApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCatApiService.swift; sourceTree = "<group>"; };
+		A28F8C4F2B911C0900CAA4A5 /* Breeds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Breeds.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +423,8 @@
 		606F08DB2A01DB0400CC3995 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				A23D6FF22B916B6400DCD8AD /* API */,
+				A28F8C4E2B911B7F00CAA4A5 /* Stubs */,
 				606F08DC2A01DB0400CC3995 /* Preview Assets.xcassets */,
 				60A8CAAA2A369567001A73C5 /* MockRealms.swift */,
 				608F51CB2A3FDE48001DA8B4 /* MockData.swift */,
@@ -667,6 +677,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A23D6FF22B916B6400DCD8AD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A28F8C4C2B9119D100CAA4A5 /* MockCatApiService.swift */,
+				A23D6FF32B916B9300DCD8AD /* MockGitHubApiService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A28F8C4E2B911B7F00CAA4A5 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				A28F8C4F2B911C0900CAA4A5 /* Breeds.json */,
+				A23D6FF02B9164C100DCD8AD /* GithubUser.json */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -782,12 +810,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23D6FEF2B915EF500DCD8AD /* Breeds.json in Resources */,
 				606F08DD2A01DB0400CC3995 /* Preview Assets.xcassets in Resources */,
 				60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */,
 				A21D39E42B8C65DA009F47B3 /* Localizable.xcstrings in Resources */,
 				606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */,
 				60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */,
 				6090BEEF2A03F1780043B1AE /* MessagingUsersData.json in Resources */,
+				A23D6FF12B91653800DCD8AD /* GithubUser.json in Resources */,
 				60FCD5682A0323B8003D8FAE /* MessagingChatsData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,9 +892,11 @@
 				6002D5C72AF1C91F001E96B8 /* ImageThemes.swift in Sources */,
 				602215372A2F071C00034314 /* Cat.swift in Sources */,
 				60AE673E2A2DBB8D00A172FF /* GitHubUser.swift in Sources */,
+				A28F8C4D2B9119D100CAA4A5 /* MockCatApiService.swift in Sources */,
 				603EED332A092D8400EC9C2E /* ProfileViewModel.swift in Sources */,
 				60FCD55B2A02A4BE003D8FAE /* ProfileView.swift in Sources */,
 				6022153B2A2F3C1700034314 /* BrandTrainingView.swift in Sources */,
+				A23D6FF42B916B9400DCD8AD /* MockGitHubApiService.swift in Sources */,
 				60CFE9142A302B1400275AE1 /* WSRRemoteImage.swift in Sources */,
 				603EED3D2A0933F400EC9C2E /* ProfileAvatar.swift in Sources */,
 				60A5E0B22A0C6D4C00C8A9B1 /* WSRFetcher.swift in Sources */,

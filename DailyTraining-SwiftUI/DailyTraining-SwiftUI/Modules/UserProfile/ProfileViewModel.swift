@@ -22,9 +22,13 @@ final class ProfileViewModel: WSRFetcher2 {
     // combine
     var cancellables = Set<AnyCancellable>()
     
-    init(service: WSRApiServiceProtocol = WSRApiService(), userDetails: GitHubUser) {
+    init(service: WSRApiServiceProtocol = WSRApiService(),
+         userDetails: GitHubUser,
+         mockedData: Bool = false) {
+        
         super.init(service: service)
         self.userDetails = userDetails
+        self.mockData = mockedData
     }
     
     override init(service: WSRApiServiceProtocol = WSRApiService()) {
@@ -39,12 +43,22 @@ final class ProfileViewModel: WSRFetcher2 {
         requestStarted(message: String.user_details.localizedString())
         
         do {
-            cats = try await CatApiService().get([BreedModel].self,
-                                                 path: CatApiEndpoints.breeds,
-                                                 queryItems: nil)
-            user = try await GitHubApiService().get(GitHubUser.self,
-                                                    path: GithubApiEndpoints.userDetails,
-                                                    queryItems: nil)
+            if mockData {
+                cats = try await MockCatApiService().get([BreedModel].self,
+                                                     path: CatApiEndpoints.breeds,
+                                                     queryItems: nil)
+                user = try await MockGitHubApiService().get(GitHubUser.self,
+                                                        path: GithubApiEndpoints.userDetails,
+                                                        queryItems: nil)
+            }
+            else {
+                cats = try await CatApiService().get([BreedModel].self,
+                                                     path: CatApiEndpoints.breeds,
+                                                     queryItems: nil)
+                user = try await GitHubApiService().get(GitHubUser.self,
+                                                        path: GithubApiEndpoints.userDetails,
+                                                        queryItems: nil)
+            }
             
             logger.api(message: "cats: \(cats.count)")
             if let user2 = user {
@@ -58,7 +72,8 @@ final class ProfileViewModel: WSRFetcher2 {
                 execute: {
                     self.requestSuccess()
                 })
-        } catch(let error) {
+        }
+        catch(let error) {
             if let error = error as? WSRApiError {
                 self.requestFailed(reason: error.localizedDescription)
                 logger.error(message: error.localizedDescription)
@@ -132,38 +147,74 @@ extension ProfileViewModel {
         let endpoint = CatApiEndpoints.breeds
         let urlString = "\(WSREnvironment.catBaseURL)\(endpoint)"
         
-        CatApiService().getCatBreedsUsingCombine(urlString: urlString)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    logger.error(message: error.localizedDescription)
-                    break
+        if mockData {
+            CatApiService().getCatBreedsUsingCombineMocked(urlString: urlString)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        logger.error(message: error.localizedDescription)
+                        break
+                    }
+                } receiveValue: { cats in
+                    logger.api(message: "cats: \(cats.count)")
                 }
-            } receiveValue: { cats in
-                logger.api(message: "cats: \(cats.count)")
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        }
+        else {
+            CatApiService().getCatBreedsUsingCombine(urlString: urlString)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        logger.error(message: error.localizedDescription)
+                        break
+                    }
+                } receiveValue: { cats in
+                    logger.api(message: "cats: \(cats.count)")
+                }
+                .store(in: &cancellables)
+        }
     }
     
     func getUserInfoUsingCombine() {
         let endpoint = GithubApiEndpoints.userDetails
         let urlString = "\(WSREnvironment.gitHubBaseURL)\(endpoint)"
         
-        GitHubApiService().getUserInfoUsingCombine(urlString: urlString)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    logger.error(message: error.localizedDescription)
-                    break
+        if mockData {
+            GitHubApiService().getUserInfoUsingCombineMocked(urlString: urlString)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        logger.error(message: error.localizedDescription)
+                        break
+                    }
+                } receiveValue: { [weak self] info in
+                    self?.userDetails = info
+                    logger.api(message: "info: \(info.name)")
                 }
-            } receiveValue: { info in
-                logger.api(message: "info: \(info.avatarUrl)")
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        }
+        else {
+            GitHubApiService().getUserInfoUsingCombine(urlString: urlString)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        logger.error(message: error.localizedDescription)
+                        break
+                    }
+                } receiveValue: { [weak self] info in
+                    self?.userDetails = info
+                    logger.api(message: "info: \(info.name)")
+                }
+                .store(in: &cancellables)
+        }
     }
     
 }

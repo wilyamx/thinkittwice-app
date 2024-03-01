@@ -136,7 +136,9 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ProfileViewModel(userDetails: GitHubUser.example())
+        let viewModel = ProfileViewModel(
+            userDetails: GitHubUser.example(),
+            mockedData: true)
         
         ProfileView()
             .previewDisplayName("en")

@@ -8,7 +8,12 @@
 import Foundation
 import SwiftUI
 
-class WSRFetcher2: ObservableObject, WSRViewStateProtocol, WSRPersitableProtocol {
+class WSRFetcher2: ObservableObject,
+                   WSRViewStateProtocol,
+                   WSRPersitableProtocol,
+                   WSRMockableProtocol {
+    
+    // MARK: - View State Protocol
     @Published var viewState: WSRViewState = .empty
     @Published var showErrorAlert: Bool = false
     
@@ -16,6 +21,10 @@ class WSRFetcher2: ObservableObject, WSRViewStateProtocol, WSRPersitableProtocol
     var errorMessage: String = String.empty
     var errorAlertType: WSRErrorAlertType = .none
     
+    // MARK: - Mockable Protocol
+    var mockData: Bool = false
+    
+    // MARK: -
     var service: WSRApiServiceProtocol
     
     init(service: WSRApiServiceProtocol = WSRApiService()) {
