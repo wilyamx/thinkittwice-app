@@ -11,11 +11,11 @@ struct TestView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                NavigationLink("Tap Me") {
-                    Text("Detail View")
+                NavigationLink(String("Tap Me")) {
+                    Text(String("Detail View"))
                         .toolbar(.hidden, for: .tabBar)
                 }
-                .navigationTitle("Primary View")
+                .navigationTitle("Channel")
             }
             .tabItem {
                 Label("Home", systemImage: "house")
@@ -24,8 +24,17 @@ struct TestView: View {
     }
 }
 
-struct TestView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestView()
-    }
+#Preview("English") {
+    TestView()
+        .environment(\.locale, Locale(identifier: "en"))
+}
+
+#Preview("French") {
+    TestView()
+        .environment(\.locale, Locale(identifier: "fr"))
+}
+
+#Preview("Arabic") {
+    TestView()
+        .environment(\.locale, Locale(identifier: "ar"))
 }

@@ -59,14 +59,18 @@ A mobile application for bringing **digital training solution** in the luxury re
 - Remember Me
 - Image Caching
 - API Integration
+	- Concurrency (using Async-Await) 
+	- Mockable Response Data when using Preview Canvas 
 - Custom Logger
 - Reusable View Modifiers
 	- Loader
 	- Error Alert
-- Localized Strings
+- Localizable String
+	-  [Migrate to String Catalogs](https://www.youtube.com/watch?v=slOQbTacj4k)
 
 **INSPIRED BY**
 
+- [Nick Sarno](https://www.youtube.com/@SwiftfulThinking)
 - [Sean Allen](https://www.youtube.com/@seanallen)
 - [Karin Prater](https://www.youtube.com/@SwiftyPlace)
 

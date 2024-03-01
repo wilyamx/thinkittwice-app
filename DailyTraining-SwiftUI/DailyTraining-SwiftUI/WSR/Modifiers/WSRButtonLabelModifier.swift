@@ -37,7 +37,7 @@ struct WSRButtonLabelModifierView: View {
             
         },
                label: {
-            Text("TAKE THE CHALLENGE")
+            Text(String.take_the_challenge.uppercased())
                 .wsr_ButtonLabel(bgColor: .black, fgColor: .red, font: .footnote.bold())
         })
         .padding(.bottom)

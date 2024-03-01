@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10813BE92B7B084A00A26463 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10813BEB2B7B084A00A26463 /* Localizable.strings */; };
 		10813BF02B7B3A6E00A26463 /* StringThemes+DT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10813BEF2B7B3A6E00A26463 /* StringThemes+DT.swift */; };
 		6002D5C22AF0D2A4001E96B8 /* WSRFetcher2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */; };
 		6002D5C52AF1C912001E96B8 /* FontThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002D5C42AF1C912001E96B8 /* FontThemes.swift */; };
@@ -106,6 +105,11 @@
 		60FCD5632A0322EE003D8FAE /* MessagingChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FCD5622A0322EE003D8FAE /* MessagingChatsViewModel.swift */; };
 		60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 60FCD5652A03235F003D8FAE /* landmarkData.json */; };
 		60FCD5682A0323B8003D8FAE /* MessagingChatsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 60FCD5672A0323B8003D8FAE /* MessagingChatsData.json */; };
+		A21D39E42B8C65DA009F47B3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A21D39E32B8C65D9009F47B3 /* Localizable.xcstrings */; };
+		A23D6FEF2B915EF500DCD8AD /* Breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = A28F8C4F2B911C0900CAA4A5 /* Breeds.json */; };
+		A23D6FF12B91653800DCD8AD /* GithubUser.json in Resources */ = {isa = PBXBuildFile; fileRef = A23D6FF02B9164C100DCD8AD /* GithubUser.json */; };
+		A23D6FF42B916B9400DCD8AD /* MockGitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D6FF32B916B9300DCD8AD /* MockGitHubApiService.swift */; };
+		A28F8C4D2B9119D100CAA4A5 /* MockCatApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28F8C4C2B9119D100CAA4A5 /* MockCatApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,9 +130,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10813BEA2B7B084A00A26463 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		10813BEC2B7B087700A26463 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		10813BED2B7B088400A26463 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		10813BEF2B7B3A6E00A26463 /* StringThemes+DT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringThemes+DT.swift"; sourceTree = "<group>"; };
 		6002D5C12AF0D2A4001E96B8 /* WSRFetcher2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSRFetcher2.swift; sourceTree = "<group>"; };
 		6002D5C42AF1C912001E96B8 /* FontThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontThemes.swift; sourceTree = "<group>"; };
@@ -229,6 +230,11 @@
 		60FCD5622A0322EE003D8FAE /* MessagingChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingChatsViewModel.swift; sourceTree = "<group>"; };
 		60FCD5652A03235F003D8FAE /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		60FCD5672A0323B8003D8FAE /* MessagingChatsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MessagingChatsData.json; sourceTree = "<group>"; };
+		A21D39E32B8C65D9009F47B3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A23D6FF02B9164C100DCD8AD /* GithubUser.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GithubUser.json; sourceTree = "<group>"; };
+		A23D6FF32B916B9300DCD8AD /* MockGitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGitHubApiService.swift; sourceTree = "<group>"; };
+		A28F8C4C2B9119D100CAA4A5 /* MockCatApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCatApiService.swift; sourceTree = "<group>"; };
+		A28F8C4F2B911C0900CAA4A5 /* Breeds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Breeds.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,7 +415,7 @@
 				606F08D72A01DB0100CC3995 /* ContentView.swift */,
 				606F08D92A01DB0400CC3995 /* Assets.xcassets */,
 				606F08DB2A01DB0400CC3995 /* Preview Content */,
-				10813BEB2B7B084A00A26463 /* Localizable.strings */,
+				A21D39E32B8C65D9009F47B3 /* Localizable.xcstrings */,
 			);
 			path = "DailyTraining-SwiftUI";
 			sourceTree = "<group>";
@@ -417,6 +423,8 @@
 		606F08DB2A01DB0400CC3995 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				A23D6FF22B916B6400DCD8AD /* API */,
+				A28F8C4E2B911B7F00CAA4A5 /* Stubs */,
 				606F08DC2A01DB0400CC3995 /* Preview Assets.xcassets */,
 				60A8CAAA2A369567001A73C5 /* MockRealms.swift */,
 				608F51CB2A3FDE48001DA8B4 /* MockData.swift */,
@@ -669,6 +677,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A23D6FF22B916B6400DCD8AD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A28F8C4C2B9119D100CAA4A5 /* MockCatApiService.swift */,
+				A23D6FF32B916B9300DCD8AD /* MockGitHubApiService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A28F8C4E2B911B7F00CAA4A5 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				A28F8C4F2B911C0900CAA4A5 /* Breeds.json */,
+				A23D6FF02B9164C100DCD8AD /* GithubUser.json */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -755,7 +781,7 @@
 				};
 			};
 			buildConfigurationList = 606F08CD2A01DB0000CC3995 /* Build configuration list for PBXProject "DailyTraining-SwiftUI" */;
-			compatibilityVersion = "Xcode 15.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -784,12 +810,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23D6FEF2B915EF500DCD8AD /* Breeds.json in Resources */,
 				606F08DD2A01DB0400CC3995 /* Preview Assets.xcassets in Resources */,
 				60487E2F2A1A167200AD6603 /* NotificationsData.json in Resources */,
+				A21D39E42B8C65DA009F47B3 /* Localizable.xcstrings in Resources */,
 				606F08DA2A01DB0400CC3995 /* Assets.xcassets in Resources */,
 				60FCD5662A03235F003D8FAE /* landmarkData.json in Resources */,
-				10813BE92B7B084A00A26463 /* Localizable.strings in Resources */,
 				6090BEEF2A03F1780043B1AE /* MessagingUsersData.json in Resources */,
+				A23D6FF12B91653800DCD8AD /* GithubUser.json in Resources */,
 				60FCD5682A0323B8003D8FAE /* MessagingChatsData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -864,9 +892,11 @@
 				6002D5C72AF1C91F001E96B8 /* ImageThemes.swift in Sources */,
 				602215372A2F071C00034314 /* Cat.swift in Sources */,
 				60AE673E2A2DBB8D00A172FF /* GitHubUser.swift in Sources */,
+				A28F8C4D2B9119D100CAA4A5 /* MockCatApiService.swift in Sources */,
 				603EED332A092D8400EC9C2E /* ProfileViewModel.swift in Sources */,
 				60FCD55B2A02A4BE003D8FAE /* ProfileView.swift in Sources */,
 				6022153B2A2F3C1700034314 /* BrandTrainingView.swift in Sources */,
+				A23D6FF42B916B9400DCD8AD /* MockGitHubApiService.swift in Sources */,
 				60CFE9142A302B1400275AE1 /* WSRRemoteImage.swift in Sources */,
 				603EED3D2A0933F400EC9C2E /* ProfileAvatar.swift in Sources */,
 				60A5E0B22A0C6D4C00C8A9B1 /* WSRFetcher.swift in Sources */,
@@ -937,19 +967,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		10813BEB2B7B084A00A26463 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				10813BEA2B7B084A00A26463 /* en */,
-				10813BEC2B7B087700A26463 /* fr */,
-				10813BED2B7B088400A26463 /* ar */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		606F08F42A01DB0400CC3995 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1004,6 +1021,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1060,6 +1078,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

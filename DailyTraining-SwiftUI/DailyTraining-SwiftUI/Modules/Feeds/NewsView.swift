@@ -45,20 +45,20 @@ struct NewsView: View {
             HStack(spacing: 20) {
                 HStack(spacing: 0) {
                     Image(systemName: "heart")
-                    Text("12")
+                    Text(String("12"))
                         .fontWeight(.bold)
                 }
                 
                 HStack(spacing: 0) {
                     Image(systemName: "bubble.left")
-                    Text("223")
+                    Text(String("223"))
                         .fontWeight(.bold)
                 }
             }
             
             Spacer()
             
-            Text("JAN 1ST")
+            Text(String("JAN 1ST"))
                 .foregroundColor(Color.gray)
         }
         .padding(.bottom)

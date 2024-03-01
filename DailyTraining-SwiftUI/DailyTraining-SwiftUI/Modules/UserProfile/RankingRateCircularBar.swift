@@ -35,7 +35,7 @@ struct RankingRateCircularBar: View {
                 Text("Combo")
                     .foregroundColor(.secondary)
                     .minimumScaleFactor(0.75)
-                Text("2")
+                Text(String("2"))
                     .font(.title)
                     .fontWeight(.bold)
                     .minimumScaleFactor(0.75)

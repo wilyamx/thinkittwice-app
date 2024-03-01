@@ -19,3 +19,7 @@ protocol WSRViewStateProtocol {
 protocol WSRPersitableProtocol {
     func persist() async
 }
+
+protocol WSRMockableProtocol {
+    var mockData: Bool { get set }
+}
