@@ -7,12 +7,18 @@
     "%@" : {
 
     },
-    "%@ %@" : {
+    "%@ points" : {
       "localizations" : {
-        "en" : {
+        "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ %2$@"
+            "state" : "translated",
+            "value" : "%@ نقاط"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ points"
           }
         }
       }
@@ -165,7 +171,20 @@
       }
     },
     "Bad Request" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اقتراح غير جيد"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mauvaise demande"
+          }
+        }
+      }
     },
     "Birthdate" : {
       "extractionState" : "manual",
@@ -296,7 +315,20 @@
       }
     },
     "Connection Timeout" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "انتهى وقت محاولة الاتصال"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Délai de connection dépassé"
+          }
+        }
+      }
     },
     "Daily Challenge" : {
       "extractionState" : "manual",
@@ -365,7 +397,20 @@
 
     },
     "Domain Error" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خطأ في المجال"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur de domaine"
+          }
+        }
+      }
     },
     "Email" : {
       "comment" : "Signin",
@@ -413,9 +458,6 @@
           }
         }
       }
-    },
-    "Fetcher 2 Modifiers" : {
-
     },
     "First Name" : {
       "extractionState" : "manual",
@@ -700,7 +742,20 @@
       }
     },
     "No internet connection" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يوجد اتصال بالإنترنت"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de connexion Internet"
+          }
+        }
+      }
     },
     "Notifications" : {
       "extractionState" : "manual",
@@ -813,29 +868,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informations personnelles"
-          }
-        }
-      }
-    },
-    "points" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "نقاط"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "points"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "points"
           }
         }
       }
@@ -1020,7 +1052,20 @@
       }
     },
     "Reject" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يرفض"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejeter"
+          }
+        }
+      }
     },
     "Resetting Data" : {
       "extractionState" : "manual",
@@ -1212,10 +1257,36 @@
       }
     },
     "Something Went Wrong!" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "هناك خطأ ما!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quelque chose s'est mal passé !"
+          }
+        }
+      }
     },
     "Successful Request" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طلب ناجح"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demande réussie"
+          }
+        }
+      }
     },
     "Take the Challenge" : {
       "extractionState" : "manual",
@@ -1264,7 +1335,20 @@
       }
     },
     "Tap to Retry" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضغط لإعادة المحاولة"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquer pour réessayer"
+          }
+        }
+      }
     },
     "Terms and Conditions" : {
       "extractionState" : "manual",
@@ -1290,7 +1374,20 @@
       }
     },
     "There is no undo" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ليس هناك التراجع"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il n'y a pas d'annulation"
+          }
+        }
+      }
     },
     "User Details" : {
       "comment" : "Request",

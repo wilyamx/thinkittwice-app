@@ -22,6 +22,10 @@ final class ProfileViewModel: WSRFetcher2 {
     // combine
     var cancellables = Set<AnyCancellable>()
     
+    override init(service: WSRApiServiceProtocol = WSRApiService()) {
+        super.init(service: service)
+    }
+    
     init(service: WSRApiServiceProtocol = WSRApiService(),
          userDetails: GitHubUser,
          mockedData: Bool = false) {
@@ -29,10 +33,6 @@ final class ProfileViewModel: WSRFetcher2 {
         super.init(service: service)
         self.userDetails = userDetails
         self.mockData = mockedData
-    }
-    
-    override init(service: WSRApiServiceProtocol = WSRApiService()) {
-        super.init(service: service)
     }
     
     public func getUserDetails() async {

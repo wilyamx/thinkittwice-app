@@ -60,6 +60,17 @@ struct NotificationsView: View {
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()
+            .previewDisplayName("en")
+            .environmentObject(NotificationsViewModel())
+            .environment(\.locale, .init(identifier: "en"))
+        
+        NotificationsView()
+            .previewDisplayName("fr")
+            .environmentObject(NotificationsViewModel())
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        NotificationsView()
+            .previewDisplayName("ar")
             .environmentObject(NotificationsViewModel())
             .environment(\.locale, .init(identifier: "ar"))
     }
