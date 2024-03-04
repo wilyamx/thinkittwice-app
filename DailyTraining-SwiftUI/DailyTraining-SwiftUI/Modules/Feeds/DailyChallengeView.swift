@@ -41,7 +41,8 @@ struct DailyChallengeView: View {
                 logger.info(message: "Take the challenge! \(cat.name)")
             },
                    label: {
-                Text(String.take_the_challenge.localizedString().uppercased())
+                Text("Take the Challenge")
+                    .textCase(.uppercase)
                     .wsr_ButtonLabel(bgColor: .black, fgColor: .white, font: .footnote.bold())
             })
             .cornerRadius(10)
@@ -87,6 +88,71 @@ struct DailyChallengeView_Previews: PreviewProvider {
         .listStyle(.plain)
         .background(ColorNames.listBackgroundColor.colorValue)
         .buttonStyle(.borderless)
+        .previewDisplayName("en")
+        .environment(\.locale, .init(identifier: "en"))
+        
+        List {
+            let realm = MockRealms.previewRealm
+            let cats = realm.objects(Cat.self)
+            let rowSpacing: CGFloat = 10.0
+            
+            if let cat = cats.first {
+                Group {
+                    DailyChallengeView(
+                        cat: cat,
+                        takeAction: {
+                            
+                        }
+                    )
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 15)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+                )
+            }
+        }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
+        .buttonStyle(.borderless)
+        .previewDisplayName("fr")
         .environment(\.locale, .init(identifier: "fr"))
+        
+        List {
+            let realm = MockRealms.previewRealm
+            let cats = realm.objects(Cat.self)
+            let rowSpacing: CGFloat = 10.0
+            
+            if let cat = cats.first {
+                Group {
+                    DailyChallengeView(
+                        cat: cat,
+                        takeAction: {
+                            
+                        }
+                    )
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 15)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+                )
+            }
+        }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
+        .buttonStyle(.borderless)
+        .previewDisplayName("ar")
+        .environment(\.locale, .init(identifier: "ar"))
     }
 }
