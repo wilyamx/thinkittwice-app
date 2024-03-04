@@ -30,6 +30,7 @@ struct MessagingView: View {
                     ForEach(Channel.allCases, id: \.self) {
                         channel in
                         Text(channel.title)
+                            .textCase(.uppercase)
                             .tag(channel.index)
                     }
                 }
@@ -82,7 +83,10 @@ struct MessagingView: View {
             }
             .toolbarBackground(.white, for: .navigationBar)
         }
-        .searchable(text: $searchText, prompt: "\(selectedChannel.searchPrompt)")
+        .searchable(
+            text: $searchText,
+            prompt: LocalizedStringKey(selectedChannel.searchPrompt)
+        )
         .onChange(of: searchText) {
             logger.info(message: "New search text: \"\(searchText)\" for: \(self.selectedChannel)")
             
@@ -99,7 +103,16 @@ struct MessagingView: View {
 struct MessagingView_Previews: PreviewProvider {
     static var previews: some View {
         MessagingView()
+            .previewDisplayName("en")
             .environment(\.locale, .init(identifier: "en"))
+        
+        MessagingView()
+            .previewDisplayName("fr")
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        MessagingView()
+            .previewDisplayName("ar")
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }
 
@@ -114,17 +127,17 @@ enum Channel: String, CaseIterable, Equatable {
         }
     }
     
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
-        case .chats: return String.chats.localizedString().uppercased()
-        case .people: return String.people.localizedString().uppercased()
+        case .chats: return LocalizedStringKey(String.chats)
+        case .people: return LocalizedStringKey(String.people)
         }
     }
     
     var searchPrompt: String {
         switch self {
-        case .chats: return String.search_by_chat_title.localizedString()
-        case .people: return String.search_by_user_title.localizedString()
+        case .chats: return String.search_by_chat_title
+        case .people: return String.search_by_user_title
         }
     }
 }
