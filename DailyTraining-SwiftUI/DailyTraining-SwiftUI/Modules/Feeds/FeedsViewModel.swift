@@ -21,6 +21,13 @@ final class FeedsViewModel: WSRFetcher2 {
         super.init(service: service)
     }
     
+    init(service: WSRApiServiceProtocol = WSRApiService(),
+         mockData: Bool = false) {
+        
+        super.init(service: service)
+        self.mockData = mockData
+    }
+    
     override func persist() async {
         breeds.forEach { model in
             let cat = Cat()
@@ -70,10 +77,21 @@ final class FeedsViewModel: WSRFetcher2 {
         
         // api request + parse + persist
         do {
-            // using generics
-            var list = try await CatApiService().get([BreedModel].self,
-                                                   path: CatApiEndpoints.breeds,
-                                                   queryItems: nil)
+            var list = [BreedModel]()
+            
+            if mockData {
+                // using generics
+                list = try await MockCatApiService().get([BreedModel].self,
+                                                     path: CatApiEndpoints.breeds,
+                                                     queryItems: nil)
+            }
+            else {
+                // using generics
+                list = try await CatApiService().get([BreedModel].self,
+                                                     path: CatApiEndpoints.breeds,
+                                                     queryItems: nil)
+            }
+            
             if shuffle {
                 list.shuffle()
             }

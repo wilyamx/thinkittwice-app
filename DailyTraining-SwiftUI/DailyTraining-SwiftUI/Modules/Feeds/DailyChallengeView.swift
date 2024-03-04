@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DailyChallengeView: View {
-    @Binding var list: [Notification]
     var cat: Cat
+    var takeAction: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -37,17 +37,8 @@ struct DailyChallengeView: View {
             .padding(.top)
             
             Button(action: {
+                takeAction()
                 logger.info(message: "Take the challenge! \(cat.name)")
-                
-                // add item from the notification
-                if let lastItem = list.first {
-                    let notification = Notification(
-                        id: lastItem.id + 1,
-                        title: cat.name,
-                        description: cat.temperament
-                    )
-                    list.append(notification)
-                }
             },
                    label: {
                 Text(String.take_the_challenge.localizedString().uppercased())
@@ -75,8 +66,10 @@ struct DailyChallengeView_Previews: PreviewProvider {
             if let cat = cats.first {
                 Group {
                     DailyChallengeView(
-                        list: .constant([Notification]()),
-                        cat: cat
+                        cat: cat,
+                        takeAction: {
+                            
+                        }
                     )
                 }
                 .listRowSeparator(.hidden)
