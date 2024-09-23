@@ -25,7 +25,7 @@ final class BreedTests: XCTestCase {
     func testGettingBreedsSuccess() {
         let promise = expectation(description: "getting breeds")
         
-        let result = Result<[BreedModel], APIError>.success([BreedModel.example1()])
+        let result = Result<[BreedModel], WSRApiError>.success([BreedModel.example1()])
         let fetcher = BreedFetcher(service: APIServiceMock(result: result))
         
         fetcher.$breeds.sink { breeds in
@@ -40,7 +40,7 @@ final class BreedTests: XCTestCase {
     func testLoadingError() {
         let promise = expectation(description: "show error message")
         
-        let result = Result<[BreedModel], APIError>.failure(APIError.badURL)
+        let result = Result<[BreedModel], WSRApiError>.failure(WSRApiError.badURL)
         let fetcher = BreedFetcher(service: APIServiceMock(result: result))
         
         fetcher.$breeds.sink { breeds in
