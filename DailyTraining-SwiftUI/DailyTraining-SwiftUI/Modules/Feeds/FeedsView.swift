@@ -59,6 +59,17 @@ struct FeedsView: View {
         
     }
     
+    private func takeActionHandler(title: String, description: String) {
+        if let lastItem = notificationsViewModel.list.first {
+            let notification = Notification(
+                id: lastItem.id + 1,
+                title: title,
+                description: description
+            )
+            notificationsViewModel.list.append(notification)
+        }
+    }
+    
     @ViewBuilder
     private var listView: some View {
         List {
@@ -67,14 +78,23 @@ struct FeedsView: View {
                 ForEach(viewModel.cats, id: \.id) { cat in
                     if [1, 2].contains(cat.energyLevel) {
                         DailyChallengeView(
-                            list: $notificationsViewModel.list,
-                            cat: cat
+                            cat: cat,
+                            takeAction: {
+                                takeActionHandler(
+                                    title: cat.name,
+                                    description: cat.temperament
+                                )
+                            }
                         )
                     }
                     else if [3, 4].contains(cat.energyLevel) {
                         BrandTrainingView(
-                            list: $notificationsViewModel.list,
-                            cat: cat
+                            cat: cat,
+                            takeAction: {
+                                takeActionHandler(
+                                    title: cat.name,
+                                    description: cat.breedExplanation)
+                            }
                         )
                     }
                     else {
@@ -101,17 +121,23 @@ struct FeedsView: View {
 }
 
 struct FeedsView_Previews: PreviewProvider {
+
     static var previews: some View {
+        let viewModel = FeedsViewModel(mockData: true)
+        
         FeedsView()
-            .environmentObject(FeedsViewModel())
+            .previewDisplayName("en")
+            .environmentObject(viewModel)
             .environment(\.locale, .init(identifier: "en"))
         
         FeedsView()
-            .environmentObject(FeedsViewModel())
+            .previewDisplayName("fr")
+            .environmentObject(viewModel)
             .environment(\.locale, .init(identifier: "fr"))
         
         FeedsView()
-            .environmentObject(FeedsViewModel())
+            .previewDisplayName("ar")
+            .environmentObject(viewModel)
             .environment(\.locale, .init(identifier: "ar"))
     }
 }

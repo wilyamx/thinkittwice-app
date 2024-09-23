@@ -13,7 +13,7 @@ struct ModifiedLoaderView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 10) {
-                Text("Fetcher 2 Modifiers")
+                Text(String("Fetcher 2 Modifiers"))
                     .font(.title)
                     .bold()
                 
@@ -133,5 +133,15 @@ struct ModifiedLoaderView: View {
 struct ModifiedLoaderView_Previews: PreviewProvider {
     static var previews: some View {
         ModifiedLoaderView()
+            .previewDisplayName("en")
+            .environment(\.locale, .init(identifier: "en"))
+        
+        ModifiedLoaderView()
+            .previewDisplayName("fr")
+            .environment(\.locale, .init(identifier: "fr"))
+        
+        ModifiedLoaderView()
+            .previewDisplayName("ar")
+            .environment(\.locale, .init(identifier: "ar"))
     }
 }

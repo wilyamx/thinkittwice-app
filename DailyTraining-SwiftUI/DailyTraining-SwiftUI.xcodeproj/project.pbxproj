@@ -486,8 +486,8 @@
 		607C142C2A05FC0D00DE12F0 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				6090BEF72A0486CF0043B1AE /* NotificationsViewModel.swift */,
 				60FCD5562A02A48A003D8FAE /* NotificationsView.swift */,
+				6090BEF72A0486CF0043B1AE /* NotificationsViewModel.swift */,
 				6090BEF92A048F8B0043B1AE /* NotificationRow.swift */,
 				608F51D12A3FEFD3001DA8B4 /* Notification.swift */,
 			);

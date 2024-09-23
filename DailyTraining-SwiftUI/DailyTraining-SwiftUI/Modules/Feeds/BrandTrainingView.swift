@@ -9,12 +9,12 @@ import SwiftUI
 import RealmSwift
 
 struct BrandTrainingView: View {
-    @Binding var list: [Notification]
     var cat: Cat
+    var takeAction: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text(String.branch_training.localizedString().uppercased())
+            Text("Brand Training")
                 .fontWeight(.bold)
                 .padding(.top)
                                     
@@ -29,21 +29,14 @@ struct BrandTrainingView: View {
                 .lineLimit(4)
             
             Button(action: {
+                takeAction()
+                
                 logger.info(message: "Take the course! \(cat.name) (\(cat.referenceImageId).jpg)")
                 logger.info(message: "\(cat.breedExplanation)")
-                
-                // add item from the notification
-                if let lastItem = list.first {
-                    let notification = Notification(
-                        id: lastItem.id + 1,
-                        title: cat.name,
-                        description: cat.breedExplanation
-                    )
-                    list.append(notification)
-                }
             },
                    label: {
-                Text(String.take_the_course.localizedString().uppercased())
+                Text("Take the Course")
+                    .textCase(.uppercase)
                     .wsr_ButtonLabel(bgColor: .black, fgColor: .white, font: .footnote.bold())
             })
             .padding(.bottom)
@@ -64,8 +57,10 @@ struct BrandTrainingView_Previews: PreviewProvider {
             if let cat = cats.first {
                 Group {
                     BrandTrainingView(
-                        list: .constant([Notification]()),
-                        cat: cat
+                        cat: cat,
+                        takeAction: {
+                            
+                        }
                     )
                 }
                 .listRowSeparator(.hidden)
@@ -83,7 +78,72 @@ struct BrandTrainingView_Previews: PreviewProvider {
         .listStyle(.plain)
         .background(ColorNames.listBackgroundColor.colorValue)
         .buttonStyle(.borderless)
+        .previewDisplayName("en")
+        .environment(\.locale, .init(identifier: "en"))
         
+        List {
+            let realm = MockRealms.previewRealm
+            let cats = realm.objects(Cat.self)
+            let rowSpacing: CGFloat = 10.0
+            
+            if let cat = cats.first {
+                Group {
+                    BrandTrainingView(
+                        cat: cat,
+                        takeAction: {
+                            
+                        }
+                    )
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 15)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+                )
+            }
+        }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
+        .buttonStyle(.borderless)
+        .previewDisplayName("fr")
+        .environment(\.locale, .init(identifier: "fr"))
+        
+        List {
+            let realm = MockRealms.previewRealm
+            let cats = realm.objects(Cat.self)
+            let rowSpacing: CGFloat = 10.0
+            
+            if let cat = cats.first {
+                Group {
+                    BrandTrainingView(
+                        cat: cat,
+                        takeAction: {
+                            
+                        }
+                    )
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 15)
+                        .padding(EdgeInsets(top: rowSpacing,
+                                            leading: rowSpacing,
+                                            bottom: rowSpacing,
+                                            trailing: rowSpacing))
+                        .background(.clear)
+                        .foregroundColor(.white)
+                )
+            }
+        }
+        .listStyle(.plain)
+        .background(ColorNames.listBackgroundColor.colorValue)
+        .buttonStyle(.borderless)
+        .previewDisplayName("ar")
+        .environment(\.locale, .init(identifier: "ar"))
     }
     
 }
